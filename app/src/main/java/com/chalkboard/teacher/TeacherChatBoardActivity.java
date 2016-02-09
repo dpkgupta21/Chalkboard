@@ -149,15 +149,16 @@ public class TeacherChatBoardActivity extends Activity{
 				
 			}
 		});
-(findViewById(R.id.chat_attachment)).setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View arg0) {
-			
-				selectImageMethod();
-				
-			}
-		});
+
+//(findViewById(R.id.chat_attachment)).setOnClickListener(new OnClickListener() {
+//
+//			@Override
+//			public void onClick(View arg0) {
+//
+//				selectImageMethod();
+//
+//			}
+//		});
 		
 		
 		startRepeatingTask();

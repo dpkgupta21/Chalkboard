@@ -2,7 +2,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#efefef"
-    android:clickable="true" >
+    android:clickable="true">
 
     <include layout="@layout/bar_header" />
 
@@ -27,28 +27,15 @@
         android:background="@android:color/transparent"
         android:divider="@android:color/transparent"
         android:dividerHeight="5dp"
-        android:scrollbars="none" >
-    </ListView>
+        android:scrollbars="none"></ListView>
 
     <RelativeLayout
         android:id="@+id/chat_bar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
-        android:background="@android:color/white" >
+        android:background="@android:color/white">
 
-        <ImageView
-            android:id="@+id/chat_attachment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:layout_marginBottom="@dimen/paddingsmall"
-            android:layout_marginLeft="@dimen/paddingsmall"
-            android:background="@drawable/sky_color_shape_round"
-            android:contentDescription="@string/app_name"
-            android:padding="5dp"
-            android:src="@drawable/img_send" />
 
         <EditText
             android:id="@+id/message_field"
@@ -56,7 +43,6 @@
             android:layout_height="match_parent"
             android:layout_margin="@dimen/paddingsmall"
             android:layout_toLeftOf="@+id/chat_send"
-            android:layout_toRightOf="@+id/chat_attachment"
             android:background="@drawable/grayshape"
             android:hint="Type Your Message"
             android:inputType="textLongMessage"
