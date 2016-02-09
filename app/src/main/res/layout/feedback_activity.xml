@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#00ccd3" >
+
+            <TextView
+                android:id="@+id/txt_heading"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:layout_margin="5dp"
+                android:gravity="center"
+                android:padding="5dp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@android:color/white"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/top_header_count"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_margin="10dp"
+                android:background="@drawable/count_back"
+                android:gravity="center"
+                android:paddingRight="6dp"
+                android:paddingTop="4dp"
+                android:text="0"
+                android:textColor="@android:color/black"
+                android:textSize="10dp" />
+
+            <ImageView
+                android:id="@+id/btn_back"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:adjustViewBounds="true"
+                android:padding="10dp"
+                android:src="@drawable/back_top" />
+        </RelativeLayout>
+
+        <ScrollView
+            android:id="@+id/scl"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/nav"
+            android:layout_margin="20dp"
+            android:scrollbars="none" >
+
+            <LinearLayout
+                android:id="@+id/linearLayout1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="300dp"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/feedback"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/margin"
+                        android:gravity="center"
+                        android:text="You `re input is all that matters.\n Let us Know how we can make Chalkboard better."
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                    <TextView
+                        android:id="@+id/support"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/margin"
+                        android:gravity="center"
+                        android:text="How can we help you?"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:visibility="gone" />
+
+                    <EditText
+                        android:id="@+id/et_yourname"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/margin"
+                        android:background="@drawable/corner"
+                        android:ems="10"
+                        android:hint="Your Name"
+                        android:padding="@dimen/padding"
+                        android:textAppearance="?android:attr/textAppearanceMedium" >
+                    </EditText>
+
+                    <EditText
+                        android:id="@+id/et_emailid"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/margin"
+                        android:background="@drawable/corner"
+                        android:ems="10"
+                        android:hint="Email Id"
+                        android:padding="@dimen/padding"
+                        android:textAppearance="?android:attr/textAppearanceMedium" >
+                    </EditText>
+
+                    <EditText
+                        android:id="@+id/et_message"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/scroll"
+                        android:layout_margin="@dimen/margin"
+                        android:background="@drawable/corner"
+                        android:ems="10"
+                        android:gravity="left"
+                        android:hint="Message"
+                        android:padding="@dimen/padding"
+                        android:textAppearance="?android:attr/textAppearanceMedium" >
+                    </EditText>
+
+                    <Button
+                        android:id="@+id/btn_send"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/margin"
+                        android:background="@drawable/sky_border1"
+                        android:padding="@dimen/paddingsmall"
+                        android:text="        SEND        "
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="#00CCD5" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+    <include layout="@layout/progress_bar" />
+
+</RelativeLayout>

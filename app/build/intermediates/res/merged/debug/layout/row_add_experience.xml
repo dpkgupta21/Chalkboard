@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/remove_experience"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:drawableRight="@android:drawable/ic_menu_close_clear_cancel" />
+
+    <EditText
+        android:id="@+id/et_companyname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin"
+        android:layout_marginRight="@dimen/margin"
+        android:background="@drawable/corner"
+        android:ems="10"
+        android:singleLine="true"
+       android:textAppearance="?android:attr/textAppearanceMedium"
+          android:textColor="#949494"
+        android:hint="Company"
+        android:padding="@dimen/padding" >
+    </EditText>
+
+    <LinearLayout
+        android:id="@+id/ldfdfday4"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <EditText
+            android:id="@+id/company_stratyear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/paddingsmall"
+            android:layout_weight="1"
+            android:background="@drawable/corner"
+            android:clickable="false"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+              android:textColor="#949494"
+            android:cursorVisible="false"
+            android:drawablePadding="@dimen/paddingsmall"
+            android:drawableRight="@drawable/calender_icon"
+            android:ems="10"
+             android:singleLine="true"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:hint="Start Date"
+            android:padding="@dimen/padding" >
+        </EditText>
+
+        <EditText
+            android:id="@+id/company_endyear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/padding"
+            android:layout_weight="1"
+            android:background="@drawable/corner"
+            android:clickable="false"
+            android:cursorVisible="false"
+              android:textColor="#949494"
+               android:textAppearance="?android:attr/textAppearanceMedium"
+            android:drawablePadding="@dimen/padding"
+            android:drawableRight="@drawable/calender_icon"
+            android:ems="10"
+             android:singleLine="true"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:hint="End Date"
+            android:padding="@dimen/padding" >
+        </EditText>
+    </LinearLayout>
+
+</LinearLayout>

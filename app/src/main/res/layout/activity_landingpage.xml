@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_2"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:text="Welcome To"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/textsizebig" />
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView1"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="@dimen/textsizebig"
+            android:src="@drawable/logo_icon" />
+
+        <Button
+            android:id="@+id/btn_signup"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_below="@+id/textView2"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="@dimen/margin"
+            android:background="@drawable/button_skyblue"
+            android:padding="@dimen/paddingsmall"
+            android:text="         Sign Up         "
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/textsize" />
+
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_below="@+id/textView3"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="@dimen/margin"
+            android:background="@drawable/button_yelloborder"
+            android:padding="@dimen/paddingsmall"
+            android:text="          Login           "
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/textsize" />
+
+        <ImageView
+            android:id="@+id/dotedline"
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:layout_below="@+id/btn_signup"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:background="@drawable/dotted"
+            android:layerType="software" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dotedline"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="@dimen/margin"
+            android:layout_marginTop="16dp"
+            android:text="Already have an account ?"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/textsize" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageView1"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="@dimen/margin"
+            android:text="Let`s get Started"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/textsize" />
+    </RelativeLayout>
+
+</LinearLayout>

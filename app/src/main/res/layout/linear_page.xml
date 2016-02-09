@@ -1,0 +1,29 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white" >
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            
+
+            <TextView
+                android:id="@+id/about_company"
+                 android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:lineSpacingExtra="3dp"
+                android:padding="@dimen/padding"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@android:color/black"  />
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>

@@ -1,0 +1,17 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/slide_content"
+    android:layout_height="match_parent" >
+
+    <include layout="@layout/bar_header" />
+
+    
+    <RelativeLayout
+        android:id="@+id/page_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/header_bar" />
+
+   
+
+</RelativeLayout>

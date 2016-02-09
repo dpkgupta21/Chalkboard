@@ -1,0 +1,270 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white" >
+
+    <RelativeLayout
+        android:id="@+id/toplay"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#00c7d4" >
+
+        <TextView
+            android:id="@+id/recruteredir_txt"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:layout_margin="5dp"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="Edit Profile"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@android:color/white"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/top_header_count"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="10dp"
+            android:background="@drawable/count_back"
+            android:gravity="center"
+            android:paddingRight="6dp"
+            android:paddingTop="4dp"
+            android:text="0"
+            android:textColor="@android:color/black"
+            android:textSize="10dp" />
+
+        <ImageView
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:adjustViewBounds="true"
+            android:padding="10dp"
+            android:src="@drawable/back_top" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/scl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toplay"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="100dp"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/toplay"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:weightSum="1" >
+
+                <LinearLayout
+                    android:layout_width="0px"
+                    android:layout_height="fill_parent"
+                    android:layout_below="@+id/toplay"
+                    android:layout_weight=".9"
+                    android:gravity="center"
+                    android:orientation="vertical" >
+
+                    <RelativeLayout
+                        android:layout_width="@dimen/mapsize"
+                        android:layout_height="@dimen/mapsize"
+                        android:padding="@dimen/padding" >
+
+                        <ImageView
+                            android:id="@+id/recuiter_profileimage"
+                            android:layout_width="@dimen/mapsize"
+                            android:layout_height="@dimen/mapsize"
+                            android:layout_margin="@dimen/margin"
+                            android:contentDescription="@string/app_name"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/image_icon" />
+
+                        <ImageView
+                            android:layout_width="@dimen/mapsize"
+                            android:layout_height="@dimen/mapsize"
+                            android:layout_margin="@dimen/margin"
+                            android:contentDescription="@string/app_name"
+                            android:src="@drawable/gallery" />
+
+                        <ImageView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_margin="@dimen/textsize"
+                            android:contentDescription="@string/app_name"
+                            android:src="@drawable/edit_icon" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="@dimen/mapsize"
+                        android:layout_margin="@dimen/margin"
+                        android:background="@drawable/corner" >
+
+                        <ImageView
+                            android:id="@+id/imageView1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_margin="@dimen/paddingsmall"
+                            android:src="@drawable/edit_icon" />
+
+                        <ImageView
+                            android:id="@+id/imageView2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/photo_icon" />
+
+                        <TextView
+                            android:id="@+id/textView2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/imageView2"
+                            android:layout_centerHorizontal="true"
+                            android:text="Add School Photo"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textColor="@android:color/black" />
+
+                        <ImageView
+                            android:id="@+id/recuiter_photo"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:scaleType="centerCrop" />
+                    </RelativeLayout>
+
+                    <EditText
+                        android:id="@+id/recuiter_companyname"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin"
+                        android:layout_marginRight="@dimen/margin"
+                        android:background="@drawable/corner"
+                        android:ems="10"
+                        android:hint="Company"
+                        android:padding="@dimen/paddingsmall"
+                        android:textAppearance="?android:attr/textAppearanceMedium" >
+                    </EditText>
+
+                    <LinearLayout
+                        android:id="@+id/lay4"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/margin"
+                        android:gravity="center"
+                        android:orientation="horizontal" >
+
+                        <EditText
+                            android:id="@+id/recuiter_countryname"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/paddingsmall"
+                            android:layout_weight="1"
+                            android:background="@drawable/corner"
+                            android:clickable="false"
+                            android:cursorVisible="false"
+                            android:drawablePadding="@dimen/paddingsmall"
+                            android:drawableRight="@drawable/down_arrow_icon"
+                            android:ems="10"
+                            android:focusable="false"
+                            android:focusableInTouchMode="false"
+                            android:hint="Nationality"
+                            android:padding="@dimen/paddingsmall"
+                            android:textAppearance="?android:attr/textAppearanceMedium" >
+                        </EditText>
+
+                        <EditText
+                            android:id="@+id/recuiter_city"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/paddingsmall"
+                            android:layout_weight="1"
+                            android:background="@drawable/corner"
+                            android:ems="10"
+                            android:hint="City"
+                            android:visibility="invisible"
+                            android:padding="@dimen/paddingsmall"
+                            android:textAppearance="?android:attr/textAppearanceMedium" >
+                        </EditText>
+                    </LinearLayout>
+
+                    <EditText
+                        android:id="@+id/recuiter_countryid"
+                        android:layout_width="1dp"
+                        android:layout_height="1dp"
+                        android:layout_marginRight="@dimen/paddingsmall"
+                        android:layout_weight="1"
+                        android:background="@drawable/corner"
+                        android:clickable="false"
+                        android:cursorVisible="false"
+                        android:drawablePadding="@dimen/paddingsmall"
+                        android:drawableRight="@drawable/down_arrow_icon"
+                        android:ems="10"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:hint="Country"
+                        android:padding="@dimen/paddingsmall"
+                        android:textAppearance="?android:attr/textAppearanceMedium" >
+                    </EditText>
+
+                    <EditText
+                        android:id="@+id/recuiter_location"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin"
+                        android:layout_marginRight="@dimen/margin"
+                        android:background="@drawable/corner"
+                        android:drawablePadding="@dimen/paddingsmall"
+                        android:drawableRight="@drawable/location_icon"
+                        android:ems="10"
+                        android:hint="Current Location"
+                        android:padding="@dimen/paddingsmall"
+                        android:textAppearance="?android:attr/textAppearanceMedium" >
+                    </EditText>
+
+                    <EditText
+                        android:id="@+id/recuiter_aboutcompany"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/scroll"
+                        android:layout_margin="@dimen/margin"
+                        android:background="@drawable/corner"
+                        android:ems="10"
+                        android:gravity="left|top"
+                        android:hint="About Company"
+                        android:padding="@dimen/paddingsmall"
+                        android:textAppearance="?android:attr/textAppearanceMedium" >
+                    </EditText>
+
+                    <Button
+                        android:id="@+id/recuiter_save"
+                        android:layout_width="@dimen/mapsize"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/margin"
+                        android:background="@drawable/capsule"
+                        android:padding="@dimen/padding"
+                        android:text="SAVE"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="#00CCD5" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <include layout="@layout/progress_bar" />
+
+</RelativeLayout>

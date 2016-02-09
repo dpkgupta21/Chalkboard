@@ -1,0 +1,275 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/margin"
+    android:paddingLeft="@dimen/textsizebig"
+    android:paddingRight="@dimen/textsizebig"
+    android:paddingTop="@dimen/margin" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0px"
+            android:layout_weight=".45" >
+
+            <ImageView
+                android:id="@+id/job_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/bg_1" />
+            
+             <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/shadow" />
+
+            <ImageView
+                android:id="@+id/share_job"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:padding="5dp"
+                android:src="@drawable/group_icon" />
+
+            <ImageView
+                android:id="@+id/job_icon"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_above="@+id/bottom_button_layout"
+                android:layout_alignParentRight="true"
+                android:layout_margin="@dimen/margin"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/app_name"
+                android:padding="@dimen/padding" />
+
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_above="@+id/bottom_button_layout"
+                android:layout_alignParentRight="true"
+                android:layout_margin="@dimen/margin"
+                android:contentDescription="@string/app_name"
+                android:padding="@dimen/padding"
+                android:src="@drawable/white_circle" />
+
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_above="@+id/bottom_button_layout"
+                android:layout_alignParentRight="true"
+                android:layout_margin="@dimen/margin"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/circle_border" />
+
+            <TextView
+                android:id="@+id/job_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/job_offer_by"
+                android:layout_toLeftOf="@+id/job_icon"
+                android:paddingLeft="@dimen/padding"
+                android:paddingRight="@dimen/padding"
+                android:singleLine="true"
+                android:textColor="@android:color/white"
+             android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/job_offer_by"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/job_location"
+                android:layout_toLeftOf="@+id/job_icon"
+                android:paddingLeft="@dimen/padding"
+                android:paddingRight="@dimen/padding"
+                android:singleLine="true"
+                android:textColor="@android:color/white"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/job_location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/bottom_button_layout"
+                android:layout_toLeftOf="@+id/job_icon"
+                android:paddingBottom="@dimen/paddingsmall"
+                android:paddingLeft="@dimen/padding"
+                android:paddingRight="@dimen/padding"
+                android:singleLine="true"
+                android:textColor="@android:color/white"
+               android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <LinearLayout
+                android:id="@+id/bottom_button_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/edit_job"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#00c7d4"
+                    android:gravity="center"
+                    android:padding="@dimen/padding"
+                    android:singleLine="true"
+                    android:text="Edit Job"
+                    android:textColor="@android:color/white"
+                   android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/white" />
+
+                <TextView
+                    android:id="@+id/remove_publish_job"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#00c7d4"
+                    android:gravity="center"
+                    android:padding="@dimen/padding"
+                    android:singleLine="true"
+                    android:text="Remove Job"
+                    android:textColor="@android:color/white"
+                   android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0px"
+            android:layout_weight=".55"
+            android:fillViewport="true"
+            android:scrollbars="none" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/job_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/paddingsmall"
+                    android:paddingLeft="@dimen/padding"
+                    android:paddingRight="@dimen/padding"
+                    android:paddingTop="@dimen/padding"
+                    android:textColor="@android:color/black"
+                    android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+                <LinearLayout
+                    android:id="@+id/info_ll"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_below="@+id/job_description"
+                    android:orientation="horizontal" >
+
+                    <RelativeLayout
+                        android:layout_width="0px"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" >
+
+                        <TextView
+                            android:id="@+id/salary_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_above="@+id/salary"
+                            android:paddingBottom="@dimen/paddingsmall"
+                            android:paddingLeft="@dimen/padding"
+                            android:paddingRight="@dimen/padding"
+                            android:paddingTop="@dimen/padding"
+                            android:text="SALARY"
+                            android:textColor="@android:color/black"
+                           android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/salary"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:paddingLeft="@dimen/padding"
+                            android:singleLine="true"
+                            android:text="dfsdf"
+                            android:textColor="@android:color/black"
+                           android:textAppearance="?android:attr/textAppearanceMedium"/>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="0px"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" >
+
+                        <TextView
+                            android:id="@+id/date_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_above="@+id/start_date"
+                            android:paddingBottom="@dimen/paddingsmall"
+                            android:paddingLeft="@dimen/padding"
+                            android:paddingRight="@dimen/padding"
+                            android:paddingTop="@dimen/padding"
+                            android:text="START DATE"
+                            android:textColor="@android:color/black"
+                           android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/start_date"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:paddingLeft="@dimen/padding"
+                            android:singleLine="true"
+                             android:text="dfsdf"
+                            android:textColor="@android:color/black"
+                            android:textAppearance="?android:attr/textAppearanceMedium" />
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/about_heading"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/info_ll"
+                  android:paddingBottom="@dimen/paddingsmall"
+                    android:paddingLeft="@dimen/padding"
+                    android:paddingRight="@dimen/padding"
+                    android:paddingTop="@dimen/textsize"
+                    android:text="ABOUT COMPANY"
+                    android:textColor="@android:color/black"
+                   android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/about_company"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_below="@+id/about_heading"
+                     android:paddingLeft="@dimen/padding"
+                    android:paddingRight="@dimen/padding"
+                     android:text="dfsdf"
+                    android:textColor="@android:color/black"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+            </RelativeLayout>
+        </ScrollView>
+    </LinearLayout>
+
+    <include layout="@layout/bar_progress" />
+
+</RelativeLayout>

@@ -1,0 +1,166 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:rsb="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawer_filter"
+    android:layout_width="250dp"
+    android:layout_height="match_parent"
+    android:layout_gravity="end"
+    android:background="@android:color/white" >
+
+     <ImageView 
+         android:layout_width="2dp"
+        android:layout_height="match_parent"
+       android:id="@+id/drawer_image"
+       android:layout_alignParentLeft="true"
+        android:background="@drawable/drawer_shadow"/>
+    
+    <LinearLayout
+          android:layout_toRightOf="@+id/drawer_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/filtertxt"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#00c7d4"
+            android:gravity="center"
+            android:text="Filter"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/white"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0px"
+            android:layout_weight="2"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/selectjob_txt"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="#c3c3c3"
+                android:gravity="center|left"
+                android:paddingLeft="5dp"
+                android:text="Select Job"
+                android:textColor="@android:color/black"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textStyle="bold" />
+
+            <ListView
+                android:id="@+id/posted_jobs_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:cacheColorHint="@android:color/transparent"
+                android:divider="#efefef"
+                android:dividerHeight="1px"
+                android:scrollbars="none" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0px"
+            android:layout_weight="2.5"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/selectcompany_txt"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="#c3c3c3"
+                    android:gravity="center|left"
+                    android:paddingLeft="5dp"
+                    android:text="Select Country"
+                    android:textColor="@android:color/black"
+                     android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/selectedno"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_alignParentRight="true"
+                    android:background="#c3c3c3"
+                    android:gravity="center|left"
+                    android:paddingRight="5dp"
+                    android:textColor="@android:color/black"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <EditText
+                android:id="@+id/country_search_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/white_shape"
+                android:drawablePadding="5dp"
+                android:drawableRight="@drawable/search_menu_black"
+                android:hint="Type Country Name"
+               android:textAppearance="?android:attr/textAppearanceMedium"
+                android:visibility="gone" />
+
+            <ListView
+                android:id="@+id/country_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:cacheColorHint="@android:color/transparent"
+                android:divider="#efefef"
+                android:dividerHeight="1px"
+                android:scrollbars="none" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0px"
+            android:layout_weight="1.5"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/selectsalary_txt"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="#c3c3c3"
+                    android:gravity="center|left"
+                    android:paddingLeft="5dp"
+                    android:text="Salary (RMB)"
+                    android:textColor="@android:color/black"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/rangevalue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_alignParentRight="true"
+                    android:background="#c3c3c3"
+                    android:gravity="center|left"
+                    android:paddingRight="5dp"
+                    android:text="1 - 25K"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/textsize"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <com.chalkboard.RangeSeekBar
+                android:id="@+id/range_seek"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                rsb:absoluteMaxValue="25"
+                rsb:absoluteMinValue="1" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

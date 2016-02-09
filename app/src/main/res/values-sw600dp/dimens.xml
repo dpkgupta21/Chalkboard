@@ -1,0 +1,20 @@
+<resources>
+
+    
+    <dimen name="margin">16dp</dimen>
+    <dimen name="margin_small">8dp</dimen>
+    <dimen name="padding">16dp</dimen>
+    <dimen name="paddingsmall">8dp</dimen>
+    <dimen name="paddingmini">5dp</dimen>
+    
+        <dimen name="textsizesmall">18dp</dimen>
+    <dimen name="textsize">24dp</dimen>
+     <dimen name="textsizebig">30dp</dimen>
+       <dimen name="marginelarge">50dp</dimen>
+     
+     <dimen name="scroll">150dp</dimen>
+     <dimen name="imagess">180dp</dimen>
+      <dimen name="mapsize">200dp</dimen>
+      
+    
+</resources>

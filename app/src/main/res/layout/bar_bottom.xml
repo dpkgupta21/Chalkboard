@@ -1,0 +1,99 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/bottom_bar"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:layout_alignParentBottom="true"
+    android:background="#efefef" >
+
+    <RelativeLayout
+        android:id="@+id/bottom_location"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1" >
+
+        <ImageView
+            android:id="@+id/bottom_location_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/bottom_location_text"
+            android:contentDescription="@string/app_name"
+            android:padding="5dp"
+            android:src="@drawable/location_black_menu_icon_footer" />
+
+        <TextView
+            android:id="@+id/bottom_location_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:gravity="center"
+            android:padding="2dp"
+            android:text="LOCATION"
+             android:textSize="@dimen/textsize"
+            android:textColor="@android:color/black" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="@android:color/white" />
+
+    <RelativeLayout
+        android:id="@+id/bottom_type"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1" >
+
+        <ImageView
+            android:id="@+id/bottom_type_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/bottom_type_text"
+            android:contentDescription="@string/app_name"
+            android:padding="5dp"
+            android:src="@drawable/clock_black_icon" />
+
+        <TextView
+            android:id="@+id/bottom_type_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:gravity="center"
+            android:padding="2dp"
+            android:text="TYPE"
+             android:textSize="@dimen/textsize"
+            android:textColor="@android:color/black" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="@android:color/white" />
+
+    <RelativeLayout
+        android:id="@+id/bottom_date"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1" >
+
+        <ImageView
+            android:id="@+id/bottom_date_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/bottom_date_text"
+            android:contentDescription="@string/app_name"
+            android:padding="5dp"
+            android:src="@drawable/calendar_black_menu_icon" />
+
+        <TextView
+            android:id="@+id/bottom_date_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:gravity="center"
+            android:padding="2dp"
+            android:text="START DATE"
+           android:textSize="@dimen/textsize"
+            android:textColor="@android:color/black" />
+    </RelativeLayout>
+
+</LinearLayout>

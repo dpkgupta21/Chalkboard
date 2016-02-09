@@ -1,0 +1,33 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+   
+    <android.support.v4.view.ViewPager
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    
+     <com.chalkboard.CirclePageIndicator
+         android:layout_above="@+id/btn_signup"
+        android:id="@+id/images_pager_indicator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dip" />
+    
+
+    <Button
+        android:id="@+id/btn_signup"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/textView2"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="@dimen/margin"
+        android:background="@drawable/buttun_yellow"
+        android:padding="@dimen/paddingsmall"
+        android:text="         Sign Up         "
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/textsize" />
+
+</RelativeLayout>

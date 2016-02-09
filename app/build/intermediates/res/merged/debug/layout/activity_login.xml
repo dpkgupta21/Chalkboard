@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_1"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:id="@+id/scl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/scroll"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:gravity="center"
+                android:orientation="vertical" >
+
+                <ImageView
+                    android:id="@+id/imageView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="@dimen/margin"
+                    android:src="@drawable/logo_icon_small" />
+
+                <View
+                    android:id="@+id/dotedline"
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_below="@+id/imageView1"
+                    android:layout_marginLeft="@dimen/margin"
+                    android:layout_marginRight="@dimen/margin"
+                    android:background="#55ffffff" />
+
+                <LinearLayout
+                    android:id="@+id/lay1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="50dp"
+                    android:layout_below="@+id/dotedline"
+                    android:layout_marginTop="@dimen/margin"
+                    android:gravity="center"
+                    android:orientation="horizontal" >
+
+                    <Button
+                        android:id="@+id/btn_signIn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/margin_small"
+                        android:background="@drawable/button_yelloborder"
+                        android:padding="@dimen/paddingsmall"
+                        android:text="       Sign In       "
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/textsize" />
+
+                    <Button
+                        android:id="@+id/btn_signUp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/margin_small"
+                        android:background="@android:color/transparent"
+                        android:padding="@dimen/paddingsmall"
+                        android:text="  Sign Up  "
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/textsize" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll1"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/lay1"
+                    android:layout_margin="@dimen/margin"
+                    android:background="@drawable/white_border_shape"
+                    android:gravity="center" >
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginLeft="@dimen/margin"
+                        android:layout_marginRight="@dimen/margin"
+                        android:src="@drawable/email_drawable" />
+
+                    <EditText
+                        android:id="@+id/txtUsername"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:hint="Email Id"
+                        android:imeOptions="actionNext"
+                        android:inputType="textEmailAddress"
+                        android:padding="@dimen/paddingsmall"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textColor="@android:color/white"
+                        android:textCursorDrawable="@null"
+                        android:textSize="@dimen/textsize" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll2"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/ll1"
+                    android:layout_margin="@dimen/margin"
+                    android:background="@drawable/white_border_shape"
+                    android:gravity="center" >
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginLeft="@dimen/margin"
+                        android:layout_marginRight="@dimen/margin"
+                        android:src="@drawable/password_drawable" />
+
+                    <EditText
+                        android:id="@+id/txtPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:hint="Password"
+                        android:imeOptions="actionNext"
+                        android:inputType="textPassword"
+                        android:padding="@dimen/paddingsmall"
+                        android:singleLine="true"
+                        android:textColor="@android:color/white"
+                        android:textCursorDrawable="@null"
+                        android:textSize="@dimen/textsize" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btn_submit"
+                    android:layout_width="fill_parent"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/ll2"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="@dimen/margin"
+                    android:background="@drawable/sky_color_shape_round"
+                    android:padding="@dimen/paddingsmall"
+                    android:text="Sign In"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/textsize" />
+
+                <TextView
+                    android:id="@+id/txt_forgotpass"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/btn_submit"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="@dimen/margin"
+                    android:text="Forgot Password? Recover Here"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/textsizesmall" />
+
+                <ImageView
+                    android:id="@+id/dotedline11"
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_below="@+id/txt_forgotpass"
+                    android:layout_marginBottom="@dimen/paddingsmall"
+                    android:layout_marginLeft="@dimen/margin"
+                    android:layout_marginRight="@dimen/margin"
+                    android:background="@drawable/dotted"
+                    android:layerType="software" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/dotedline11"
+                    android:layout_centerHorizontal="true"
+                    android:text="or you can Login with one of the following"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/textsizesmall" />
+
+                <LinearLayout
+                    android:id="@+id/lay2"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textView2"
+                    android:gravity="center"
+                    android:orientation="horizontal" >
+
+                    <Button
+                        android:id="@+id/btn_fb"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_margin="@dimen/margin"
+                        android:background="@drawable/facebook"
+                        android:padding="@dimen/padding"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/textsize" />
+
+                    <Button
+                        android:id="@+id/btn_twitter"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_margin="@dimen/margin"
+                        android:background="@drawable/twitter"
+                        android:padding="@dimen/padding"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/textsize" />
+
+                    <Button
+                        android:id="@+id/btn_gplus"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_margin="@dimen/margin"
+                        android:background="@drawable/googleplus"
+                        android:padding="@dimen/padding"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/textsize" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/textdsfView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/lay2"
+                    android:layout_centerHorizontal="true"
+                    android:text="By Signing In you agree with our"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/textsizesmall" />
+
+                <LinearLayout
+                    android:id="@+id/lay3"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textdsfView2"
+                    android:gravity="center"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:id="@+id/txt_termservice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/lay2"
+                        android:layout_centerHorizontal="true"
+                        android:text="Terms of Servics"
+                        android:textColor="#00CCD5"
+                        android:textSize="@dimen/textsizesmall" />
+
+                    <TextView
+                        android:id="@+id/tefgxtdsfView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/lay2"
+                        android:layout_centerHorizontal="true"
+                        android:paddingLeft="@dimen/padding"
+                        android:paddingRight="@dimen/padding"
+                        android:text="and"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/textsizesmall" />
+
+                    <TextView
+                        android:id="@+id/txt_privacy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/lay2"
+                        android:layout_centerHorizontal="true"
+                        android:text="Privacy Policy"
+                        android:textColor="#00CCD5"
+                        android:textSize="@dimen/textsizesmall" />
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <include layout="@layout/progress_bar" />
+
+</RelativeLayout>

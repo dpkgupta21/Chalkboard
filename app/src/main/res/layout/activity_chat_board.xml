@@ -1,0 +1,83 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#efefef"
+    android:clickable="true" >
+
+    <include layout="@layout/bar_header" />
+
+    <TextView
+        android:id="@+id/location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header_bar"
+        android:background="@android:color/white"
+        android:gravity="center"
+        android:padding="5dp"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@android:color/black"
+        android:textStyle="bold" />
+
+    <ListView
+        android:id="@+id/chatlist"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/location"
+        android:layout_marginBottom="50dp"
+        android:background="@android:color/transparent"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="5dp"
+        android:scrollbars="none" >
+    </ListView>
+
+    <RelativeLayout
+        android:id="@+id/chat_bar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="@android:color/white" >
+
+        <ImageView
+            android:id="@+id/chat_attachment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="@dimen/paddingsmall"
+            android:layout_marginLeft="@dimen/paddingsmall"
+            android:background="@drawable/sky_color_shape_round"
+            android:contentDescription="@string/app_name"
+            android:padding="5dp"
+            android:src="@drawable/img_send" />
+
+        <EditText
+            android:id="@+id/message_field"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/paddingsmall"
+            android:layout_toLeftOf="@+id/chat_send"
+            android:layout_toRightOf="@+id/chat_attachment"
+            android:background="@drawable/grayshape"
+            android:hint="Type Your Message"
+            android:inputType="textLongMessage"
+            android:padding="@dimen/paddingsmall"
+            android:singleLine="true" />
+
+        <ImageView
+            android:id="@+id/chat_send"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="@dimen/paddingsmall"
+            android:layout_marginRight="@dimen/paddingsmall"
+            android:layout_marginTop="@dimen/paddingsmall"
+            android:background="@drawable/sky_color_shape_round"
+            android:contentDescription="@string/app_name"
+            android:padding="@dimen/paddingsmall"
+            android:src="@drawable/msg_send" />
+    </RelativeLayout>
+
+    <include layout="@layout/bar_progress" />
+
+</RelativeLayout>

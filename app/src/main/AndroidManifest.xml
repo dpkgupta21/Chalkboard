@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.chalkboard"
+    android:versionCode="1"
+    android:versionName="1.0.0" >
+
+    <uses-sdk
+        android:minSdkVersion="16"
+        android:targetSdkVersion="23" />
+
+    <permission
+        android:name="com.chalkboard.permission.MAPS_RECEIVE"
+        android:protectionLevel="signature" />
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_GPS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+
+    
+    <!--  -->
+    <permission
+        android:name="com.chalkboard.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.chalkboard.permission.C2D_MESSAGE" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <!--  -->
+    
+    <application
+        android:name="com.chalkboard.ApplicationController"
+        android:allowBackup="true"
+        android:icon="@drawable/app_icon"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/app_id" />
+
+        <activity
+            android:name=".SplashActivity"
+            android:configChanges="orientation|screenSize|keyboard"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustNothing" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+        
+         <activity
+            android:name="com.chalkboard.GalleryView"
+            android:configChanges="orientation|screenSize|keyboard"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" >
+        </activity>
+        
+         
+            <activity
+            android:name="com.chalkboard.ScreenSlidePagerActivity"
+            android:configChanges="orientation|screenSize|keyboard"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" >
+        </activity>
+        
+        
+        <activity
+            android:name=".MainActivity"
+            android:configChanges="orientation|screenSize|keyboard"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustNothing" >
+        </activity>
+        <activity
+            android:name=".Setting_Activity"
+            android:configChanges="orientation|screenSize|keyboard"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustNothing" >
+        </activity>
+        <activity
+            android:name=".ForgotPassword_Activity"
+            android:configChanges="orientation|screenSize|keyboard"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Dialog"
+            android:windowSoftInputMode="stateHidden|adjustNothing" >
+        </activity>
+        <activity
+            android:name=".Term_Privacy_Activity"
+            android:configChanges="orientation|screenSize|keyboard"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustNothing" >
+        </activity>
+        <activity
+            android:name="com.chalkboard.recruiter.MyJobPreviewActivity"
+            android:configChanges="orientation|screenSize|keyboard"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustNothing" >
+        </activity>
+        <activity android:name="com.facebook.LoginActivity" />
+        <activity
+            android:name=".LandingPage_Activity"
+            android:configChanges="orientation|screenSize|keyboard"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustNothing" >
+        </activity>
+        <activity
+            android:name=".Login_Activity"
+            android:configChanges="orientation|screenSize|keyboard"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="t4jsample2"
+                    android:scheme="oauth" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".SignUp_Activity"
+            android:configChanges="orientation|screenSize|keyboard"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" >
+        </activity>
+        <activity
+            android:name="com.chalkboard.teacher.JobListActivity"
+            android:configChanges="orientation|screenSize|keyboard"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustNothing" >
+        </activity>
+        <activity
+            android:name="com.chalkboard.teacher.TeacherProfileViewActivity"
+            android:configChanges="orientation|screenSize|keyboard"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustNothing" >
+        </activity>
+        <activity
+            android:name="com.chalkboard.teacher.TeacherProfileEditActivity"
+            android:configChanges="orientation|screenSize|keyboard"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" >
+        </activity>
+        <activity
+            android:name="com.chalkboard.teacher.JobPagerActivity"
+            android:configChanges="orientation|screenSize|keyboard"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustNothing" >
+        </activity>
+        <activity
+            android:name="com.chalkboard.teacher.TeacherChatBoardActivity"
+            android:configChanges="orientation|screenSize|keyboard"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" >
+        </activity>
+        <activity
+            android:name="com.chalkboard.teacher.CountryList_Activity"
+            android:configChanges="orientation|screenSize|keyboard"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.DeviceDefault.Light.Dialog"
+            android:windowSoftInputMode="stateHidden|adjustNothing" >
+        </activity>
+        <activity
+            android:name="com.chalkboard.teacher.MultipleCounrtySelect_Activity"
+            android:configChanges="orientation|screenSize|keyboard"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.DeviceDefault.Light.Dialog"
+            android:windowSoftInputMode="stateHidden|adjustNothing" >
+        </activity>
+        <activity
+            android:name="com.chalkboard.teacher.JobTypeListActivity"
+            android:configChanges="orientation|screenSize|keyboard"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Dialog"
+            android:windowSoftInputMode="stateHidden|adjustNothing" >
+        </activity>
+        <activity
+            android:name="com.chalkboard.teacher.Experience_Activity"
+            android:configChanges="orientation|screenSize|keyboard"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Dialog"
+            android:windowSoftInputMode="stateHidden|adjustNothing" >
+        </activity>
+        <activity
+            android:name="com.chalkboard.teacher.Certificate_Type"
+            android:configChanges="orientation|screenSize|keyboard"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Dialog"
+            android:windowSoftInputMode="stateHidden|adjustNothing" >
+        </activity>
+        <activity
+            android:name="com.chalkboard.recruiter.TeachersListActivity"
+            android:configChanges="orientation|screenSize|keyboard"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustNothing" >
+        </activity>
+        <activity
+            android:name="com.chalkboard.recruiter.RecruiterProfileEditActivity"
+            android:configChanges="orientation|screenSize|keyboard"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustNothing" >
+        </activity>
+        <activity
+            android:name="com.chalkboard.recruiter.Recruter_Profile_Activity"
+            android:configChanges="orientation|screenSize|keyboard"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustNothing" >
+        </activity>
+        <activity
+            android:name="com.chalkboard.recruiter.TeacherPagerActivity"
+            android:configChanges="orientation|screenSize|keyboard"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustNothing" >
+        </activity>
+        <activity
+            android:name="com.chalkboard.recruiter.MyJobsPagerActivity"
+            android:configChanges="orientation|screenSize|keyboard"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustNothing" >
+        </activity>
+        <activity
+            android:name="com.chalkboard.recruiter.Teacher_Create_New_Job"
+            android:configChanges="orientation|screenSize|keyboard"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" >
+        </activity>
+        
+         <activity
+            android:name="com.chalkboard.recruiter.EditJobActivity"
+            android:configChanges="orientation|screenSize|keyboard"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustNothing" >
+        </activity>
+        
+        <activity
+            android:name="com.chalkboard.teacher.SelectJobTypeActivity"
+            android:configChanges="orientation|screenSize|keyboard"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.DeviceDefault.Light.Dialog"
+            android:windowSoftInputMode="stateHidden|adjustNothing" >
+        </activity>
+        <activity
+            android:name="com.chalkboard.teacher.SelectJobStartDateActivity"
+            android:configChanges="orientation|screenSize|keyboard"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.DeviceDefault.Light.Dialog"
+            android:windowSoftInputMode="stateHidden|adjustNothing" >
+        </activity>
+        <activity
+            android:name="com.chalkboard.teacher.SelectJobLocationActivity"
+            android:configChanges="orientation|screenSize|keyboard"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.DeviceDefault.Light.Dialog"
+            android:windowSoftInputMode="stateHidden|adjustNothing" >
+        </activity>
+        <activity
+            android:name=".Feedback_Activity"
+            android:configChanges="orientation|screenSize|keyboard"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustNothing" >
+        </activity>
+        <activity
+            android:name=".WriteReview"
+            android:configChanges="orientation|screenSize|keyboard"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustNothing" >
+        </activity>
+        <activity
+            android:name=".Change_Password"
+            android:configChanges="orientation|screenSize|keyboard"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustNothing" >
+        </activity>
+        <activity
+            android:name=".WebView_Activity"
+            android:configChanges="orientation|screenSize|keyboard"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustNothing" >
+        </activity>
+        <activity
+            android:name=".WebViewActivity"
+            android:label="@string/app_name" >
+            <category android:name="android.intent.category.DEFAULT" />
+            <category android:name="android.intent.category.BROWSABLE" />
+
+            <data
+                android:host="t4jsample"
+                android:scheme="oauth" />
+        </activity>
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyAJ9y2lEdiD_oqxsYloOVecsbgi0ZBHFQ4" />
+<!-- 
+        <uses-library
+            android:name="com.google.android.maps"
+            android:required="true" />
+        
+ -->        
+         <receiver
+            android:name="com.google.android.gcm.GCMBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+
+                <!-- Receives the actual messages. -->
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <!-- Receives the registration id. -->
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+
+                <category android:name="com.chalkboard" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name=".GCMIntentService" />
+        
+        
+    </application>
+
+</manifest>

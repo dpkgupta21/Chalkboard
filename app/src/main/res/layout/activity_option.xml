@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#2367A8"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/nav"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal" >
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/nav"
+        android:layout_margin="10dp"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:text="Please select login with option"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/white" />
+
+          <LinearLayout
+                    android:id="@+id/lay4"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txt_CONPASSWORD"
+                    android:layout_margin="@dimen/margin"
+                    android:background="@drawable/white_border_shape"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/paddingsmall" >
+
+                    <TextView
+                        android:id="@+id/txt_TEACHER"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:background="@android:color/white"
+                        android:gravity="center"
+                        android:text="Teacher"
+                        android:textColor="#00CCD5"
+                        android:textSize="@dimen/textsize" />
+
+                    <TextView
+                        android:id="@+id/txt_TEACHER1"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Teacher"
+                          android:clickable="true"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/textsize"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/txt_RECRUITER"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:clickable="true"
+                        android:text="Recruiter"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/textsize" />
+
+                    <TextView
+                        android:id="@+id/txt_RECRUITER1"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@android:color/white"
+                        android:gravity="center"
+                        android:clickable="true"
+                        android:text="Recruiter"
+                        android:textColor="#00CCD5"
+                        android:textSize="@dimen/textsize"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+
+        <Button
+            android:id="@+id/btn_done"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin"
+            android:background="@drawable/sky_color_shape_round"
+            android:padding="@dimen/paddingsmall"
+            android:text="Done"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/textsize" />
+
+        <include layout="@layout/bar_progress" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+             >
+        </View>
+    </LinearLayout>
+
+</RelativeLayout>
