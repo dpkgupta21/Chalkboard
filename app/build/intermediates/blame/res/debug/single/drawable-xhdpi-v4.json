@@ -72,12 +72,12 @@
         "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services\\6.1.71\\res\\drawable-xhdpi\\common_signin_btn_icon_pressed_dark.9.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\location_icon.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\src\\main\\res\\drawable-xhdpi\\location_icon.png"
-    },
-    {
         "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\powered_by_google_dark.png",
         "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services\\6.1.71\\res\\drawable-xhdpi\\powered_by_google_dark.png"
+    },
+    {
+        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\location_icon.png",
+        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\src\\main\\res\\drawable-xhdpi\\location_icon.png"
     },
     {
         "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\circle_edit.png",
@@ -136,16 +136,16 @@
         "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services\\6.1.71\\res\\drawable-xhdpi\\common_signin_btn_icon_normal_dark.9.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\support_icon.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\src\\main\\res\\drawable-xhdpi\\support_icon.png"
+        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_signin_btn_icon_disabled_focus_dark.9.png",
+        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services\\6.1.71\\res\\drawable-xhdpi\\common_signin_btn_icon_disabled_focus_dark.9.png"
     },
     {
         "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\com_facebook_tooltip_blue_background.9.png",
         "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\3.23.1\\res\\drawable-xhdpi-v4\\com_facebook_tooltip_blue_background.9.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_signin_btn_icon_disabled_focus_dark.9.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services\\6.1.71\\res\\drawable-xhdpi\\common_signin_btn_icon_disabled_focus_dark.9.png"
+        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\support_icon.png",
+        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\src\\main\\res\\drawable-xhdpi\\support_icon.png"
     },
     {
         "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_scrubber_control_to_pressed_mtrl_000.png",

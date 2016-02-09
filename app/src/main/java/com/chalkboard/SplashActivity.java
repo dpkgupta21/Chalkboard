@@ -37,7 +37,7 @@ public class SplashActivity extends Activity {
 						String id = GlobalClaass.getUserId(context);
 
 						if (id == null) {
-							startActivity(new Intent(context,LandingPage_Activity.class));
+							startActivity(new Intent(context,Login_Activity.class));
 							GlobalClaass.activitySlideForwardAnimation(context);
 							finish();
 						} else {

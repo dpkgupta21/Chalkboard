@@ -88,12 +88,12 @@
         "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\layout\\abc_dialog_title_material.xml"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_list.xml",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\src\\main\\res\\layout\\fragment_list.xml"
-    },
-    {
         "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\layout\\item_chat_list.xml",
         "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\src\\main\\res\\layout\\item_chat_list.xml"
+    },
+    {
+        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_list.xml",
+        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\src\\main\\res\\layout\\fragment_list.xml"
     },
     {
         "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_webview.xml",

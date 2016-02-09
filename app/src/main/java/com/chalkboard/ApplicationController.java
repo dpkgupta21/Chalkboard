@@ -10,6 +10,8 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.Volley;
 
+import org.acra.ACRA;
+
 public class ApplicationController extends Application {
 
 	public static final String TAG = ApplicationController.class
@@ -23,6 +25,8 @@ public class ApplicationController extends Application {
 	@Override
 	public void onCreate() {
 		super.onCreate();
+
+		ACRA.init(this);
 		mInstance = this;
 	}
 

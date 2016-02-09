@@ -12,12 +12,12 @@
         "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services\\6.1.71\\res\\drawable-mdpi\\common_signin_btn_text_disabled_light.9.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\abc_scrubber_primary_mtrl_alpha.9.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-mdpi\\abc_scrubber_primary_mtrl_alpha.9.png"
-    },
-    {
         "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\common_signin_btn_icon_pressed_light.9.png",
         "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services\\6.1.71\\res\\drawable-mdpi\\common_signin_btn_icon_pressed_light.9.png"
+    },
+    {
+        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\abc_scrubber_primary_mtrl_alpha.9.png",
+        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-mdpi\\abc_scrubber_primary_mtrl_alpha.9.png"
     },
     {
         "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\abc_btn_check_to_on_mtrl_000.png",
@@ -60,12 +60,12 @@
         "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\src\\main\\res\\drawable-mdpi\\email_id_icon.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\abc_scrubber_control_to_pressed_mtrl_005.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-mdpi\\abc_scrubber_control_to_pressed_mtrl_005.png"
-    },
-    {
         "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\abc_textfield_search_activated_mtrl_alpha.9.png",
         "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-mdpi\\abc_textfield_search_activated_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\abc_scrubber_control_to_pressed_mtrl_005.png",
+        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-mdpi\\abc_scrubber_control_to_pressed_mtrl_005.png"
     },
     {
         "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\com_facebook_tooltip_black_topnub.png",

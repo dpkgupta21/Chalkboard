@@ -84,12 +84,12 @@
         "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\src\\main\\res\\drawable\\red_cross.9.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\com_facebook_profile_picture_blank_portrait.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\3.23.1\\res\\drawable\\com_facebook_profile_picture_blank_portrait.png"
-    },
-    {
         "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\scrubber_control_pressed_holo.9.png",
         "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\src\\main\\res\\drawable\\scrubber_control_pressed_holo.9.png"
+    },
+    {
+        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\com_facebook_profile_picture_blank_portrait.png",
+        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\3.23.1\\res\\drawable\\com_facebook_profile_picture_blank_portrait.png"
     },
     {
         "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\salary_icon.png",
@@ -252,12 +252,12 @@
         "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\src\\main\\res\\drawable\\white_circle.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\com_facebook_picker_top_button.xml",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\3.23.1\\res\\drawable\\com_facebook_picker_top_button.xml"
-    },
-    {
         "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\blackring.xml",
         "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\src\\main\\res\\drawable\\blackring.xml"
+    },
+    {
+        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\com_facebook_picker_top_button.xml",
+        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\3.23.1\\res\\drawable\\com_facebook_picker_top_button.xml"
     },
     {
         "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\com_facebook_button_grey_normal.9.png",
@@ -272,16 +272,16 @@
         "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\src\\main\\res\\drawable\\ic_map.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\logo_2.9.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\src\\main\\res\\drawable\\logo_2.9.png"
+        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\splash.png",
+        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\src\\main\\res\\drawable\\splash.png"
     },
     {
         "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\single_radio_chice.xml",
         "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\src\\main\\res\\drawable\\single_radio_chice.xml"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\splash.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\src\\main\\res\\drawable\\splash.png"
+        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\logo_2.9.png",
+        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\src\\main\\res\\drawable\\logo_2.9.png"
     },
     {
         "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\support_settings.png",
@@ -600,12 +600,12 @@
         "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\src\\main\\res\\drawable\\drawline.xml"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\shape.xml",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\src\\main\\res\\drawable\\shape.xml"
-    },
-    {
         "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\background_2.png",
         "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\src\\main\\res\\drawable\\background_2.png"
+    },
+    {
+        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\shape.xml",
+        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\src\\main\\res\\drawable\\shape.xml"
     },
     {
         "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\unchecked_icon.png",

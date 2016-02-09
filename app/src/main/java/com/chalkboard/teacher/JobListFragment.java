@@ -60,9 +60,9 @@ public class JobListFragment extends Fragment {
 
 	GetJobItem getJobItem = null;
 
-	RelativeLayout rlLocation, rlType, rlDate;
-	ImageView ivLocation, ivType, ivDate;
-	TextView tvLocation, tvType, tvDate;
+	RelativeLayout rlLocation, rlType; //rlDate;
+	ImageView ivLocation, ivType; //ivDate;
+	TextView tvLocation, tvType; //tvDate;
 
 	JobListAdapter itmAdap = null;
 	Typeface font,font2;
@@ -92,19 +92,19 @@ public class JobListFragment extends Fragment {
 		rlLocation = (RelativeLayout) context
 				.findViewById(R.id.bottom_location);
 		rlType = (RelativeLayout) context.findViewById(R.id.bottom_type);
-		rlDate = (RelativeLayout) context.findViewById(R.id.bottom_date);
+		//rlDate = (RelativeLayout) context.findViewById(R.id.bottom_date);
 
 		ivLocation = (ImageView) context
 				.findViewById(R.id.bottom_location_image);
 		ivType = (ImageView) context.findViewById(R.id.bottom_type_image);
-		ivDate = (ImageView) context.findViewById(R.id.bottom_date_image);
+		//ivDate = (ImageView) context.findViewById(R.id.bottom_date_image);
 
 		tvLocation = (TextView) context.findViewById(R.id.bottom_location_text);
 		tvType = (TextView) context.findViewById(R.id.bottom_type_text);
-		tvDate = (TextView) context.findViewById(R.id.bottom_date_text);
+		//tvDate = (TextView) context.findViewById(R.id.bottom_date_text);
 		
 		try {
-			tvDate.setTypeface(font);
+			//tvDate.setTypeface(font);
 			tvType.setTypeface(font);
 			tvLocation.setTypeface(font);
 			edtSearch.setTypeface(font);
@@ -137,17 +137,17 @@ public class JobListFragment extends Fragment {
 				//context.overridePendingTransition(R.anim.slide_up, 0);
 			}
 		});
-		rlDate.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View arg0) {
-				startActivity(new Intent(context,
-						SelectJobStartDateActivity.class));
-				rlDate.setBackgroundColor(Color.parseColor("#00c7d4"));
-				ivDate.setImageResource(R.drawable.calendar_white_menu_icon);
-				tvDate.setTextColor(Color.WHITE);
-				//context.overridePendingTransition(R.anim.slide_up, 0);
-			}
-		});
+//		rlDate.setOnClickListener(new OnClickListener() {
+//			@Override
+//			public void onClick(View arg0) {
+//				startActivity(new Intent(context,
+//						SelectJobStartDateActivity.class));
+//				rlDate.setBackgroundColor(Color.parseColor("#00c7d4"));
+//				ivDate.setImageResource(R.drawable.calendar_white_menu_icon);
+//				tvDate.setTextColor(Color.WHITE);
+//				//context.overridePendingTransition(R.anim.slide_up, 0);
+//			}
+//		});
 
 		edtSearch.addTextChangedListener(new TextWatcher() {
 			
@@ -195,10 +195,10 @@ public class JobListFragment extends Fragment {
 
 		rlLocation.setBackgroundColor(Color.TRANSPARENT);
 		rlType.setBackgroundColor(Color.TRANSPARENT);
-		rlDate.setBackgroundColor(Color.TRANSPARENT);
+		//rlDate.setBackgroundColor(Color.TRANSPARENT);
 
-		ivDate.setImageResource(R.drawable.calendar_black_menu_icon);
-		tvDate.setTextColor(Color.BLACK);
+		//ivDate.setImageResource(R.drawable.calendar_black_menu_icon);
+		//xtvDate.setTextColor(Color.BLACK);
 
 		ivType.setImageResource(R.drawable.clock_black_icon);
 		tvType.setTextColor(Color.BLACK);
@@ -207,7 +207,7 @@ public class JobListFragment extends Fragment {
 		tvLocation.setTextColor(Color.BLACK);
 
 		if(GlobalClaass.isInternetPresent(context)){
-edtSearch.setText("");
+			edtSearch.setText("");
 			getJobItem = new GetJobItem(GlobalClaass.getCountriesArray(context),
 					GlobalClaass.getTypeArray(context),
 					GlobalClaass.getStartDate(context), "");
