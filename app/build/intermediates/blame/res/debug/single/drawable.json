@@ -160,6 +160,10 @@
         "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\src\\main\\res\\drawable\\menu_icon.9.png"
     },
     {
+        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\list_item_bg_normal.xml",
+        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\src\\main\\res\\drawable\\list_item_bg_normal.xml"
+    },
+    {
         "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\googleplus_settings.png",
         "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\src\\main\\res\\drawable\\googleplus_settings.png"
     },
@@ -222,6 +226,10 @@
     {
         "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\scrubber_control_disabled_holo.9.png",
         "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\src\\main\\res\\drawable\\scrubber_control_disabled_holo.9.png"
+    },
+    {
+        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\list_selector.xml",
+        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\src\\main\\res\\drawable\\list_selector.xml"
     },
     {
         "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\ring_icon.9.png",
@@ -300,12 +308,12 @@
         "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\src\\main\\res\\drawable\\cross_icon.9.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\location_white_menu_icon_footer.9.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\src\\main\\res\\drawable\\location_white_menu_icon_footer.9.png"
-    },
-    {
         "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\com_facebook_button_like_pressed.png",
         "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\3.23.1\\res\\drawable\\com_facebook_button_like_pressed.png"
+    },
+    {
+        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\location_white_menu_icon_footer.9.png",
+        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\src\\main\\res\\drawable\\location_white_menu_icon_footer.9.png"
     },
     {
         "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\postjob_menu_black.png",
@@ -666,6 +674,10 @@
     {
         "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\location_icon.9.png",
         "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\src\\main\\res\\drawable\\location_icon.9.png"
+    },
+    {
+        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\list_item_bg_pressed.xml",
+        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\src\\main\\res\\drawable\\list_item_bg_pressed.xml"
     },
     {
         "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\remove_job.9.png",

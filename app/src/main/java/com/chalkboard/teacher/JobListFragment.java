@@ -6,7 +6,6 @@ import static com.chalkboard.GlobalClaass.showToastMessage;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;

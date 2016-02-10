@@ -7,7 +7,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -25,12 +24,6 @@ import com.chalkboard.GlobalClaass;
 import com.chalkboard.ImageLoader;
 import com.chalkboard.R;
 import com.chalkboard.WebView_Activity;
-import com.chalkboard.recruiter.MyPostedJobs.GetPostedJobs;
-import com.chalkboard.recruiter.MyPostedJobs.JobListAdapter;
-import com.chalkboard.recruiter.MyPostedJobs.JobListAdapter.ViewHolder;
-import com.chalkboard.recruiter.RecruiterProfileEditActivity.Recruiter_EditProfile;
-import com.chalkboard.recruiter.TeacherListFragment.GetTeacherItem;
-import com.chalkboard.teacher.JobListActivity;
 import com.chalkboard.teacher.JobObject;
 
 import android.app.Activity;
@@ -39,21 +32,16 @@ import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.TextView;
 
 public class TeacherCreditFragment extends Fragment {

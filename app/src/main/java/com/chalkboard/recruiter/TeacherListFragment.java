@@ -5,7 +5,6 @@ import static com.chalkboard.GlobalClaass.showProgressBar;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -20,14 +19,12 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,7 +37,6 @@ import android.widget.TextView;
 
 import com.chalkboard.GlobalClaass;
 import com.chalkboard.R;
-import com.chalkboard.teacher.JobListAdapter;
 
 public class TeacherListFragment extends Fragment {
 

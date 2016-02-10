@@ -146,13 +146,6 @@
             android:windowSoftInputMode="stateHidden|adjustPan" >
         </activity>
         <activity
-            android:name="com.chalkboard.teacher.JobListActivity"
-            android:configChanges="orientation|screenSize|keyboard"
-            android:label="@string/app_name"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustNothing" >
-        </activity>
-        <activity
             android:name="com.chalkboard.teacher.TeacherProfileViewActivity"
             android:configChanges="orientation|screenSize|keyboard"
             android:label="@string/app_name"

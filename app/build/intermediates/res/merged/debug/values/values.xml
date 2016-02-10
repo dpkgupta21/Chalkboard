@@ -1,5 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <string-array name="teacher_drawer_items">
+        <item>Search</item>
+        <item>Favorites</item>
+        <item>Match Request</item>
+        <item>Matches</item>
+        <item>My Notifications</item>
+        <item>Inbox</item>
+        <item>Help</item>
+        <item>Settings</item>
+        <item>Logout</item>
+    </string-array>
+    <array name="teacher_selected_drawer_icons">
+        <item>@drawable/search_menublackk</item>
+        <item>@drawable/favourite_menu_black</item>
+        <item>@drawable/match_menu_black</item>
+        <item>@drawable/match_menu_black</item>
+        <item>@drawable/notification_menu_black</item>
+        <item>@drawable/inbox_menu_black</item>
+        <item>@drawable/help_menu_black</item>
+        <item>@drawable/settings_menu_black</item>
+        <item>@drawable/logout_menu</item>
+    </array>
+    <array name="teacher_unselected_drawer_icons">
+        <item>@drawable/search_menu</item>
+        <item>@drawable/favourite_menu</item>
+        <item>@drawable/match_menu</item>
+        <item>@drawable/match_menu</item>
+        <item>@drawable/notification_menu</item>
+        <item>@drawable/inbox_menu</item>
+        <item>@drawable/help_menu</item>
+        <item>@drawable/settings_menu</item>
+        <item>@drawable/logout_menu</item>
+    </array>
     <attr format="boolean" name="centered"/>
     <attr format="reference" name="customAbsSpinnerStyle"/>
     <attr format="reference" name="drawerArrowStyle"/>
@@ -78,6 +111,8 @@
     <color name="highlighted_text_material_light">#66009688</color>
     <color name="hint_foreground_material_dark">@color/bright_foreground_disabled_material_dark</color>
     <color name="hint_foreground_material_light">@color/bright_foreground_disabled_material_light</color>
+    <color name="list_background">#ffffff</color>
+    <color name="list_divider">#55ffffff</color>
     <color name="material_blue_grey_800">#ff37474f</color>
     <color name="material_blue_grey_900">#ff263238</color>
     <color name="material_blue_grey_950">#ff21272b</color>

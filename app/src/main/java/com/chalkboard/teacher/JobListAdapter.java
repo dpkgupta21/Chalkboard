@@ -31,6 +31,7 @@ import android.widget.TextView;
 import com.chalkboard.GlobalClaass;
 import com.chalkboard.ImageLoader;
 import com.chalkboard.R;
+import com.chalkboard.teacher.JobObject;
 import com.chalkboard.teacher.JobPageFragment.AddJobFavorites;
 import com.chalkboard.teacher.JobPageFragment.RemoveJobFavorites;
 

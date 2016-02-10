@@ -10,7 +10,6 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.chalkboard.recruiter.TeachersListActivity;
-import com.chalkboard.teacher.JobListActivity;
 import com.google.android.gcm.GCMBaseIntentService;
 
 import java.lang.reflect.InvocationTargetException;

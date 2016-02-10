@@ -35,7 +35,7 @@
             android:gravity="center_horizontal"
             android:orientation="vertical" >
 
-              <RelativeLayout 
+              <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     >
@@ -81,297 +81,304 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1px"
+                android:layout_height="1dp"
                 android:background="#55ffffff" />
 
-            <LinearLayout
-                android:id="@+id/llsearch"
+            <ListView
+                android:id="@+id/list_slidermenu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-               
-                android:orientation="horizontal" >
+                android:choiceMode="singleChoice"
+                android:divider="@color/list_divider"
+                android:dividerHeight="1dp" />
+            <!--<LinearLayout-->
+                <!--android:id="@+id/llsearch"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:gravity="center_vertical"-->
+               <!-- -->
+                <!--android:orientation="horizontal" >-->
 
-                <ImageView
-                    android:id="@+id/ivsearch"
-                    android:layout_width="18dp"
-                    android:layout_height="18dp"
-                    android:layout_marginLeft="@dimen/margin"
-                    android:src="@drawable/search_menu" />
+                <!--<ImageView-->
+                    <!--android:id="@+id/ivsearch"-->
+                    <!--android:layout_width="18dp"-->
+                    <!--android:layout_height="18dp"-->
+                    <!--android:layout_marginLeft="@dimen/margin"-->
+                    <!--android:src="@drawable/search_menu" />-->
 
-                <TextView
-                    android:id="@+id/tvsearch"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:padding="@dimen/padding"
-                    android:paddingLeft="@dimen/margin"
-                    android:paddingRight="@dimen/margin"
-                    android:singleLine="true"
-                    android:text="Search"
-                    android:textColor="@android:color/white"
-                    android:textSize="@dimen/textsize"
-                    android:textStyle="bold" />
-            </LinearLayout>
+                <!--<TextView-->
+                    <!--android:id="@+id/tvsearch"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:gravity="center_vertical"-->
+                    <!--android:padding="@dimen/padding"-->
+                    <!--android:paddingLeft="@dimen/margin"-->
+                    <!--android:paddingRight="@dimen/margin"-->
+                    <!--android:singleLine="true"-->
+                    <!--android:text="Search"-->
+                    <!--android:textColor="@android:color/white"-->
+                    <!--android:textSize="@dimen/textsize"-->
+                    <!--android:textStyle="bold" />-->
+            <!--</LinearLayout>-->
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:background="#55ffffff" />
+            <!--<View-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="1px"-->
+                <!--android:background="#55ffffff" />-->
 
-            <LinearLayout
-                android:id="@+id/llfavorites"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal" >
+            <!--<LinearLayout-->
+                <!--android:id="@+id/llfavorites"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:gravity="center_vertical"-->
+                <!--android:orientation="horizontal" >-->
 
-                <ImageView
-                    android:id="@+id/ivfavorites"
-                    android:layout_width="18dp"
-                    android:layout_height="18dp"
-                    android:layout_marginLeft="@dimen/margin"
-                    android:src="@drawable/favourite_menu" />
+                <!--<ImageView-->
+                    <!--android:id="@+id/ivfavorites"-->
+                    <!--android:layout_width="18dp"-->
+                    <!--android:layout_height="18dp"-->
+                    <!--android:layout_marginLeft="@dimen/margin"-->
+                    <!--android:src="@drawable/favourite_menu" />-->
 
-                <TextView
-                    android:id="@+id/tvfavorites"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:padding="@dimen/padding"
-                    android:paddingLeft="@dimen/margin"
-                    android:paddingRight="@dimen/margin"
-                    android:singleLine="true"
-                    android:text="Favorites"
-                    android:textColor="@android:color/white"
-                    android:textSize="@dimen/textsize"
-                    android:textStyle="bold" />
-            </LinearLayout>
+                <!--<TextView-->
+                    <!--android:id="@+id/tvfavorites"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:gravity="center_vertical"-->
+                    <!--android:padding="@dimen/padding"-->
+                    <!--android:paddingLeft="@dimen/margin"-->
+                    <!--android:paddingRight="@dimen/margin"-->
+                    <!--android:singleLine="true"-->
+                    <!--android:text="Favorites"-->
+                    <!--android:textColor="@android:color/white"-->
+                    <!--android:textSize="@dimen/textsize"-->
+                    <!--android:textStyle="bold" />-->
+            <!--</LinearLayout>-->
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:background="#55ffffff" />
+            <!--<View-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="1px"-->
+                <!--android:background="#55ffffff" />-->
 
-            <LinearLayout
-                android:id="@+id/llmatches"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal" >
+            <!--<LinearLayout-->
+                <!--android:id="@+id/llmatches"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:gravity="center_vertical"-->
+                <!--android:orientation="horizontal" >-->
 
-                <ImageView
-                    android:id="@+id/ivmatches"
-                    android:layout_width="18dp"
-                    android:layout_height="18dp"
-                    android:layout_marginLeft="@dimen/margin"
-                    android:src="@drawable/match_menu" />
+                <!--<ImageView-->
+                    <!--android:id="@+id/ivmatches"-->
+                    <!--android:layout_width="18dp"-->
+                    <!--android:layout_height="18dp"-->
+                    <!--android:layout_marginLeft="@dimen/margin"-->
+                    <!--android:src="@drawable/match_menu" />-->
 
-                <TextView
-                    android:id="@+id/tvmatches"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:padding="@dimen/padding"
-                    android:paddingLeft="@dimen/margin"
-                    android:paddingRight="@dimen/margin"
-                    android:singleLine="true"
-                    android:text="Matches"
-                    android:textColor="@android:color/white"
-                    android:textSize="@dimen/textsize"
-                    android:textStyle="bold" />
-            </LinearLayout>
+                <!--<TextView-->
+                    <!--android:id="@+id/tvmatches"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:gravity="center_vertical"-->
+                    <!--android:padding="@dimen/padding"-->
+                    <!--android:paddingLeft="@dimen/margin"-->
+                    <!--android:paddingRight="@dimen/margin"-->
+                    <!--android:singleLine="true"-->
+                    <!--android:text="Matches"-->
+                    <!--android:textColor="@android:color/white"-->
+                    <!--android:textSize="@dimen/textsize"-->
+                    <!--android:textStyle="bold" />-->
+            <!--</LinearLayout>-->
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:background="#55ffffff" />
+            <!--<View-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="1px"-->
+                <!--android:background="#55ffffff" />-->
 
-            <LinearLayout
-                android:id="@+id/llmy_notifications"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal" >
+            <!--<LinearLayout-->
+                <!--android:id="@+id/llmy_notifications"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:gravity="center_vertical"-->
+                <!--android:orientation="horizontal" >-->
 
-                <ImageView
-                    android:id="@+id/ivmy_notifications"
-                    android:layout_width="18dp"
-                    android:layout_height="18dp"
-                    android:layout_marginLeft="@dimen/margin"
-                    android:src="@drawable/notification_menu" />
+                <!--<ImageView-->
+                    <!--android:id="@+id/ivmy_notifications"-->
+                    <!--android:layout_width="18dp"-->
+                    <!--android:layout_height="18dp"-->
+                    <!--android:layout_marginLeft="@dimen/margin"-->
+                    <!--android:src="@drawable/notification_menu" />-->
 
-                <TextView
-                    android:id="@+id/tvmy_notifications"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:padding="@dimen/padding"
-                    android:paddingLeft="@dimen/margin"
-                    android:paddingRight="@dimen/margin"
-                    android:singleLine="true"
-                    android:text="My Notifications"
-                    android:textColor="@android:color/white"
-                    android:textSize="@dimen/textsize"
-                    android:textStyle="bold" />
+                <!--<TextView-->
+                    <!--android:id="@+id/tvmy_notifications"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:gravity="center_vertical"-->
+                    <!--android:padding="@dimen/padding"-->
+                    <!--android:paddingLeft="@dimen/margin"-->
+                    <!--android:paddingRight="@dimen/margin"-->
+                    <!--android:singleLine="true"-->
+                    <!--android:text="My Notifications"-->
+                    <!--android:textColor="@android:color/white"-->
+                    <!--android:textSize="@dimen/textsize"-->
+                    <!--android:textStyle="bold" />-->
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/margin"
-                    
-                     android:paddingRight="@dimen/margin" >    
-                <TextView
-                    android:id="@+id/noti_count"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:visibility="gone"
-                    android:background="@drawable/whitering"
-                    android:layout_alignParentRight="true"
-                     android:textColor="@android:color/white"
-                    android:textSize="@dimen/textsize"
-                    />
-                </RelativeLayout>
-            </LinearLayout>
+                <!--<RelativeLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="@dimen/margin"-->
+                    <!-- -->
+                     <!--android:paddingRight="@dimen/margin" >    -->
+                <!--<TextView-->
+                    <!--android:id="@+id/noti_count"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:gravity="center"-->
+                    <!--android:visibility="gone"-->
+                    <!--android:background="@drawable/whitering"-->
+                    <!--android:layout_alignParentRight="true"-->
+                     <!--android:textColor="@android:color/white"-->
+                    <!--android:textSize="@dimen/textsize"-->
+                    <!--/>-->
+                <!--</RelativeLayout>-->
+            <!--</LinearLayout>-->
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:background="#55ffffff" />
+            <!--<View-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="1px"-->
+                <!--android:background="#55ffffff" />-->
 
-            <LinearLayout
-                android:id="@+id/llinbox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal" >
+            <!--<LinearLayout-->
+                <!--android:id="@+id/llinbox"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:gravity="center_vertical"-->
+                <!--android:orientation="horizontal" >-->
 
-                <ImageView
-                    android:id="@+id/ivinbox"
-                    android:layout_width="18dp"
-                    android:layout_height="18dp"
-                    android:layout_marginLeft="@dimen/margin"
-                    android:src="@drawable/inbox_menu" />
+                <!--<ImageView-->
+                    <!--android:id="@+id/ivinbox"-->
+                    <!--android:layout_width="18dp"-->
+                    <!--android:layout_height="18dp"-->
+                    <!--android:layout_marginLeft="@dimen/margin"-->
+                    <!--android:src="@drawable/inbox_menu" />-->
 
-                <TextView
-                    android:id="@+id/tvinbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:padding="@dimen/padding"
-                    android:paddingLeft="@dimen/margin"
-                    android:paddingRight="@dimen/margin"
-                    android:singleLine="true"
-                    android:text="Inbox"
-                    android:textColor="@android:color/white"
-                    android:textSize="@dimen/textsize"
-                    android:textStyle="bold" />
-                
-                
-            </LinearLayout>
+                <!--<TextView-->
+                    <!--android:id="@+id/tvinbox"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:gravity="center_vertical"-->
+                    <!--android:padding="@dimen/padding"-->
+                    <!--android:paddingLeft="@dimen/margin"-->
+                    <!--android:paddingRight="@dimen/margin"-->
+                    <!--android:singleLine="true"-->
+                    <!--android:text="Inbox"-->
+                    <!--android:textColor="@android:color/white"-->
+                    <!--android:textSize="@dimen/textsize"-->
+                    <!--android:textStyle="bold" />-->
+                <!-- -->
+                <!-- -->
+            <!--</LinearLayout>-->
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:background="#55ffffff" />
+            <!--<View-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="1px"-->
+                <!--android:background="#55ffffff" />-->
 
-            <LinearLayout
-                android:id="@+id/llhelp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal" >
+            <!--<LinearLayout-->
+                <!--android:id="@+id/llhelp"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:gravity="center_vertical"-->
+                <!--android:orientation="horizontal" >-->
 
-                <ImageView
-                    android:id="@+id/ivhelp"
-                    android:layout_width="18dp"
-                    android:layout_height="18dp"
-                    android:layout_marginLeft="@dimen/margin"
-                    android:src="@drawable/help_menu" />
+                <!--<ImageView-->
+                    <!--android:id="@+id/ivhelp"-->
+                    <!--android:layout_width="18dp"-->
+                    <!--android:layout_height="18dp"-->
+                    <!--android:layout_marginLeft="@dimen/margin"-->
+                    <!--android:src="@drawable/help_menu" />-->
 
-                <TextView
-                    android:id="@+id/tvhelp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:padding="@dimen/padding"
-                    android:paddingLeft="@dimen/margin"
-                    android:paddingRight="@dimen/margin"
-                    android:singleLine="true"
-                    android:text="Help"
-                    android:textColor="@android:color/white"
-                    android:textSize="@dimen/textsize"
-                    android:textStyle="bold" />
-            </LinearLayout>
+                <!--<TextView-->
+                    <!--android:id="@+id/tvhelp"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:gravity="center_vertical"-->
+                    <!--android:padding="@dimen/padding"-->
+                    <!--android:paddingLeft="@dimen/margin"-->
+                    <!--android:paddingRight="@dimen/margin"-->
+                    <!--android:singleLine="true"-->
+                    <!--android:text="Help"-->
+                    <!--android:textColor="@android:color/white"-->
+                    <!--android:textSize="@dimen/textsize"-->
+                    <!--android:textStyle="bold" />-->
+            <!--</LinearLayout>-->
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:background="#55ffffff" />
+            <!--<View-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="1px"-->
+                <!--android:background="#55ffffff" />-->
 
-            <LinearLayout
-                android:id="@+id/llsettings"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal" >
+            <!--<LinearLayout-->
+                <!--android:id="@+id/llsettings"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:gravity="center_vertical"-->
+                <!--android:orientation="horizontal" >-->
 
-                <ImageView
-                    android:id="@+id/ivsettings"
-                    android:layout_width="18dp"
-                    android:layout_height="18dp"
-                    android:layout_marginLeft="@dimen/margin"
-                    android:src="@drawable/settings_menu" />
+                <!--<ImageView-->
+                    <!--android:id="@+id/ivsettings"-->
+                    <!--android:layout_width="18dp"-->
+                    <!--android:layout_height="18dp"-->
+                    <!--android:layout_marginLeft="@dimen/margin"-->
+                    <!--android:src="@drawable/settings_menu" />-->
 
-                <TextView
-                    android:id="@+id/tvsettings"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:padding="@dimen/padding"
-                    android:paddingLeft="@dimen/margin"
-                    android:paddingRight="@dimen/margin"
-                    android:singleLine="true"
-                    android:text="Settings"
-                    android:textColor="@android:color/white"
-                    android:textSize="@dimen/textsize"
-                    android:textStyle="bold" />
-            </LinearLayout>
+                <!--<TextView-->
+                    <!--android:id="@+id/tvsettings"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:gravity="center_vertical"-->
+                    <!--android:padding="@dimen/padding"-->
+                    <!--android:paddingLeft="@dimen/margin"-->
+                    <!--android:paddingRight="@dimen/margin"-->
+                    <!--android:singleLine="true"-->
+                    <!--android:text="Settings"-->
+                    <!--android:textColor="@android:color/white"-->
+                    <!--android:textSize="@dimen/textsize"-->
+                    <!--android:textStyle="bold" />-->
+            <!--</LinearLayout>-->
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:background="#55ffffff" />
+            <!--<View-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="1px"-->
+                <!--android:background="#55ffffff" />-->
 
-            <LinearLayout
-                android:id="@+id/lllogout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal" >
+            <!--<LinearLayout-->
+                <!--android:id="@+id/lllogout"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:gravity="center_vertical"-->
+                <!--android:orientation="horizontal" >-->
 
-                <ImageView
-                    android:id="@+id/ivlogout"
-                    android:layout_width="18dp"
-                    android:layout_height="18dp"
-                    android:layout_marginLeft="@dimen/margin"
-                    android:src="@drawable/logout_menu" />
+                <!--<ImageView-->
+                    <!--android:id="@+id/ivlogout"-->
+                    <!--android:layout_width="18dp"-->
+                    <!--android:layout_height="18dp"-->
+                    <!--android:layout_marginLeft="@dimen/margin"-->
+                    <!--android:src="@drawable/logout_menu" />-->
 
-                <TextView
-                    android:id="@+id/tvlogout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:padding="@dimen/padding"
-                    android:paddingLeft="@dimen/margin"
-                    android:paddingRight="@dimen/margin"
-                    android:singleLine="true"
-                    android:text="Logout"
-                    android:textColor="@android:color/white"
-                    android:textSize="@dimen/textsize"
-                    android:textStyle="bold" />
-            </LinearLayout>
+                <!--<TextView-->
+                    <!--android:id="@+id/tvlogout"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:gravity="center_vertical"-->
+                    <!--android:padding="@dimen/padding"-->
+                    <!--android:paddingLeft="@dimen/margin"-->
+                    <!--android:paddingRight="@dimen/margin"-->
+                    <!--android:singleLine="true"-->
+                    <!--android:text="Logout"-->
+                    <!--android:textColor="@android:color/white"-->
+                    <!--android:textSize="@dimen/textsize"-->
+                    <!--android:textStyle="bold" />-->
+            <!--</LinearLayout>-->
         </LinearLayout>
     </ScrollView>
 

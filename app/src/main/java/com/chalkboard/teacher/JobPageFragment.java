@@ -485,7 +485,7 @@ public class JobPageFragment extends Fragment {
 
 	RemoveJobFavorites removeJobFavorites;
 
-	class RemoveJobFavorites extends AsyncTask<String, String, String> {
+	public class RemoveJobFavorites extends AsyncTask<String, String, String> {
 
 		String jobId;
 
@@ -544,7 +544,7 @@ public class JobPageFragment extends Fragment {
 
 	AddJobFavorites addJobFavorites;
 
-	class AddJobFavorites extends AsyncTask<String, String, String> {
+	public class AddJobFavorites extends AsyncTask<String, String, String> {
 
 		String jobId;
 

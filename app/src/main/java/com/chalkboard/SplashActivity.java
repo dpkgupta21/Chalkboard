@@ -2,7 +2,6 @@ package com.chalkboard;
 
 
 import com.chalkboard.recruiter.TeachersListActivity;
-import com.chalkboard.teacher.JobListActivity;
 
 import android.app.Activity;
 import android.content.Intent;
