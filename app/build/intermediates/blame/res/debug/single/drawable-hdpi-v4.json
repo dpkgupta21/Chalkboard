@@ -1,478 +1,478 @@
 [
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\common_signin_btn_text_focus_light.9.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services\\6.1.71\\res\\drawable-hdpi\\common_signin_btn_text_focus_light.9.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/powered_by_google_light.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.1.71/res/drawable-hdpi/powered_by_google_light.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\key_icon.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\src\\main\\res\\drawable-hdpi\\key_icon.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/com_facebook_button_blue_focused.9.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/3.23.1/res/drawable-hdpi-v4/com_facebook_button_blue_focused.9.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\photo_icon.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\src\\main\\res\\drawable-hdpi\\photo_icon.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_ab_share_pack_mtrl_alpha.9.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-hdpi/abc_ab_share_pack_mtrl_alpha.9.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\powered_by_google_light.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services\\6.1.71\\res\\drawable-hdpi\\powered_by_google_light.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/com_facebook_tooltip_blue_xout.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/3.23.1/res/drawable-hdpi-v4/com_facebook_tooltip_blue_xout.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_btn_check_to_on_mtrl_015.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_btn_check_to_on_mtrl_015.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/google_icon.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-hdpi/google_icon.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_plusone_medium_off_client.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services\\6.1.71\\res\\drawable-hdpi\\ic_plusone_medium_off_client.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/twitter_icon.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-hdpi/twitter_icon.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_go_search_api_mtrl_alpha.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_ic_go_search_api_mtrl_alpha.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/common_signin_btn_text_normal_light.9.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.1.71/res/drawable-hdpi/common_signin_btn_text_normal_light.9.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\com_facebook_button_grey_focused.9.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\3.23.1\\res\\drawable-hdpi-v4\\com_facebook_button_grey_focused.9.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/ic_plusone_small_off_client.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.1.71/res/drawable-hdpi/ic_plusone_small_off_client.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\google_icon.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\src\\main\\res\\drawable-hdpi\\google_icon.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_scrubber_control_off_mtrl_alpha.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-hdpi/abc_scrubber_control_off_mtrl_alpha.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\com_facebook_inverse_icon.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\3.23.1\\res\\drawable-hdpi-v4\\com_facebook_inverse_icon.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/splash.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-hdpi/splash.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_scrubber_control_off_mtrl_alpha.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_scrubber_control_off_mtrl_alpha.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/logo_iconsmall.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-hdpi/logo_iconsmall.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_list_pressed_holo_light.9.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_list_pressed_holo_light.9.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/ic_plusone_tall_off_client.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.1.71/res/drawable-hdpi/ic_plusone_tall_off_client.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\common_signin_btn_icon_normal_dark.9.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services\\6.1.71\\res\\drawable-hdpi\\common_signin_btn_icon_normal_dark.9.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/on_switch_icon.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-hdpi/on_switch_icon.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_textfield_activated_mtrl_alpha.9.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_textfield_activated_mtrl_alpha.9.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_ic_ab_back_mtrl_am_alpha.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-hdpi/abc_ic_ab_back_mtrl_am_alpha.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\g_icon.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\src\\main\\res\\drawable-hdpi\\g_icon.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/logo_icon.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-hdpi/logo_icon.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_plusone_tall_off_client.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services\\6.1.71\\res\\drawable-hdpi\\ic_plusone_tall_off_client.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/com_facebook_tooltip_black_xout.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/3.23.1/res/drawable-hdpi-v4/com_facebook_tooltip_black_xout.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_menu_paste_mtrl_am_alpha.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_ic_menu_paste_mtrl_am_alpha.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/common_signin_btn_text_disabled_light.9.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.1.71/res/drawable-hdpi/common_signin_btn_text_disabled_light.9.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\com_facebook_button_blue_pressed.9.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\3.23.1\\res\\drawable-hdpi-v4\\com_facebook_button_blue_pressed.9.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/com_facebook_button_like_icon_selected.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/3.23.1/res/drawable-hdpi-v4/com_facebook_button_like_icon_selected.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_clear_mtrl_alpha.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_ic_clear_mtrl_alpha.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/common_signin_btn_text_focus_dark.9.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.1.71/res/drawable-hdpi/common_signin_btn_text_focus_dark.9.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\com_facebook_tooltip_blue_background.9.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\3.23.1\\res\\drawable-hdpi-v4\\com_facebook_tooltip_blue_background.9.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/common_signin_btn_icon_normal_dark.9.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.1.71/res/drawable-hdpi/common_signin_btn_icon_normal_dark.9.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_btn_check_to_on_mtrl_000.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_btn_check_to_on_mtrl_000.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_textfield_search_activated_mtrl_alpha.9.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-hdpi/abc_textfield_search_activated_mtrl_alpha.9.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_list_selector_disabled_holo_light.9.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_list_selector_disabled_holo_light.9.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/com_facebook_tooltip_blue_bottomnub.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/3.23.1/res/drawable-hdpi-v4/com_facebook_tooltip_blue_bottomnub.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\email_id.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\src\\main\\res\\drawable-hdpi\\email_id.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/common_signin_btn_icon_disabled_focus_light.9.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.1.71/res/drawable-hdpi/common_signin_btn_icon_disabled_focus_light.9.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\common_signin_btn_icon_pressed_light.9.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services\\6.1.71\\res\\drawable-hdpi\\common_signin_btn_icon_pressed_light.9.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/app_icon.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-hdpi/app_icon.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_menu_hardkey_panel_mtrl_mult.9.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_menu_hardkey_panel_mtrl_mult.9.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_list_longpressed_holo.9.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-hdpi/abc_list_longpressed_holo.9.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\circle_edit.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\src\\main\\res\\drawable-hdpi\\circle_edit.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_menu_hardkey_panel_mtrl_mult.9.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-hdpi/abc_menu_hardkey_panel_mtrl_mult.9.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_scrubber_primary_mtrl_alpha.9.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_scrubber_primary_mtrl_alpha.9.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_ic_menu_moreoverflow_mtrl_alpha.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-hdpi/abc_ic_menu_moreoverflow_mtrl_alpha.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_menu_selectall_mtrl_alpha.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_ic_menu_selectall_mtrl_alpha.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_btn_check_to_on_mtrl_015.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-hdpi/abc_btn_check_to_on_mtrl_015.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_search_api_mtrl_alpha.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_ic_search_api_mtrl_alpha.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/facebook_icon.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-hdpi/facebook_icon.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\support_icon.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\src\\main\\res\\drawable-hdpi\\support_icon.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/com_facebook_button_like_icon.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/3.23.1/res/drawable-hdpi-v4/com_facebook_button_like_icon.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\com_facebook_tooltip_black_topnub.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\3.23.1\\res\\drawable-hdpi-v4\\com_facebook_tooltip_black_topnub.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/common_signin_btn_text_pressed_light.9.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.1.71/res/drawable-hdpi/common_signin_btn_text_pressed_light.9.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\com_facebook_button_like_background.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\3.23.1\\res\\drawable-hdpi-v4\\com_facebook_button_like_background.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/common_full_open_on_phone.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.1.71/res/drawable-hdpi/common_full_open_on_phone.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\powered_by_google_dark.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services\\6.1.71\\res\\drawable-hdpi\\powered_by_google_dark.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_list_divider_mtrl_alpha.9.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-hdpi/abc_list_divider_mtrl_alpha.9.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_list_pressed_holo_dark.9.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_list_pressed_holo_dark.9.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_ic_menu_cut_mtrl_alpha.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-hdpi/abc_ic_menu_cut_mtrl_alpha.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\delete_icon.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\src\\main\\res\\drawable-hdpi\\delete_icon.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/ic_plusone_medium_off_client.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.1.71/res/drawable-hdpi/ic_plusone_medium_off_client.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\com_facebook_button_blue_focused.9.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\3.23.1\\res\\drawable-hdpi-v4\\com_facebook_button_blue_focused.9.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_list_pressed_holo_light.9.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-hdpi/abc_list_pressed_holo_light.9.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_popup_background_mtrl_mult.9.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_popup_background_mtrl_mult.9.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/com_facebook_button_like_background.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/3.23.1/res/drawable-hdpi-v4/com_facebook_button_like_background.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\on_switch_icon.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\src\\main\\res\\drawable-hdpi\\on_switch_icon.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_list_selector_disabled_holo_light.9.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-hdpi/abc_list_selector_disabled_holo_light.9.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\common_signin_btn_text_disabled_focus_light.9.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services\\6.1.71\\res\\drawable-hdpi\\common_signin_btn_text_disabled_focus_light.9.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/com_facebook_close.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/3.23.1/res/drawable-hdpi-v4/com_facebook_close.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_menu_copy_mtrl_am_alpha.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_ic_menu_copy_mtrl_am_alpha.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_scrubber_control_to_pressed_mtrl_005.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-hdpi/abc_scrubber_control_to_pressed_mtrl_005.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\splash.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\src\\main\\res\\drawable-hdpi\\splash.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/com_facebook_button_blue_normal.9.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/3.23.1/res/drawable-hdpi-v4/com_facebook_button_blue_normal.9.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\common_signin_btn_icon_disabled_focus_dark.9.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services\\6.1.71\\res\\drawable-hdpi\\common_signin_btn_icon_disabled_focus_dark.9.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_scrubber_control_to_pressed_mtrl_000.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-hdpi/abc_scrubber_control_to_pressed_mtrl_000.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\edit_icon.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\src\\main\\res\\drawable-hdpi\\edit_icon.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/com_facebook_button_blue_pressed.9.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/3.23.1/res/drawable-hdpi-v4/com_facebook_button_blue_pressed.9.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\com_facebook_button_like_icon.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\3.23.1\\res\\drawable-hdpi-v4\\com_facebook_button_like_icon.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_btn_rating_star_on_mtrl_alpha.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-hdpi/abc_btn_rating_star_on_mtrl_alpha.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_textfield_search_default_mtrl_alpha.9.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_textfield_search_default_mtrl_alpha.9.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/com_facebook_button_grey_pressed.9.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/3.23.1/res/drawable-hdpi-v4/com_facebook_button_grey_pressed.9.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\logo_iconsmall.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\src\\main\\res\\drawable-hdpi\\logo_iconsmall.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_list_focused_holo.9.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-hdpi/abc_list_focused_holo.9.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\logo_icon.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\src\\main\\res\\drawable-hdpi\\logo_icon.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/common_signin_btn_icon_pressed_light.9.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.1.71/res/drawable-hdpi/common_signin_btn_icon_pressed_light.9.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\com_facebook_button_grey_pressed.9.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\3.23.1\\res\\drawable-hdpi-v4\\com_facebook_button_grey_pressed.9.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/common_signin_btn_icon_disabled_light.9.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.1.71/res/drawable-hdpi/common_signin_btn_icon_disabled_light.9.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_btn_rating_star_off_mtrl_alpha.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_btn_rating_star_off_mtrl_alpha.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/common_ic_googleplayservices.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.1.71/res/drawable-hdpi/common_ic_googleplayservices.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_btn_rating_star_on_mtrl_alpha.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_btn_rating_star_on_mtrl_alpha.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_ic_clear_mtrl_alpha.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-hdpi/abc_ic_clear_mtrl_alpha.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\location_icon.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\src\\main\\res\\drawable-hdpi\\location_icon.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/fb_icon.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-hdpi/fb_icon.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\twitter_icon.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\src\\main\\res\\drawable-hdpi\\twitter_icon.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_ic_search_api_mtrl_alpha.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-hdpi/abc_ic_search_api_mtrl_alpha.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_scrubber_control_to_pressed_mtrl_000.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_scrubber_control_to_pressed_mtrl_000.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_ic_menu_copy_mtrl_am_alpha.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-hdpi/abc_ic_menu_copy_mtrl_am_alpha.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_plusone_small_off_client.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services\\6.1.71\\res\\drawable-hdpi\\ic_plusone_small_off_client.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/common_signin_btn_icon_focus_dark.9.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.1.71/res/drawable-hdpi/common_signin_btn_icon_focus_dark.9.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\com_facebook_tooltip_blue_xout.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\3.23.1\\res\\drawable-hdpi-v4\\com_facebook_tooltip_blue_xout.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/common_signin_btn_icon_disabled_focus_dark.9.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.1.71/res/drawable-hdpi/common_signin_btn_icon_disabled_focus_dark.9.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_commit_search_api_mtrl_alpha.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_ic_commit_search_api_mtrl_alpha.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_tab_indicator_mtrl_alpha.9.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-hdpi/abc_tab_indicator_mtrl_alpha.9.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_textfield_search_activated_mtrl_alpha.9.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_textfield_search_activated_mtrl_alpha.9.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/common_signin_btn_icon_normal_light.9.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.1.71/res/drawable-hdpi/common_signin_btn_icon_normal_light.9.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\common_signin_btn_text_focus_dark.9.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services\\6.1.71\\res\\drawable-hdpi\\common_signin_btn_text_focus_dark.9.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_textfield_search_default_mtrl_alpha.9.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-hdpi/abc_textfield_search_default_mtrl_alpha.9.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_plusone_standard_off_client.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services\\6.1.71\\res\\drawable-hdpi\\ic_plusone_standard_off_client.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/image_icon.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-hdpi/image_icon.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_list_divider_mtrl_alpha.9.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_list_divider_mtrl_alpha.9.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/com_facebook_button_grey_focused.9.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/3.23.1/res/drawable-hdpi-v4/com_facebook_button_grey_focused.9.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\common_ic_googleplayservices.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services\\6.1.71\\res\\drawable-hdpi\\common_ic_googleplayservices.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/com_facebook_tooltip_black_topnub.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/3.23.1/res/drawable-hdpi-v4/com_facebook_tooltip_black_topnub.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\com_facebook_tooltip_black_xout.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\3.23.1\\res\\drawable-hdpi-v4\\com_facebook_tooltip_black_xout.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/common_signin_btn_text_normal_dark.9.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.1.71/res/drawable-hdpi/common_signin_btn_text_normal_dark.9.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\common_signin_btn_text_normal_light.9.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services\\6.1.71\\res\\drawable-hdpi\\common_signin_btn_text_normal_light.9.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_btn_rating_star_off_mtrl_alpha.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-hdpi/abc_btn_rating_star_off_mtrl_alpha.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_tab_indicator_mtrl_alpha.9.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_tab_indicator_mtrl_alpha.9.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/chat_icon.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-hdpi/chat_icon.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\com_facebook_button_like_pressed.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\3.23.1\\res\\drawable-hdpi-v4\\com_facebook_button_like_pressed.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/review_icon.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-hdpi/review_icon.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_textfield_default_mtrl_alpha.9.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_textfield_default_mtrl_alpha.9.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/circle_edit.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-hdpi/circle_edit.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\common_signin_btn_text_pressed_dark.9.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services\\6.1.71\\res\\drawable-hdpi\\common_signin_btn_text_pressed_dark.9.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_list_pressed_holo_dark.9.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-hdpi/abc_list_pressed_holo_dark.9.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\com_facebook_close.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\3.23.1\\res\\drawable-hdpi-v4\\com_facebook_close.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/com_facebook_button_grey_normal.9.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/3.23.1/res/drawable-hdpi-v4/com_facebook_button_grey_normal.9.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\common_signin_btn_text_normal_dark.9.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services\\6.1.71\\res\\drawable-hdpi\\common_signin_btn_text_normal_dark.9.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_switch_track_mtrl_alpha.9.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-hdpi/abc_switch_track_mtrl_alpha.9.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\com_facebook_tooltip_black_background.9.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\3.23.1\\res\\drawable-hdpi-v4\\com_facebook_tooltip_black_background.9.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/com_facebook_logo.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/3.23.1/res/drawable-hdpi-v4/com_facebook_logo.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\review_icon.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\src\\main\\res\\drawable-hdpi\\review_icon.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/common_signin_btn_text_pressed_dark.9.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.1.71/res/drawable-hdpi/common_signin_btn_text_pressed_dark.9.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\com_facebook_tooltip_blue_topnub.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\3.23.1\\res\\drawable-hdpi-v4\\com_facebook_tooltip_blue_topnub.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/com_facebook_inverse_icon.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/3.23.1/res/drawable-hdpi-v4/com_facebook_inverse_icon.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_ab_back_mtrl_am_alpha.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_ic_ab_back_mtrl_am_alpha.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/com_facebook_tooltip_black_bottomnub.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/3.23.1/res/drawable-hdpi-v4/com_facebook_tooltip_black_bottomnub.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_scrubber_control_to_pressed_mtrl_005.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_scrubber_control_to_pressed_mtrl_005.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/com_facebook_tooltip_blue_background.9.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/3.23.1/res/drawable-hdpi-v4/com_facebook_tooltip_blue_background.9.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\common_signin_btn_text_disabled_focus_dark.9.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services\\6.1.71\\res\\drawable-hdpi\\common_signin_btn_text_disabled_focus_dark.9.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/circle_border.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-hdpi/circle_border.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\common_signin_btn_icon_disabled_dark.9.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services\\6.1.71\\res\\drawable-hdpi\\common_signin_btn_icon_disabled_dark.9.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/com_facebook_picker_magnifier.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/3.23.1/res/drawable-hdpi-v4/com_facebook_picker_magnifier.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_scrubber_track_mtrl_alpha.9.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_scrubber_track_mtrl_alpha.9.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_ic_menu_paste_mtrl_am_alpha.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-hdpi/abc_ic_menu_paste_mtrl_am_alpha.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\common_full_open_on_phone.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services\\6.1.71\\res\\drawable-hdpi\\common_full_open_on_phone.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/com_facebook_button_like_background_selected.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/3.23.1/res/drawable-hdpi-v4/com_facebook_button_like_background_selected.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\com_facebook_button_blue_normal.9.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\3.23.1\\res\\drawable-hdpi-v4\\com_facebook_button_blue_normal.9.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/common_signin_btn_text_disabled_focus_light.9.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.1.71/res/drawable-hdpi/common_signin_btn_text_disabled_focus_light.9.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\common_signin_btn_text_disabled_light.9.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services\\6.1.71\\res\\drawable-hdpi\\common_signin_btn_text_disabled_light.9.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_scrubber_primary_mtrl_alpha.9.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-hdpi/abc_scrubber_primary_mtrl_alpha.9.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\common_signin_btn_text_disabled_dark.9.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services\\6.1.71\\res\\drawable-hdpi\\common_signin_btn_text_disabled_dark.9.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_ic_menu_selectall_mtrl_alpha.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-hdpi/abc_ic_menu_selectall_mtrl_alpha.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_menu_cut_mtrl_alpha.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_ic_menu_cut_mtrl_alpha.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/mike.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-hdpi/mike.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_btn_radio_to_on_mtrl_000.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_btn_radio_to_on_mtrl_000.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_popup_background_mtrl_mult.9.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-hdpi/abc_popup_background_mtrl_mult.9.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\com_facebook_button_grey_normal.9.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\3.23.1\\res\\drawable-hdpi-v4\\com_facebook_button_grey_normal.9.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/common_signin_btn_text_disabled_focus_dark.9.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.1.71/res/drawable-hdpi/common_signin_btn_text_disabled_focus_dark.9.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\facebook_icon.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\src\\main\\res\\drawable-hdpi\\facebook_icon.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/email_id.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-hdpi/email_id.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\com_facebook_tooltip_blue_bottomnub.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\3.23.1\\res\\drawable-hdpi-v4\\com_facebook_tooltip_blue_bottomnub.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/key_icon.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-hdpi/key_icon.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\com_facebook_logo.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\3.23.1\\res\\drawable-hdpi-v4\\com_facebook_logo.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_textfield_activated_mtrl_alpha.9.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-hdpi/abc_textfield_activated_mtrl_alpha.9.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\circle_border.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\src\\main\\res\\drawable-hdpi\\circle_border.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_btn_check_to_on_mtrl_000.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-hdpi/abc_btn_check_to_on_mtrl_000.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\common_signin_btn_icon_focus_dark.9.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services\\6.1.71\\res\\drawable-hdpi\\common_signin_btn_icon_focus_dark.9.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_ic_go_search_api_mtrl_alpha.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-hdpi/abc_ic_go_search_api_mtrl_alpha.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_list_longpressed_holo.9.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_list_longpressed_holo.9.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_btn_switch_to_on_mtrl_00001.9.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-hdpi/abc_btn_switch_to_on_mtrl_00001.9.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\common_signin_btn_icon_disabled_light.9.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services\\6.1.71\\res\\drawable-hdpi\\common_signin_btn_icon_disabled_light.9.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/com_facebook_tooltip_black_background.9.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/3.23.1/res/drawable-hdpi-v4/com_facebook_tooltip_black_background.9.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\common_signin_btn_icon_focus_light.9.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services\\6.1.71\\res\\drawable-hdpi\\common_signin_btn_icon_focus_light.9.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_btn_radio_to_on_mtrl_015.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-hdpi/abc_btn_radio_to_on_mtrl_015.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_menu_moreoverflow_mtrl_alpha.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_ic_menu_moreoverflow_mtrl_alpha.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/g_icon.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-hdpi/g_icon.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\common_signin_btn_text_pressed_light.9.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services\\6.1.71\\res\\drawable-hdpi\\common_signin_btn_text_pressed_light.9.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/common_signin_btn_icon_focus_light.9.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.1.71/res/drawable-hdpi/common_signin_btn_icon_focus_light.9.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_switch_track_mtrl_alpha.9.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_switch_track_mtrl_alpha.9.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_cab_background_top_mtrl_alpha.9.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-hdpi/abc_cab_background_top_mtrl_alpha.9.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\t_icon.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\src\\main\\res\\drawable-hdpi\\t_icon.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/arrow_iocn.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-hdpi/arrow_iocn.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\common_signin_btn_icon_normal_light.9.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services\\6.1.71\\res\\drawable-hdpi\\common_signin_btn_icon_normal_light.9.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_list_selector_disabled_holo_dark.9.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-hdpi/abc_list_selector_disabled_holo_dark.9.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ab_share_pack_mtrl_alpha.9.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_ab_share_pack_mtrl_alpha.9.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/common_signin_btn_icon_pressed_dark.9.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.1.71/res/drawable-hdpi/common_signin_btn_icon_pressed_dark.9.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\arrow_iocn.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\src\\main\\res\\drawable-hdpi\\arrow_iocn.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/photo_icon.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-hdpi/photo_icon.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\mike.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\src\\main\\res\\drawable-hdpi\\mike.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_spinner_mtrl_am_alpha.9.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-hdpi/abc_spinner_mtrl_am_alpha.9.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\app_icon.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\src\\main\\res\\drawable-hdpi\\app_icon.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_scrubber_track_mtrl_alpha.9.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-hdpi/abc_scrubber_track_mtrl_alpha.9.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\image_icon.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\src\\main\\res\\drawable-hdpi\\image_icon.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/common_signin_btn_text_disabled_dark.9.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.1.71/res/drawable-hdpi/common_signin_btn_text_disabled_dark.9.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\fb_icon.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\src\\main\\res\\drawable-hdpi\\fb_icon.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/support_icon.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-hdpi/support_icon.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\com_facebook_button_like_icon_selected.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\3.23.1\\res\\drawable-hdpi-v4\\com_facebook_button_like_icon_selected.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/common_signin_btn_text_focus_light.9.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.1.71/res/drawable-hdpi/common_signin_btn_text_focus_light.9.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_list_selector_disabled_holo_dark.9.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_list_selector_disabled_holo_dark.9.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_ic_commit_search_api_mtrl_alpha.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-hdpi/abc_ic_commit_search_api_mtrl_alpha.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\com_facebook_button_like_background_selected.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\3.23.1\\res\\drawable-hdpi-v4\\com_facebook_button_like_background_selected.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/delete_icon.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-hdpi/delete_icon.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_cab_background_top_mtrl_alpha.9.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_cab_background_top_mtrl_alpha.9.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_btn_switch_to_on_mtrl_00012.9.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-hdpi/abc_btn_switch_to_on_mtrl_00012.9.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\common_signin_btn_icon_disabled_focus_light.9.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services\\6.1.71\\res\\drawable-hdpi\\common_signin_btn_icon_disabled_focus_light.9.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/com_facebook_tooltip_blue_topnub.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/3.23.1/res/drawable-hdpi-v4/com_facebook_tooltip_blue_topnub.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_btn_radio_to_on_mtrl_015.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_btn_radio_to_on_mtrl_015.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/powered_by_google_dark.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.1.71/res/drawable-hdpi/powered_by_google_dark.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_spinner_mtrl_am_alpha.9.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_spinner_mtrl_am_alpha.9.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/com_facebook_button_like_pressed.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/3.23.1/res/drawable-hdpi-v4/com_facebook_button_like_pressed.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_btn_switch_to_on_mtrl_00001.9.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_btn_switch_to_on_mtrl_00001.9.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_ic_menu_share_mtrl_alpha.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-hdpi/abc_ic_menu_share_mtrl_alpha.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\com_facebook_tooltip_black_bottomnub.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\3.23.1\\res\\drawable-hdpi-v4\\com_facebook_tooltip_black_bottomnub.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/edit_icon.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-hdpi/edit_icon.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_menu_share_mtrl_alpha.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_ic_menu_share_mtrl_alpha.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_btn_radio_to_on_mtrl_000.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-hdpi/abc_btn_radio_to_on_mtrl_000.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_btn_switch_to_on_mtrl_00012.9.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_btn_switch_to_on_mtrl_00012.9.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_ic_voice_search_api_mtrl_alpha.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-hdpi/abc_ic_voice_search_api_mtrl_alpha.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_voice_search_api_mtrl_alpha.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_ic_voice_search_api_mtrl_alpha.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/ic_plusone_standard_off_client.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.1.71/res/drawable-hdpi/ic_plusone_standard_off_client.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_list_focused_holo.9.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_list_focused_holo.9.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/t_icon.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-hdpi/t_icon.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\com_facebook_picker_magnifier.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\3.23.1\\res\\drawable-hdpi-v4\\com_facebook_picker_magnifier.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/location_icon.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-hdpi/location_icon.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\common_signin_btn_icon_pressed_dark.9.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services\\6.1.71\\res\\drawable-hdpi\\common_signin_btn_icon_pressed_dark.9.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/common_signin_btn_icon_disabled_dark.9.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.1.71/res/drawable-hdpi/common_signin_btn_icon_disabled_dark.9.png"
     },
     {
-        "merged": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\chat_icon.png",
-        "source": "D:\\Android\\digits-android-master\\Chalkboard3\\app\\src\\main\\res\\drawable-hdpi\\chat_icon.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_textfield_default_mtrl_alpha.9.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-hdpi/abc_textfield_default_mtrl_alpha.9.png"
     }
 ]

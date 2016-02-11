@@ -1,73 +1,74 @@
 package com.chalkboard;
 
 
-import com.chalkboard.recruiter.TeachersListActivity;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Window;
 
+import com.chalkboard.recruiter.TeachersListActivity;
+import com.chalkboard.teacher.navigationdrawer.JobListActivity;
 
 public class SplashActivity extends Activity {
 
-	Activity context = null;
-//AIzaSyDMUvXxFMeXsXxUEyV2MlWtVdo7sb44-h8
-	//1087365411930
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
-		context = this;
+    Activity context = null;
 
-		setContentView(R.layout.activity_splash);
+    //AIzaSyDMUvXxFMeXsXxUEyV2MlWtVdo7sb44-h8
+    //1087365411930
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        context = this;
 
-		Thread thread = new Thread() {
-			@Override
-			public void run() {
-				synchronized (this) {
+        setContentView(R.layout.activity_splash);
 
-					try {
-						wait(2000);
-					} catch (Exception e) {
-						e.printStackTrace();
-					} finally {
-						
-						String id = GlobalClaass.getUserId(context);
+        Thread thread = new Thread() {
+            @Override
+            public void run() {
+                synchronized (this) {
 
-						if (id == null) {
-							startActivity(new Intent(context,Login_Activity.class));
-							GlobalClaass.activitySlideForwardAnimation(context);
-							finish();
-						} else {
+                    try {
+                        wait(2000);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    } finally {
 
-							String role = GlobalClaass.getROLE(context);
-							
-							if (role.equalsIgnoreCase("teacher")) {
-								startActivity(new Intent(context,JobListActivity.class));
-								
-							}else{
-								startActivity(new Intent(context,TeachersListActivity.class));
-								
-							}
-							GlobalClaass.activitySlideForwardAnimation(context);
-							finish();
+                        String id = GlobalClaass.getUserId(context);
+
+                        if (id == null) {
+                            startActivity(new Intent(context, Login_Activity.class));
+                            GlobalClaass.activitySlideForwardAnimation(context);
+                            finish();
+                        } else {
+
+                            String role = GlobalClaass.getROLE(context);
+
+                            if (role.equalsIgnoreCase("teacher")) {
+                                startActivity(new Intent(context, JobListActivity.class));
+
+                            } else {
+                                startActivity(new Intent(context, TeachersListActivity.class));
+
+                            }
+                            GlobalClaass.activitySlideForwardAnimation(context);
+                            finish();
 
 
-						}
-						
-					}
+                        }
 
-				}
-			}
-		};
-		thread.start();
+                    }
 
-	}
+                }
+            }
+        };
+        thread.start();
 
-	@Override
-	public void onBackPressed() {
+    }
 
-	}
+    @Override
+    public void onBackPressed() {
+
+    }
 
 }

@@ -42,74 +42,73 @@ import com.chalkboard.R;
 
 public class JobFavoriteFragment extends Fragment {
 
-	ListView lvJobList = null;
+    ListView lvJobList = null;
 
-	View rootView = null;
-//jobTypes
-	Activity context = null;
+    View rootView = null;
+    //jobTypes
+    Activity context = null;
 
-	ArrayList<JobObject> dataList = null;
+    ArrayList<JobObject> dataList = null;
 
-	GetFavoriteJobItem getJobItem = null;
+    GetFavoriteJobItem getJobItem = null;
 
-	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
 
-		context = getActivity();
+        context = getActivity();
 
-		rootView = inflater.inflate(R.layout.fragment_list, container,
-				false);
+        rootView = inflater.inflate(R.layout.fragment_list, container,
+                false);
 
-		lvJobList = (ListView) rootView.findViewById(R.id.list);
+        lvJobList = (ListView) rootView.findViewById(R.id.list);
 
-		return rootView;
-	}
+        return rootView;
+    }
 
-	@Override
-	public void onDestroyView() {
-		super.onDestroyView();
-		GlobalClaass.clearAsyncTask(getJobItem);
-	}
-	
-	@Override
-	public void onResume() {
-		super.onResume();
-		if(GlobalClaass.isInternetPresent(context)){
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        GlobalClaass.clearAsyncTask(getJobItem);
+    }
 
-			getJobItem = new GetFavoriteJobItem();
-			getJobItem.execute();
-		}
-		else {
-			GlobalClaass.showToastMessage(context,"Please check internet connection");
-		}
-		
-		
-	}
-	
-	class GetFavoriteJobItem extends AsyncTask<String, String, String> {
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (GlobalClaass.isInternetPresent(context)) {
 
-		@Override
-		protected void onPreExecute() {
-			showProgressBar(context, rootView);
-		}
+            getJobItem = new GetFavoriteJobItem();
+            getJobItem.execute();
+        } else {
+            GlobalClaass.showToastMessage(context, "Please check internet connection");
+        }
 
-		@Override
-		protected String doInBackground(String... params) {
 
-			String resultStr = null;
-			try {
+    }
 
-				HttpClient httpClient = new DefaultHttpClient();
-				HttpPost request = new HttpPost(GlobalClaass.Webservice_Url);
+    class GetFavoriteJobItem extends AsyncTask<String, String, String> {
 
-				List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(
-						);
-				nameValuePairs
-						.add(new BasicNameValuePair("action", "favoriteJobs"));
-				nameValuePairs
-				.add(new BasicNameValuePair("user_id",GlobalClaass.getUserId(context)));
-				
+        @Override
+        protected void onPreExecute() {
+            showProgressBar(context, rootView);
+        }
+
+        @Override
+        protected String doInBackground(String... params) {
+
+            String resultStr = null;
+            try {
+
+                HttpClient httpClient = new DefaultHttpClient();
+                HttpPost request = new HttpPost(GlobalClaass.Webservice_Url);
+
+                List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(
+                );
+                nameValuePairs
+                        .add(new BasicNameValuePair("action", "favoriteJobs"));
+                nameValuePairs
+                        .add(new BasicNameValuePair("user_id", GlobalClaass.getUserId(context)));
+
 				
 				
 				/*nameValuePairs
@@ -124,374 +123,368 @@ public class JobFavoriteFragment extends Fragment {
 				.add(new BasicNameValuePair("offset", ""));
 				nameValuePairs
 				.add(new BasicNameValuePair("limit", ""));*/
-				
-				request.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 
-				HttpResponse response = httpClient.execute(request);
+                request.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 
-				HttpEntity entity = response.getEntity();
+                HttpResponse response = httpClient.execute(request);
 
-				resultStr = EntityUtils.toString(entity);
+                HttpEntity entity = response.getEntity();
 
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+                resultStr = EntityUtils.toString(entity);
 
-			return resultStr;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
 
-		}
+            return resultStr;
 
-		@Override
-		protected void onPostExecute(String result) {
+        }
 
-			hideProgressBar(context, rootView);
+        @Override
+        protected void onPostExecute(String result) {
 
-			setUpUi(result);
-		}
+            hideProgressBar(context, rootView);
 
-	}
+            setUpUi(result);
+        }
 
-	public void setUpUi(String result) {
-		String get_message = "";
-		try {
-			JSONObject jObject = new JSONObject(result);
-			
-			 get_message = jObject.getString("message").trim();
-			String get_replycode= jObject.getString("status").trim();
-			
-			
-			JSONArray jrr = jObject.getJSONArray("jobs");
+    }
 
-			dataList = new ArrayList<JobObject>();
+    public void setUpUi(String result) {
+        String get_message = "";
+        try {
+            JSONObject jObject = new JSONObject(result);
 
-			for (int i = 0; i < jrr.length(); i++) {
+            get_message = jObject.getString("message").trim();
+            String get_replycode = jObject.getString("status").trim();
 
-				JSONObject jobj = jrr.getJSONObject(i);
 
-				JobObject itmObj = new JobObject();
+            JSONArray jrr = jObject.getJSONArray("jobs");
 
-				itmObj.setId(jobj.getString("id"));
-				itmObj.setJobDate(jobj.getString("start_date"));
-				itmObj.setJobFavorite(jobj.getBoolean("is_favorite"));
-				itmObj.setJobLocation(jobj.getString("city")+", "+jobj.getString("country"));
-				itmObj.setJobImage(jobj.getString("image"));
-				itmObj.setJobName(jobj.getString("title"));
+            dataList = new ArrayList<JobObject>();
 
-				dataList.add(itmObj);
+            for (int i = 0; i < jrr.length(); i++) {
 
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+                JSONObject jobj = jrr.getJSONObject(i);
 
-		if (dataList != null) {
-		
-			if (dataList.size() >0) {
-				
-				JobListAdapter itmAdap = new JobListAdapter(context, dataList);
+                JobObject itmObj = new JobObject();
 
-				lvJobList.setAdapter(itmAdap);
+                itmObj.setId(jobj.getString("id"));
+                itmObj.setJobDate(jobj.getString("start_date"));
+                itmObj.setJobFavorite(jobj.getBoolean("is_favorite"));
+                itmObj.setJobLocation(jobj.getString("city") + ", " + jobj.getString("country"));
+                itmObj.setJobImage(jobj.getString("image"));
+                itmObj.setJobName(jobj.getString("title"));
 
-				lvJobList.setOnItemClickListener(new OnItemClickListener() {
-
-					@Override
-					public void onItemClick(AdapterView<?> arg0, View arg1,
-							int position, long arg3) {
+                dataList.add(itmObj);
 
-						startActivity(new Intent(context, JobPagerActivity.class)
-								.putExtra("dataList", dataList).putExtra("position",
-										position));
-
-					}
-				});
-				
-			}
-			
-		}
-		else {
-			
-			((TextView)rootView.findViewById(R.id.error_message)).setText(get_message);
-		}
-		
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-	}
+        if (dataList != null) {
 
-	class JobListAdapter extends BaseAdapter {
-		
-		Typeface font,font2;//=Typeface.createFromAsset(getAssets(), "mark.ttf");
-		Activity context;
-		LayoutInflater inflater;
-		private List<JobObject> mainDataList = null;
-		private List<JobObject> arrList = null;
-		public ImageLoader imageloader = null;
-
-		
-		
-		public JobListAdapter(Activity context, List<JobObject> mainDataList) {
-
-		
-			
-			this.context = context;
-			this.mainDataList = mainDataList;
-			font=Typeface.createFromAsset(this.context.getAssets(), "mark.ttf");
-			font2=Typeface.createFromAsset(this.context.getAssets(), "marlbold.ttf");
-			arrList = new ArrayList<JobObject>();
-
-			arrList.addAll(this.mainDataList);
-
-			inflater = LayoutInflater.from(this.context);
-
-			imageloader = new ImageLoader(this.context);
-
-		}
-
-		class ViewHolder {
-			protected TextView name;
-			protected ImageView image;
-			protected ImageView favourite;
-
-			protected TextView date;
-			protected TextView location;
-
-		}
-
-		@Override
-		public int getCount() {
-			return mainDataList.size();
-		}
-
-		@Override
-		public JobObject getItem(int position) {
-			return mainDataList.get(position);
-		}
-
-		@Override
-		public long getItemId(int position) {
-			return position;
-		}
-
-		public View getView(final int position, View view, ViewGroup parent) {
-			final ViewHolder holder;
-			if (view == null) {
-				holder = new ViewHolder();
-				view = inflater.inflate(R.layout.item_job_list, null);
-
-				holder.name = (TextView) view.findViewById(R.id.job_name);
-				holder.date = (TextView) view.findViewById(R.id.job_date);
-				holder.location = (TextView) view.findViewById(R.id.job_location);
-
-				holder.image = (ImageView) view.findViewById(R.id.job_image);
-
-				holder.favourite = (ImageView) view
-						.findViewById(R.id.job_favorite_image);
-				
-				try {
-					
-					holder.name.setTypeface(font2);
-					holder.date.setTypeface(font);
-					holder.location.setTypeface(font);
-				} catch (Exception e) {
-					
-				}
-
-				view.setTag(holder);
-
-			} else {
-				holder = (ViewHolder) view.getTag();
-			}
-			
-			
-			
-
-			holder.name.setText(mainDataList.get(position).getJobName());
-
-			holder.date.setText("Start Date: "
-					+ mainDataList.get(position).getJobDate());
-
-			holder.location.setText(mainDataList.get(position).getJobLocation());
-
-			if (mainDataList.get(position).isJobFavorite()) {
-				//holder.favourite.setImageResource(R.drawable.like_icon);
-				holder.favourite.setImageResource(R.drawable.icon_like);
-			} else {
-				holder.favourite.setImageResource(R.drawable.unlike_icon);
-			}
-
-			holder.favourite.setOnClickListener(new OnClickListener() {
-				
-				@Override
-				public void onClick(View v) {
-					
-				
-					if (mainDataList.get(position).isJobFavorite()) {
-						//holder.favourite.setImageResource(R.drawable.icon_like);
-						
-						new RemoveJobFavorites(mainDataList.get(position).getId()).execute();
-						holder.favourite.setImageResource(R.drawable.unlike_icon);
-						mainDataList.get(position).setJobFavorite(false);
-						
-					} else {
-						//holder.favourite.setImageResource(R.drawable.unlike_icon);
-						
-						new AddJobFavorites(mainDataList.get(position).getId()).execute();
-						holder.favourite.setImageResource(R.drawable.icon_like);
-						mainDataList.get(position).setJobFavorite(true);
-						
-					}
-					
-					
-					
-				}
-			});
-			
-			imageloader.DisplayImage(mainDataList.get(position).getJobImage(),
-					holder.image);
-
-			return view;
-		}
-
-		public void filter(String charText) {
-			charText = charText.toLowerCase(Locale.getDefault());
-			mainDataList.clear();
-			if (charText.length() == 0) {
-				mainDataList.addAll(arrList);
-			} else {
-				for (JobObject wp : arrList) {
-					if (wp.getJobName().toLowerCase(Locale.getDefault())
-							.contains(charText)) {
-						mainDataList.add(wp);
-					} else if (wp.getJobLocation().toLowerCase(Locale.getDefault())
-							.contains(charText)) {
-						mainDataList.add(wp);
-					}/**
-					 * else if(wp.getJobName().toLowerCase(Locale.getDefault())
-					 * .contains(charText)) { mainDataList.add(wp); }
-					 */
-				}
-			}
-			notifyDataSetChanged();
-		}
-
-		RemoveJobFavorites removeJobFavorites;
-
-		class RemoveJobFavorites extends AsyncTask<String, String, String> {
-
-			String jobId;
-
-			public RemoveJobFavorites(String id) {
-				jobId = id;
-			}
-
-			@Override
-			protected void onPreExecute() {
-				showProgressBar(context, rootView);
-			}
+            if (dataList.size() > 0) {
 
-			@Override
-			protected String doInBackground(String... params) {
+                JobListAdapter itmAdap = new JobListAdapter(context, dataList);
 
-				String resultStr = null;
-				try {
+                lvJobList.setAdapter(itmAdap);
 
-					HttpClient httpClient = new DefaultHttpClient();
-					HttpPost request = new HttpPost(GlobalClaass.Webservice_Url);
+                lvJobList.setOnItemClickListener(new OnItemClickListener() {
 
-					List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
+                    @Override
+                    public void onItemClick(AdapterView<?> arg0, View arg1,
+                                            int position, long arg3) {
 
-					nameValuePairs.add(new BasicNameValuePair("action",
-							"removeToFavorite"));
+                        startActivity(new Intent(context, JobPagerActivity.class)
+                                .putExtra("dataList", dataList).putExtra("position",
+                                        position));
 
-					nameValuePairs.add(new BasicNameValuePair("job_id", jobId));
-					nameValuePairs.add(new BasicNameValuePair("user_id",
-							GlobalClaass.getUserId(context)));
-					request.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+                    }
+                });
 
-					HttpResponse response = httpClient.execute(request);
+            }
 
-					HttpEntity entity = response.getEntity();
+        } else {
 
-					resultStr = EntityUtils.toString(entity);
+            ((TextView) rootView.findViewById(R.id.error_message)).setText(get_message);
+        }
 
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
 
-				return resultStr;
+    }
 
-			}
+    class JobListAdapter extends BaseAdapter {
 
-			@Override
-			protected void onPostExecute(String result) {
+        Typeface font, font2;//=Typeface.createFromAsset(getAssets(), "mark.ttf");
+        Activity context;
+        LayoutInflater inflater;
+        private List<JobObject> mainDataList = null;
+        private List<JobObject> arrList = null;
+        public ImageLoader imageloader = null;
 
-				hideProgressBar(context, rootView);
-				
-				getJobItem = new GetFavoriteJobItem();
-				getJobItem.execute();
 
-			}
+        public JobListAdapter(Activity context, List<JobObject> mainDataList) {
 
-		}
 
-		AddJobFavorites addJobFavorites;
+            this.context = context;
+            this.mainDataList = mainDataList;
+            font = Typeface.createFromAsset(this.context.getAssets(), "mark.ttf");
+            font2 = Typeface.createFromAsset(this.context.getAssets(), "marlbold.ttf");
+            arrList = new ArrayList<JobObject>();
 
-		class AddJobFavorites extends AsyncTask<String, String, String> {
+            arrList.addAll(this.mainDataList);
 
-			String jobId;
+            inflater = LayoutInflater.from(this.context);
 
-			public AddJobFavorites(String id) {
-				jobId = id;
-			}
+            imageloader = new ImageLoader(this.context);
 
-			@Override
-			protected void onPreExecute() {
-				showProgressBar(context, rootView);
-			}
+        }
 
-			@Override
-			protected String doInBackground(String... params) {
+        class ViewHolder {
+            protected TextView name;
+            protected ImageView image;
+            protected ImageView favourite;
 
-				String resultStr = null;
-				try {
+            protected TextView date;
+            protected TextView location;
 
-					HttpClient httpClient = new DefaultHttpClient();
-					HttpPost request = new HttpPost(GlobalClaass.Webservice_Url);
+        }
 
-					List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
+        @Override
+        public int getCount() {
+            return mainDataList.size();
+        }
 
-					nameValuePairs.add(new BasicNameValuePair("action",
-							"addToFavorite"));
+        @Override
+        public JobObject getItem(int position) {
+            return mainDataList.get(position);
+        }
 
-					nameValuePairs.add(new BasicNameValuePair("job_id", jobId));
-					nameValuePairs.add(new BasicNameValuePair("user_id",
-							GlobalClaass.getUserId(context)));
-					request.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
 
-					HttpResponse response = httpClient.execute(request);
+        public View getView(final int position, View view, ViewGroup parent) {
+            final ViewHolder holder;
+            if (view == null) {
+                holder = new ViewHolder();
+                view = inflater.inflate(R.layout.item_job_list, null);
 
-					HttpEntity entity = response.getEntity();
+                holder.name = (TextView) view.findViewById(R.id.job_name);
+                holder.date = (TextView) view.findViewById(R.id.job_date);
+                holder.location = (TextView) view.findViewById(R.id.job_location);
 
-					resultStr = EntityUtils.toString(entity);
+                holder.image = (ImageView) view.findViewById(R.id.job_image);
 
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
+                holder.favourite = (ImageView) view
+                        .findViewById(R.id.job_favorite_image);
 
-				return resultStr;
+                try {
 
-			}
+                    holder.name.setTypeface(font2);
+                    holder.date.setTypeface(font);
+                    holder.location.setTypeface(font);
+                } catch (Exception e) {
 
-			@Override
-			protected void onPostExecute(String result) {
+                }
 
-				hideProgressBar(context, rootView);
+                view.setTag(holder);
 
-				getJobItem = new GetFavoriteJobItem();
-				getJobItem.execute();
+            } else {
+                holder = (ViewHolder) view.getTag();
+            }
 
-			}
 
-		}
-		
-	}
-	
+            holder.name.setText(mainDataList.get(position).getJobName());
+
+            holder.date.setText("Start Date: "
+                    + mainDataList.get(position).getJobDate());
+
+            holder.location.setText(mainDataList.get(position).getJobLocation());
+
+            if (mainDataList.get(position).isJobFavorite()) {
+                //holder.favourite.setImageResource(R.drawable.like_icon);
+                holder.favourite.setImageResource(R.drawable.icon_like);
+            } else {
+                holder.favourite.setImageResource(R.drawable.unlike_icon);
+            }
+
+            holder.favourite.setOnClickListener(new OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+
+
+                    if (mainDataList.get(position).isJobFavorite()) {
+                        //holder.favourite.setImageResource(R.drawable.icon_like);
+
+                        new RemoveJobFavorites(mainDataList.get(position).getId()).execute();
+                        holder.favourite.setImageResource(R.drawable.unlike_icon);
+                        mainDataList.get(position).setJobFavorite(false);
+
+                    } else {
+                        //holder.favourite.setImageResource(R.drawable.unlike_icon);
+
+                        new AddJobFavorites(mainDataList.get(position).getId()).execute();
+                        holder.favourite.setImageResource(R.drawable.icon_like);
+                        mainDataList.get(position).setJobFavorite(true);
+
+                    }
+
+
+                }
+            });
+
+            imageloader.DisplayImage(mainDataList.get(position).getJobImage(),
+                    holder.image);
+
+            return view;
+        }
+
+        public void filter(String charText) {
+            charText = charText.toLowerCase(Locale.getDefault());
+            mainDataList.clear();
+            if (charText.length() == 0) {
+                mainDataList.addAll(arrList);
+            } else {
+                for (JobObject wp : arrList) {
+                    if (wp.getJobName().toLowerCase(Locale.getDefault())
+                            .contains(charText)) {
+                        mainDataList.add(wp);
+                    } else if (wp.getJobLocation().toLowerCase(Locale.getDefault())
+                            .contains(charText)) {
+                        mainDataList.add(wp);
+                    }/**
+                     * else if(wp.getJobName().toLowerCase(Locale.getDefault())
+                     * .contains(charText)) { mainDataList.add(wp); }
+                     */
+                }
+            }
+            notifyDataSetChanged();
+        }
+
+        RemoveJobFavorites removeJobFavorites;
+
+        class RemoveJobFavorites extends AsyncTask<String, String, String> {
+
+            String jobId;
+
+            public RemoveJobFavorites(String id) {
+                jobId = id;
+            }
+
+            @Override
+            protected void onPreExecute() {
+                showProgressBar(context, rootView);
+            }
+
+            @Override
+            protected String doInBackground(String... params) {
+
+                String resultStr = null;
+                try {
+
+                    HttpClient httpClient = new DefaultHttpClient();
+                    HttpPost request = new HttpPost(GlobalClaass.Webservice_Url);
+
+                    List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
+
+                    nameValuePairs.add(new BasicNameValuePair("action",
+                            "removeToFavorite"));
+
+                    nameValuePairs.add(new BasicNameValuePair("job_id", jobId));
+                    nameValuePairs.add(new BasicNameValuePair("user_id",
+                            GlobalClaass.getUserId(context)));
+                    request.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+
+                    HttpResponse response = httpClient.execute(request);
+
+                    HttpEntity entity = response.getEntity();
+
+                    resultStr = EntityUtils.toString(entity);
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                return resultStr;
+
+            }
+
+            @Override
+            protected void onPostExecute(String result) {
+
+                hideProgressBar(context, rootView);
+
+                getJobItem = new GetFavoriteJobItem();
+                getJobItem.execute();
+
+            }
+
+        }
+
+        AddJobFavorites addJobFavorites;
+
+        class AddJobFavorites extends AsyncTask<String, String, String> {
+
+            String jobId;
+
+            public AddJobFavorites(String id) {
+                jobId = id;
+            }
+
+            @Override
+            protected void onPreExecute() {
+                showProgressBar(context, rootView);
+            }
+
+            @Override
+            protected String doInBackground(String... params) {
+
+                String resultStr = null;
+                try {
+
+                    HttpClient httpClient = new DefaultHttpClient();
+                    HttpPost request = new HttpPost(GlobalClaass.Webservice_Url);
+
+                    List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
+
+                    nameValuePairs.add(new BasicNameValuePair("action",
+                            "addToFavorite"));
+
+                    nameValuePairs.add(new BasicNameValuePair("job_id", jobId));
+                    nameValuePairs.add(new BasicNameValuePair("user_id",
+                            GlobalClaass.getUserId(context)));
+                    request.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+
+                    HttpResponse response = httpClient.execute(request);
+
+                    HttpEntity entity = response.getEntity();
+
+                    resultStr = EntityUtils.toString(entity);
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                return resultStr;
+
+            }
+
+            @Override
+            protected void onPostExecute(String result) {
+
+                hideProgressBar(context, rootView);
+
+                getJobItem = new GetFavoriteJobItem();
+                getJobItem.execute();
+
+            }
+
+        }
+
+    }
+
 }

@@ -18,11 +18,13 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.DrawerLayout.DrawerListener;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
 import android.view.animation.TranslateAnimation;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -77,10 +79,11 @@ import java.util.List;
 public class JobListActivity extends FragmentActivity implements ConnectionCallbacks,
         OnConnectionFailedListener {
 
+    private ActionBarDrawerToggle mDrawerToggle;
     private Activity mActivity = null;
     private DrawerLayout mDrawerLayout;
-    private ListView mDrawerList;
-    //private RelativeLayout mDrawerList;
+    private ListView sideMenuList;
+    private RelativeLayout relative_layout;
     RelativeLayout rlSlideContent = null;
     private float lastTranslate = 0.0f;
     String login_type = "";
@@ -113,6 +116,8 @@ public class JobListActivity extends FragmentActivity implements ConnectionCallb
     //G+ end
     Typeface font, font2;
     GetCount getcount = null;
+    private TextView top_header_count;
+    private NavDrawerListAdapter adapter;
 
 
 //    TextView tvSettings, tvFavourites, tvMatches, tvNotifications, tvInbox,
@@ -173,7 +178,7 @@ public class JobListActivity extends FragmentActivity implements ConnectionCallb
         //tvSearch = (TextView) findViewById(R.id.tvsearch);
         //tvLogout = (TextView) findViewById(R.id.tvlogout);
         //tvnoti_count = (TextView) findViewById(R.id.noti_count);
-        //top_header_count = (TextView) findViewById(R.id.top_header_count);
+        top_header_count = (TextView) findViewById(R.id.top_header_count);
         //ivSettings = (ImageView) findViewById(R.id.ivsettings);
         //ivFavourites = (ImageView) findViewById(R.id.ivfavorites);
         //ivMatches = (ImageView) findViewById(R.id.ivmatches);
@@ -194,7 +199,7 @@ public class JobListActivity extends FragmentActivity implements ConnectionCallb
 
         rlSlideContent = (RelativeLayout) findViewById(R.id.slide_content);
 
-        findViewById(R.id.header_right_menu).setVisibility(View.GONE);
+        findViewById(R.id.header_right_menu).setVisibility(View.VISIBLE);
 
 
         String[] navMenuTitles = getResources().getStringArray(
@@ -206,11 +211,19 @@ public class JobListActivity extends FragmentActivity implements ConnectionCallb
 
         TypedArray navMenuSelectIcons = getResources().obtainTypedArray(
                 R.array.teacher_selected_drawer_icons);
+
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mDrawerList = (ListView) findViewById(R.id.list_slidermenu);
 
+        sideMenuList = (ListView) findViewById(R.id.list_slidermenu);
+        sideMenuList.setChoiceMode(AbsListView.CHOICE_MODE_SINGLE);
+
+        relative_layout = (RelativeLayout) findViewById(R.id.relative_layout);
+        int width = 3 * (getResources().getDisplayMetrics().widthPixels / 4);
+        DrawerLayout.LayoutParams params = (android.support.v4.widget.DrawerLayout.LayoutParams) relative_layout
+                .getLayoutParams();
+        params.width = width;
+        relative_layout.setLayoutParams(params);
         mDrawerLayout.setScrimColor(Color.TRANSPARENT);
-
 
         ArrayList<NavDrawerItem> navDrawerItems = new ArrayList<NavDrawerItem>();
 
@@ -272,18 +285,18 @@ public class JobListActivity extends FragmentActivity implements ConnectionCallb
         } catch (Exception e) {
 
         }
-        mDrawerList.setOnItemClickListener(drawerListItemClickListener);
-        NavDrawerListAdapter adapter = new NavDrawerListAdapter(
+        sideMenuList.setOnItemClickListener(drawerListItemClickListener);
+        adapter = new NavDrawerListAdapter(
                 getApplicationContext(), navDrawerItems);
-        mDrawerList.setAdapter(adapter);
-        mDrawerList.setItemChecked(0, true);
+        sideMenuList.setAdapter(adapter);
+        sideMenuList.setItemChecked(0, true);
 
         (findViewById(R.id.header_left_menu))
                 .setOnClickListener(new OnClickListener() {
 
                     @Override
                     public void onClick(View arg0) {
-                        mDrawerLayout.openDrawer(mDrawerList);
+                        mDrawerLayout.openDrawer(relative_layout);
                     }
                 });
 
@@ -298,7 +311,7 @@ public class JobListActivity extends FragmentActivity implements ConnectionCallb
             @SuppressLint("NewApi")
             @Override
             public void onDrawerSlide(View drawerView, float slideOffset) {
-                float moveFactor = (mDrawerList.getWidth() * slideOffset);
+                float moveFactor = (sideMenuList.getWidth() * slideOffset);
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
                     rlSlideContent.setTranslationX(moveFactor);
@@ -341,7 +354,7 @@ public class JobListActivity extends FragmentActivity implements ConnectionCallb
                     }
                 });
 
-        // Fragment fragment = new JobListFragment();
+        Fragment fragment = new JobListFragment();
         /*
          * Bundle args = new Bundle();
 		 * args.putString(CategoryListFragment.ARG_CATEGORY_NUMBER,
@@ -350,9 +363,9 @@ public class JobListActivity extends FragmentActivity implements ConnectionCallb
 		 * dataList.get(position).getName()); fragment.setArguments(args);
 		 */
 
-        // FragmentManager fragmentManager = getSupportFragmentManager();
-        // fragmentManager.beginTransaction()
-        // .replace(R.id.page_container, fragment).commit();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction()
+                .replace(R.id.page_container, fragment).commit();
 
 //        tvSearch.setOnClickListener(new OnClickListener() {
 //            @Override
@@ -595,7 +608,7 @@ public class JobListActivity extends FragmentActivity implements ConnectionCallb
 //            }
 //        });
 
-        (findViewById(R.id.tvsearch)).performClick();
+        //(findViewById(R.id.tvsearch)).performClick();
 
     }
 
@@ -616,7 +629,7 @@ public class JobListActivity extends FragmentActivity implements ConnectionCallb
 
                     ((TextView) (findViewById(R.id.header_text))).setText("");
 
-                    mDrawerLayout.closeDrawer(mDrawerList);
+                    mDrawerLayout.closeDrawer(relative_layout);
                     fragment = new JobListFragment();
 
                     break;
@@ -627,7 +640,7 @@ public class JobListActivity extends FragmentActivity implements ConnectionCallb
                             .setText("Favorite Jobs");
 
                     findViewById(R.id.bottom_bar).setVisibility(View.GONE);
-                    mDrawerLayout.closeDrawer(mDrawerList);
+                    mDrawerLayout.closeDrawer(relative_layout);
                     fragment = new JobFavoriteFragment();
 
 
@@ -639,7 +652,7 @@ public class JobListActivity extends FragmentActivity implements ConnectionCallb
                             .setText("Matches");
 
                     findViewById(R.id.bottom_bar).setVisibility(View.GONE);
-                    mDrawerLayout.closeDrawer(mDrawerList);
+                    mDrawerLayout.closeDrawer(relative_layout);
                     fragment = new JobMatchesFragment();
 
                     break;
@@ -650,7 +663,7 @@ public class JobListActivity extends FragmentActivity implements ConnectionCallb
                             .setText("Matches");
 
                     findViewById(R.id.bottom_bar).setVisibility(View.GONE);
-                    mDrawerLayout.closeDrawer(mDrawerList);
+                    mDrawerLayout.closeDrawer(relative_layout);
                     fragment = new JobMatchesFragment();
 
                     break;
@@ -660,7 +673,7 @@ public class JobListActivity extends FragmentActivity implements ConnectionCallb
                     ((TextView) (findViewById(R.id.header_text)))
                             .setText("My Notifications");
                     findViewById(R.id.bottom_bar).setVisibility(View.GONE);
-                    mDrawerLayout.closeDrawer(mDrawerList);
+                    mDrawerLayout.closeDrawer(relative_layout);
                     fragment = new JobNotificationFragment();
                     break;
 
@@ -670,7 +683,7 @@ public class JobListActivity extends FragmentActivity implements ConnectionCallb
 
                     ((TextView) (findViewById(R.id.header_text))).setText("Inbox");
                     findViewById(R.id.bottom_bar).setVisibility(View.GONE);
-                    mDrawerLayout.closeDrawer(mDrawerList);
+                    mDrawerLayout.closeDrawer(relative_layout);
                     fragment = new JobInboxFragment();
                     break;
                 case 6:
@@ -679,7 +692,7 @@ public class JobListActivity extends FragmentActivity implements ConnectionCallb
                     ((TextView) (findViewById(R.id.header_text))).setText("Help");
 
                     findViewById(R.id.bottom_bar).setVisibility(View.GONE);
-                    mDrawerLayout.closeDrawer(mDrawerList);
+                    mDrawerLayout.closeDrawer(relative_layout);
 
                     startActivity(new Intent(mActivity, Feedback_Activity.class)
                             .putExtra("Activity", "support")
@@ -689,14 +702,14 @@ public class JobListActivity extends FragmentActivity implements ConnectionCallb
                 case 7:
                     findViewById(R.id.bottom_bar).setVisibility(View.GONE);
 
-                    mDrawerLayout.closeDrawer(mDrawerList);
+                    mDrawerLayout.closeDrawer(relative_layout);
 
                     startActivity(new Intent(mActivity, Setting_Activity.class));
 
                     break;
                 case 8:
                     findViewById(R.id.bottom_bar).setVisibility(View.GONE);
-                    mDrawerLayout.closeDrawer(mDrawerList);
+                    mDrawerLayout.closeDrawer(relative_layout);
 
                     final AlertDialog.Builder b = new AlertDialog.Builder(mActivity);
                     b.setIcon(android.R.drawable.ic_dialog_alert);
@@ -1057,59 +1070,55 @@ public class JobListActivity extends FragmentActivity implements ConnectionCallb
         }
 
 
-//        protected void onPostExecute(String responseString) {
-//            JSONObject jObject, Jobj;
-//            JSONArray jarray;
-//
-//            String get_replycode = "", get_message = "", noticount = "", messagecount = "", creditcount = "";
-//
-//            try {
-//
-//                jObject = new JSONObject(responseString);
-//                get_replycode = jObject.getString("status").trim();
-//                get_message = jObject.getString("message").trim();
-//                noticount = jObject.getString("notification").trim();
-//                messagecount = jObject.getString("msgcount").trim();
-//                creditcount = jObject.getString("credits").trim();
-//                Log.e("Count show", messagecount + "  " + noticount);
-//
-//                tvnoti_count.setText(noticount);
-//
-//
-//                if (noticount != null && !noticount.equalsIgnoreCase("") && !noticount.equalsIgnoreCase("0")) {
-//                    tvnoti_count.setText(noticount);
-//                    tvnoti_count.setVisibility(View.VISIBLE);
-//                } else {
-//                    tvnoti_count.setVisibility(View.GONE);
-//                }
-//
-//
-//                if (messagecount != null && !messagecount.equalsIgnoreCase("")) {
-//
-//                    GlobalClaass.savePrefrencesfor(context, PreferenceConnector.Header_Count, messagecount);
-//
-//                    if (messagecount.length() == 1) {
-//                        top_header_count.setText("  " + messagecount);
-//                    }
-//                    if (messagecount.length() == 2) {
-//                        top_header_count.setText(" " + messagecount);
-//                    } else {
-//                        top_header_count.setText(messagecount);
-//                    }
-//
-//
-//                } else {
-//                    top_header_count.setVisibility(View.GONE);
-//                }
-//
-//
-//            } catch (Exception e) {
-//
-//            }
-//
-//
-//            GlobalClaass.hideProgressBar(context);
-//
-//        }
+        protected void onPostExecute(String responseString) {
+            JSONObject jObject, Jobj;
+            JSONArray jarray;
+
+            String get_replycode = "", get_message = "", noticount = "", messagecount = "", creditcount = "";
+
+            try {
+
+                jObject = new JSONObject(responseString);
+                get_replycode = jObject.getString("status").trim();
+                get_message = jObject.getString("message").trim();
+                noticount = jObject.getString("notification").trim();
+                messagecount = jObject.getString("msgcount").trim();
+                creditcount = jObject.getString("credits").trim();
+                Log.e("Count show", messagecount + "  " + noticount);
+
+
+                if (noticount != null && !noticount.equalsIgnoreCase("") && !noticount.equalsIgnoreCase("0")) {
+                    adapter.setNotificationCount(Integer.parseInt(noticount));
+                    adapter.notifyDataSetChanged();
+                }
+
+
+                if (messagecount != null && !messagecount.equalsIgnoreCase("")) {
+
+                    GlobalClaass.savePrefrencesfor(context, PreferenceConnector.Header_Count, messagecount);
+
+                    if (messagecount.length() == 1) {
+                        top_header_count.setText("  " + messagecount);
+                    }
+                    if (messagecount.length() == 2) {
+                        top_header_count.setText(" " + messagecount);
+                    } else {
+                        top_header_count.setText(messagecount);
+                    }
+
+
+                } else {
+                    top_header_count.setVisibility(View.GONE);
+                }
+
+
+            } catch (Exception e) {
+
+            }
+
+
+            GlobalClaass.hideProgressBar(context);
+
+        }
     }
 }

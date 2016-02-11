@@ -73,10 +73,9 @@ import com.chalkboard.R;
 import com.chalkboard.RangeSeekBar;
 import com.chalkboard.RangeSeekBar.OnRangeSeekBarChangeListener;
 import com.chalkboard.Setting_Activity;
-
+import com.chalkboard.teacher.navigationdrawer.JobListActivity;
 import com.chalkboard.teacher.HelpFragment;
 import com.chalkboard.teacher.JobObject;
-import com.chalkboard.teacher.JobListActivity.GetCount;
 import com.facebook.Session;
 import com.facebook.SessionLoginBehavior;
 import com.facebook.SessionState;

@@ -21,17 +21,16 @@ public class NavDrawerListAdapter extends BaseAdapter {
 
     private Context context;
     private ArrayList<NavDrawerItem> navDrawerItems;
-    private int no_of_projects;
+    private int notificationCount;
 
     public NavDrawerListAdapter(Context context,
                                 ArrayList<NavDrawerItem> navDrawerItems) {
         this.context = context;
         this.navDrawerItems = navDrawerItems;
-        this.no_of_projects = no_of_projects;
     }
 
-    public void setNoOfProjects(int no_of_projects){
-        this.no_of_projects=no_of_projects;
+    public void setNotificationCount(int notificationCount){
+        this.notificationCount=notificationCount;
     }
 
 
@@ -78,9 +77,9 @@ public class NavDrawerListAdapter extends BaseAdapter {
             holder.txt_menu_title.setTextColor(context.getResources().getColor(android.R.color.white));
         }
 
-        if(position==3){
+        if(notificationCount!=0){
             holder.txt_unread_projects.setVisibility(View.VISIBLE);
-            holder.txt_unread_projects.setText(""+no_of_projects);
+            holder.txt_unread_projects.setText(""+notificationCount);
         }else{
             holder.txt_unread_projects.setVisibility(View.INVISIBLE);
         }

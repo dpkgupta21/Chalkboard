@@ -26,6 +26,10 @@
     <!-- End Configurations -->
 
 
+
+    <string name="received">Received</string>
+    <string name="sent">Sent</string>
+
     <string-array name="teacher_drawer_items">
         <item>Search</item>
         <item>Favorites</item>

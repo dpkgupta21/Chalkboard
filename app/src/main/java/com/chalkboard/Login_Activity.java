@@ -1,29 +1,5 @@
 package com.chalkboard;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.params.BasicHttpParams;
-import org.apache.http.params.HttpConnectionParams;
-import org.apache.http.params.HttpParams;
-import org.apache.http.util.EntityUtils;
-import org.json.JSONObject;
-
-import twitter4j.Twitter;
-import twitter4j.TwitterException;
-import twitter4j.TwitterFactory;
-import twitter4j.User;
-import twitter4j.auth.RequestToken;
-import twitter4j.conf.ConfigurationBuilder;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
@@ -50,6 +26,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.chalkboard.recruiter.TeachersListActivity;
+import com.chalkboard.teacher.navigationdrawer.JobListActivity;
 import com.facebook.AccessToken;
 import com.facebook.Request;
 import com.facebook.Request.GraphUserCallback;
@@ -69,6 +46,30 @@ import com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListe
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 import com.google.android.gms.plus.Plus;
 import com.google.android.gms.plus.model.people.Person;
+
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.params.BasicHttpParams;
+import org.apache.http.params.HttpConnectionParams;
+import org.apache.http.params.HttpParams;
+import org.apache.http.util.EntityUtils;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import twitter4j.Twitter;
+import twitter4j.TwitterException;
+import twitter4j.TwitterFactory;
+import twitter4j.User;
+import twitter4j.auth.RequestToken;
+import twitter4j.conf.ConfigurationBuilder;
 
 public class Login_Activity extends Activity implements ConnectionCallbacks,
         OnConnectionFailedListener {
@@ -451,7 +452,7 @@ public class Login_Activity extends Activity implements ConnectionCallbacks,
 
                 try {
 
-                    Toast.makeText(context, "start ", 3000).show();
+                    Toast.makeText(context, "start ", Toast.LENGTH_SHORT).show();
 
                     Thread thread = new Thread(new Runnable() {
                         @Override
@@ -526,7 +527,7 @@ public class Login_Activity extends Activity implements ConnectionCallbacks,
 
                     thread.start();
 
-                    Toast.makeText(context, "userid ", 3000).show();
+                    Toast.makeText(context, "userid ", Toast.LENGTH_SHORT).show();
 
 //					// Getting user details from twitter
 //					// For now i am getting his name only
@@ -538,14 +539,13 @@ public class Login_Activity extends Activity implements ConnectionCallbacks,
                     // Displaying in xml ui
                 } catch (Exception e) {
                     // Check log for login errors
-                    Toast.makeText(context, "exception " + e.getMessage(), 3000).show();
 
                     Log.e("Twitter Login Error", "> " + e.getMessage());
                     e.printStackTrace();
                 }
             }
         } else {
-            Toast.makeText(context, "already loggedin", 3000).show();
+            Toast.makeText(context, "already loggedin", Toast.LENGTH_SHORT).show();
 
         }
 
@@ -648,7 +648,8 @@ public class Login_Activity extends Activity implements ConnectionCallbacks,
         }
         if (GlobalClaass.isInternetPresent(context)) {
 
-            loginservice = new LoginService(context);
+            loginservice = new LoginService(context, txt_email.getText().toString(),
+                    txt_pass.getText().toString());
             loginservice.execute();
         } else {
             GlobalClaass.showToastMessage(context, "Please check internet connection");
@@ -660,10 +661,15 @@ public class Login_Activity extends Activity implements ConnectionCallbacks,
 
         String responseString;
         Activity context;
+        private String emailId;
+        private String password;
 
-        public LoginService(Activity ctx) {
+
+        public LoginService(Activity ctx, String emailId, String password) {
 
             context = ctx;
+            this.emailId = emailId;
+            this.password = password;
 
         }
 
@@ -707,10 +713,8 @@ public class Login_Activity extends Activity implements ConnectionCallbacks,
                 List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
 
                 nameValuePairs.add(new BasicNameValuePair("action", "login"));
-                nameValuePairs.add(new BasicNameValuePair("email", txt_email
-                        .getText().toString()));
-                nameValuePairs.add(new BasicNameValuePair("password", txt_pass
-                        .getText().toString()));
+                nameValuePairs.add(new BasicNameValuePair("email", emailId));
+                nameValuePairs.add(new BasicNameValuePair("password", password));
                 nameValuePairs.add(new BasicNameValuePair("device", "android"));
                 nameValuePairs.add(new BasicNameValuePair("device_id", regid));
 
@@ -814,7 +818,7 @@ public class Login_Activity extends Activity implements ConnectionCallbacks,
                 }
 
             } catch (Exception e) {
-
+                e.printStackTrace();
             }
             GlobalClaass.hideProgressBar(context);
 
@@ -867,7 +871,7 @@ public class Login_Activity extends Activity implements ConnectionCallbacks,
                 break;
             case WEBVIEW_REQUEST_CODE:
                 if (resultCode == RESULT_OK)
-                    Toast.makeText(Login_Activity.this, "twitter successful" + userID, 3000).show();
+                    Toast.makeText(Login_Activity.this, "twitter successful" + userID, Toast.LENGTH_SHORT).show();
 
         }
     }
@@ -921,7 +925,7 @@ public class Login_Activity extends Activity implements ConnectionCallbacks,
                     }
                     if (response != null) {
                         /*System.out.println("Response=" + response);
-						Toast.makeText(context, response.toString(),
+                        Toast.makeText(context, response.toString(),
 								Toast.LENGTH_LONG).show();*/
                     }
                 }
@@ -929,7 +933,7 @@ public class Login_Activity extends Activity implements ConnectionCallbacks,
 
         } else if (state.isClosed()) {
             // Log out just happened. Update the UI.
-			/*Toast.makeText(getApplicationContext(), "session closed",
+            /*Toast.makeText(getApplicationContext(), "session closed",
 					Toast.LENGTH_SHORT).show();*/
         }
     }
@@ -1292,7 +1296,7 @@ public class Login_Activity extends Activity implements ConnectionCallbacks,
             e.putString(PREF_USER_NAME, username);
             e.commit();
 
-            Toast.makeText(Login_Activity.this, ">>saveddd", 3000).show();
+            Toast.makeText(Login_Activity.this, ">>saveddd", Toast.LENGTH_SHORT).show();
 
 
         } catch (TwitterException e1) {
@@ -1344,8 +1348,8 @@ public class Login_Activity extends Activity implements ConnectionCallbacks,
 
     @Override
     public void onBackPressed() {
-        startActivity(new Intent(context, LandingPage_Activity.class));
-        GlobalClaass.activitySlideBackAnimation(context);
+//        startActivity(new Intent(context, LandingPage_Activity.class));
+//        GlobalClaass.activitySlideBackAnimation(context);
         finish();
     }
 
@@ -1384,7 +1388,7 @@ public class Login_Activity extends Activity implements ConnectionCallbacks,
 
         } else {
             // user already logged into twitter
-            Toast.makeText(context, "already logged in 2222", 3000).show();
+            Toast.makeText(context, "already logged in 2222", Toast.LENGTH_SHORT).show();
 
         }
 

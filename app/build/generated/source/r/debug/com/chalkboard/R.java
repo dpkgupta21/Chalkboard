@@ -3030,7 +3030,7 @@ containing a value of this type.
         public static final int South=0x7f0d0019;
         public static final int West=0x7f0d001a;
         public static final int about_company=0x7f0d0094;
-        public static final int about_date=0x7f0d01ef;
+        public static final int about_date=0x7f0d01f0;
         public static final int about_heading=0x7f0d0093;
         public static final int accountextra=0x7f0d0166;
         public static final int acountconnection=0x7f0d015e;
@@ -3050,7 +3050,7 @@ containing a value of this type.
         public static final int action_mode_bar=0x7f0d0069;
         public static final int action_mode_bar_stub=0x7f0d0068;
         public static final int action_mode_close_button=0x7f0d004e;
-        public static final int action_settings=0x7f0d01f8;
+        public static final int action_settings=0x7f0d01f9;
         public static final int activity_chooser_view_content=0x7f0d004f;
         public static final int add_coutry_pref=0x7f0d00f1;
         public static final int add_current_exp=0x7f0d00eb;
@@ -3067,7 +3067,7 @@ containing a value of this type.
         public static final int b=0x7f0d0170;
         public static final int b1=0x7f0d0177;
         public static final int beginning=0x7f0d0021;
-        public static final int bigtext=0x7f0d01f2;
+        public static final int bigtext=0x7f0d01f3;
         public static final int book_now=0x7f0d003f;
         public static final int bottom=0x7f0d0030;
         public static final int bottom_bar=0x7f0d0101;
@@ -3096,7 +3096,7 @@ containing a value of this type.
         public static final int btn_forgot=0x7f0d014f;
         public static final int btn_gplus=0x7f0d00aa;
         public static final int btn_login=0x7f0d0098;
-        public static final int btn_rate=0x7f0d01f6;
+        public static final int btn_rate=0x7f0d01f7;
         public static final int btn_send=0x7f0d014b;
         public static final int btn_signIn=0x7f0d009e;
         public static final int btn_signUp=0x7f0d009f;
@@ -3234,7 +3234,7 @@ containing a value of this type.
         public static final int expanded_menu=0x7f0d0063;
         public static final int feedback=0x7f0d0147;
         public static final int filtertxt=0x7f0d01ad;
-        public static final int first=0x7f0d01ee;
+        public static final int first=0x7f0d01ef;
         public static final int gallery_pager=0x7f0d0081;
         public static final int grayscale=0x7f0d0043;
         public static final int header_bar=0x7f0d007c;
@@ -3298,7 +3298,7 @@ containing a value of this type.
         public static final int list=0x7f0d0154;
         public static final int listMode=0x7f0d000d;
         public static final int list_item=0x7f0d0053;
-        public static final int list_slidermenu=0x7f0d01ed;
+        public static final int list_slidermenu=0x7f0d01ee;
         public static final int ll1=0x7f0d00a0;
         public static final int ll2=0x7f0d00a2;
         public static final int ll233=0x7f0d01eb;
@@ -3345,7 +3345,7 @@ containing a value of this type.
         public static final int noti_count=0x7f0d01cc;
         public static final int notification_onoff_button=0x7f0d016b;
         public static final int numberPicker1=0x7f0d019d;
-        public static final int or_txt=0x7f0d01f4;
+        public static final int or_txt=0x7f0d01f5;
         public static final int overlay_layout=0x7f0d0182;
         public static final int p=0x7f0d0176;
         public static final int p1=0x7f0d0171;
@@ -3383,6 +3383,7 @@ containing a value of this type.
         public static final int recuiter_photo=0x7f0d00c0;
         public static final int recuiter_profileimage=0x7f0d00be;
         public static final int recuiter_save=0x7f0d00c7;
+        public static final int relative_layout=0x7f0d01ed;
         public static final int relative_layout_lbl=0x7f0d0133;
         public static final int remove_education=0x7f0d01e3;
         public static final int remove_experience=0x7f0d01dc;
@@ -3455,7 +3456,7 @@ containing a value of this type.
         public static final int text2=0x7f0d0198;
         public static final int textSpacerNoButtons=0x7f0d005f;
         public static final int textView1=0x7f0d0095;
-        public static final int textView123=0x7f0d01f7;
+        public static final int textView123=0x7f0d01f8;
         public static final int textView2=0x7f0d0097;
         public static final int textView3=0x7f0d0099;
         public static final int textdsfView2=0x7f0d00ab;
@@ -3496,7 +3497,7 @@ containing a value of this type.
         public static final int txt_degree=0x7f0d01e9;
         public static final int txt_facebook=0x7f0d015f;
         public static final int txt_facebook11=0x7f0d0160;
-        public static final int txt_feedback=0x7f0d01f3;
+        public static final int txt_feedback=0x7f0d01f4;
         public static final int txt_forgotemail=0x7f0d014e;
         public static final int txt_forgotpass=0x7f0d00a5;
         public static final int txt_getsupport=0x7f0d0167;
@@ -3512,7 +3513,7 @@ containing a value of this type.
         public static final int txt_salary=0x7f0d01a1;
         public static final int txt_show_email=0x7f0d015c;
         public static final int txt_stdate=0x7f0d01a2;
-        public static final int txt_support=0x7f0d01f5;
+        public static final int txt_support=0x7f0d01f6;
         public static final int txt_termservice=0x7f0d00ad;
         public static final int txt_twitter=0x7f0d0163;
         public static final int txt_twitter11=0x7f0d0164;
@@ -3524,11 +3525,11 @@ containing a value of this type.
         public static final int urlContainer=0x7f0d00ff;
         public static final int useLogo=0x7f0d0016;
         public static final int visible_recriuer_txt=0x7f0d00f2;
-        public static final int web=0x7f0d01f0;
+        public static final int web=0x7f0d01f1;
         public static final int webView=0x7f0d0100;
         public static final int withText=0x7f0d002b;
         public static final int wrap_content=0x7f0d0036;
-        public static final int writeareview_txt=0x7f0d01f1;
+        public static final int writeareview_txt=0x7f0d01f2;
         public static final int yes=0x7f0d00e8;
     }
     public static final class integer {
