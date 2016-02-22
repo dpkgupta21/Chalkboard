@@ -12,9 +12,6 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.chalkboard.ImageLoader;
-import com.chalkboard.R;
-
 public class InboxListAdapter extends BaseAdapter {
 
 	Activity mContext;
@@ -28,8 +25,8 @@ public class InboxListAdapter extends BaseAdapter {
 		mContext = context;
 		this.mainDataList = mainDataList;
 		inflater = LayoutInflater.from(mContext);
-		font = Typeface.createFromAsset(mContext.getAssets(), "mark.ttf");
-		font2=Typeface.createFromAsset(mContext.getAssets(), "marlbold.ttf");
+		font = Typeface.createFromAsset(mContext.getAssets(), "fonts/mark.ttf");
+		font2=Typeface.createFromAsset(mContext.getAssets(), "fonts/marlbold.ttf");
 		imageloader = new ImageLoader(mContext);
 
 	}

@@ -25,8 +25,6 @@ import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,7 +32,6 @@ import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -43,10 +40,6 @@ import android.widget.ListView;
 import com.chalkboard.GlobalClaass;
 import com.chalkboard.ImageLoader;
 import com.chalkboard.R;
-import com.chalkboard.recruiter.TeacherCreditFragment.GetTeacherItem;
-import com.chalkboard.recruiter.TeacherPageFragment.AddJobFavorites;
-import com.chalkboard.recruiter.TeacherPageFragment.RemoveJobFavorites;
-import com.chalkboard.teacher.JobObject;
 
 public class TeacherFavoriteFragment extends Fragment {
 
@@ -283,8 +276,8 @@ public class TeacherFavoriteFragment extends Fragment {
 			this.context = context;
 			this.mainDataList = mainDataList;
 			inflater = LayoutInflater.from(this.context);
-			font = Typeface.createFromAsset(this.context.getAssets(), "mark.ttf");
-			font2=Typeface.createFromAsset(this.context.getAssets(), "marlbold.ttf");
+			font = Typeface.createFromAsset(this.context.getAssets(), "fonts/mark.ttf");
+			font2=Typeface.createFromAsset(this.context.getAssets(), "fonts/marlbold.ttf");
 			arrList = new ArrayList<TeacherObject>();
 
 			arrList.addAll(this.mainDataList);

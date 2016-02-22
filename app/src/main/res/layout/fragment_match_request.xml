@@ -14,22 +14,24 @@
         android:weightSum="2">
 
         <LinearLayout
-            android:id="@+id/notification_ll"
+            android:id="@+id/ll_received"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@android:color/darker_gray"
+            android:background="@android:color/white"
             android:orientation="vertical"
-            android:padding="5dp">
+            android:padding="@dimen/margin_10dp">
 
 
-            <com.chalkboard.customviews.MyTextViewMark
-                android:id="@+id/notification_tv"
+            <TextView
+                android:id="@+id/tv_received"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:padding="10dp"
+                android:layout_marginTop="@dimen/margin_10dp"
                 android:text="@string/received"
+                android:textColor="@color/app_color"
+                android:textSize="20sp"
                 android:textStyle="normal" />
         </LinearLayout>
 
@@ -39,36 +41,42 @@
             android:background="@android:color/darker_gray" />
 
         <LinearLayout
-            android:id="@+id/message_ll"
+            android:id="@+id/ll_sent"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@android:color/darker_gray"
+            android:background="@android:color/white"
             android:orientation="vertical"
-            android:padding="5dp">
+            android:padding="@dimen/margin_10dp">
 
 
-            <com.chalkboard.customviews.MyTextViewMark
-                android:id="@+id/message_tv"
+            <TextView
+                android:id="@+id/tv_sent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:padding="10dp"
+                android:layout_marginTop="@dimen/margin_10dp"
                 android:text="@string/sent"
-                android:textStyle="normal" />
+                android:textColor="@android:color/darker_gray"
+                android:textSize="20sp" />
         </LinearLayout>
+
+
     </LinearLayout>
 
-    <ListView
-        android:id="@+id/messages_rv"
+    <View
+        android:id="@+id/view_horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/top_selection_ll"
-        android:visibility="gone" />
+        android:layout_height="1dp"
+        android:layout_below="@id/top_selection_ll"
+        android:background="@android:color/darker_gray" />
 
-    <com.baoyz.swipemenulistview.SwipeMenuListView
-        android:id="@+id/notification_lv"
+    <FrameLayout
+        android:id="@+id/frame_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/top_selection_ll" />
+        android:layout_below="@+id/view_horizontal">
+    </FrameLayout>
+
+
 </RelativeLayout>

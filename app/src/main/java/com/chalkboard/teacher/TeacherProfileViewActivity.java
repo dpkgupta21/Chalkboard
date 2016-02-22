@@ -27,9 +27,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.ViewGroup.LayoutParams;
 import android.view.Window;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -62,8 +60,8 @@ public class TeacherProfileViewActivity extends Activity {
 		imageloader = new ImageLoader(context);
 		imageloader11 = new ImageLoader11(context);
 
-		font=Typeface.createFromAsset(getAssets(), "mark.ttf");
-		font2=Typeface.createFromAsset(getAssets(), "marlbold.ttf");
+		font=Typeface.createFromAsset(getAssets(), "fonts/mark.ttf");
+		font2=Typeface.createFromAsset(getAssets(), "fonts/marlbold.ttf");
 		
 		txt_profileaddress = (TextView) findViewById(R.id.profile_location);
 		txt_profilename = (TextView) findViewById(R.id.profile_name);

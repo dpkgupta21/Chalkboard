@@ -39,179 +39,209 @@ import com.chalkboard.R;
 
 public class JobPagerActivity extends FragmentActivity {
 
-	ViewPager jobPager = null;
+    private ViewPager jobPager = null;
+    private int position;
+    private ArrayList<JobObject> dataList = null;
+    private SlidePagerAdapter pagerAdapter;
+    private Activity context = null;
+
+
+    @SuppressWarnings("unchecked")
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+        position = getIntent().getIntExtra("position", 0);
+        dataList = (ArrayList<JobObject>) getIntent().getSerializableExtra(
+                "dataList");
+        context = this;
+
+
+        setContentView(R.layout.activity_pager);
+
+        //((ImageView)(findViewById(R.id.header_left_menu))).setImageResource(R.drawable.pin_icon);
+        //((ImageView)(findViewById(R.id.header_left_menu))).setImageResource(R.drawable.remove_job);
+
+        ImageView header_left_menu = (ImageView) findViewById(R.id.header_left_menu);
+        header_left_menu.setImageResource(R.drawable.remove_job);
+        header_left_menu.setOnClickListener(removeJobClickListener);
+
+        ImageView header_right_menu = (ImageView) findViewById(R.id.header_right_menu);
+        header_right_menu.setImageResource(R.drawable.group_icon);
+        header_right_menu.setOnClickListener(shareClickListener);
 
-	int position;
-	ArrayList<JobObject> dataList = null;
+        ((ImageView) (findViewById(R.id.header_logo))).setVisibility(View.GONE);
+
+        ((TextView) (findViewById(R.id.header_text))).setText("Job Listing");
 
-	SlidePagerAdapter pagerAdapter;
+
+        ((ImageView) (findViewById(R.id.header_logo)))
+                .setVisibility(View.GONE);
+        findViewById(R.id.top_header_count).setVisibility(View.GONE);
 
-	Activity context = null;
-	Typeface font,font2;
-	@SuppressWarnings("unchecked")
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+        ((TextView) (findViewById(R.id.header_text))).setText(getString(R.string.job_detail_page_title));
 
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
+//		(findViewById(R.id.header_left_menu)).setOnClickListener(new OnClickListener() {
+//			@Override
+//			public void onClick(View arg0) {
+//
+//
+//
+//
+//				String map = "http://maps.google.co.in/maps?q=" + dataList.get(jobPager.getCurrentItem()).getJobLocation();
+//
+//				Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(map));
+//				startActivity(intent);
+//			}
+//		});
 
-		position = getIntent().getIntExtra("position", 0);
-		dataList = (ArrayList<JobObject>) getIntent().getSerializableExtra(
-				"dataList");
-		context = this;
-		font=Typeface.createFromAsset(getAssets(), "mark.ttf");
-		font2=Typeface.createFromAsset(getAssets(), "marlbold.ttf");
+//		(findViewById(R.id.header_right_menu)).setOnClickListener(new OnClickListener() {
+//			@Override
+//			public void onClick(View arg0) {
+//
+//				/*Log.e("Deepak", "ID:" + dataList.get(jobPager.getCurrentItem()).getId());
+//
+//				removeJob = new RemoveJob(dataList.get(jobPager.getCurrentItem()).getId());
+//				removeJob.execute();*/
+//
+//				finish();
+//
+//			}
+//		});
 
-		setContentView(R.layout.activity_pager);
+        jobPager = (ViewPager) findViewById(R.id.pager);
 
-		((ImageView)(findViewById(R.id.header_left_menu))).setImageResource(R.drawable.pin_icon);
-		((ImageView)(findViewById(R.id.header_right_menu))).setImageResource(R.drawable.remove_job);
+        pagerAdapter = new SlidePagerAdapter(getSupportFragmentManager());
 
-		((ImageView)(findViewById(R.id.header_logo))).setVisibility(View.GONE);
+        jobPager.setAdapter(pagerAdapter);
 
-		((TextView)(findViewById(R.id.header_text))).setText("Job Listing");
+        jobPager.setClipToPadding(false);
+        jobPager.setPadding(20, 0, 20, 0);
+        jobPager.setPageMargin(20);
 
-		try {
+        jobPager.setCurrentItem(position);
 
-			((TextView) findViewById(R.id.header_text)).setTypeface(font2);
+        jobPager.setOffscreenPageLimit(20);
 
-		} catch (Exception e) {
+    }
 
-		}
+    private OnClickListener shareClickListener = new OnClickListener() {
+        @Override
+        public void onClick(View v) {
 
-		((ImageView) (findViewById(R.id.header_logo)))
-		.setVisibility(View.GONE);
-		findViewById(R.id.top_header_count).setVisibility(View.GONE);
+            String shareBody = dataList.get(jobPager.getCurrentItem()).getJobName() +
+                    " @ " + dataList.get(jobPager.getCurrentItem()).getJobLocation();
+            Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+            sharingIntent.setType("text/plain");
+            sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Chalkboard Android");
+            sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
+            startActivity(Intent.createChooser(sharingIntent, "Share via..."));
+        }
+    };
 
-		((TextView) (findViewById(R.id.header_text))).setText("Job Listing");
+    private OnClickListener locationClickListener = new OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            String map = "http://maps.google.co.in/maps?q=" +
+                    dataList.get(jobPager.getCurrentItem()).getJobLocation();
 
-		(findViewById(R.id.header_left_menu)).setOnClickListener(new OnClickListener() {			
-			@Override
-			public void onClick(View arg0) {
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(map));
+            startActivity(intent);
+        }
+    };
 
+    private OnClickListener removeJobClickListener = new OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            finish();
+        }
+    };
 
+    private class SlidePagerAdapter extends FragmentStatePagerAdapter {
+        public SlidePagerAdapter(FragmentManager fm) {
+            super(fm);
+        }
 
+        @Override
+        public Fragment getItem(int pos) {
 
-				String map = "http://maps.google.co.in/maps?q=" + dataList.get(jobPager.getCurrentItem()).getJobLocation();
+            return JobPageFragment.newInstance(dataList.get(pos));
 
-				Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(map));
-				startActivity(intent);		
-			}
-		});
+        }
 
-		(findViewById(R.id.header_right_menu)).setOnClickListener(new OnClickListener() {			
-			@Override
-			public void onClick(View arg0) {
+        @Override
+        public int getCount() {
+            return dataList.size();
 
-				/*Log.e("Deepak", "ID:" + dataList.get(jobPager.getCurrentItem()).getId());
+        }
+    }
 
-				removeJob = new RemoveJob(dataList.get(jobPager.getCurrentItem()).getId());
-				removeJob.execute();*/
 
-				finish();
+    RemoveJob removeJob;
 
-			}
-		});
+    class RemoveJob extends AsyncTask<String, String, String> {
 
-		jobPager = (ViewPager) findViewById(R.id.pager);
+        String jobId;
 
-		pagerAdapter = new SlidePagerAdapter(getSupportFragmentManager());
+        public RemoveJob(String id) {
+            jobId = id;
+        }
 
-		jobPager.setAdapter(pagerAdapter);
+        @Override
+        protected void onPreExecute() {
+            showProgressBar(context);
+        }
 
-		jobPager.setClipToPadding(false);
-		jobPager.setPadding(20, 0, 20, 0);
-		jobPager.setPageMargin(20);
+        @Override
+        protected String doInBackground(String... params) {
 
-		jobPager.setCurrentItem(position);
+            String resultStr = null;
+            try {
 
-		jobPager.setOffscreenPageLimit(20);
+                HttpClient httpClient = new DefaultHttpClient();
+                HttpPost request = new HttpPost(GlobalClaass.Webservice_Url);
 
-	}
+                List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
 
-	private class SlidePagerAdapter extends FragmentStatePagerAdapter {
-		public SlidePagerAdapter(FragmentManager fm) {
-			super(fm);
-		}
+                nameValuePairs.add(new BasicNameValuePair("action",
+                        "remove_job"));
 
-		@Override
-		public Fragment getItem(int pos) {
+                nameValuePairs.add(new BasicNameValuePair("job_id", jobId));
+                nameValuePairs.add(new BasicNameValuePair("user_id",
+                        GlobalClaass.getUserId(context)));
+                request.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 
-			return JobPageFragment.newInstance(dataList.get(pos));
+                HttpResponse response = httpClient.execute(request);
 
-		}
+                HttpEntity entity = response.getEntity();
 
-		@Override
-		public int getCount() {
-			return dataList.size();
+                resultStr = EntityUtils.toString(entity);
 
-		}
-	}
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
 
-	RemoveJob removeJob;
+            return resultStr;
 
-	class RemoveJob extends AsyncTask<String, String, String> {
+        }
 
-		String jobId;
+        @Override
+        protected void onPostExecute(String result) {
 
-		public RemoveJob(String id) {
-			jobId = id;
-		}
+            hideProgressBar(context);
 
-		@Override
-		protected void onPreExecute() {
-			showProgressBar(context);
-		}
+            Log.e("Deepak", "result:" + result);
 
-		@Override
-		protected String doInBackground(String... params) {
+            dataList.remove(jobPager.getCurrentItem());
 
-			String resultStr = null;
-			try {
+            pagerAdapter.notifyDataSetChanged();
 
-				HttpClient httpClient = new DefaultHttpClient();
-				HttpPost request = new HttpPost(GlobalClaass.Webservice_Url);
 
-				List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
+        }
 
-				nameValuePairs.add(new BasicNameValuePair("action",
-						"remove_job"));
-
-				nameValuePairs.add(new BasicNameValuePair("job_id", jobId));
-				nameValuePairs.add(new BasicNameValuePair("user_id",
-						GlobalClaass.getUserId(context)));
-				request.setEntity(new UrlEncodedFormEntity(nameValuePairs));
-
-				HttpResponse response = httpClient.execute(request);
-
-				HttpEntity entity = response.getEntity();
-
-				resultStr = EntityUtils.toString(entity);
-
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-
-			return resultStr;
-
-		}
-
-		@Override
-		protected void onPostExecute(String result) {
-
-			hideProgressBar(context);
-
-			Log.e("Deepak", "result:" + result);
-
-			dataList.remove(jobPager.getCurrentItem());
-
-			pagerAdapter.notifyDataSetChanged();
-
-
-		}
-
-	}
-
+    }
 
 
 }

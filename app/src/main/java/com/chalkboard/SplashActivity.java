@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Window;
 
-import com.chalkboard.recruiter.TeachersListActivity;
+import com.chalkboard.recruiter.navigationdrawer.TeachersListActivity;
 import com.chalkboard.teacher.navigationdrawer.JobListActivity;
 
 public class SplashActivity extends Activity {

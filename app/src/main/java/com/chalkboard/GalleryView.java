@@ -15,9 +15,7 @@ import android.view.ViewGroup.LayoutParams;
 import android.view.Window;
 
 import com.android.volley.toolbox.ImageLoader;
-import com.chalkboard.HackyViewPager;
-import com.chalkboard.PhotoView;
-import com.chalkboard.ZoomOutPageTransformer;
+import com.volley.ApplicationController;
 
 public class GalleryView extends Activity {
 

@@ -32,8 +32,8 @@ public class SelectJobStartDateActivity extends Activity{
 		super.onCreate(savedInstanceState);
 
 		context = this;
-		font=Typeface.createFromAsset(context.getAssets(), "mark.ttf");
-		font2=Typeface.createFromAsset(getAssets(), "marlbold.ttf");
+		font=Typeface.createFromAsset(context.getAssets(), "fonts/mark.ttf");
+		font2=Typeface.createFromAsset(getAssets(), "fonts/marlbold.ttf");
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 
 		setContentView(R.layout.activity_select_date);

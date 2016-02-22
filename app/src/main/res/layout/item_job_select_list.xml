@@ -3,7 +3,7 @@
     android:layout_height="wrap_content"
     android:background="@android:color/white" >
 
-    <TextView
+    <com.chalkboard.customviews.MyTextViewMark
         android:id="@+id/job_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -13,7 +13,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textStyle="bold" />
 
-    <TextView
+    <com.chalkboard.customviews.MyTextViewMark
         android:id="@+id/job_location"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

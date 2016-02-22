@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -25,8 +24,8 @@ public class TeacherAddFirstJobFragment extends Fragment{
 
 
 		context = getActivity();
-		font=Typeface.createFromAsset(context.getAssets(), "mark.ttf");
-		font2=Typeface.createFromAsset(context.getAssets(), "marlbold.ttf");
+		font=Typeface.createFromAsset(context.getAssets(), "fonts/mark.ttf");
+		font2=Typeface.createFromAsset(context.getAssets(), "fonts/marlbold.ttf");
  
 		rootView = inflater.inflate(R.layout.fragment_add_first_job, container, false);
 

@@ -136,8 +136,8 @@ NumberPicker.OnValueChangeListener {
 
 		context = this;
 		imageloader = new ImageLoader(context);
-		font=Typeface.createFromAsset(getAssets(), "mark.ttf");
-		font2=Typeface.createFromAsset(getAssets(), "marlbold.ttf");
+		font=Typeface.createFromAsset(getAssets(), "fonts/mark.ttf");
+		font2=Typeface.createFromAsset(getAssets(), "fonts/marlbold.ttf");
 		
 		top_header_count = (TextView)findViewById(R.id.top_header_count);
 		

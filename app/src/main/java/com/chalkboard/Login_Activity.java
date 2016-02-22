@@ -25,7 +25,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.chalkboard.recruiter.TeachersListActivity;
+import com.chalkboard.recruiter.navigationdrawer.TeachersListActivity;
 import com.chalkboard.teacher.navigationdrawer.JobListActivity;
 import com.facebook.AccessToken;
 import com.facebook.Request;
@@ -204,8 +204,8 @@ public class Login_Activity extends Activity implements ConnectionCallbacks,
 
         android_id = Secure.getString(context.getContentResolver(),
                 Secure.ANDROID_ID);
-        font = Typeface.createFromAsset(getAssets(), "mark.ttf");
-        font2 = Typeface.createFromAsset(getAssets(), "marlbold.ttf");
+        font = Typeface.createFromAsset(getAssets(), "fonts/mark.ttf");
+        font2 = Typeface.createFromAsset(getAssets(), "fonts/marlbold.ttf");
 
         btn_signin = (Button) findViewById(R.id.btn_signIn);
         btn_singup = (Button) findViewById(R.id.btn_signUp);

@@ -1,17 +1,16 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="#efefef" >
+    android:background="#efefef">
 
     <RelativeLayout
         android:id="@+id/close_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="gone"
         android:padding="@dimen/paddingsmall"
-        >
+        android:visibility="gone">
 
-        
+
         <TextView
             android:id="@+id/close_header_text"
             android:layout_width="match_parent"
@@ -20,7 +19,7 @@
             android:drawablePadding="5dp"
             android:drawableRight="@drawable/cross"
             android:gravity="left|center"
-          android:textAppearance="?android:attr/textAppearanceMedium" 
+            android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="@android:color/black"
             android:textStyle="bold" />
     </RelativeLayout>
@@ -29,21 +28,20 @@
         android:id="@+id/qwerty"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/close_header" >
+        android:layout_below="@+id/close_header">
 
-        <EditText
+        <com.chalkboard.customviews.MyEditTextViewMark
             android:id="@+id/search_list"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_margin="10dp"
-            android:singleLine="true"
             android:background="@drawable/whiteshap11"
             android:drawablePadding="5dp"
             android:drawableRight="@drawable/search_menu_black"
             android:hint="Search by Job title, location, type"
-           android:textAppearance="?android:attr/textAppearanceMedium" 
-            android:visibility="gone"
-            />
+            android:singleLine="true"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/txt_count"
@@ -51,7 +49,7 @@
             android:layout_height="wrap_content"
             android:background="#EFEFEF"
             android:padding="@dimen/padding"
-           android:textAppearance="?android:attr/textAppearanceMedium" 
+            android:textAppearance="?android:attr/textAppearanceMedium"
             android:textStyle="bold"
             android:visibility="gone" />
     </RelativeLayout>
@@ -68,15 +66,15 @@
         android:dividerHeight="1dp"
         android:scrollbars="none" />
 
-    <TextView
+    <com.chalkboard.customviews.MyTextViewMarlBold
         android:id="@+id/error_message"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:gravity="center"
         android:padding="@dimen/padding"
+        android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="@android:color/black"
-        android:textAppearance="?android:attr/textAppearanceMedium" 
         android:textStyle="bold" />
 
     <LinearLayout
@@ -87,7 +85,7 @@
         android:background="@android:color/black"
         android:gravity="center"
         android:orientation="horizontal"
-        android:visibility="gone" >
+        android:visibility="gone">
 
         <TextView
             android:id="@+id/txt_addmorecredit"
@@ -98,8 +96,8 @@
             android:gravity="center"
             android:padding="@dimen/padding"
             android:text="Add More Credits"
-            android:textColor="@android:color/white"
-           android:textAppearance="?android:attr/textAppearanceMedium" />
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/white" />
 
         <TextView
             android:id="@+id/txt_postnewjob"
@@ -111,8 +109,8 @@
             android:gravity="center"
             android:padding="@dimen/padding"
             android:text="Post New Job"
-            android:textColor="@android:color/white"
-           android:textAppearance="?android:attr/textAppearanceMedium"  />
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/white" />
     </LinearLayout>
 
     <include layout="@layout/bar_progress" />

@@ -76,6 +76,10 @@
         "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/layout/recruiter_side_menu.xml"
     },
     {
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/layout/customdialog.xml",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/layout/customdialog.xml"
+    },
+    {
         "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/layout/abc_list_menu_item_checkbox.xml",
         "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/abc_list_menu_item_checkbox.xml"
     },
@@ -108,6 +112,10 @@
         "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/layout/item_teacher_list.xml"
     },
     {
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/layout/fragment_received.xml",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/layout/fragment_received.xml"
+    },
+    {
         "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/layout/com_facebook_picker_image.xml",
         "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/3.23.1/res/layout/com_facebook_picker_image.xml"
     },
@@ -120,16 +128,16 @@
         "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/layout/number_dialog.xml"
     },
     {
-        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/layout/page_job.xml",
-        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/layout/page_job.xml"
-    },
-    {
         "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/layout/abc_action_bar_title_item.xml",
         "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/abc_action_bar_title_item.xml"
     },
     {
         "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/layout/support_simple_spinner_dropdown_item.xml",
         "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/support_simple_spinner_dropdown_item.xml"
+    },
+    {
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/layout/match_sent_row_layout.xml",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/layout/match_sent_row_layout.xml"
     },
     {
         "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/layout/abc_list_menu_item_radio.xml",
@@ -140,32 +148,12 @@
         "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/layout/activity_teacher_profile_edit.xml"
     },
     {
-        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/layout/row_profile.xml",
-        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/layout/row_profile.xml"
-    },
-    {
-        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/layout/bar_header.xml",
-        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/layout/bar_header.xml"
-    },
-    {
         "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/layout/fragment_add_first_job.xml",
         "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/layout/fragment_add_first_job.xml"
     },
     {
         "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/layout/swipe_list.xml",
         "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/layout/swipe_list.xml"
-    },
-    {
-        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/layout/recruiter_filter_menu.xml",
-        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/layout/recruiter_filter_menu.xml"
-    },
-    {
-        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/layout/teacher_side_menu.xml",
-        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/layout/teacher_side_menu.xml"
-    },
-    {
-        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/layout/fragment_screen_slide_page.xml",
-        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/layout/fragment_screen_slide_page.xml"
     },
     {
         "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/layout/bar_progress.xml",
@@ -184,20 +172,8 @@
         "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/select_dialog_singlechoice_material.xml"
     },
     {
-        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/layout/abc_action_menu_layout.xml",
-        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/abc_action_menu_layout.xml"
-    },
-    {
-        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/layout/linear_page.xml",
-        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/layout/linear_page.xml"
-    },
-    {
         "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/layout/item_inbox_list.xml",
         "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/layout/item_inbox_list.xml"
-    },
-    {
-        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/layout/abc_activity_chooser_view_list_item.xml",
-        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/abc_activity_chooser_view_list_item.xml"
     },
     {
         "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/layout/forgotpassword.xml",
@@ -208,8 +184,64 @@
         "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/abc_action_menu_item_layout.xml"
     },
     {
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/layout/circle_alert_dialog.xml",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/layout/circle_alert_dialog.xml"
+    },
+    {
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/layout/page_job.xml",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/layout/page_job.xml"
+    },
+    {
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/layout/fragment_match_request.xml",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/layout/fragment_match_request.xml"
+    },
+    {
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/layout/row_profile.xml",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/layout/row_profile.xml"
+    },
+    {
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/layout/bar_header.xml",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/layout/bar_header.xml"
+    },
+    {
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/layout/recruiter_filter_menu.xml",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/layout/recruiter_filter_menu.xml"
+    },
+    {
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/layout/fragment_sent.xml",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/layout/fragment_sent.xml"
+    },
+    {
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/layout/match_received_row_layout.xml",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/layout/match_received_row_layout.xml"
+    },
+    {
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/layout/teacher_side_menu.xml",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/layout/teacher_side_menu.xml"
+    },
+    {
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/layout/fragment_screen_slide_page.xml",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/layout/fragment_screen_slide_page.xml"
+    },
+    {
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/layout/abc_action_menu_layout.xml",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/abc_action_menu_layout.xml"
+    },
+    {
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/layout/linear_page.xml",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/layout/linear_page.xml"
+    },
+    {
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/layout/abc_activity_chooser_view_list_item.xml",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/abc_activity_chooser_view_list_item.xml"
+    },
+    {
         "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/layout/com_facebook_picker_list_row.xml",
         "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/3.23.1/res/layout/com_facebook_picker_list_row.xml"
+    },
+    {
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/layout/fragment_country_list.xml",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/layout/fragment_country_list.xml"
     },
     {
         "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/layout/webview.xml",
@@ -340,6 +372,10 @@
         "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/layout/page_job_list.xml"
     },
     {
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/layout/received_row_layout.xml",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/layout/received_row_layout.xml"
+    },
+    {
         "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/layout/activity_screen_slide.xml",
         "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/layout/activity_screen_slide.xml"
     },
@@ -370,6 +406,10 @@
     {
         "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/layout/item_country_list.xml",
         "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/layout/item_country_list.xml"
+    },
+    {
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/layout/doublebtn_alert_dialog.xml",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/layout/doublebtn_alert_dialog.xml"
     },
     {
         "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/layout/abc_action_mode_close_item_material.xml",
@@ -432,12 +472,12 @@
         "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/layout/activity_main.xml"
     },
     {
-        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/layout/row_add_experience.xml",
-        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/layout/row_add_experience.xml"
-    },
-    {
         "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/layout/activity_landingpage.xml",
         "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/layout/activity_landingpage.xml"
+    },
+    {
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/layout/row_add_experience.xml",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/layout/row_add_experience.xml"
     },
     {
         "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/layout/row_country.xml",
@@ -458,6 +498,10 @@
     {
         "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/layout/item_notification_list.xml",
         "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/layout/item_notification_list.xml"
+    },
+    {
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/layout/activity_match_sent_detail.xml",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/layout/activity_match_sent_detail.xml"
     },
     {
         "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/layout/abc_list_menu_item_icon.xml",

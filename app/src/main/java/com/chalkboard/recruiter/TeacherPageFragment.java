@@ -42,7 +42,6 @@ import com.chalkboard.GlobalClaass;
 import com.chalkboard.ImageLoader;
 import com.chalkboard.ImageLoader11;
 import com.chalkboard.R;
-import com.chalkboard.recruiter.TeacherNotificationFragment.GetJobNotificationItem;
 
 public class TeacherPageFragment extends Fragment {
 
@@ -82,8 +81,8 @@ public class TeacherPageFragment extends Fragment {
 		rootView = inflater.inflate(R.layout.page_teacher, container, false);
 
 		refineUI();
-		font=Typeface.createFromAsset(context.getAssets(), "mark.ttf");
-		font2=Typeface.createFromAsset(context.getAssets(), "marlbold.ttf");
+		font=Typeface.createFromAsset(context.getAssets(), "fonts/mark.ttf");
+		font2=Typeface.createFromAsset(context.getAssets(), "fonts/marlbold.ttf");
 		return rootView;
 	}
 

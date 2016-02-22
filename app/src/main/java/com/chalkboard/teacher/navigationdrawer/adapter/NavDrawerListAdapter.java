@@ -83,7 +83,7 @@ public class NavDrawerListAdapter extends BaseAdapter {
         }else{
             holder.txt_unread_projects.setVisibility(View.INVISIBLE);
         }
-        holder.txt_unread_projects.setTypeface(Typeface.createFromAsset(context.getAssets(), "marlbold.ttf"));
+        holder.txt_unread_projects.setTypeface(Typeface.createFromAsset(context.getAssets(), "fonts/marlbold.ttf"));
         holder.txt_menu_title.setText(navDrawerItems.get(position).getTitle());
 
         return mView;

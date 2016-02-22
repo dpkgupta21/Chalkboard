@@ -20,13 +20,10 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.text.Editable;
 import android.text.TextUtils;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,7 +35,6 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -47,200 +43,205 @@ import com.chalkboard.GlobalClaass;
 import com.chalkboard.ImageLoader;
 import com.chalkboard.PreferenceConnector;
 import com.chalkboard.R;
-import com.chalkboard.teacher.MultipleCounrtySelect_Activity.CountryList;
 
 public class SelectJobTypeActivity extends Activity {
 
-	ListView lvJobList = null;
+    private ListView lvJobList = null;
+    private Activity context = null;
+    private ArrayList<CountryData> dataList = null;
+    private GetCounries getCounries = null;
+    private CountryListAdapter adapter;
+    //Typeface font, font2;
 
-	Activity context = null;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
-	ArrayList<CountryData> dataList = null;
+        context = this;
 
-	GetCounries getCounries = null;
-	Typeface font,font2;
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
 
-		context = this;
-		font=Typeface.createFromAsset(context.getAssets(), "mark.ttf");
-		font2=Typeface.createFromAsset(getAssets(), "marlbold.ttf");
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
+        setContentView(R.layout.fragment_country_list);
 
-		setContentView(R.layout.fragment_list);
+        lvJobList = (ListView) findViewById(R.id.list);
 
-		lvJobList = (ListView) findViewById(R.id.list);
-
-		(findViewById(R.id.close_header)).setVisibility(View.VISIBLE);
-		((TextView)findViewById(R.id.close_header_text)).setText("Select Type");
-		
-		try {
-			((TextView)findViewById(R.id.close_header_text)).setTypeface(font2);
-		} catch (Exception e) {
-
-		}
-		
-		(findViewById(R.id.close_header)).setOnClickListener(new OnClickListener() {			
-			@Override
-			public void onClick(View arg0) {
-				
-				if (dataList != null) {
-					StringBuffer sb = new StringBuffer();
-					 
-					String seperator = "";
-					
-			        for (CountryData bean : dataList) {
-			 
-			            if (bean.isChecked()) {
-			            	sb.append(seperator);
-			            	seperator = ",";
-			                sb.append(bean.getCountry_Id());
-			               
-			            }
-			        }
-			 
-			        String s = sb.toString().trim();
-			 
-			        if (TextUtils.isEmpty(s)) {
-			        	GlobalClaass.savePrefrencesfor(context, PreferenceConnector.TYPEARRAY, "");
-			        } else { 
-			        	GlobalClaass.savePrefrencesfor(context, PreferenceConnector.TYPEARRAY, s);           
-			        }	
-				}else{
-					GlobalClaass.savePrefrencesfor(context, PreferenceConnector.TYPEARRAY, "");
-				}
-				
-				finish();
-			}
-		});
-		
-       if(GlobalClaass.isInternetPresent(context)){
-			
-    	   getCounries = new GetCounries();
-   		   getCounries.execute();
-
-			
-		}
-		else {
-			GlobalClaass.showToastMessage(context,"Please check internet connection");
-		}
-		
-	}
-
-	@Override
-	public void onDestroy() {
-		super.onDestroy();
-		GlobalClaass.clearAsyncTask(getCounries);
-	}
-
-	class GetCounries extends AsyncTask<String, String, String> {
-
-		@Override
-		protected void onPreExecute() {
-			showProgressBar(context);
-		}
-
-		@Override
-		protected String doInBackground(String... params) {
-
-			String resultStr = null;
-			try {
-
-				HttpClient httpClient = new DefaultHttpClient();
-				HttpPost request = new HttpPost(GlobalClaass.Webservice_Url);
-
-				List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
-				nameValuePairs
-						.add(new BasicNameValuePair("action", "jobTypes"));
-
-				request.setEntity(new UrlEncodedFormEntity(nameValuePairs));
-
-				HttpResponse response = httpClient.execute(request);
-
-				HttpEntity entity = response.getEntity();
-
-				resultStr = EntityUtils.toString(entity);
-
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-
-			return resultStr;
-
-		}
-
-		@Override
-		protected void onPostExecute(String result) {
-
-			hideProgressBar(context);
-
-			setUpUi(result);
-		}
-
-	}
-
-	public void setUpUi(String result) {
-
-		try {
-
-			Log.e("Deepak", "result: " + result);
-
-			JSONObject jObject = new JSONObject(result);
-
-			String get_message = jObject.getString("message").trim();
-			String get_replycode = jObject.getString("status").trim();
-
-			JSONArray jrr = jObject.getJSONArray("jobTypes");
-
-			dataList = new ArrayList<CountryData>();
-
-			for (int i = 0; i < jrr.length(); i++) {
-
-				JSONObject jobj = jrr.getJSONObject(i);
-
-				CountryData itmObj = new CountryData();
-
-				itmObj.setCountry_Id(jobj.getString("id"));
-				itmObj.setCountry_Name(jobj.getString("name"));
+        (findViewById(R.id.close_header)).setVisibility(View.VISIBLE);
+        ((TextView) findViewById(R.id.close_header_text)).setText(getString(R.string.select_type));
 
 
-itmObj.setChecked(false);
-				
-				if (!GlobalClaass.getTypeArray(context).equalsIgnoreCase("")) {
-				
-					String [] arr = GlobalClaass.getTypeArray(context).split(",");
-					
-					for (int j = 0; j < arr.length; j++) {
-						if (arr[j].equalsIgnoreCase(jobj.getString("id"))) {
-							itmObj.setChecked(true);
-						}
-					}
-					
-				}
-				
-				dataList.add(itmObj);
+        ((TextView) findViewById(R.id.txt_view_clear)).setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+                for (int i = 0; i < dataList.size(); i++) {
+                    dataList.get(i).setChecked(false);
 
-		if (dataList != null) {
+                }
+                adapter.setCountryList(dataList);
+                adapter.notifyDataSetChanged();
+            }
+        });
 
-			if (dataList.size() > 0) {
 
-				final CountryListAdapter itmAdap = new CountryListAdapter(
-						context, dataList);
+        ((TextView) findViewById(R.id.txt_done)).setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
 
-				lvJobList.setAdapter(itmAdap);
+                if (dataList != null) {
+                    StringBuffer sb = new StringBuffer();
 
-				lvJobList.setOnItemClickListener(new OnItemClickListener() {
+                    String seperator = "";
 
-					@Override
-					public void onItemClick(AdapterView<?> arg0, View view,
-							int position, long arg3) {
-						CheckBox chk = (CheckBox) view
+                    for (CountryData bean : dataList) {
+
+                        if (bean.isChecked()) {
+                            sb.append(seperator);
+                            seperator = ",";
+                            sb.append(bean.getCountry_Id());
+
+                        }
+                    }
+
+                    String s = sb.toString().trim();
+
+                    if (TextUtils.isEmpty(s)) {
+                        GlobalClaass.savePrefrencesfor(context, PreferenceConnector.TYPEARRAY, "");
+                    } else {
+                        GlobalClaass.savePrefrencesfor(context, PreferenceConnector.TYPEARRAY, s);
+                    }
+                } else {
+                    GlobalClaass.savePrefrencesfor(context, PreferenceConnector.TYPEARRAY, "");
+                }
+
+                finish();
+            }
+        });
+
+        if (GlobalClaass.isInternetPresent(context)) {
+
+            getCounries = new GetCounries();
+            getCounries.execute();
+
+
+        } else {
+            GlobalClaass.showToastMessage(context, "Please check internet connection");
+        }
+
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        GlobalClaass.clearAsyncTask(getCounries);
+    }
+
+    class GetCounries extends AsyncTask<String, String, String> {
+
+        @Override
+        protected void onPreExecute() {
+            showProgressBar(context);
+        }
+
+        @Override
+        protected String doInBackground(String... params) {
+
+            String resultStr = null;
+            try {
+
+                HttpClient httpClient = new DefaultHttpClient();
+                HttpPost request = new HttpPost(GlobalClaass.Webservice_Url);
+
+                List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
+                nameValuePairs
+                        .add(new BasicNameValuePair("action", "jobTypes"));
+
+                request.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+
+                HttpResponse response = httpClient.execute(request);
+
+                HttpEntity entity = response.getEntity();
+
+                resultStr = EntityUtils.toString(entity);
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            return resultStr;
+
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+
+            hideProgressBar(context);
+
+            setUpUi(result);
+        }
+
+    }
+
+    public void setUpUi(String result) {
+
+        try {
+
+            Log.e("Deepak", "result: " + result);
+
+            JSONObject jObject = new JSONObject(result);
+
+            String get_message = jObject.getString("message").trim();
+            String get_replycode = jObject.getString("status").trim();
+
+            JSONArray jrr = jObject.getJSONArray("jobTypes");
+
+            dataList = new ArrayList<CountryData>();
+
+            for (int i = 0; i < jrr.length(); i++) {
+
+                JSONObject jobj = jrr.getJSONObject(i);
+
+                CountryData itmObj = new CountryData();
+
+                itmObj.setCountry_Id(jobj.getString("id"));
+                itmObj.setCountry_Name(jobj.getString("name"));
+
+
+                itmObj.setChecked(false);
+
+                if (!GlobalClaass.getTypeArray(context).equalsIgnoreCase("")) {
+
+                    String[] arr = GlobalClaass.getTypeArray(context).split(",");
+
+                    for (int j = 0; j < arr.length; j++) {
+                        if (arr[j].equalsIgnoreCase(jobj.getString("id"))) {
+                            itmObj.setChecked(true);
+                        }
+                    }
+
+                }
+
+                dataList.add(itmObj);
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        if (dataList != null) {
+
+            if (dataList.size() > 0) {
+
+                final CountryListAdapter itmAdap = new CountryListAdapter(
+                        context, dataList);
+
+                lvJobList.setAdapter(itmAdap);
+
+                lvJobList.setOnItemClickListener(new OnItemClickListener() {
+
+                    @Override
+                    public void onItemClick(AdapterView<?> arg0, View view,
+                                            int position, long arg3) {
+                        CheckBox chk = (CheckBox) view
                                 .findViewById(R.id.check);
                         CountryData bean = dataList
                                 .get(position);
@@ -251,172 +252,175 @@ itmObj.setChecked(false);
                             bean.setChecked(true);
                             chk.setChecked(true);
                         }
-					}
-				});
+                    }
+                });
 
-			}
-		}
-	}
+            }
+        }
+    }
 
-	class CountryListAdapter extends BaseAdapter {
+    class CountryListAdapter extends BaseAdapter {
 
-		Activity mContext;
-		LayoutInflater inflater;
-		private List<CountryData> mainDataList = null;
-		private List<CountryData> arrList = null;
-		ImageLoader imageloader = null;
+        Activity mContext;
+        LayoutInflater inflater;
+        private List<CountryData> mainDataList = null;
+        private List<CountryData> arrList = null;
+        ImageLoader imageloader = null;
 
-		Typeface font;
-		
-		public CountryListAdapter(Activity context,
-				List<CountryData> mainDataList) {
+        Typeface font;
 
-			mContext = context;
-			this.mainDataList = mainDataList;
+        public CountryListAdapter(Activity context,
+                                  List<CountryData> mainDataList) {
 
-			arrList = new ArrayList<CountryData>();
-			font = Typeface.createFromAsset(mContext.getAssets(), "mark.ttf");
-			arrList.addAll(this.mainDataList);
+            mContext = context;
+            this.mainDataList = mainDataList;
 
-			inflater = LayoutInflater.from(mContext);
+            arrList = new ArrayList<CountryData>();
+            font = Typeface.createFromAsset(mContext.getAssets(), "fonts/mark.ttf");
+            arrList.addAll(this.mainDataList);
 
-			imageloader = new ImageLoader(mContext);
+            inflater = LayoutInflater.from(mContext);
 
-		}
+            imageloader = new ImageLoader(mContext);
 
-		class ViewHolder {
-			protected TextView name;
-			protected CheckBox check;
+        }
 
-		}
+        public void setCountryList(List<CountryData> mainDataList){
+            this.mainDataList=mainDataList;
+        }
 
-		@Override
-		public int getCount() {
-			return mainDataList.size();
-		}
+        class ViewHolder {
+            protected TextView name;
+            protected CheckBox check;
 
-		@Override
-		public CountryData getItem(int position) {
-			return mainDataList.get(position);
-		}
+        }
 
-		@Override
-		public long getItemId(int position) {
-			return position;
-		}
+        @Override
+        public int getCount() {
+            return mainDataList.size();
+        }
 
-		public View getView(final int position, View view, ViewGroup parent) {
-			final ViewHolder holder;
-			if (view == null) {
-				holder = new ViewHolder();
-				view = inflater.inflate(R.layout.item_country_list, null);
+        @Override
+        public CountryData getItem(int position) {
+            return mainDataList.get(position);
+        }
 
-				holder.name = (TextView) view.findViewById(R.id.country_name);
-				holder.check = (CheckBox) view.findViewById(R.id.check);
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
 
-				try {
+        public View getView(final int position, View view, ViewGroup parent) {
+            final ViewHolder holder;
+            if (view == null) {
+                holder = new ViewHolder();
+                view = inflater.inflate(R.layout.item_country_list, null);
 
-					holder.name.setTypeface(font);
-				} catch (Exception e) {
+                holder.name = (TextView) view.findViewById(R.id.country_name);
+                holder.check = (CheckBox) view.findViewById(R.id.check);
 
-				}
-				
-				view.setTag(holder);
+                try {
 
-				view.setTag(R.id.country_name, holder.name);
-				view.setTag(R.id.check, holder.check);
+                    holder.name.setTypeface(font);
+                } catch (Exception e) {
 
-				holder.check
-						.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                }
 
-							@Override
-							public void onCheckedChanged(CompoundButton vw,
-									boolean isChecked) {
+                view.setTag(holder);
 
-								int getPosition = (Integer) vw.getTag();
-								mainDataList.get(getPosition).setChecked(
-										vw.isChecked());
+                view.setTag(R.id.country_name, holder.name);
+                view.setTag(R.id.check, holder.check);
 
-							}
-						});
+                holder.check
+                        .setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
-			} else {
-				holder = (ViewHolder) view.getTag();
-			}
+                            @Override
+                            public void onCheckedChanged(CompoundButton vw,
+                                                         boolean isChecked) {
 
-			holder.check.setTag(position);
+                                int getPosition = (Integer) vw.getTag();
+                                mainDataList.get(getPosition).setChecked(
+                                        vw.isChecked());
 
-			holder.name.setText(mainDataList.get(position).getCountry_Name());
+                            }
+                        });
 
-			holder.check.setChecked(mainDataList.get(position).isChecked());
+            } else {
+                holder = (ViewHolder) view.getTag();
+            }
 
-			return view;
-		}
+            holder.check.setTag(position);
 
-		public void filter(String charText) {
-			charText = charText.toLowerCase(Locale.getDefault());
-			mainDataList.clear();
-			if (charText.length() == 0) {
-				mainDataList.addAll(arrList);
-			} else {
-				for (CountryData wp : arrList) {
-					if (wp.getCountry_Name().toLowerCase(Locale.getDefault())
-							.contains(charText)) {
-						mainDataList.add(wp);
-					}
-				}
-			}
-			notifyDataSetChanged();
-		}
+            holder.name.setText(mainDataList.get(position).getCountry_Name());
 
-	}
+            holder.check.setChecked(mainDataList.get(position).isChecked());
 
-	@Override
-	public void onBackPressed() {
+            return view;
+        }
 
-		if (dataList != null) {
-			StringBuffer sb = new StringBuffer();
-			 
-			String seperator = "";
-			
-	        for (CountryData bean : dataList) {
-	 
-	            if (bean.isChecked()) {
-	            	sb.append(seperator);
-	            	seperator = ",";
-	                sb.append(bean.getCountry_Id());
-	               
-	            }
-	        }
-	 
-	        String s = sb.toString().trim();
-	 
-	        if (TextUtils.isEmpty(s)) {
-	        	GlobalClaass.savePrefrencesfor(context, PreferenceConnector.TYPEARRAY, "");
-	        } else { 
-	        	GlobalClaass.savePrefrencesfor(context, PreferenceConnector.TYPEARRAY, s);           
-	        }	
-		}else{
-			GlobalClaass.savePrefrencesfor(context, PreferenceConnector.TYPEARRAY, "");
-		}
-		
-		
+        public void filter(String charText) {
+            charText = charText.toLowerCase(Locale.getDefault());
+            mainDataList.clear();
+            if (charText.length() == 0) {
+                mainDataList.addAll(arrList);
+            } else {
+                for (CountryData wp : arrList) {
+                    if (wp.getCountry_Name().toLowerCase(Locale.getDefault())
+                            .contains(charText)) {
+                        mainDataList.add(wp);
+                    }
+                }
+            }
+            notifyDataSetChanged();
+        }
 
-		finish();
-		
-		
+    }
 
-	}
+    @Override
+    public void onBackPressed() {
 
-	@Override
-	protected void onResume() {
-		super.onResume();
-		overridePendingTransition(R.anim.slide_up, 0);
-	}
-	@Override
-	protected void onPause() {
-		super.onPause();
-		overridePendingTransition(0, R.anim.slide_down);
-	}
-	
+        if (dataList != null) {
+            StringBuffer sb = new StringBuffer();
+
+            String seperator = "";
+
+            for (CountryData bean : dataList) {
+
+                if (bean.isChecked()) {
+                    sb.append(seperator);
+                    seperator = ",";
+                    sb.append(bean.getCountry_Id());
+
+                }
+            }
+
+            String s = sb.toString().trim();
+
+            if (TextUtils.isEmpty(s)) {
+                GlobalClaass.savePrefrencesfor(context, PreferenceConnector.TYPEARRAY, "");
+            } else {
+                GlobalClaass.savePrefrencesfor(context, PreferenceConnector.TYPEARRAY, s);
+            }
+        } else {
+            GlobalClaass.savePrefrencesfor(context, PreferenceConnector.TYPEARRAY, "");
+        }
+
+
+        finish();
+
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        overridePendingTransition(R.anim.slide_up, 0);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        overridePendingTransition(0, R.anim.slide_down);
+    }
+
 }

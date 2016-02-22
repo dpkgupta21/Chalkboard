@@ -26,16 +26,35 @@
     <!-- End Configurations -->
 
 
+    <!-- Match Request-->
+
+    <string name="job_detail_page_title">Jobs</string>
+    <string name="send_match_request">Send Match Request</string>
+    <string name="remove_match_request">Remove Match Request</string>
+
+
+    <string name="send">Send</string>
+    <string name="cancel">Cancel</string>
+
+
+    <!-- Match Request-->
 
     <string name="received">Received</string>
     <string name="sent">Sent</string>
+    <string name="no_received_request">No Received Request</string>
+    <string name="no_sent_request">No Sent Request</string>
+
+    <!-- country dialog -->
+    <string name="done">Done</string>
+    <string name="clear">Clear</string>
+    <string name="select_countries">Select Countries</string>
+    <string name="select_type">Select Type</string>
 
     <string-array name="teacher_drawer_items">
-        <item>Search</item>
+        <item>Jobs</item>
         <item>Favorites</item>
         <item>Match Request</item>
         <item>Matches</item>
-        <item>My Notifications</item>
         <item>Inbox</item>
         <item>Help</item>
         <item>Settings</item>
@@ -49,7 +68,6 @@
         <item>@drawable/favourite_menu</item>
         <item>@drawable/match_menu</item>
         <item>@drawable/match_menu</item>
-        <item>@drawable/notification_menu</item>
         <item>@drawable/inbox_menu</item>
         <item>@drawable/help_menu</item>
         <item>@drawable/settings_menu</item>
@@ -61,10 +79,61 @@
         <item>@drawable/favourite_menu_black</item>
         <item>@drawable/match_menu_black</item>
         <item>@drawable/match_menu_black</item>
-        <item>@drawable/notification_menu_black</item>
         <item>@drawable/inbox_menu_black</item>
         <item>@drawable/help_menu_black</item>
         <item>@drawable/settings_menu_black</item>
         <item>@drawable/logout_menu</item>
     </array>
+
+
+    <string-array name="recruiter_drawer_items">
+        <item>Post New Job</item>
+        <item>Credits</item>
+        <item>Search</item>
+        <item>Favorites</item>
+        <item>Match Request</item>
+        <item>Matches</item>
+        <item>My Notifications</item>
+        <item>Posted Jobs</item>
+        <item>Inbox</item>
+        <item>Help</item>
+        <item>Settings</item>
+        <item>Logout</item>
+    </string-array>
+
+    <!-- User Nav Drawer List Item Icons -->
+    <!-- Keep them in order as the titles are in -->
+    <array name="recruiter_unselected_drawer_icons">
+        <item>@drawable/postjob_menu</item>
+        <item>@drawable/credit_menu</item>
+        <item>@drawable/search_menu</item>
+        <item>@drawable/favourite_menu</item>
+        <item>@drawable/match_menu</item>
+        <item>@drawable/match_menu</item>
+        <item>@drawable/notification_menu</item>
+        <item>@drawable/posted_job_menu</item>
+        <item>@drawable/inbox_menu</item>
+        <item>@drawable/help_menu</item>
+        <item>@drawable/settings_menu</item>
+        <item>@drawable/logout_menu</item>
+    </array>
+
+    <array name="recruiter_selected_drawer_icons">
+        <item>@drawable/postjob_menu_black</item>
+        <item>@drawable/credit_menu_black</item>
+        <item>@drawable/search_menublackk</item>
+        <item>@drawable/favourite_menu_black</item>
+        <item>@drawable/match_menu_black</item>
+        <item>@drawable/match_menu_black</item>
+        <item>@drawable/notification_menu_black</item>
+        <item>@drawable/posted_job_menu_black</item>
+        <item>@drawable/inbox_menu_black</item>
+        <item>@drawable/help_menu_black</item>
+        <item>@drawable/settings_menu_black</item>
+        <item>@drawable/logout_menu</item>
+    </array>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

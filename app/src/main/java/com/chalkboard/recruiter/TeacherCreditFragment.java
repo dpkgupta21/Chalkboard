@@ -74,8 +74,8 @@ public class TeacherCreditFragment extends Fragment {
 		rootView = inflater.inflate(R.layout.fragment_list, container,
 				false);
 
-		font=Typeface.createFromAsset(context.getAssets(), "mark.ttf");
-		font2=Typeface.createFromAsset(context.getAssets(), "marlbold.ttf");
+		font=Typeface.createFromAsset(context.getAssets(), "fonts/mark.ttf");
+		font2=Typeface.createFromAsset(context.getAssets(), "fonts/marlbold.ttf");
 		
 		//edtSearch = (EditText) rootView.findViewById(R.id.search_list);
 		//edtSearch.setVisibility(View.VISIBLE);
@@ -383,7 +383,7 @@ public class TeacherCreditFragment extends Fragment {
 
 			mContext = context;
 			this.mainDataList = mainDataList;
-			font = Typeface.createFromAsset(mContext.getAssets(), "mark.ttf");
+			font = Typeface.createFromAsset(mContext.getAssets(), "fonts/mark.ttf");
 			arrList = new ArrayList<JobObject>();
 
 			arrList.addAll(this.mainDataList);

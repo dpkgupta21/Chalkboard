@@ -4,21 +4,21 @@
     android:layout_marginBottom="10dp"
     android:layout_marginTop="10dp"
     android:paddingBottom="10dp"
-    android:paddingTop="10dp" >
+    android:paddingTop="10dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:weightSum="1"
         android:background="@android:color/white"
-        android:orientation="vertical" >
+        android:orientation="vertical"
+        android:weightSum="1">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0px"
-            android:layout_weight=".45" >
+            android:layout_weight=".45">
 
             <ImageView
                 android:id="@+id/job_image"
@@ -28,116 +28,95 @@
                 android:src="@drawable/bg_1" />
 
             <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                        android:background="@drawable/shadow" />
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/shadow" />
+
             <ImageView
-                android:id="@+id/share_job"
+                android:id="@+id/img_location_icon"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:padding="5dp"
-                android:src="@drawable/group_icon" />
+                android:src="@drawable/pin_icon" />
 
             <ImageView
-                android:id="@+id/job_icon"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_above="@+id/bottom_button_layout"
+                android:id="@+id/img_fav_icon"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:layout_alignParentRight="true"
-                android:layout_margin="@dimen/margin"
-                android:adjustViewBounds="true"
-                android:contentDescription="@string/app_name"
-                android:padding="3dp" />
+                android:layout_alignParentTop="true"
+                android:padding="5dp"
+                android:src="@drawable/unlike_icon" />
+
 
             <ImageView
+                android:id="@+id/img_job_icon"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:layout_above="@+id/bottom_button_layout"
+                android:layout_alignParentBottom="true"
                 android:layout_alignParentRight="true"
                 android:layout_margin="@dimen/margin"
                 android:adjustViewBounds="true"
                 android:contentDescription="@string/app_name"
                 android:src="@drawable/white_circle" />
 
-            <TextView
-                android:id="@+id/job_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_above="@+id/job_offer_by"
-                android:layout_toLeftOf="@+id/job_icon"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:singleLine="true"
-                android:textColor="@android:color/white"
-                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/job_offer_by"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_above="@+id/job_location"
-                android:layout_toLeftOf="@+id/job_icon"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:singleLine="true"
-                android:textColor="@android:color/white"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-
-            <TextView
-                android:id="@+id/job_location"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_above="@+id/bottom_button_layout"
-                android:layout_toLeftOf="@+id/job_icon"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:singleLine="true"
-                android:textColor="@android:color/white"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-
-            <LinearLayout
-                android:id="@+id/bottom_button_layout"
+            <com.chalkboard.customviews.MyTextViewMarlBold
+                android:id="@+id/txt_job_location"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
-                android:orientation="horizontal" >
+                android:layout_toLeftOf="@+id/img_job_icon"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:singleLine="true"
+                android:text="location"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@android:color/white" />
 
-                <TextView
-                    android:id="@+id/add_to_favorite"
-                    android:layout_width="0px"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="#00c7d4"
-                    android:gravity="center"
-                    android:padding="@dimen/padding"
-                    android:singleLine="true"
-                    android:text="Add to Favorites"
-                    android:textColor="@android:color/white"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textStyle="bold" />
+            <!--<LinearLayout-->
+            <!--android:id="@+id/bottom_button_layout"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentBottom="true"-->
+            <!--android:orientation="horizontal">-->
 
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:background="@android:color/white" />
+            <!--<TextView-->
+            <!--android:id="@+id/add_to_favorite"-->
+            <!--android:layout_width="0px"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--android:background="#00c7d4"-->
+            <!--android:gravity="center"-->
+            <!--android:padding="@dimen/padding"-->
+            <!--android:singleLine="true"-->
+            <!--android:text="Add to Favorites"-->
+            <!--android:textAppearance="?android:attr/textAppearanceMedium"-->
+            <!--android:textColor="@android:color/white"-->
+            <!--android:textStyle="bold" />-->
 
-                <TextView
-                    android:id="@+id/match_job"
-                    android:layout_width="0px"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="#00c7d4"
-                    android:gravity="center"
-                    android:padding="@dimen/padding"
-                    android:singleLine="true"
-                    android:text="Match Job"
-                    android:textColor="@android:color/white"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textStyle="bold" />
-            </LinearLayout>
+            <!--<View-->
+            <!--android:layout_width="1dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:background="@android:color/white" />-->
+
+            <!--<TextView-->
+            <!--android:id="@+id/match_job"-->
+            <!--android:layout_width="0px"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--android:background="#00c7d4"-->
+            <!--android:gravity="center"-->
+            <!--android:padding="@dimen/padding"-->
+            <!--android:singleLine="true"-->
+            <!--android:text="Match Job"-->
+            <!--android:textAppearance="?android:attr/textAppearanceMedium"-->
+            <!--android:textColor="@android:color/white"-->
+            <!--android:textStyle="bold" />-->
+            <!--</LinearLayout>-->
         </RelativeLayout>
 
         <ScrollView
@@ -145,105 +124,137 @@
             android:layout_height="0px"
             android:layout_weight=".55"
             android:fillViewport="true"
-            android:scrollbars="none" >
+            android:scrollbars="none">
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/job_description"
+                <com.chalkboard.customviews.MyTextViewMarlBold
+                    android:id="@+id/txt_job_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/padding"
+                    android:text="Title"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@android:color/black"
-                    android:textSize="@dimen/textsize" />
+                    android:textStyle="bold" />
+
+                <View
+                    android:id="@+id/view_horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/txt_job_title"
+                    android:background="@color/grey" />
+
+                <com.chalkboard.customviews.MyTextViewMark
+                    android:id="@+id/txt_job_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/view_horizontal"
+                    android:padding="@dimen/padding"
+                    android:text="Desc"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold" />
 
                 <LinearLayout
                     android:id="@+id/info_ll"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
-                    android:layout_below="@+id/job_description"
-                    android:orientation="horizontal" >
+                    android:layout_below="@+id/txt_job_description"
+                    android:orientation="horizontal">
 
                     <RelativeLayout
                         android:layout_width="0px"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1" >
+                        android:layout_weight="1">
 
-                        <TextView
-                            android:id="@+id/txt_salary"
+                        <com.chalkboard.customviews.MyTextViewMarlBold
+                            android:id="@+id/txt_salary_lbl"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_above="@+id/salary"
+                            android:layout_above="@+id/txt_salary_val"
                             android:padding="@dimen/padding"
                             android:text="SALARY"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
                             android:textColor="@android:color/black"
-                          android:textAppearance="?android:attr/textAppearanceMedium"
                             android:textStyle="bold" />
 
-                        <TextView
-                            android:id="@+id/salary"
+                        <com.chalkboard.customviews.MyTextViewMark
+                            android:id="@+id/txt_salary_val"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_alignParentBottom="true"
                             android:padding="@dimen/padding"
                             android:singleLine="true"
-                            android:textColor="@android:color/black"
-                            android:textAppearance="?android:attr/textAppearanceMedium" />
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textColor="@android:color/black" />
                     </RelativeLayout>
 
                     <RelativeLayout
                         android:layout_width="0px"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1" >
+                        android:layout_weight="1">
 
-                        <TextView
-                            android:id="@+id/txt_stdate"
+                        <com.chalkboard.customviews.MyTextViewMarlBold
+                            android:id="@+id/txt_start_date_lbl"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_above="@+id/start_date"
+                            android:layout_above="@+id/txt_start_date_val"
                             android:padding="@dimen/padding"
                             android:text="START DATE"
-                            android:textColor="@android:color/black"
                             android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textColor="@android:color/black"
                             android:textStyle="bold" />
 
-                        <TextView
-                            android:id="@+id/start_date"
+                        <com.chalkboard.customviews.MyTextViewMark
+                            android:id="@+id/txt_start_date_val"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_alignParentBottom="true"
                             android:padding="@dimen/padding"
                             android:singleLine="true"
-                            android:textColor="@android:color/black"
-                          android:textAppearance="?android:attr/textAppearanceMedium" />
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textColor="@android:color/black" />
                     </RelativeLayout>
                 </LinearLayout>
 
-                <TextView
-                    android:id="@+id/about_heading"
+                <com.chalkboard.customviews.MyTextViewMark
+                    android:id="@+id/txt_about_company_lbl"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/info_ll"
                     android:padding="@dimen/padding"
                     android:text="ABOUT COMPANY"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@android:color/black"
-                   android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/about_company"
+                <com.chalkboard.customviews.MyTextViewMarlBold
+                    android:id="@+id/txt_about_company_val"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
-                    android:layout_below="@+id/about_heading"
+                    android:layout_below="@+id/txt_about_company_lbl"
                     android:padding="@dimen/padding"
-                    android:textColor="@android:color/black"
-                     android:textAppearance="?android:attr/textAppearanceMedium" />
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@android:color/black" />
+
+
             </RelativeLayout>
         </ScrollView>
+
+        <com.chalkboard.customviews.MyButtonViewMarlBold
+            android:id="@+id/btn_send_match_request"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/app_color"
+            android:text="Send Match Request"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/white" />
     </LinearLayout>
 
     <include layout="@layout/bar_progress" />

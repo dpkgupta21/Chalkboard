@@ -1,10 +1,38 @@
 package com.chalkboard.teacher;
 
-import static com.chalkboard.GlobalClaass.hideProgressBar;
-import static com.chalkboard.GlobalClaass.showProgressBar;
+import android.app.Activity;
+import android.content.Intent;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.baoyz.swipemenulistview.SwipeMenu;
+import com.baoyz.swipemenulistview.SwipeMenuCreator;
+import com.baoyz.swipemenulistview.SwipeMenuItem;
+import com.baoyz.swipemenulistview.SwipeMenuListView;
+import com.chalkboard.GlobalClaass;
+import com.chalkboard.ImageLoader;
+import com.chalkboard.R;
+import com.chalkboard.customviews.CustomProgressDialog;
+import com.chalkboard.model.MatchSentDTO;
+import com.chalkboard.utility.Utils;
+import com.chalkboard.webservice.WebserviceConstant;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import com.volley.ApplicationController;
+import com.volley.CustomJsonRequest;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -15,315 +43,343 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
-import org.json.JSONArray;
 import org.json.JSONObject;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.Typeface;
-import android.graphics.drawable.ColorDrawable;
-import android.os.AsyncTask;
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
-import com.baoyz.swipemenulistview.SwipeMenu;
-import com.baoyz.swipemenulistview.SwipeMenuCreator;
-import com.baoyz.swipemenulistview.SwipeMenuItem;
-import com.baoyz.swipemenulistview.SwipeMenuListView;
-import com.chalkboard.GlobalClaass;
-import com.chalkboard.ImageLoader;
-import com.chalkboard.R;
-import com.chalkboard.teacher.JobListFragment.GetJobItem;
+import static com.chalkboard.GlobalClaass.hideProgressBar;
+import static com.chalkboard.GlobalClaass.showProgressBar;
 
 public class JobMatchesFragment extends Fragment {
 
-	SwipeMenuListView lvJobList = null;
+    private static final String TAG = "JobMatchesFragment";
+    private SwipeMenuListView lvJobList = null;
 
-	View rootView = null;
+    private View rootView = null;
 
-	Activity context = null;
+    private Activity context = null;
 
-	ArrayList<JobObject> dataList = null;
+    private RemoveJobMatch removeJobMatch;
+    //ArrayList<JobObject> dataList = null;
 
-	GetJobMatchesItem getJobItem = null;
+    //GetJobMatchesItem getJobItem = null;
 
-	JobMatchListAdapter itmAdap = null;
-	Typeface font2;
-	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
+    private JobMatchListAdapter adapter = null;
 
-		context = getActivity();
-		font2=Typeface.createFromAsset(context.getAssets(), "marlbold.ttf");
+    private List<MatchSentDTO> matchesDTOList;
 
-		rootView = inflater.inflate(R.layout.swipe_list, container, false);
+    //Typeface font2;
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        context = getActivity();
 
-		lvJobList = (SwipeMenuListView) rootView.findViewById(R.id.list);
-		
-		try {
-			
-			((TextView)rootView.findViewById(R.id.error_message)).setTypeface(font2);
-			
-		} catch (Exception e) {
+        rootView = inflater.inflate(R.layout.swipe_list, container, false);
+        lvJobList = (SwipeMenuListView) rootView.findViewById(R.id.list);
 
-		}
 
-		
-		dataList = new ArrayList<JobObject>();
-		itmAdap = new JobMatchListAdapter(context, dataList);
-		lvJobList.setAdapter(itmAdap);
-		
-		SwipeMenuCreator creator = new SwipeMenuCreator() {
+//         dataList = new ArrayList<JobObject>();
+//        itmAdap = new JobMatchListAdapter(context, matchesDTOList);
+//        lvJobList.setAdapter(itmAdap);
 
-			@Override
-			public void create(SwipeMenu menu) {
-			       
-			    	 // create "delete" item
-			        SwipeMenuItem chatItem = new SwipeMenuItem(
-			                context);
-			        // set item background
-			        chatItem.setBackground(R.drawable.chat_back);
-			        // set item width
-			        chatItem.setWidth(150);
-			        // set a icon
-			        chatItem.setIcon(R.drawable.chat_slide);
-			        // add to menu
-			        menu.addMenuItem(chatItem);
-			    	
 
-			        // create "delete" item
-			        SwipeMenuItem deleteItem = new SwipeMenuItem(
-			                context);
-			        // set item background
-			        deleteItem.setBackground(R.drawable.delete_back);
-			        // set item width
-			        deleteItem.setWidth(150);
-			        // set a icon
-			        deleteItem.setIcon(R.drawable.delete_slide);
-			        // add to menu
-			        menu.addMenuItem(deleteItem);
-			    }
-		};
-		
-		// set creator
-		lvJobList.setMenuCreator(creator);
+        //lvJobList.setSwipeDirection(SwipeMenuListView.DIRECTION_LEFT);
 
-		//lvJobList.setSwipeDirection(SwipeMenuListView.DIRECTION_LEFT);
 
-		lvJobList
-				.setOnMenuItemClickListener(new SwipeMenuListView.OnMenuItemClickListener() {
-					@Override
-					public boolean onMenuItemClick(int position,
-							SwipeMenu menu, int index) {
-						switch (index) {
-						case 0:
-							// chat
-							startActivity(new Intent(context,
-									TeacherChatBoardActivity.class)
-									.putExtra(
-											"id",
-											dataList.get(position)
-													.getJobRecruiterId()).putExtra("name",
-															dataList.get(position).getJobRecruiterName()));
-							break;
-						case 1:
-							// delete
-							
-							if(GlobalClaass.isInternetPresent(context)){
+        //executeTask();
 
-								removeJobMatch = new RemoveJobMatch(
-										dataList.get(position).getId());
-								removeJobMatch.execute();
-							}
-							else {
-								GlobalClaass.showToastMessage(context,"Please check internet connection");
-							}
-							
-							break;
-						}
-						// false : close the menu; true : not close the
-						// menu
-						return false;
-					}
-				});
-		
-		executeTask();
-		
-		return rootView;
-	}
+        return rootView;
+    }
 
-	
 
-	@Override
-	public void onDestroyView() {
-		super.onDestroyView();
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
 
-		GlobalClaass.clearAsyncTask(getJobItem);
-		GlobalClaass.clearAsyncTask(removeJobMatch);
+        // set creator
+        lvJobList.setMenuCreator(creator);
 
-	}
+        lvJobList
+                .setOnMenuItemClickListener(new SwipeMenuListView.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(int position,
+                                                   SwipeMenu menu, int index) {
+                        switch (index) {
+                            case 0:
+                                // chat
+                                startActivity(new Intent(context,
+                                        TeacherChatBoardActivity.class)
+                                        .putExtra(
+                                                "id",
+                                                matchesDTOList.get(position)
+                                                        .getRecruiter_id()).putExtra("name",
+                                                matchesDTOList.get(position).getRecruiter().getName()));
+                                break;
+                            case 1:
+                                // delete
 
-	@Override
-	public void onResume() {
-		super.onResume();
+                                if (GlobalClaass.isInternetPresent(context)) {
 
-		executeTask();
+                                    removeJobMatch = new RemoveJobMatch(
+                                            matchesDTOList.get(position).getId());
+                                    removeJobMatch.execute();
+                                } else {
+                                    GlobalClaass.showToastMessage(context, "Please check internet connection");
+                                }
 
-	}
+                                break;
+                        }
+                        // false : close the menu; true : not close the
+                        // menu
+                        return false;
+                    }
+                });
 
-	public void executeTask() {
-		GlobalClaass.clearAsyncTask(getJobItem);
-		if(GlobalClaass.isInternetPresent(context)){
+    }
 
-			getJobItem = new GetJobMatchesItem();
-			getJobItem.execute();
-		}
-		else {
-			GlobalClaass.showToastMessage(context,"Please check internet connection");
-		}
-		
-	}
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
 
-	class GetJobMatchesItem extends AsyncTask<String, String, String> {
+        //  GlobalClaass.clearAsyncTask(getJobItem);
+        GlobalClaass.clearAsyncTask(removeJobMatch);
 
-		@Override
-		protected void onPreExecute() {
-			showProgressBar(context, rootView);
-		}
+    }
 
-		@Override
-		protected String doInBackground(String... params) {
+    @Override
+    public void onResume() {
+        super.onResume();
 
-			String resultStr = null;
-			try {
+        getMatchRequestList();
+        //executeTask();
 
-				HttpClient httpClient = new DefaultHttpClient();
-				HttpPost request = new HttpPost(GlobalClaass.Webservice_Url);
+    }
 
-				List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(
-						2);
-				nameValuePairs.add(new BasicNameValuePair("action",
-						"matchesJobs"));
-				nameValuePairs.add(new BasicNameValuePair("user_id",
-						GlobalClaass.getUserId(context)));
-				request.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+    SwipeMenuCreator creator = new SwipeMenuCreator() {
 
-				HttpResponse response = httpClient.execute(request);
+        @Override
+        public void create(SwipeMenu menu) {
 
-				HttpEntity entity = response.getEntity();
+            // create "delete" item
+            SwipeMenuItem chatItem = new SwipeMenuItem(
+                    context);
+            // set item background
+            chatItem.setBackground(R.drawable.chat_back);
+            // set item width
+            chatItem.setWidth(150);
+            // set a icon
+            chatItem.setIcon(R.drawable.chat_slide);
+            // add to menu
+            menu.addMenuItem(chatItem);
 
-				resultStr = EntityUtils.toString(entity);
 
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+            // create "delete" item
+            SwipeMenuItem deleteItem = new SwipeMenuItem(
+                    context);
+            // set item background
+            deleteItem.setBackground(R.drawable.delete_back);
+            // set item width
+            deleteItem.setWidth(150);
+            // set a icon
+            deleteItem.setIcon(R.drawable.delete_slide);
+            // add to menu
+            menu.addMenuItem(deleteItem);
+        }
+    };
+//
+//    public void executeTask() {
+//       // GlobalClaass.clearAsyncTask(getJobItem);
+//        if (GlobalClaass.isInternetPresent(context)) {
+//
+////            getJobItem = new GetJobMatchesItem();
+////            getJobItem.execute();
+//        } else {
+//            GlobalClaass.showToastMessage(context, "Please check internet connection");
+//        }
+//
+//    }
 
-			return resultStr;
+    private void getMatchRequestList() {
 
-		}
+        if (Utils.isOnline(getActivity())) {
+            Map<String, String> params = new HashMap<>();
+            params.put("action", WebserviceConstant.MATCHES_JOBS_REQUEST);
+            params.put("user_id", GlobalClaass.getUserId(getActivity()));
 
-		@Override
-		protected void onPostExecute(String result) {
 
-			hideProgressBar(context, rootView);
+            CustomProgressDialog.showProgDialog(getActivity(), null);
+            CustomJsonRequest postReq = new CustomJsonRequest(Request.Method.POST, WebserviceConstant.SERVICE_BASE_URL, params,
+                    new Response.Listener<JSONObject>() {
+                        @Override
+                        public void onResponse(JSONObject response) {
+                            try {
+                                Utils.ShowLog(TAG, "got some response = " + response.toString());
+                                Type type = new TypeToken<ArrayList<MatchSentDTO>>() {
+                                }.getType();
+                                matchesDTOList = new Gson().fromJson(response.
+                                        getJSONArray("jobs").toString(), type);
+                                setUpUi(matchesDTOList);
 
-			setUpUi(result);
-		}
+                            } catch (Exception e) {
+                                CustomProgressDialog.hideProgressDialog();
+                                setUpUi(matchesDTOList);
+                                e.printStackTrace();
+                            }
+                            CustomProgressDialog.hideProgressDialog();
+                        }
+                    }, new Response.ErrorListener() {
 
-	}
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    CustomProgressDialog.hideProgressDialog();
+                    Utils.showExceptionDialog(getActivity());
+                    //       CustomProgressDialog.hideProgressDialog();
+                }
+            });
+            ApplicationController.getInstance().getRequestQueue().add(postReq);
+            postReq.setRetryPolicy(new DefaultRetryPolicy(
+                    30000, 0,
+                    DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+            CustomProgressDialog.showProgDialog(getActivity(), null);
+        } else {
+            Utils.showNoNetworkDialog(getActivity());
+        }
 
-	public void setUpUi(String result) {
-		String get_message = "";
-		dataList = new ArrayList<JobObject>();
+    }
 
-		try {
-			
-			Log.e("Deepak", " job match result: " + result);
-			
-			if (itmAdap != null) {
-				itmAdap.notifyDataSetChanged();
-			}
+//    class GetJobMatchesItem extends AsyncTask<String, String, String> {
+//
+//        @Override
+//        protected void onPreExecute() {
+//            showProgressBar(context, rootView);
+//        }
+//
+//        @Override
+//        protected String doInBackground(String... params) {
+//
+//            String resultStr = null;
+//            try {
+//
+//                HttpClient httpClient = new DefaultHttpClient();
+//                HttpPost request = new HttpPost(GlobalClaass.Webservice_Url);
+//
+//                List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(
+//                        2);
+//                nameValuePairs.add(new BasicNameValuePair("action",
+//                        "matchesJobs"));
+//                nameValuePairs.add(new BasicNameValuePair("user_id",
+//                        GlobalClaass.getUserId(context)));
+//                request.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+//
+//                HttpResponse response = httpClient.execute(request);
+//
+//                HttpEntity entity = response.getEntity();
+//
+//                resultStr = EntityUtils.toString(entity);
+//
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+//
+//            return resultStr;
+//
+//        }
+//
+//        @Override
+//        protected void onPostExecute(String result) {
+//
+//            hideProgressBar(context, rootView);
+//
+//            // setUpUi(result);
+//        }
+//
+//    }
 
-			itmAdap = new JobMatchListAdapter(context, dataList);
+    public void setUpUi(List<MatchSentDTO> matchReceivedDTOList) {
+        String get_message = "";
+        //dataList = new ArrayList<JobObject>();
 
-			lvJobList.setAdapter(itmAdap);
+//        try {
+//
+//            Log.e("Deepak", " job match result: " + result);
+//
+//            if (itmAdap != null) {
+//                itmAdap.notifyDataSetChanged();
+//            }
+//
+//            itmAdap = new JobMatchListAdapter(context, dataList);
+//
+//            lvJobList.setAdapter(itmAdap);
+//
+//            JSONObject jObject = new JSONObject(result);
+//
+//            get_message = jObject.getString("message").trim();
+//            String get_replycode = jObject.getString("status").trim();
+//
+//            JSONArray jrr = jObject.getJSONArray("jobs");
+//
+//            for (int i = 0; i < jrr.length(); i++) {
+//
+//                JSONObject jobj = jrr.getJSONObject(i);
+//
+//                JobObject itmObj = new JobObject();
+//
+//                itmObj.setId(jobj.getString("id"));
+//                itmObj.setJobMatchDate(jobj.getString("match_date"));
+//                itmObj.setJobLocation(jobj.getString("city") + ", "
+//                        + jobj.getString("country"));
+//                itmObj.setJobImage(jobj.getString("image"));
+//                itmObj.setJobName(jobj.getString("title"));
+//
+//                itmObj.setJobRecruiterId(jobj.getString("recruiter_id"));
+//
+//                itmObj.setJobRecruiterName(jobj.getString("recruiter"));
+//
+//                dataList.add(itmObj);
+//
+//                /**
+//                 * {"id":"674","title":"Test Job for credit check",
+//                 "city":"Jaipur",
+//                 "country":"Ashmore and Cartier Islands",
+//                 "image":"","match_date":"07:35 PM",
+//                 "recruiter":"Regina Millerj","recruiter_id":"671"},
+//                 */
+//
+//
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
 
-			JSONObject jObject = new JSONObject(result);
 
-			 get_message = jObject.getString("message").trim();
-			String get_replycode = jObject.getString("status").trim();
+        if (matchesDTOList.size() > 0) {
 
-			JSONArray jrr = jObject.getJSONArray("jobs");
+            adapter = new JobMatchListAdapter(context, matchReceivedDTOList);
 
-			for (int i = 0; i < jrr.length(); i++) {
+            lvJobList.setAdapter(adapter);
 
-				JSONObject jobj = jrr.getJSONObject(i);
+            lvJobList.setOnItemClickListener(new OnItemClickListener() {
 
-				JobObject itmObj = new JobObject();
+                @Override
+                public void onItemClick(AdapterView<?> arg0, View arg1,
+                                        int position, long arg3) {
 
-				itmObj.setId(jobj.getString("id"));
-				itmObj.setJobMatchDate(jobj.getString("match_date"));
-				itmObj.setJobLocation(jobj.getString("city") + ", "
-						+ jobj.getString("country"));
-				itmObj.setJobImage(jobj.getString("image"));
-				itmObj.setJobName(jobj.getString("title"));
+                    startActivity(new Intent(context,
+                            TeacherChatBoardActivity.class).putExtra("id",
+                            matchesDTOList.get(position).getRecruiter_id()).putExtra("name",
+                            matchesDTOList.get(position).getRecruiter().getName()));
 
-				itmObj.setJobRecruiterId(jobj.getString("recruiter_id"));
-
-				itmObj.setJobRecruiterName(jobj.getString("recruiter"));
-
-				dataList.add(itmObj);
-
-				/**
-				 * {"id":"674","title":"Test Job for credit check",
-"city":"Jaipur",
-"country":"Ashmore and Cartier Islands",
-"image":"","match_date":"07:35 PM",
-"recruiter":"Regina Millerj","recruiter_id":"671"},
-				 */
-				 
-				
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		
-
-			if (dataList.size() > 0) {
-
-				itmAdap = new JobMatchListAdapter(context, dataList);
-
-				lvJobList.setAdapter(itmAdap);
-
-				lvJobList.setOnItemClickListener(new OnItemClickListener() {
-
-					@Override
-					public void onItemClick(AdapterView<?> arg0, View arg1,
-							int position, long arg3) {
-
-						startActivity(new Intent(context,
-								TeacherChatBoardActivity.class).putExtra("id",
-								dataList.get(position).getJobRecruiterId()).putExtra("name",
-										dataList.get(position).getJobRecruiterName()));
-
-					}
-				});
+                }
+            });
 
 				
 
 				/*
-				 * lvJobList.setOnItemLongClickListener(new
+                 * lvJobList.setOnItemLongClickListener(new
 				 * OnItemLongClickListener() {
 				 * 
 				 * @Override public boolean onItemLongClick(AdapterView<?>
@@ -342,175 +398,162 @@ public class JobMatchesFragment extends Fragment {
 				 * });
 				 */
 
-			
-		}
-		else {
-			((TextView)rootView.findViewById(R.id.error_message)).setText(get_message);
-		}
-		
-	}
 
-	class JobMatchListAdapter extends BaseAdapter {
+        } else {
+            ((TextView) rootView.findViewById(R.id.error_message)).setText(get_message);
+        }
 
-		Activity mContext;
-		LayoutInflater inflater;
-		private List<JobObject> mainDataList = null;
-		Typeface font;
+    }
 
-		ImageLoader imageloader = null;
+    class JobMatchListAdapter extends BaseAdapter {
 
-		public JobMatchListAdapter(Activity context,
-				List<JobObject> mainDataList) {
+        Activity mContext;
+        LayoutInflater inflater;
+        private List<MatchSentDTO> matchReceivedDTOList = null;
 
-			mContext = context;
-			this.mainDataList = mainDataList;
-			inflater = LayoutInflater.from(mContext);
+        ImageLoader imageloader = null;
 
-			imageloader = new ImageLoader(mContext);
-			font=Typeface.createFromAsset(mContext.getAssets(), "mark.ttf");
+        public JobMatchListAdapter(Activity context,
+                                   List<MatchSentDTO> matchReceivedDTOList) {
 
-		}
+            mContext = context;
+            this.matchReceivedDTOList = matchReceivedDTOList;
+            inflater = LayoutInflater.from(mContext);
 
-		class ViewHolder {
-			protected TextView name;
-			protected ImageView image;
+            imageloader = new ImageLoader(mContext);
 
-			protected ImageView chat;
-			protected ImageView remove;
 
-			protected TextView offer_by;
+        }
 
-			protected TextView date;
-			protected TextView location;
+        class ViewHolder {
+            protected TextView name;
+            protected ImageView image;
 
-		}
+            protected ImageView chat;
+            protected ImageView remove;
 
-		@Override
-		public int getCount() {
-			return mainDataList.size();
-		}
+            protected TextView offer_by;
 
-		@Override
-		public JobObject getItem(int position) {
-			return mainDataList.get(position);
-		}
+            protected TextView date;
+            protected TextView location;
 
-		@Override
-		public long getItemId(int position) {
-			return position;
-		}
+        }
 
-		public View getView(final int position, View view, ViewGroup parent) {
-			final ViewHolder holder;
-			if (view == null) {
-				holder = new ViewHolder();
-				view = inflater.inflate(R.layout.item_job_match_list, null);
+        @Override
+        public int getCount() {
+            return matchReceivedDTOList.size();
+        }
 
-				holder.name = (TextView) view.findViewById(R.id.job_name);
-				holder.date = (TextView) view.findViewById(R.id.job_date);
-				holder.location = (TextView) view
-						.findViewById(R.id.job_location);
+        @Override
+        public MatchSentDTO getItem(int position) {
+            return matchReceivedDTOList.get(position);
+        }
 
-				holder.image = (ImageView) view.findViewById(R.id.job_image);
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
 
-				
+        public View getView(final int position, View view, ViewGroup parent) {
+            final ViewHolder holder;
+            if (view == null) {
+                holder = new ViewHolder();
+                view = inflater.inflate(R.layout.item_job_match_list, null);
 
-				holder.offer_by = (TextView) view
-						.findViewById(R.id.job_offer_by);
-				
-				try {
-					
-					holder.name.setTypeface(font2);
-					holder.date.setTypeface(font);
-					holder.location.setTypeface(font);
-					holder.offer_by.setTypeface(font);
-					
-				} catch (Exception e) {
-					
-				}
+                holder.name = (TextView) view.findViewById(R.id.job_name);
+                holder.date = (TextView) view.findViewById(R.id.job_date);
+                holder.location = (TextView) view
+                        .findViewById(R.id.job_location);
 
-				view.setTag(holder);
+                holder.image = (ImageView) view.findViewById(R.id.job_image);
 
-			} else {
-				holder = (ViewHolder) view.getTag();
-			}
-			
 
-			holder.name.setText(mainDataList.get(position).getJobName());
+                holder.offer_by = (TextView) view
+                        .findViewById(R.id.job_offer_by);
 
-			holder.date.setText(mainDataList.get(position).getJobMatchDate());
 
-			holder.offer_by.setText(mainDataList.get(position)
-					.getJobRecruiterName());
+                view.setTag(holder);
 
-			holder.location
-					.setText(mainDataList.get(position).getJobLocation());
-			
+            } else {
+                holder = (ViewHolder) view.getTag();
+            }
 
-			imageloader.DisplayImage(mainDataList.get(position).getJobImage(),
-					holder.image);
 
-			return view;
-		}
+            holder.name.setText(matchReceivedDTOList.get(position).getTitle());
 
-	}
+            holder.date.setText(matchReceivedDTOList.get(position).getMatch_date());
 
-	RemoveJobMatch removeJobMatch;
+            holder.offer_by.setText(matchReceivedDTOList.get(position)
+                    .getRecruiter().getName());
 
-	class RemoveJobMatch extends AsyncTask<String, String, String> {
+            holder.location
+                    .setText(matchReceivedDTOList.get(position).getCity() +
+                            ", " + matchReceivedDTOList.get(position).getCountry());
 
-		String jobId;
 
-		public RemoveJobMatch(String id) {
-			jobId = id;
-		}
+            imageloader.DisplayImage(matchReceivedDTOList.get(position).getImage(),
+                    holder.image);
 
-		@Override
-		protected void onPreExecute() {
-			showProgressBar(context, rootView);
-		}
+            return view;
+        }
 
-		@Override
-		protected String doInBackground(String... params) {
+    }
 
-			String resultStr = null;
-			try {
 
-				HttpClient httpClient = new DefaultHttpClient();
-				HttpPost request = new HttpPost(GlobalClaass.Webservice_Url);
+    class RemoveJobMatch extends AsyncTask<String, String, String> {
 
-				List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
+        String jobId;
 
-				nameValuePairs.add(new BasicNameValuePair("action",
-						"removeToMatchList"));
+        public RemoveJobMatch(String id) {
+            jobId = id;
+        }
 
-				nameValuePairs.add(new BasicNameValuePair("job_id", jobId));
-				nameValuePairs.add(new BasicNameValuePair("user_id",
-						GlobalClaass.getUserId(context)));
-				request.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+        @Override
+        protected void onPreExecute() {
+            showProgressBar(context, rootView);
+        }
 
-				HttpResponse response = httpClient.execute(request);
+        @Override
+        protected String doInBackground(String... params) {
 
-				HttpEntity entity = response.getEntity();
+            String resultStr = null;
+            try {
 
-				resultStr = EntityUtils.toString(entity);
+                HttpClient httpClient = new DefaultHttpClient();
+                HttpPost request = new HttpPost(GlobalClaass.Webservice_Url);
 
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+                List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
 
-			return resultStr;
+                nameValuePairs.add(new BasicNameValuePair("action",
+                        "removeToMatchList"));
 
-		}
+                nameValuePairs.add(new BasicNameValuePair("job_id", jobId));
+                nameValuePairs.add(new BasicNameValuePair("user_id",
+                        GlobalClaass.getUserId(context)));
+                request.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 
-		@Override
-		protected void onPostExecute(String result) {
+                HttpResponse response = httpClient.execute(request);
 
-			hideProgressBar(context, rootView);
+                HttpEntity entity = response.getEntity();
 
-			executeTask();
-		}
+                resultStr = EntityUtils.toString(entity);
 
-	}
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            return resultStr;
+
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+
+            hideProgressBar(context, rootView);
+            onResume();
+            //executeTask();
+        }
+
+    }
 
 }

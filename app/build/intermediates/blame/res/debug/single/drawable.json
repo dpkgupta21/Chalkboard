@@ -24,12 +24,12 @@
         "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable/back.jpg"
     },
     {
-        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable/com_facebook_top_button.xml",
-        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/3.23.1/res/drawable/com_facebook_top_button.xml"
-    },
-    {
         "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable/unlike_icon.png",
         "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable/unlike_icon.png"
+    },
+    {
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable/com_facebook_top_button.xml",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/3.23.1/res/drawable/com_facebook_top_button.xml"
     },
     {
         "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable/com_facebook_button_blue_normal.9.png",
@@ -512,6 +512,10 @@
         "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable/locationicon.png"
     },
     {
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable/purple_button_selector.xml",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable/purple_button_selector.xml"
+    },
+    {
         "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable/dash_part.png",
         "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable/dash_part.png"
     },
@@ -588,6 +592,10 @@
         "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/3.23.1/res/drawable/com_facebook_profile_default_icon.png"
     },
     {
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable/alert_purple_selector.xml",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable/alert_purple_selector.xml"
+    },
+    {
         "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable/abc_cab_background_top_material.xml",
         "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable/abc_cab_background_top_material.xml"
     },
@@ -596,12 +604,12 @@
         "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/3.23.1/res/drawable/com_facebook_button_grey_focused.9.png"
     },
     {
-        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable/help_menu_black.9.png",
-        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable/help_menu_black.9.png"
-    },
-    {
         "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable/postjob_menu_black.png",
         "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable/postjob_menu_black.png"
+    },
+    {
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable/help_menu_black.9.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable/help_menu_black.9.png"
     },
     {
         "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable/ic_launcher.9.png",
@@ -632,12 +640,12 @@
         "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable/credit_menu.png"
     },
     {
-        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable/post_icon.9.png",
-        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable/post_icon.9.png"
-    },
-    {
         "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_holo_dark.xml",
         "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable/abc_list_selector_holo_dark.xml"
+    },
+    {
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable/post_icon.9.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable/post_icon.9.png"
     },
     {
         "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable/abc_text_cursor_material.xml",
@@ -722,6 +730,10 @@
     {
         "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable/support_settings.png",
         "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable/support_settings.png"
+    },
+    {
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable/circle_border_boundary.xml",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable/circle_border_boundary.xml"
     },
     {
         "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_background_transition_holo_dark.xml",

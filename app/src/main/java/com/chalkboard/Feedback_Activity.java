@@ -47,8 +47,8 @@ public class Feedback_Activity extends Activity{
 		setContentView(R.layout.feedback_activity);
 
 		context = this;
-		font=Typeface.createFromAsset(getAssets(), "mark.ttf");
-		font2=Typeface.createFromAsset(getAssets(), "marlbold.ttf");
+		font=Typeface.createFromAsset(getAssets(), "fonts/mark.ttf");
+		font2=Typeface.createFromAsset(getAssets(), "fonts/marlbold.ttf");
 
 		get_activity = getIntent().getStringExtra("Activity");
 		get_activityname = getIntent().getStringExtra("ActivityName");

@@ -29,7 +29,7 @@ public class ChatListAdapter extends BaseAdapter {
 		mContext = context;
 		this.mainDataList = mainDataList;
 		inflater = LayoutInflater.from(mContext);
-		font = Typeface.createFromAsset(mContext.getAssets(), "mark.ttf");
+		font = Typeface.createFromAsset(mContext.getAssets(), "fonts/mark.ttf");
 		imageloader11 = new ImageLoader11(mContext);
 		imageloader = new ImageLoader(mContext);
 

@@ -13,7 +13,7 @@
         android:contentDescription="@string/app_name"
         android:padding="2dp" />
 
-    <TextView
+    <com.chalkboard.customviews.MyTextViewMarlBold
         android:id="@+id/job_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -24,7 +24,7 @@
          android:textAppearance="?android:attr/textAppearanceMedium"
         android:textStyle="bold" />
 
-    <TextView
+    <com.chalkboard.customviews.MyTextViewMarlBold
         android:id="@+id/job_location"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -36,7 +36,7 @@
         android:singleLine="true"
          android:textAppearance="?android:attr/textAppearanceMedium" />
 
-    <TextView
+    <com.chalkboard.customviews.MyTextViewMarlBold
         android:id="@+id/job_offer_by"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -48,7 +48,7 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textColor="#00c7d4" />
 
-    <TextView
+    <com.chalkboard.customviews.MyTextViewMark
         android:id="@+id/job_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

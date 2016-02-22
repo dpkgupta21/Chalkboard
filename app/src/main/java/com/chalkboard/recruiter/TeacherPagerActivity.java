@@ -18,7 +18,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.chalkboard.R;
-import com.chalkboard.teacher.JobPageFragment;
 
 public class TeacherPagerActivity extends FragmentActivity {
 
@@ -37,8 +36,8 @@ public class TeacherPagerActivity extends FragmentActivity {
 		position = getIntent().getIntExtra("position", 0);
 		dataList = (ArrayList<TeacherObject>) getIntent().getSerializableExtra(
 				"dataList");
-		font=Typeface.createFromAsset(getAssets(), "mark.ttf");
-		font2=Typeface.createFromAsset(getAssets(), "marlbold.ttf");
+		font=Typeface.createFromAsset(getAssets(), "fonts/mark.ttf");
+		font2=Typeface.createFromAsset(getAssets(), "fonts/marlbold.ttf");
 
 		setContentView(R.layout.activity_pager);
 

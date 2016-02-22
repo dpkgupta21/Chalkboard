@@ -20,8 +20,15 @@
      
       <dimen name="scroll">100dp</dimen>
        <dimen name="imagess">120dp</dimen>
-      
-       <dimen name="mapsize">150dp</dimen>
 
-    
+    <dimen name="mapsize">150dp</dimen>
+
+    <dimen name="margin_30dp">30dp</dimen>
+    <dimen name="margin_20dp">20dp</dimen>
+    <dimen name="margin_10dp">10dp</dimen>
+    <dimen name="margin_25dp">25dp</dimen>
+    <dimen name="margin_5dp">5dp</dimen>
+
+ß
+
 </resources>

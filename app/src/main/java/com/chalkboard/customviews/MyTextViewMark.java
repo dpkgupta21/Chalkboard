@@ -28,7 +28,6 @@ public class MyTextViewMark extends TextView {
     private void init() {
         Typeface tf = Typeface.createFromAsset(getContext().getAssets(), "fonts/mark.ttf");
         setTypeface(tf);
-        setTextSize(16);
     }
 
 }

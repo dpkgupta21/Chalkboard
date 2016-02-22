@@ -35,6 +35,8 @@ import android.renderscript.ScriptIntrinsicBlur;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.chalkboard.utility.Utils;
+
 @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
 @SuppressLint("NewApi")
 public class ImageLoader11 {

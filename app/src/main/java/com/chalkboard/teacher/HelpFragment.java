@@ -46,8 +46,8 @@ public class HelpFragment extends Fragment {
 
 		context = getActivity();
 		
-		font=Typeface.createFromAsset(context.getAssets(), "mark.ttf");
-		font2=Typeface.createFromAsset(context.getAssets(), "marlbold.ttf");
+		font=Typeface.createFromAsset(context.getAssets(), "fonts/mark.ttf");
+		font2=Typeface.createFromAsset(context.getAssets(), "fonts/marlbold.ttf");
 
 		rootView = inflater.inflate(R.layout.linear_page, container,
 				false);

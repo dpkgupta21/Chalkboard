@@ -39,6 +39,7 @@ import android.widget.TextView;
 import com.chalkboard.GlobalClaass;
 import com.chalkboard.ImageLoader;
 import com.chalkboard.R;
+import com.chalkboard.utility.Utils;
 
 public class JobFavoriteFragment extends Fragment {
 
@@ -153,31 +154,34 @@ public class JobFavoriteFragment extends Fragment {
     public void setUpUi(String result) {
         String get_message = "";
         try {
+
             JSONObject jObject = new JSONObject(result);
 
-            get_message = jObject.getString("message").trim();
-            String get_replycode = jObject.getString("status").trim();
+            if(Utils.getWebServiceStatus(jObject)) {
+                get_message = jObject.getString("message").trim();
+                String get_replycode = jObject.getString("status").trim();
 
 
-            JSONArray jrr = jObject.getJSONArray("jobs");
+                JSONArray jrr = jObject.getJSONArray("jobs");
 
-            dataList = new ArrayList<JobObject>();
+                dataList = new ArrayList<JobObject>();
 
-            for (int i = 0; i < jrr.length(); i++) {
+                for (int i = 0; i < jrr.length(); i++) {
 
-                JSONObject jobj = jrr.getJSONObject(i);
+                    JSONObject jobj = jrr.getJSONObject(i);
 
-                JobObject itmObj = new JobObject();
+                    JobObject itmObj = new JobObject();
 
-                itmObj.setId(jobj.getString("id"));
-                itmObj.setJobDate(jobj.getString("start_date"));
-                itmObj.setJobFavorite(jobj.getBoolean("is_favorite"));
-                itmObj.setJobLocation(jobj.getString("city") + ", " + jobj.getString("country"));
-                itmObj.setJobImage(jobj.getString("image"));
-                itmObj.setJobName(jobj.getString("title"));
+                    itmObj.setId(jobj.getString("id"));
+                    itmObj.setJobDate(jobj.getString("start_date"));
+                    itmObj.setJobFavorite(jobj.getBoolean("is_favorite"));
+                    itmObj.setJobLocation(jobj.getString("city") + ", " + jobj.getString("country"));
+                    itmObj.setJobImage(jobj.getString("image"));
+                    itmObj.setJobName(jobj.getString("title"));
 
-                dataList.add(itmObj);
+                    dataList.add(itmObj);
 
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -229,8 +233,8 @@ public class JobFavoriteFragment extends Fragment {
 
             this.context = context;
             this.mainDataList = mainDataList;
-            font = Typeface.createFromAsset(this.context.getAssets(), "mark.ttf");
-            font2 = Typeface.createFromAsset(this.context.getAssets(), "marlbold.ttf");
+            font = Typeface.createFromAsset(this.context.getAssets(), "fonts/mark.ttf");
+            font2 = Typeface.createFromAsset(this.context.getAssets(), "fonts/marlbold.ttf");
             arrList = new ArrayList<JobObject>();
 
             arrList.addAll(this.mainDataList);

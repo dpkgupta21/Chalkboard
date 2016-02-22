@@ -45,7 +45,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.chalkboard.Login_Activity.LoginService;
 import com.facebook.Request;
 import com.facebook.Request.GraphUserCallback;
 import com.facebook.Response;
@@ -155,7 +154,7 @@ public class SignUp_Activity extends Activity implements ConnectionCallbacks,
 		android_id = Secure.getString(context.getContentResolver(),
 				Secure.ANDROID_ID);
 		
-		font=Typeface.createFromAsset(getAssets(), "mark.ttf");
+		font=Typeface.createFromAsset(getAssets(), "fonts/mark.ttf");
 
 		btn_SIGNIN = (Button) findViewById(R.id.btn_SIGNIN);
 		btn_SIGNUP = (Button) findViewById(R.id.btn_SIGNUP);

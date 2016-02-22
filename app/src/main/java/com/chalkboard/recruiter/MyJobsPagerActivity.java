@@ -2,9 +2,7 @@ package com.chalkboard.recruiter;
 
 import java.util.ArrayList;
 
-import android.content.Intent;
 import android.graphics.Typeface;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -42,8 +40,8 @@ public class MyJobsPagerActivity extends FragmentActivity {
 
 		setContentView(R.layout.activity_pager);
 
-		font = Typeface.createFromAsset(getAssets(), "mark.ttf");
-		font2=Typeface.createFromAsset(getAssets(), "marlbold.ttf");
+		font = Typeface.createFromAsset(getAssets(), "fonts/mark.ttf");
+		font2=Typeface.createFromAsset(getAssets(), "fonts/marlbold.ttf");
 		
 		((ImageView)(findViewById(R.id.header_left_menu))).setVisibility(View.GONE);
 		((ImageView)(findViewById(R.id.header_right_menu))).setImageResource(R.drawable.cross_icon);

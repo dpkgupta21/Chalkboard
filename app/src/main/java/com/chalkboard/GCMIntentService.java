@@ -9,7 +9,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.chalkboard.recruiter.TeachersListActivity;
+import com.chalkboard.recruiter.navigationdrawer.TeachersListActivity;
 import com.google.android.gcm.GCMBaseIntentService;
 
 import java.lang.reflect.InvocationTargetException;

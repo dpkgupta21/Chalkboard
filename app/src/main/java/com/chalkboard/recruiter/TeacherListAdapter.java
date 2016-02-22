@@ -32,8 +32,6 @@ import android.widget.TextView;
 import com.chalkboard.GlobalClaass;
 import com.chalkboard.ImageLoader;
 import com.chalkboard.R;
-import com.chalkboard.recruiter.TeacherPageFragment.AddJobFavorites;
-import com.chalkboard.recruiter.TeacherPageFragment.RemoveJobFavorites;
 
 public class TeacherListAdapter extends BaseAdapter {
 
@@ -55,8 +53,8 @@ public class TeacherListAdapter extends BaseAdapter {
 		this.context = context;
 		this.mainDataList = mainDataList;
 		inflater = LayoutInflater.from(this.context);
-		font = Typeface.createFromAsset(this.context.getAssets(), "mark.ttf");
-		font2=Typeface.createFromAsset(this.context.getAssets(), "marlbold.ttf");
+		font = Typeface.createFromAsset(this.context.getAssets(), "fonts/mark.ttf");
+		font2=Typeface.createFromAsset(this.context.getAssets(), "fonts/marlbold.ttf");
 		arrList = new ArrayList<TeacherObject>();
 
 		arrList.addAll(this.mainDataList);

@@ -56,7 +56,6 @@ import com.chalkboard.ImageLoader11;
 import com.chalkboard.PreferenceConnector;
 import com.chalkboard.R;
 import com.chalkboard.teacher.CountryList_Activity;
-import com.chalkboard.teacher.TeacherProfileViewActivity;
 
 public class RecruiterProfileEditActivity extends Activity{
 
@@ -93,8 +92,8 @@ public class RecruiterProfileEditActivity extends Activity{
 		imageloader = new ImageLoader(context);
 		imageloader11 = new ImageLoader11(context);
 
-		font=Typeface.createFromAsset(getAssets(), "mark.ttf");
-		font2=Typeface.createFromAsset(getAssets(), "marlbold.ttf");
+		font=Typeface.createFromAsset(getAssets(), "fonts/mark.ttf");
+		font2=Typeface.createFromAsset(getAssets(), "fonts/marlbold.ttf");
 
 		recuiter_companyname = (EditText) findViewById(R.id.recuiter_companyname);
 		recuiter_countryname = (EditText) findViewById(R.id.recuiter_countryname);

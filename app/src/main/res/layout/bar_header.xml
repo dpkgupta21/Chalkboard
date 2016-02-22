@@ -3,21 +3,20 @@
     android:layout_width="match_parent"
     android:layout_height="50dp"
     android:layout_alignParentTop="true"
-    android:background="#00c7d4" >
+    android:background="#00c7d4">
 
 
-    
-     <ImageView
-            android:id="@+id/chat_back"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:padding="10dp"
-            android:visibility="gone"
-            android:src="@drawable/arrow_iocn" />
-    
-    
+    <ImageView
+        android:id="@+id/chat_back"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:padding="10dp"
+        android:src="@drawable/arrow_iocn"
+        android:visibility="gone" />
+
+
     <ImageView
         android:id="@+id/header_left_menu"
         android:layout_width="wrap_content"
@@ -28,7 +27,7 @@
         android:padding="10dp"
         android:src="@drawable/icon_drawer" />
 
-    
+
     <ImageView
         android:id="@+id/header_logo"
         android:layout_width="match_parent"
@@ -39,7 +38,7 @@
         android:contentDescription="@string/app_name"
         android:src="@drawable/logo_2" />
 
-    <TextView
+    <com.chalkboard.customviews.MyTextViewMarlBold
         android:id="@+id/header_text"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -47,7 +46,7 @@
         android:layout_margin="5dp"
         android:gravity="center"
         android:padding="5dp"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="20sp"
         android:textColor="@android:color/white"
         android:textStyle="bold" />
 
@@ -60,19 +59,18 @@
         android:contentDescription="@string/app_name"
         android:padding="15dp" />
 
-    <TextView
-        android:id="@+id/top_header_count"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:layout_margin="10dp"
-        android:background="@drawable/count_back"
-      android:gravity="center"
-        android:text="0"
-        android:paddingRight="6dp"
-        android:paddingTop="4dp"
-        android:textColor="@android:color/black"
-        android:textSize="10dp" />
+    <!--<TextView-->
+        <!--android:id="@+id/top_header_count"-->
+        <!--android:layout_width="25dp"-->
+        <!--android:layout_height="25dp"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:layout_centerVertical="true"-->
+        <!--android:layout_margin="10dp"-->
+        <!--android:background="@drawable/notification_menu"-->
+        <!--android:gravity="center"-->
+        <!--android:paddingRight="6dp"-->
+        <!--android:paddingTop="4dp"-->
+        <!--android:textColor="@android:color/black"-->
+        <!--android:textSize="10dp" />-->
 
 </RelativeLayout>

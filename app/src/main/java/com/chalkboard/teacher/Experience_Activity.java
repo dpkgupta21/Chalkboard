@@ -176,7 +176,7 @@ public class Experience_Activity extends Activity{
 			// TODO Auto-generated constructor stub
 
 			event_note_data = note_data_list;
-			font=Typeface.createFromAsset(context.getAssets(), "mark.ttf");
+			font=Typeface.createFromAsset(context.getAssets(), "fonts/mark.ttf");
 		}
 
 		public int getCount() {

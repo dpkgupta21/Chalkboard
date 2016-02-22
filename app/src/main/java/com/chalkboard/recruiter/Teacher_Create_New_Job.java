@@ -4,7 +4,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
@@ -12,16 +11,13 @@ import java.util.Random;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.mime.HttpMultipartMode;
 import org.apache.http.entity.mime.MultipartEntity;
 import org.apache.http.entity.mime.content.FileBody;
 import org.apache.http.entity.mime.content.StringBody;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONObject;
 
@@ -65,6 +61,7 @@ import android.widget.Toast;
 import com.chalkboard.GPSTracker;
 import com.chalkboard.GlobalClaass;
 import com.chalkboard.R;
+import com.chalkboard.recruiter.navigationdrawer.TeachersListActivity;
 import com.chalkboard.teacher.CountryList_Activity;
 import com.chalkboard.teacher.JobObject;
 import com.chalkboard.teacher.JobTypeListActivity;
@@ -125,8 +122,8 @@ public class Teacher_Create_New_Job extends Activity {
 		setContentView(R.layout.teacher_create_new_job);
 
 		context = this;
-		font=Typeface.createFromAsset(getAssets(), "mark.ttf");
-		font2=Typeface.createFromAsset(getAssets(), "marlbold.ttf");
+		font=Typeface.createFromAsset(getAssets(), "fonts/mark.ttf");
+		font2=Typeface.createFromAsset(getAssets(), "fonts/marlbold.ttf");
 
 		final Calendar c = Calendar.getInstance();
 		year  = c.get(Calendar.YEAR);

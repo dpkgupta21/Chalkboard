@@ -20,9 +20,7 @@ import org.json.JSONObject;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Color;
 import android.graphics.Typeface;
-import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -43,7 +41,6 @@ import com.baoyz.swipemenulistview.SwipeMenuListView;
 import com.chalkboard.GlobalClaass;
 import com.chalkboard.ImageLoader;
 import com.chalkboard.R;
-import com.chalkboard.recruiter.TeacherListFragment.GetTeacherItem;
 import com.chalkboard.teacher.TeacherChatBoardActivity;
 
 public class TeacherMatchesFragment extends Fragment {
@@ -351,8 +348,8 @@ public class TeacherMatchesFragment extends Fragment {
 			mContext = context;
 			this.mainDataList = mainDataList;
 			inflater = LayoutInflater.from(mContext);
-			font = Typeface.createFromAsset(mContext.getAssets(), "mark.ttf");
-			font2=Typeface.createFromAsset(mContext.getAssets(), "marlbold.ttf");
+			font = Typeface.createFromAsset(mContext.getAssets(), "fonts/mark.ttf");
+			font2=Typeface.createFromAsset(mContext.getAssets(), "fonts/marlbold.ttf");
 			arrList = new ArrayList<TeacherObject>();
 			
 			arrList.addAll(this.mainDataList);

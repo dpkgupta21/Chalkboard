@@ -44,8 +44,8 @@ public class Term_Privacy_Activity extends Activity{
 		setContentView(R.layout.term);
 
 		context = this;
-		font=Typeface.createFromAsset(getAssets(), "mark.ttf");
-		font2=Typeface.createFromAsset(getAssets(), "marlbold.ttf");
+		font=Typeface.createFromAsset(getAssets(), "fonts/mark.ttf");
+		font2=Typeface.createFromAsset(getAssets(), "fonts/marlbold.ttf");
 
 		about_company = (TextView) findViewById(R.id.about_company);
 		about_date = (TextView) findViewById(R.id.about_date);
@@ -80,7 +80,7 @@ public class Term_Privacy_Activity extends Activity{
 		}
 
 		try {
-			Typeface font=Typeface.createFromAsset(getAssets(), "mark.ttf");
+			Typeface font=Typeface.createFromAsset(getAssets(), "fonts/mark.ttf");
 			about_heading.setTypeface(font);
 			about_company.setTypeface(font);
 			about_date.setTypeface(font);

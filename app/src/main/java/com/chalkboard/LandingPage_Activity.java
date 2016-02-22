@@ -24,8 +24,8 @@ public class LandingPage_Activity extends Activity{
 		setContentView(R.layout.activity_landingpage);
 
 		context = this;
-		font=Typeface.createFromAsset(getAssets(), "mark.ttf");
-		font2=Typeface.createFromAsset(getAssets(), "marlbold.ttf");
+		font=Typeface.createFromAsset(getAssets(), "fonts/mark.ttf");
+		font2=Typeface.createFromAsset(getAssets(), "fonts/marlbold.ttf");
 
 		btn_login = (Button) findViewById(R.id.btn_login);
 		btn_singup = (Button) findViewById(R.id.btn_signup);

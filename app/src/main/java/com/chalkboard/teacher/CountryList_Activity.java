@@ -178,7 +178,7 @@ public class CountryList_Activity extends Activity{
 		
 		public MyAdap(ArrayList<CountryData> note_data_list) {
 			// TODO Auto-generated constructor stub
-			font=Typeface.createFromAsset(context.getAssets(), "mark.ttf");
+			font=Typeface.createFromAsset(context.getAssets(), "fonts/mark.ttf");
 			event_note_data = note_data_list;
 			inflater = LayoutInflater.from(context);
 		}

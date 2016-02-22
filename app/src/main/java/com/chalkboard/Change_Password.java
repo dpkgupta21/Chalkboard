@@ -16,7 +16,6 @@ import org.json.JSONObject;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -49,8 +48,8 @@ public class Change_Password extends Activity {
         setContentView(R.layout.change_password);
         // android:textAppearance="?android:attr/textAppearanceMedium"
         context = this;
-        font = Typeface.createFromAsset(getAssets(), "mark.ttf");
-        font2 = Typeface.createFromAsset(getAssets(), "marlbold.ttf");
+        font = Typeface.createFromAsset(getAssets(), "fonts/mark.ttf");
+        font2 = Typeface.createFromAsset(getAssets(), "fonts/marlbold.ttf");
 
         et_oldpassword = (EditText) findViewById(R.id.et_oldpassword);
         et_newpassword = (EditText) findViewById(R.id.et_newpassword);

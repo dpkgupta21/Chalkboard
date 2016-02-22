@@ -103,10 +103,10 @@
                         android:layout_height="@dimen/mapsize"
                         android:layout_margin="@dimen/margin"
                         android:contentDescription="@string/app_name"
-                        android:src="@drawable/circle_border" />
+                        android:src="@drawable/circle_border_boundary" />
                 </RelativeLayout>
 
-                <TextView
+                <com.chalkboard.customviews.MyTextViewMark
                     android:id="@+id/profile_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

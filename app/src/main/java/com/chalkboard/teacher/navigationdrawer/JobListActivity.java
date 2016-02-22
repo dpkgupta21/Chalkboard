@@ -28,7 +28,6 @@ import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -47,6 +46,7 @@ import com.chalkboard.teacher.JobListFragment;
 import com.chalkboard.teacher.JobMatchesFragment;
 import com.chalkboard.teacher.JobNotificationFragment;
 import com.chalkboard.teacher.TeacherProfileViewActivity;
+import com.chalkboard.teacher.matchrequest.MatchRequestFragment;
 import com.chalkboard.teacher.navigationdrawer.adapter.NavDrawerListAdapter;
 import com.facebook.Session;
 import com.facebook.SessionLoginBehavior;
@@ -116,7 +116,7 @@ public class JobListActivity extends FragmentActivity implements ConnectionCallb
     //G+ end
     Typeface font, font2;
     GetCount getcount = null;
-    private TextView top_header_count;
+    //private TextView top_header_count;
     private NavDrawerListAdapter adapter;
 
 
@@ -137,9 +137,12 @@ public class JobListActivity extends FragmentActivity implements ConnectionCallb
         setContentView(R.layout.activity_job_list);
         mActivity = this;
 
+        ImageView header_right_menu = (ImageView) findViewById(R.id.header_right_menu);
+        header_right_menu.setImageResource(R.drawable.notification_menu);
+
         login_type = getIntent().getStringExtra("LoginType");
-        font = Typeface.createFromAsset(getAssets(), "mark.ttf");
-        font2 = Typeface.createFromAsset(getAssets(), "marlbold.ttf");
+        font = Typeface.createFromAsset(getAssets(), "fonts/mark.ttf");
+        font2 = Typeface.createFromAsset(getAssets(), "fonts/marlbold.ttf");
         mAsyncRunner = new AsyncFacebookRunner(facebook);
 
         mGoogleApiClient = new GoogleApiClient.Builder(this).addConnectionCallbacks(this).
@@ -155,6 +158,8 @@ public class JobListActivity extends FragmentActivity implements ConnectionCallb
 
             }
         };
+
+        header_right_menu.setOnClickListener(notificationClick);
 
         if (login_type != null) {
 
@@ -178,7 +183,7 @@ public class JobListActivity extends FragmentActivity implements ConnectionCallb
         //tvSearch = (TextView) findViewById(R.id.tvsearch);
         //tvLogout = (TextView) findViewById(R.id.tvlogout);
         //tvnoti_count = (TextView) findViewById(R.id.noti_count);
-        top_header_count = (TextView) findViewById(R.id.top_header_count);
+        //top_header_count = (TextView) findViewById(R.id.top_header_count);
         //ivSettings = (ImageView) findViewById(R.id.ivsettings);
         //ivFavourites = (ImageView) findViewById(R.id.ivfavorites);
         //ivMatches = (ImageView) findViewById(R.id.ivmatches);
@@ -260,10 +265,7 @@ public class JobListActivity extends FragmentActivity implements ConnectionCallb
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[7], navMenuUnSelectIcons
                 .getResourceId(7, -1), navMenuSelectIcons
                 .getResourceId(7, -1)));
-        // Logout
-        navDrawerItems.add(new NavDrawerItem(navMenuTitles[8], navMenuUnSelectIcons
-                .getResourceId(8, -1), navMenuSelectIcons
-                .getResourceId(8, -1)));
+
         // Recycle the typed array
         navMenuUnSelectIcons.recycle();
         navMenuSelectIcons.recycle();
@@ -613,6 +615,23 @@ public class JobListActivity extends FragmentActivity implements ConnectionCallb
     }
 
 
+    OnClickListener notificationClick = new OnClickListener() {
+        @Override
+        public void onClick(View v) {
+
+            (findViewById(R.id.header_logo)).setVisibility(View.GONE);
+
+            ((TextView) (findViewById(R.id.header_text)))
+                    .setText("My Notifications");
+            findViewById(R.id.bottom_bar).setVisibility(View.GONE);
+            mDrawerLayout.closeDrawer(relative_layout);
+            Fragment fragment = new JobNotificationFragment();
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction()
+                    .replace(R.id.page_container, fragment).commit();
+        }
+    };
+
     private AdapterView.OnItemClickListener drawerListItemClickListener = new AdapterView.OnItemClickListener() {
 
         @Override
@@ -620,6 +639,8 @@ public class JobListActivity extends FragmentActivity implements ConnectionCallb
                                 long id) {
             Intent intent = null;
             Fragment fragment = null;
+            FragmentManager fragmentManager = null;
+
             switch (position) {
                 case 0:
                     findViewById(R.id.bottom_bar).setVisibility(View.VISIBLE);
@@ -631,6 +652,9 @@ public class JobListActivity extends FragmentActivity implements ConnectionCallb
 
                     mDrawerLayout.closeDrawer(relative_layout);
                     fragment = new JobListFragment();
+                    fragmentManager = getSupportFragmentManager();
+                    fragmentManager.beginTransaction()
+                            .replace(R.id.page_container, fragment).commit();
 
                     break;
                 case 1:
@@ -642,6 +666,9 @@ public class JobListActivity extends FragmentActivity implements ConnectionCallb
                     findViewById(R.id.bottom_bar).setVisibility(View.GONE);
                     mDrawerLayout.closeDrawer(relative_layout);
                     fragment = new JobFavoriteFragment();
+                    fragmentManager = getSupportFragmentManager();
+                    fragmentManager.beginTransaction()
+                            .replace(R.id.page_container, fragment).commit();
 
 
                     break;
@@ -649,11 +676,14 @@ public class JobListActivity extends FragmentActivity implements ConnectionCallb
                     (findViewById(R.id.header_logo)).setVisibility(View.GONE);
 
                     ((TextView) (findViewById(R.id.header_text)))
-                            .setText("Matches");
+                            .setText("Match Request");
 
                     findViewById(R.id.bottom_bar).setVisibility(View.GONE);
                     mDrawerLayout.closeDrawer(relative_layout);
-                    fragment = new JobMatchesFragment();
+                    fragment = new MatchRequestFragment();
+                    fragmentManager = getSupportFragmentManager();
+                    fragmentManager.beginTransaction()
+                            .replace(R.id.page_container, fragment).commit();
 
                     break;
                 case 3:
@@ -665,28 +695,37 @@ public class JobListActivity extends FragmentActivity implements ConnectionCallb
                     findViewById(R.id.bottom_bar).setVisibility(View.GONE);
                     mDrawerLayout.closeDrawer(relative_layout);
                     fragment = new JobMatchesFragment();
+                    fragmentManager = getSupportFragmentManager();
+                    fragmentManager.beginTransaction()
+                            .replace(R.id.page_container, fragment).commit();
 
                     break;
+//                case 4:
+//                    (findViewById(R.id.header_logo)).setVisibility(View.GONE);
+//
+//                    ((TextView) (findViewById(R.id.header_text)))
+//                            .setText("My Notifications");
+//                    findViewById(R.id.bottom_bar).setVisibility(View.GONE);
+//                    mDrawerLayout.closeDrawer(relative_layout);
+//                    fragment = new JobNotificationFragment();
+//                    fragmentManager = getSupportFragmentManager();
+//                    fragmentManager.beginTransaction()
+//                            .replace(R.id.page_container, fragment).commit();
+//                    break;
+
+
                 case 4:
-                    (findViewById(R.id.header_logo)).setVisibility(View.GONE);
-
-                    ((TextView) (findViewById(R.id.header_text)))
-                            .setText("My Notifications");
-                    findViewById(R.id.bottom_bar).setVisibility(View.GONE);
-                    mDrawerLayout.closeDrawer(relative_layout);
-                    fragment = new JobNotificationFragment();
-                    break;
-
-
-                case 5:
                     (findViewById(R.id.header_logo)).setVisibility(View.GONE);
 
                     ((TextView) (findViewById(R.id.header_text))).setText("Inbox");
                     findViewById(R.id.bottom_bar).setVisibility(View.GONE);
                     mDrawerLayout.closeDrawer(relative_layout);
                     fragment = new JobInboxFragment();
+                    fragmentManager = getSupportFragmentManager();
+                    fragmentManager.beginTransaction()
+                            .replace(R.id.page_container, fragment).commit();
                     break;
-                case 6:
+                case 5:
                     (findViewById(R.id.header_logo)).setVisibility(View.GONE);
 
                     ((TextView) (findViewById(R.id.header_text))).setText("Help");
@@ -699,7 +738,7 @@ public class JobListActivity extends FragmentActivity implements ConnectionCallb
                             .putExtra("ActivityName", "Setting_Activity"));
                     GlobalClaass.activitySlideForwardAnimation(mActivity);
                     break;
-                case 7:
+                case 6:
                     findViewById(R.id.bottom_bar).setVisibility(View.GONE);
 
                     mDrawerLayout.closeDrawer(relative_layout);
@@ -707,7 +746,7 @@ public class JobListActivity extends FragmentActivity implements ConnectionCallb
                     startActivity(new Intent(mActivity, Setting_Activity.class));
 
                     break;
-                case 8:
+                case 7:
                     findViewById(R.id.bottom_bar).setVisibility(View.GONE);
                     mDrawerLayout.closeDrawer(relative_layout);
 
@@ -751,10 +790,10 @@ public class JobListActivity extends FragmentActivity implements ConnectionCallb
 
                     b.show();
                     break;
+
             }
-            FragmentManager fragmentManager = getSupportFragmentManager();
-            fragmentManager.beginTransaction()
-                    .replace(R.id.page_container, fragment).commit();
+            adapter.notifyDataSetChanged();
+
 
         }
     };
@@ -1098,17 +1137,17 @@ public class JobListActivity extends FragmentActivity implements ConnectionCallb
                     GlobalClaass.savePrefrencesfor(context, PreferenceConnector.Header_Count, messagecount);
 
                     if (messagecount.length() == 1) {
-                        top_header_count.setText("  " + messagecount);
+                        //top_header_count.setText("  " + messagecount);
                     }
                     if (messagecount.length() == 2) {
-                        top_header_count.setText(" " + messagecount);
+                        //top_header_count.setText(" " + messagecount);
                     } else {
-                        top_header_count.setText(messagecount);
+                        //top_header_count.setText(messagecount);
                     }
 
 
                 } else {
-                    top_header_count.setVisibility(View.GONE);
+                    //top_header_count.setVisibility(View.GONE);
                 }
 
 

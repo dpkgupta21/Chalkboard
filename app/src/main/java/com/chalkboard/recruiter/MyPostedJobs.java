@@ -40,7 +40,6 @@ import android.widget.ListView;
 import com.chalkboard.GlobalClaass;
 import com.chalkboard.ImageLoader;
 import com.chalkboard.R;
-import com.chalkboard.SignUp_Activity.RegisterService;
 import com.chalkboard.teacher.JobObject;
 public class MyPostedJobs extends Fragment{
 
@@ -250,8 +249,8 @@ public class MyPostedJobs extends Fragment{
 
 			inflater = LayoutInflater.from(mContext);
 
-			font = Typeface.createFromAsset(mContext.getAssets(), "mark.ttf");
-			font2=Typeface.createFromAsset(mContext.getAssets(), "marlbold.ttf");
+			font = Typeface.createFromAsset(mContext.getAssets(), "fonts/mark.ttf");
+			font2=Typeface.createFromAsset(mContext.getAssets(), "fonts/marlbold.ttf");
 			
 			imageloader = new ImageLoader(mContext);
 

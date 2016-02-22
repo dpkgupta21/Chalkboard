@@ -57,7 +57,7 @@
                     android:src="@drawable/white_circle" />
                 </RelativeLayout>
 
-            <TextView
+            <com.chalkboard.customviews.MyTextViewMark
                 android:id="@+id/profile_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -69,7 +69,7 @@
                 android:textColor="@android:color/white"
                 android:textStyle="bold" />
 
-            <TextView
+            <com.chalkboard.customviews.MyTextViewMark
                 android:id="@+id/profile_location_age"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

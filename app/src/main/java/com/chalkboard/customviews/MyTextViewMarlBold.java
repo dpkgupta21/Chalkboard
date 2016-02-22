@@ -28,7 +28,6 @@ public class MyTextViewMarlBold extends TextView {
     private void init() {
         Typeface tf = Typeface.createFromAsset(getContext().getAssets(), "fonts/marlbold.ttf");
         setTypeface(tf);
-        setTextSize(16);
     }
 
 }

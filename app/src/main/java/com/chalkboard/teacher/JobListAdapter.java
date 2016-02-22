@@ -31,9 +31,6 @@ import android.widget.TextView;
 import com.chalkboard.GlobalClaass;
 import com.chalkboard.ImageLoader;
 import com.chalkboard.R;
-import com.chalkboard.teacher.JobObject;
-import com.chalkboard.teacher.JobPageFragment.AddJobFavorites;
-import com.chalkboard.teacher.JobPageFragment.RemoveJobFavorites;
 
 public class JobListAdapter extends BaseAdapter {
 	
@@ -52,8 +49,8 @@ public class JobListAdapter extends BaseAdapter {
 		
 		this.context = context;
 		this.mainDataList = mainDataList;
-		font=Typeface.createFromAsset(this.context.getAssets(), "mark.ttf");
-		font2=Typeface.createFromAsset(this.context.getAssets(), "marlbold.ttf");
+		font=Typeface.createFromAsset(this.context.getAssets(), "fonts/mark.ttf");
+		font2=Typeface.createFromAsset(this.context.getAssets(), "fonts/marlbold.ttf");
 		arrList = new ArrayList<JobObject>();
 
 		arrList.addAll(this.mainDataList);

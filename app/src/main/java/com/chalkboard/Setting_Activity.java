@@ -143,8 +143,8 @@ public class Setting_Activity extends Activity implements  ConnectionCallbacks, 
 		setContentView(R.layout.fragment_settings);
 
 		context = this;
-		font=Typeface.createFromAsset(getAssets(), "mark.ttf");
-		font2=Typeface.createFromAsset(getAssets(), "marlbold.ttf");
+		font=Typeface.createFromAsset(getAssets(), "fonts/mark.ttf");
+		font2=Typeface.createFromAsset(getAssets(), "fonts/marlbold.ttf");
 
 		txt_review = (TextView)findViewById(R.id.txt_writereview);
 		txt_support = (TextView)findViewById(R.id.txt_getsupport);

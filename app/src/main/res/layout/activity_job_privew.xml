@@ -87,7 +87,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_margin="@dimen/margin"
                 android:contentDescription="@string/app_name"
-                android:src="@drawable/circle_border" />
+                android:src="@drawable/circle_border_boundary" />
 
             <TextView
                 android:id="@+id/job_name"

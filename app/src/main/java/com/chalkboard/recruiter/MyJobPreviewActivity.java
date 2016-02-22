@@ -46,8 +46,8 @@ public class MyJobPreviewActivity extends Activity{
 		context = this;
 		imageloader = new ImageLoader(context);
 
-		font = Typeface.createFromAsset(context.getAssets(), "mark.ttf");
-		font2=Typeface.createFromAsset(getAssets(), "marlbold.ttf");
+		font = Typeface.createFromAsset(context.getAssets(), "fonts/mark.ttf");
+		font2=Typeface.createFromAsset(getAssets(), "fonts/marlbold.ttf");
 
 		about_company = (TextView)findViewById(R.id.about_company);
 		salary = (TextView)findViewById(R.id.salary);

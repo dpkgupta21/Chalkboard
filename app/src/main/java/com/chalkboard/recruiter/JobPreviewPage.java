@@ -20,7 +20,6 @@ import org.json.JSONObject;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -36,9 +35,7 @@ import com.chalkboard.GlobalClaass;
 import com.chalkboard.ImageLoader;
 import com.chalkboard.ImageLoader11;
 import com.chalkboard.R;
-import com.chalkboard.recruiter.TeacherPageFragment.RemoveJobFavorites;
 import com.chalkboard.teacher.JobObject;
-import com.chalkboard.teacher.Certificate_Type.CertificateList;
 
 public class JobPreviewPage extends Fragment {
 
@@ -81,8 +78,8 @@ public class JobPreviewPage extends Fragment {
 
 		rootView = inflater.inflate(R.layout.my_job_preview, container, false);
 		
-		font = Typeface.createFromAsset(context.getAssets(), "mark.ttf");
-		font2=Typeface.createFromAsset(context.getAssets(), "marlbold.ttf");
+		font = Typeface.createFromAsset(context.getAssets(), "fonts/mark.ttf");
+		font2=Typeface.createFromAsset(context.getAssets(), "fonts/marlbold.ttf");
 		
 		
 

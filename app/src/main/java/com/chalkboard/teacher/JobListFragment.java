@@ -47,95 +47,82 @@ import com.chalkboard.R;
 
 public class JobListFragment extends Fragment {
 
-	ListView lvJobList = null;
+    ListView lvJobList = null;
 
-	View rootView = null;
+    View rootView = null;
 
-	Activity context = null;
+    Activity context = null;
 
-	ArrayList<JobObject> dataList = null;
+    ArrayList<JobObject> dataList = null;
 
-	EditText edtSearch = null;
+    EditText edtSearch = null;
 
-	GetJobItem getJobItem = null;
+    GetJobItem getJobItem = null;
 
-	RelativeLayout rlLocation, rlType; //rlDate;
-	ImageView ivLocation, ivType; //ivDate;
-	TextView tvLocation, tvType; //tvDate;
+    RelativeLayout rlLocation, rlType; //rlDate;
+    ImageView ivLocation, ivType; //ivDate;
+    TextView tvLocation, tvType; //tvDate;
 
-	JobListAdapter itmAdap = null;
-	Typeface font,font2;
-	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
+    JobListAdapter itmAdap = null;
 
-		context = getActivity();
-	
-		font=Typeface.createFromAsset(context.getAssets(), "mark.ttf");
-		font2=Typeface.createFromAsset(context.getAssets(), "marlbold.ttf");
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
 
-		GlobalClaass.savePrefrencesfor(context,
-				PreferenceConnector.COUNTRIESARRAY, "");
-		GlobalClaass.savePrefrencesfor(context, PreferenceConnector.TYPEARRAY,
-				"");
-		GlobalClaass.savePrefrencesfor(context, PreferenceConnector.STARTDATE,
-				"");
+        context = getActivity();
 
-		rootView = inflater.inflate(R.layout.fragment_list, container, false);
 
-		edtSearch = (EditText) rootView.findViewById(R.id.search_list);
-		// edtSearch.setVisibility(View.VISIBLE);
 
-		lvJobList = (ListView) rootView.findViewById(R.id.list);
+        GlobalClaass.savePrefrencesfor(context,
+                PreferenceConnector.COUNTRIESARRAY, "");
+        GlobalClaass.savePrefrencesfor(context, PreferenceConnector.TYPEARRAY,
+                "");
+        GlobalClaass.savePrefrencesfor(context, PreferenceConnector.STARTDATE,
+                "");
 
-		rlLocation = (RelativeLayout) context
-				.findViewById(R.id.bottom_location);
-		rlType = (RelativeLayout) context.findViewById(R.id.bottom_type);
-		//rlDate = (RelativeLayout) context.findViewById(R.id.bottom_date);
+        rootView = inflater.inflate(R.layout.fragment_list, container, false);
 
-		ivLocation = (ImageView) context
-				.findViewById(R.id.bottom_location_image);
-		ivType = (ImageView) context.findViewById(R.id.bottom_type_image);
-		//ivDate = (ImageView) context.findViewById(R.id.bottom_date_image);
+        edtSearch = (EditText) rootView.findViewById(R.id.search_list);
+        // edtSearch.setVisibility(View.VISIBLE);
 
-		tvLocation = (TextView) context.findViewById(R.id.bottom_location_text);
-		tvType = (TextView) context.findViewById(R.id.bottom_type_text);
-		//tvDate = (TextView) context.findViewById(R.id.bottom_date_text);
-		
-		try {
-			//tvDate.setTypeface(font);
-			tvType.setTypeface(font);
-			tvLocation.setTypeface(font);
-			edtSearch.setTypeface(font);
-			
-			((TextView) context.findViewById(R.id.error_message)).setTypeface(font2);
-			
-		} catch (Exception e) {
+        lvJobList = (ListView) rootView.findViewById(R.id.list);
 
-		}
+        rlLocation = (RelativeLayout) context
+                .findViewById(R.id.bottom_location);
+        rlType = (RelativeLayout) context.findViewById(R.id.bottom_type);
+        //rlDate = (RelativeLayout) context.findViewById(R.id.bottom_date);
 
-		rlLocation.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View arg0) {
-				startActivity(new Intent(context,
-						SelectJobLocationActivity.class));
-				rlLocation.setBackgroundColor(Color.parseColor("#00c7d4"));
-				ivLocation
-						.setImageResource(R.drawable.location_white_menu_icon_footer);
-				tvLocation.setTextColor(Color.WHITE);
-				//context.overridePendingTransition(R.anim.slide_up, 0);
-			}
-		});
-		rlType.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View arg0) {
-				startActivity(new Intent(context, SelectJobTypeActivity.class));
-				rlType.setBackgroundColor(Color.parseColor("#00c7d4"));
-				ivType.setImageResource(R.drawable.clock_white_icon);
-				tvType.setTextColor(Color.WHITE);
-				//context.overridePendingTransition(R.anim.slide_up, 0);
-			}
-		});
+        ivLocation = (ImageView) context
+                .findViewById(R.id.bottom_location_image);
+        ivType = (ImageView) context.findViewById(R.id.bottom_type_image);
+        //ivDate = (ImageView) context.findViewById(R.id.bottom_date_image);
+
+        tvLocation = (TextView) context.findViewById(R.id.bottom_location_text);
+        tvType = (TextView) context.findViewById(R.id.bottom_type_text);
+        //tvDate = (TextView) context.findViewById(R.id.bottom_date_text);
+
+        rlLocation.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                startActivity(new Intent(context,
+                        SelectJobLocationActivity.class));
+                rlLocation.setBackgroundColor(Color.parseColor("#00c7d4"));
+                ivLocation
+                        .setImageResource(R.drawable.location_white_menu_icon_footer);
+                tvLocation.setTextColor(Color.WHITE);
+                //context.overridePendingTransition(R.anim.slide_up, 0);
+            }
+        });
+        rlType.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                startActivity(new Intent(context, SelectJobTypeActivity.class));
+                rlType.setBackgroundColor(Color.parseColor("#00c7d4"));
+                ivType.setImageResource(R.drawable.clock_white_icon);
+                tvType.setTextColor(Color.WHITE);
+                //context.overridePendingTransition(R.anim.slide_up, 0);
+            }
+        });
 //		rlDate.setOnClickListener(new OnClickListener() {
 //			@Override
 //			public void onClick(View arg0) {
@@ -148,244 +135,239 @@ public class JobListFragment extends Fragment {
 //			}
 //		});
 
-		edtSearch.addTextChangedListener(new TextWatcher() {
-			
-			@Override
-			public void onTextChanged(CharSequence s, int start, int before, int count) {
-				
-				
-			}
-			
-			@Override
-			public void beforeTextChanged(CharSequence s, int start, int count,
-					int after) {
-				
-			}
-			
-			@Override
-			public void afterTextChanged(Editable s) {
-				if(GlobalClaass.isInternetPresent(context)){
-				GlobalClaass.clearAsyncTask(getJobItem);
-				
-				getJobItem = new GetJobItem(GlobalClaass.getCountriesArray(context),
-						GlobalClaass.getTypeArray(context),
-						GlobalClaass.getStartDate(context), s.toString());
-				getJobItem.execute();
-				}
-				
-				
-			}
-		});
-		
-		
-		return rootView;
-	}
+        edtSearch.addTextChangedListener(new TextWatcher() {
 
-	@Override
-	public void onDestroyView() {
-		super.onDestroyView();
-		GlobalClaass.clearAsyncTask(getJobItem);
-		GlobalClaass.removeSearchPrefrences(context);
-	}
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
 
-	@Override
-	public void onResume() {
-		super.onResume();
 
-		rlLocation.setBackgroundColor(Color.TRANSPARENT);
-		rlType.setBackgroundColor(Color.TRANSPARENT);
-		//rlDate.setBackgroundColor(Color.TRANSPARENT);
+            }
 
-		//ivDate.setImageResource(R.drawable.calendar_black_menu_icon);
-		//xtvDate.setTextColor(Color.BLACK);
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count,
+                                          int after) {
 
-		ivType.setImageResource(R.drawable.clock_black_icon);
-		tvType.setTextColor(Color.BLACK);
+            }
 
-		ivLocation.setImageResource(R.drawable.location_black_menu_icon_footer);
-		tvLocation.setTextColor(Color.BLACK);
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (GlobalClaass.isInternetPresent(context)) {
+                    GlobalClaass.clearAsyncTask(getJobItem);
 
-		if(GlobalClaass.isInternetPresent(context)){
-			edtSearch.setText("");
-			getJobItem = new GetJobItem(GlobalClaass.getCountriesArray(context),
-					GlobalClaass.getTypeArray(context),
-					GlobalClaass.getStartDate(context), "");
-			getJobItem.execute();
-		}
-		else {
-			GlobalClaass.showToastMessage(context,"Please check internet connection");
-		}
-		
+                    getJobItem = new GetJobItem(GlobalClaass.getCountriesArray(context),
+                            GlobalClaass.getTypeArray(context),
+                            GlobalClaass.getStartDate(context), s.toString());
+                    getJobItem.execute();
+                }
 
-	}
 
-	class GetJobItem extends AsyncTask<String, String, String> {
+            }
+        });
 
-		String countries;
-		String job_types;
-		String start_date;
 
-		String search;
-		
-		public GetJobItem(String countries, String job_types, String start_date, String search) {
+        return rootView;
+    }
 
-			this.countries = countries;
-			this.job_types = job_types;
-			this.start_date = start_date;
-			this.search=search;
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        GlobalClaass.clearAsyncTask(getJobItem);
+        GlobalClaass.removeSearchPrefrences(context);
+    }
 
-		}
+    @Override
+    public void onResume() {
+        super.onResume();
 
-		@Override
-		protected void onPreExecute() {
-			showProgressBar(context, rootView);
-		}
+        rlLocation.setBackgroundColor(Color.TRANSPARENT);
+        rlType.setBackgroundColor(Color.TRANSPARENT);
+        //rlDate.setBackgroundColor(Color.TRANSPARENT);
 
-		@Override
-		protected String doInBackground(String... params) {
+        //ivDate.setImageResource(R.drawable.calendar_black_menu_icon);
+        //xtvDate.setTextColor(Color.BLACK);
 
-			String resultStr = null;
-			try {
+        ivType.setImageResource(R.drawable.clock_black_icon);
+        tvType.setTextColor(Color.BLACK);
 
-				HttpClient httpClient = new DefaultHttpClient();
-				HttpPost request = new HttpPost(GlobalClaass.Webservice_Url);
+        ivLocation.setImageResource(R.drawable.location_black_menu_icon_footer);
+        tvLocation.setTextColor(Color.BLACK);
 
-				List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
-				nameValuePairs.add(new BasicNameValuePair("action", "jobs"));
-				nameValuePairs.add(new BasicNameValuePair("user_id",
-						GlobalClaass.getUserId(context)));
+        if (GlobalClaass.isInternetPresent(context)) {
+            edtSearch.setText("");
+            getJobItem = new GetJobItem(GlobalClaass.getCountriesArray(context),
+                    GlobalClaass.getTypeArray(context),
+                    GlobalClaass.getStartDate(context), "");
+            getJobItem.execute();
+        } else {
+            GlobalClaass.showToastMessage(context, "Please check internet connection");
+        }
 
-				if (!search.equalsIgnoreCase("")) {
-					nameValuePairs.add(new BasicNameValuePair("title",
-							search));
-				}
-				
-				if (!countries.equalsIgnoreCase("")) {
-					nameValuePairs.add(new BasicNameValuePair("countries",
-							countries));
-				}
 
-				if (!job_types.equalsIgnoreCase("")) {
-					nameValuePairs.add(new BasicNameValuePair("job_types",
-							job_types));
-				}
+    }
 
-				if (!start_date.equalsIgnoreCase("")) {
-					nameValuePairs.add(new BasicNameValuePair("start_date",
-							start_date));
-				}
+    class GetJobItem extends AsyncTask<String, String, String> {
 
-				request.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+        String countries;
+        String job_types;
+        String start_date;
 
-				HttpResponse response = httpClient.execute(request);
+        String search;
 
-				HttpEntity entity = response.getEntity();
+        public GetJobItem(String countries, String job_types, String start_date, String search) {
 
-				resultStr = EntityUtils.toString(entity);
+            this.countries = countries;
+            this.job_types = job_types;
+            this.start_date = start_date;
+            this.search = search;
 
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+        }
 
-			return resultStr;
+        @Override
+        protected void onPreExecute() {
+            showProgressBar(context, rootView);
+        }
 
-		}
+        @Override
+        protected String doInBackground(String... params) {
 
-		@Override
-		protected void onPostExecute(String result) {
+            String resultStr = null;
+            try {
 
-			hideProgressBar(context, rootView);
+                HttpClient httpClient = new DefaultHttpClient();
+                HttpPost request = new HttpPost(GlobalClaass.Webservice_Url);
 
-			Log.e("Deepak", "result:" +result );
-			
-			setUpUi(result);
-		}
+                List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
+                nameValuePairs.add(new BasicNameValuePair("action", "jobs"));
+                nameValuePairs.add(new BasicNameValuePair("user_id",
+                        GlobalClaass.getUserId(context)));
 
-	}
+                if (!search.equalsIgnoreCase("")) {
+                    nameValuePairs.add(new BasicNameValuePair("title",
+                            search));
+                }
 
-	public void setUpUi(String result) {
-		String get_message = "";
-		try {
-			((TextView)rootView.findViewById(R.id.error_message)).setText("");
-			dataList = new ArrayList<JobObject>();
+                if (!countries.equalsIgnoreCase("")) {
+                    nameValuePairs.add(new BasicNameValuePair("countries",
+                            countries));
+                }
 
-			if (itmAdap != null) {
-				itmAdap.notifyDataSetChanged();
-			}
+                if (!job_types.equalsIgnoreCase("")) {
+                    nameValuePairs.add(new BasicNameValuePair("job_types",
+                            job_types));
+                }
 
-			itmAdap = new JobListAdapter(context, dataList, rootView);
+                if (!start_date.equalsIgnoreCase("")) {
+                    nameValuePairs.add(new BasicNameValuePair("start_date",
+                            start_date));
+                }
 
-			lvJobList.setAdapter(itmAdap);
-			lvJobList.setAdapter(null);
+                request.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 
-			lvJobList.setOnItemClickListener(null);
+                HttpResponse response = httpClient.execute(request);
 
-			
+                HttpEntity entity = response.getEntity();
 
-			JSONObject jObject = new JSONObject(result);
+                resultStr = EntityUtils.toString(entity);
 
-			 get_message = jObject.getString("message").trim();
-			String get_replycode = jObject.getString("status").trim();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
 
-			if (get_replycode.equalsIgnoreCase("false")) {
-				showToastMessage(context, get_message);
-			} else {
+            return resultStr;
 
-				JSONArray jrr = jObject.getJSONArray("jobs");
+        }
 
-				for (int i = 0; i < jrr.length(); i++) {
+        @Override
+        protected void onPostExecute(String result) {
 
-					JSONObject jobj = jrr.getJSONObject(i);
+            hideProgressBar(context, rootView);
 
-					JobObject itmObj = new JobObject();
+            Log.e("Deepak", "result:" + result);
 
-					itmObj.setId(jobj.getString("id"));
-					itmObj.setJobDate(jobj.getString("start_date"));
-					itmObj.setJobFavorite(jobj.getBoolean("is_favorite"));
-					itmObj.setJobLocation(jobj.getString("city") + ", "
-							+ jobj.getString("country"));
-					itmObj.setJobImage(jobj.getString("image"));
-					itmObj.setJobName(jobj.getString("title"));
+            setUpUi(result);
+        }
 
-					dataList.add(itmObj);
+    }
 
-				}
-			}
+    public void setUpUi(String result) {
+        String get_message = "";
+        try {
+            ((TextView) rootView.findViewById(R.id.error_message)).setText("");
+            dataList = new ArrayList<JobObject>();
 
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+            if (itmAdap != null) {
+                itmAdap.notifyDataSetChanged();
+            }
 
-		
+            itmAdap = new JobListAdapter(context, dataList, rootView);
 
-			if (dataList.size() > 0) {
+            lvJobList.setAdapter(itmAdap);
+            lvJobList.setAdapter(null);
 
-				itmAdap = new JobListAdapter(context, dataList, rootView);
+            lvJobList.setOnItemClickListener(null);
 
-				lvJobList.setAdapter(itmAdap);
 
-				lvJobList.setOnItemClickListener(new OnItemClickListener() {
+            JSONObject jObject = new JSONObject(result);
 
-					@Override
-					public void onItemClick(AdapterView<?> arg0, View arg1,
-							int position, long arg3) {
+            get_message = jObject.getString("message").trim();
+            String get_replycode = jObject.getString("status").trim();
 
-						startActivity(new Intent(context,
-								JobPagerActivity.class).putExtra("dataList",
-								dataList).putExtra("position", position));
+            if (get_replycode.equalsIgnoreCase("false")) {
+                showToastMessage(context, get_message);
+            } else {
 
-					}
-				});
-				edtSearch.setVisibility(View.VISIBLE);
-				
+                JSONArray jrr = jObject.getJSONArray("jobs");
 
-			}
-			else {
-				((TextView)rootView.findViewById(R.id.error_message)).setText(get_message);
-			}
-		
-		
-		
-	}
+                for (int i = 0; i < jrr.length(); i++) {
+
+                    JSONObject jobj = jrr.getJSONObject(i);
+
+                    JobObject itmObj = new JobObject();
+
+                    itmObj.setId(jobj.getString("id"));
+                    itmObj.setJobDate(jobj.getString("start_date"));
+                    itmObj.setJobFavorite(jobj.getBoolean("is_favorite"));
+                    itmObj.setJobLocation(jobj.getString("city") + ", "
+                            + jobj.getString("country"));
+                    itmObj.setJobImage(jobj.getString("image"));
+                    itmObj.setJobName(jobj.getString("title"));
+
+                    dataList.add(itmObj);
+
+                }
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+        if (dataList.size() > 0) {
+
+            itmAdap = new JobListAdapter(context, dataList, rootView);
+
+            lvJobList.setAdapter(itmAdap);
+
+            lvJobList.setOnItemClickListener(new OnItemClickListener() {
+
+                @Override
+                public void onItemClick(AdapterView<?> arg0, View arg1,
+                                        int position, long arg3) {
+
+                    startActivity(new Intent(context,
+                            JobPagerActivity.class).putExtra("dataList",
+                            dataList).putExtra("position", position));
+
+                }
+            });
+            edtSearch.setVisibility(View.VISIBLE);
+
+
+        } else {
+            ((TextView) rootView.findViewById(R.id.error_message)).setText(get_message);
+        }
+
+
+    }
 
 }

@@ -1,10 +1,25 @@
 package com.chalkboard.teacher;
 
-import static com.chalkboard.GlobalClaass.hideProgressBar;
-import static com.chalkboard.GlobalClaass.showProgressBar;
+import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.chalkboard.GlobalClaass;
+import com.chalkboard.ImageLoader;
+import com.chalkboard.ImageLoader11;
+import com.chalkboard.R;
+import com.chalkboard.customviews.CustomAlert;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -17,85 +32,71 @@ import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONObject;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.graphics.Typeface;
-import android.os.AsyncTask;
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
+import java.util.ArrayList;
+import java.util.List;
 
-import com.chalkboard.GlobalClaass;
-import com.chalkboard.ImageLoader;
-import com.chalkboard.ImageLoader11;
-import com.chalkboard.R;
-import com.chalkboard.teacher.JobNotificationFragment.GetJobNotificationItem;
+import static com.chalkboard.GlobalClaass.hideProgressBar;
+import static com.chalkboard.GlobalClaass.showProgressBar;
 
 public class JobPageFragment extends Fragment {
 
-	View rootView = null;
+    View rootView = null;
 
-	Activity context = null;
-	Typeface font,font2;
-	GetJobDetail getJobDetail = null;
-	public ImageLoader imageloader = null;
-	public JobPageFragment() {
-	}
+    Activity context = null;
+    //Typeface font,font2;
+    GetJobDetail getJobDetail = null;
+    public ImageLoader imageloader = null;
 
-	static String JOB_OBJECT = "JOB_OBJECT";
+    public JobPageFragment() {
+    }
 
-	public static JobPageFragment newInstance(JobObject jobObject) {
-		JobPageFragment jobPageFragment = new JobPageFragment();
+    static String JOB_OBJECT = "JOB_OBJECT";
 
-		Bundle args = new Bundle();
-		args.putSerializable(JOB_OBJECT, jobObject);
-		jobPageFragment.setArguments(args);
+    public static JobPageFragment newInstance(JobObject jobObject) {
+        JobPageFragment jobPageFragment = new JobPageFragment();
 
-		return jobPageFragment;
-	}
+        Bundle args = new Bundle();
+        args.putSerializable(JOB_OBJECT, jobObject);
+        jobPageFragment.setArguments(args);
 
-	JobObject jobObject;
+        return jobPageFragment;
+    }
 
-	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
+    JobObject jobObject;
 
-		setRetainInstance(true);
-		
-		jobObject = (JobObject) getArguments().getSerializable(JOB_OBJECT);
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
 
-		context = getActivity();
-		imageloader = new ImageLoader(context);
-		font=Typeface.createFromAsset(context.getAssets(), "mark.ttf");
-		font2=Typeface.createFromAsset(context.getAssets(), "marlbold.ttf");
+        setRetainInstance(true);
 
+        jobObject = (JobObject) getArguments().getSerializable(JOB_OBJECT);
 
-		rootView = inflater.inflate(R.layout.page_job, container, false);
+        context = getActivity();
+        imageloader = new ImageLoader(context);
+//        font = Typeface.createFromAsset(context.getAssets(), "mark.ttf");
+//        font2 = Typeface.createFromAsset(context.getAssets(), "marlbold.ttf");
 
 
-		GlobalClaass.clearAsyncTask(getJobDetail);
-		
-		if(GlobalClaass.isInternetPresent(context)){
+        rootView = inflater.inflate(R.layout.page_job, container, false);
 
-			getJobDetail = new GetJobDetail(jobObject.getId());
-			getJobDetail.execute();
-		}
-		else {
-			GlobalClaass.showToastMessage(context,"Please check internet connection");
-		}
-		
 
-		return rootView;
-	}
+        GlobalClaass.clearAsyncTask(getJobDetail);
+
+        if (GlobalClaass.isInternetPresent(context)) {
+
+            getJobDetail = new GetJobDetail(jobObject.getId());
+            getJobDetail.execute();
+        } else {
+            GlobalClaass.showToastMessage(context, "Please check internet connection");
+        }
+
+
+        return rootView;
+    }
 
 	/*@Override
-	public void setMenuVisibility(boolean menuVisible) {
+    public void setMenuVisibility(boolean menuVisible) {
 		super.setMenuVisibility(menuVisible);
 		
 		if (menuVisible) {
@@ -105,9 +106,9 @@ public class JobPageFragment extends Fragment {
 		}
 		
 	}*/
-	
+
 	/*@Override
-	public void setUserVisibleHint(boolean isVisibleToUser) {
+    public void setUserVisibleHint(boolean isVisibleToUser) {
 		super.setUserVisibleHint(isVisibleToUser);
 		
 		if (isVisibleToUser) {
@@ -120,486 +121,525 @@ public class JobPageFragment extends Fragment {
 		}
 		
 	}*/
-	
-	
-	@Override
-	public void onDestroyView() {
-		super.onDestroyView();
-		GlobalClaass.clearAsyncTask(getJobDetail);
-		GlobalClaass.clearAsyncTask(addJobFavorites);
-		GlobalClaass.clearAsyncTask(addJobMatch);
-		GlobalClaass.clearAsyncTask(removeJobFavorites);
-		GlobalClaass.clearAsyncTask(removeJobMatch);
-	}
 
-	class GetJobDetail extends AsyncTask<String, String, String> {
 
-		String jobId;
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        GlobalClaass.clearAsyncTask(getJobDetail);
+        GlobalClaass.clearAsyncTask(addJobFavorites);
+        GlobalClaass.clearAsyncTask(addJobMatch);
+        GlobalClaass.clearAsyncTask(removeJobFavorites);
+        GlobalClaass.clearAsyncTask(removeJobMatch);
+    }
 
-		public GetJobDetail(String id) {
-			jobId = id;
-		}
+    class GetJobDetail extends AsyncTask<String, String, String> {
 
-		@Override
-		protected void onPreExecute() {
-			showProgressBar(context, rootView);
-		}
+        String jobId;
 
-		@Override
-		protected String doInBackground(String... params) {
+        public GetJobDetail(String id) {
+            jobId = id;
+        }
 
-			String resultStr = null;
-			try {
+        @Override
+        protected void onPreExecute() {
+            showProgressBar(context, rootView);
+        }
 
-				HttpClient httpClient = new DefaultHttpClient();
-				HttpPost request = new HttpPost(GlobalClaass.Webservice_Url);
+        @Override
+        protected String doInBackground(String... params) {
 
-				List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
+            String resultStr = null;
+            try {
 
-				nameValuePairs
-						.add(new BasicNameValuePair("action", "jobDetail"));
+                HttpClient httpClient = new DefaultHttpClient();
+                HttpPost request = new HttpPost(GlobalClaass.Webservice_Url);
 
-				nameValuePairs.add(new BasicNameValuePair("job_id", jobId));
-				nameValuePairs.add(new BasicNameValuePair("user_id",
-						GlobalClaass.getUserId(context)));
-				request.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+                List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
 
-				HttpResponse response = httpClient.execute(request);
+                nameValuePairs
+                        .add(new BasicNameValuePair("action", "jobDetail"));
 
-				HttpEntity entity = response.getEntity();
+                nameValuePairs.add(new BasicNameValuePair("job_id", jobId));
+                nameValuePairs.add(new BasicNameValuePair("user_id",
+                        GlobalClaass.getUserId(context)));
+                request.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 
-				resultStr = EntityUtils.toString(entity);
+                HttpResponse response = httpClient.execute(request);
 
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+                HttpEntity entity = response.getEntity();
 
-			return resultStr;
+                resultStr = EntityUtils.toString(entity);
 
-		}
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
 
-		@Override
-		protected void onPostExecute(String result) {
+            return resultStr;
 
-			hideProgressBar(context, rootView);
+        }
 
-			setUpUi(result);
-		}
+        @Override
+        protected void onPostExecute(String result) {
 
-	}
+            hideProgressBar(context, rootView);
 
-	public void setUpUi(String result) {
+            setUpUi(result);
+        }
 
-		try {
+    }
 
-			Log.e("Dotsquares", "job detail result:" + result);
+    public void setUpUi(String result) {
 
-			JSONObject jObject = new JSONObject(result);
+        try {
 
-			String get_message = jObject.getString("message").trim();
-			String get_replycode = jObject.getString("status").trim();
+            Log.e("Dotsquares", "job detail result:" + result);
 
-			String salary = jObject.getString("salary").trim();
+            JSONObject jObject = new JSONObject(result);
 
-			
-			
-			jobObject.setJobSalary(salary);
+            String get_message = jObject.getString("message").trim();
+            String get_replycode = jObject.getString("status").trim();
 
-			String description = jObject.getString("description").trim();
+            String salary = jObject.getString("salary").trim();
 
-			jobObject.setJobDescription(description);
 
-			boolean is_match = jObject.getBoolean("is_match");
+            jobObject.setJobSalary(salary);
 
-			jobObject.setJobMatch(is_match);
+            String description = jObject.getString("description").trim();
 
-			JSONObject jObj = jObject.getJSONObject("Recruiter");
+            jobObject.setJobDescription(description);
 
-			String name = jObj.getString("name").trim();
+            boolean is_match = jObject.getBoolean("is_match");
 
-			jobObject.setJobRecruiterName(name);
+            jobObject.setJobMatch(is_match);
 
-			String school_photo = jObj.getString("school_photo").trim();
-			
-			String about = jObj.getString("about").trim();
-
-			jobObject.setJobRecruiterAbout(about);
-			
-			jobObject.setJobPhoto(school_photo);
-
-			refineUI();
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-	}
-
-	private void refineUI() {
-		((TextView) rootView.findViewById(R.id.job_name)).setText(jobObject
-				.getJobName());
-		((TextView) rootView.findViewById(R.id.job_offer_by)).setText("By "
-				+ jobObject.getJobRecruiterName());
-		((TextView) rootView.findViewById(R.id.job_location)).setText("@ "
-				+ jobObject.getJobLocation());
-		
-       try {
-			
-			((TextView) rootView.findViewById(R.id.job_name)).setTypeface(font2);
-			((TextView) rootView.findViewById(R.id.job_offer_by)).setTypeface(font);
-			((TextView) rootView.findViewById(R.id.job_location)).setTypeface(font);
-			((TextView) rootView.findViewById(R.id.add_to_favorite)).setTypeface(font2);
-			((TextView) rootView.findViewById(R.id.match_job)).setTypeface(font2);		
-			((TextView) rootView.findViewById(R.id.job_description)).setTypeface(font);
-			((TextView) rootView.findViewById(R.id.salary)).setTypeface(font);
-			((TextView) rootView.findViewById(R.id.start_date)).setTypeface(font);
-			((TextView) rootView.findViewById(R.id.about_company)).setTypeface(font);
-			((TextView) rootView.findViewById(R.id.about_heading)).setTypeface(font2);
-			((TextView) rootView.findViewById(R.id.txt_salary)).setTypeface(font2);
-			((TextView) rootView.findViewById(R.id.txt_stdate)).setTypeface(font2);
-			
-			
-			
-			
-		} catch (Exception e) {
-
-		}
-
-		ImageLoader imageloader = new ImageLoader(context);
-		ImageLoader11 imageloader11 = new ImageLoader11(context);
-
-		imageloader.DisplayImage(jobObject.getJobImage(),
-				((ImageView) rootView.findViewById(R.id.job_icon)));
-
-		
-
-		imageloader11.DisplayImage(jobObject.getJobPhoto(),
-				((ImageView) rootView.findViewById(R.id.job_image)));
-
-		if (jobObject.isJobFavorite()) {
-			((TextView) rootView.findViewById(R.id.add_to_favorite))
-					.setText("Remove from Favorites");
-			((TextView) rootView.findViewById(R.id.add_to_favorite))
-					.setOnClickListener(new OnClickListener() {
-						@Override
-						public void onClick(View arg0) {
-							removeJobFavorites = new RemoveJobFavorites(
-									jobObject.getId());
-							removeJobFavorites.execute();
-						}
-					});
-		} else {
-			((TextView) rootView.findViewById(R.id.add_to_favorite))
-					.setText("Add to Favorites");
-			((TextView) rootView.findViewById(R.id.add_to_favorite))
-					.setOnClickListener(new OnClickListener() {
-						@Override
-						public void onClick(View arg0) {
-							addJobFavorites = new AddJobFavorites(jobObject
-									.getId());
-							addJobFavorites.execute();
-						}
-					});
-		}
-
-		if (jobObject.isJobMatch()) {
-
-			((TextView) rootView.findViewById(R.id.match_job))
-					.setText("Unmatch Job");
-			((TextView) rootView.findViewById(R.id.match_job))
-					.setOnClickListener(new OnClickListener() {
-
-						@Override
-						public void onClick(View arg0) {
-							removeJobMatch = new RemoveJobMatch(jobObject
-									.getId());
-							removeJobMatch.execute();
-						}
-					});
-		} else {
-
-			((TextView) rootView.findViewById(R.id.match_job))
-					.setText("Match Job");
-			((TextView) rootView.findViewById(R.id.match_job))
-					.setOnClickListener(new OnClickListener() {
-
-						@Override
-						public void onClick(View arg0) {
-							addJobMatch = new AddJobMatch(jobObject.getId());
-							addJobMatch.execute();
-						}
-					});
-
-		}
-
-		rootView.findViewById(R.id.share_job)
-		.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View arg0) {
-				
-				String shareBody = jobObject.getJobName() + " @ " + jobObject.getJobLocation();
-			    Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
-			        sharingIntent.setType("text/plain");
-			        sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Chalkboard Android");
-			        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
-			        startActivity(Intent.createChooser(sharingIntent, "Share via..."));
-				
-			}
-		});
-		
-		((TextView) rootView.findViewById(R.id.job_description))
-				.setText(jobObject.getJobDescription());
-		((TextView) rootView.findViewById(R.id.salary)).setText(jobObject
-				.getJobSalary());
-
-		((TextView) rootView.findViewById(R.id.salary)).setText(jobObject
-				.getJobSalary());
-
-		((TextView) rootView.findViewById(R.id.start_date)).setText(jobObject
-				.getJobDate());
-
-		((TextView) rootView.findViewById(R.id.about_company))
-				.setText(jobObject.getJobRecruiterAbout());
-	}
-
-	RemoveJobMatch removeJobMatch;
-
-	class RemoveJobMatch extends AsyncTask<String, String, String> {
-
-		String jobId;
-
-		public RemoveJobMatch(String id) {
-			jobId = id;
-		}
-
-		@Override
-		protected void onPreExecute() {
-			showProgressBar(context, rootView);
-		}
-
-		@Override
-		protected String doInBackground(String... params) {
+            JSONObject jObj = jObject.getJSONObject("Recruiter");
 
-			String resultStr = null;
-			try {
+            String name = jObj.getString("name").trim();
 
-				HttpClient httpClient = new DefaultHttpClient();
-				HttpPost request = new HttpPost(GlobalClaass.Webservice_Url);
+            jobObject.setJobRecruiterName(name);
 
-				List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
+            String school_photo = jObj.getString("school_photo").trim();
 
-				nameValuePairs.add(new BasicNameValuePair("action",
-						"removeToMatchList"));
+            String about = jObj.getString("about").trim();
+
+            jobObject.setJobRecruiterAbout(about);
+
+            jobObject.setJobPhoto(school_photo);
+
+            refineUI();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    private void showSendMatchRequestDialog() {
+        String message = "This lets " + jobObject.getJobRecruiterName() +
+                " know you're interested. You'll get a notification if it's a match!";
+        new CustomAlert(getActivity(), JobPageFragment.this)
+                .doubleButtonAlertDialog(
+                        message,
+                        getString(R.string.send),
+                        getString(R.string.cancel), "dblBtnCallbackResponse", 1000);
+    }
+
+    public void dblBtnCallbackResponse(Boolean flag, int code) {
+        if (flag) {
+            if (jobObject.isJobMatch()) {
+                removeJobMatch = new RemoveJobMatch(jobObject
+                        .getId());
+                removeJobMatch.execute();
+            } else {
+                addJobMatch = new AddJobMatch(jobObject.getId());
+                addJobMatch.execute();
+            }
+        }
+
+    }
+
+    private void refineUI() {
+//        ((TextView) rootView.findViewById(R.id.job_name)).setText(jobObject
+//                .getJobName());
+//        ((TextView) rootView.findViewById(R.id.job_offer_by)).setText("By "
+//                + jobObject.getJobRecruiterName());
+        ((TextView) rootView.findViewById(R.id.txt_job_location)).setText("@ "
+                + jobObject.getJobLocation());
+
+        final Button btn_send_match_request = (Button) rootView.findViewById(R.id.btn_send_match_request);
+        if (jobObject.isJobMatch()) {
+
+            btn_send_match_request
+                    .setText(getString(R.string.remove_match_request));
+        } else {
+            btn_send_match_request.setText(getString(R.string.send_match_request));
+        }
+
+
+        btn_send_match_request.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showSendMatchRequestDialog();
+
+            }
+        });
+
+        ImageLoader imageloader = new ImageLoader(context);
+        ImageLoader11 imageloader11 = new ImageLoader11(context);
+
+        imageloader.DisplayImage(jobObject.getJobImage(),
+                ((ImageView) rootView.findViewById(R.id.img_job_icon)));
+
+
+        imageloader11.DisplayImage(jobObject.getJobPhoto(),
+                ((ImageView) rootView.findViewById(R.id.job_image)));
+
+//        if (jobObject.isJobFavorite()) {
+//            ((TextView) rootView.findViewById(R.id.add_to_favorite))
+//                    .setText("Remove from Favorites");
+//            ((TextView) rootView.findViewById(R.id.add_to_favorite))
+//                    .setOnClickListener(new OnClickListener() {
+//                        @Override
+//                        public void onClick(View arg0) {
+//                            removeJobFavorites = new RemoveJobFavorites(
+//                                    jobObject.getId());
+//                            removeJobFavorites.execute();
+//                        }
+//                    });
+//        } else {
+//            ((TextView) rootView.findViewById(R.id.add_to_favorite))
+//                    .setText("Add to Favorites");
+//            ((TextView) rootView.findViewById(R.id.add_to_favorite))
+//                    .setOnClickListener(new OnClickListener() {
+//                        @Override
+//                        public void onClick(View arg0) {
+//                            addJobFavorites = new AddJobFavorites(jobObject
+//                                    .getId());
+//                            addJobFavorites.execute();
+//                        }
+//                    });
+//        }
+
+//        if (jobObject.isJobMatch()) {
+//
+//            ((TextView) rootView.findViewById(R.id.match_job))
+//                    .setText("Unmatch Job");
+//            ((TextView) rootView.findViewById(R.id.match_job))
+//                    .setOnClickListener(new OnClickListener() {
+//
+//                        @Override
+//                        public void onClick(View arg0) {
+//                            removeJobMatch = new RemoveJobMatch(jobObject
+//                                    .getId());
+//                            removeJobMatch.execute();
+//                        }
+//                    });
+//        } else {
+//
+//            ((TextView) rootView.findViewById(R.id.match_job))
+//                    .setText("Match Job");
+//            ((TextView) rootView.findViewById(R.id.match_job))
+//                    .setOnClickListener(new OnClickListener() {
+//
+//                        @Override
+//                        public void onClick(View arg0) {
+//                            addJobMatch = new AddJobMatch(jobObject.getId());
+//                            addJobMatch.execute();
+//                        }
+//                    });
+//
+//        }
+
+        rootView.findViewById(R.id.img_location_icon)
+                .setOnClickListener(new OnClickListener() {
+
+                    @Override
+                    public void onClick(View arg0) {
+
+                        String map = "http://maps.google.co.in/maps?q=" +
+                                jobObject.getJobLocation();
+
+                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(map));
+                        startActivity(intent);
+
+                    }
+                });
+
+        final ImageView img_fav_icon = (ImageView) rootView.findViewById(R.id.img_fav_icon);
+
+        img_fav_icon
+                .setOnClickListener(new OnClickListener() {
+
+                    @Override
+                    public void onClick(View arg0) {
+
+                        if (jobObject.isJobFavorite()) {
+                            img_fav_icon.setImageResource(R.drawable.unlike_icon);
+                            removeJobFavorites = new RemoveJobFavorites(
+                                    jobObject.getId());
+                            removeJobFavorites.execute();
+                        } else {
+                            img_fav_icon.setImageResource(R.drawable.like_icon);
+
+                            addJobFavorites = new AddJobFavorites(jobObject
+                                    .getId());
+                            addJobFavorites.execute();
+                        }
+
+                    }
+                });
+
+        ((TextView) rootView.findViewById(R.id.txt_job_title))
+                .setText(jobObject.getJobTitle());
+        ((TextView) rootView.findViewById(R.id.txt_job_description))
+                .setText(jobObject.getJobDescription());
+        ((TextView) rootView.findViewById(R.id.txt_salary_val)).setText(jobObject
+                .getJobSalary());
+        ((TextView) rootView.findViewById(R.id.txt_salary_val)).setText(jobObject
+                .getJobDate());
+        ((TextView) rootView.findViewById(R.id.txt_about_company_val))
+                .setText(jobObject.getJobRecruiterAbout());
+    }
+
+
+    RemoveJobMatch removeJobMatch;
+
+    class RemoveJobMatch extends AsyncTask<String, String, String> {
+
+        String jobId;
+
+        public RemoveJobMatch(String id) {
+            jobId = id;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            showProgressBar(context, rootView);
+        }
 
-				nameValuePairs.add(new BasicNameValuePair("job_id", jobId));
-				nameValuePairs.add(new BasicNameValuePair("user_id",
-						GlobalClaass.getUserId(context)));
-				request.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+        @Override
+        protected String doInBackground(String... params) {
 
-				HttpResponse response = httpClient.execute(request);
+            String resultStr = null;
+            try {
 
-				HttpEntity entity = response.getEntity();
+                HttpClient httpClient = new DefaultHttpClient();
+                HttpPost request = new HttpPost(GlobalClaass.Webservice_Url);
 
-				resultStr = EntityUtils.toString(entity);
+                List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
 
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+                nameValuePairs.add(new BasicNameValuePair("action",
+                        "removeToMatchList"));
 
-			return resultStr;
+                nameValuePairs.add(new BasicNameValuePair("job_id", jobId));
+                nameValuePairs.add(new BasicNameValuePair("user_id",
+                        GlobalClaass.getUserId(context)));
+                request.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 
-		}
+                HttpResponse response = httpClient.execute(request);
 
-		@Override
-		protected void onPostExecute(String result) {
+                HttpEntity entity = response.getEntity();
 
-			hideProgressBar(context, rootView);
+                resultStr = EntityUtils.toString(entity);
 
-			jobObject.setJobMatch(false);
-			refineUI();
-		}
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
 
-	}
+            return resultStr;
 
-	AddJobMatch addJobMatch;
+        }
 
-	class AddJobMatch extends AsyncTask<String, String, String> {
+        @Override
+        protected void onPostExecute(String result) {
 
-		String jobId;
+            hideProgressBar(context, rootView);
 
-		public AddJobMatch(String id) {
-			jobId = id;
-		}
+            jobObject.setJobMatch(false);
+            refineUI();
+        }
 
-		@Override
-		protected void onPreExecute() {
-			showProgressBar(context, rootView);
-		}
+    }
 
-		@Override
-		protected String doInBackground(String... params) {
+    AddJobMatch addJobMatch;
 
-			String resultStr = null;
-			try {
+    class AddJobMatch extends AsyncTask<String, String, String> {
 
-				HttpClient httpClient = new DefaultHttpClient();
-				HttpPost request = new HttpPost(GlobalClaass.Webservice_Url);
+        String jobId;
 
-				List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
+        public AddJobMatch(String id) {
+            jobId = id;
+        }
 
-				nameValuePairs.add(new BasicNameValuePair("action",
-						"addToMatchList"));
+        @Override
+        protected void onPreExecute() {
+            showProgressBar(context, rootView);
+        }
 
-				nameValuePairs.add(new BasicNameValuePair("job_id", jobId));
-				nameValuePairs.add(new BasicNameValuePair("user_id",
-						GlobalClaass.getUserId(context)));
-				request.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+        @Override
+        protected String doInBackground(String... params) {
 
-				HttpResponse response = httpClient.execute(request);
+            String resultStr = null;
+            try {
 
-				HttpEntity entity = response.getEntity();
+                HttpClient httpClient = new DefaultHttpClient();
+                HttpPost request = new HttpPost(GlobalClaass.Webservice_Url);
 
-				resultStr = EntityUtils.toString(entity);
+                List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
 
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+                nameValuePairs.add(new BasicNameValuePair("action",
+                        "addToMatchList"));
 
-			return resultStr;
+                nameValuePairs.add(new BasicNameValuePair("job_id", jobId));
+                nameValuePairs.add(new BasicNameValuePair("user_id",
+                        GlobalClaass.getUserId(context)));
+                request.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 
-		}
+                HttpResponse response = httpClient.execute(request);
 
-		@Override
-		protected void onPostExecute(String result) {
+                HttpEntity entity = response.getEntity();
 
-			hideProgressBar(context, rootView);
+                resultStr = EntityUtils.toString(entity);
 
-			jobObject.setJobMatch(true);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
 
-			refineUI();
+            return resultStr;
 
-		}
+        }
 
-	}
+        @Override
+        protected void onPostExecute(String result) {
 
-	RemoveJobFavorites removeJobFavorites;
+            hideProgressBar(context, rootView);
 
-	public class RemoveJobFavorites extends AsyncTask<String, String, String> {
+            jobObject.setJobMatch(true);
 
-		String jobId;
+            refineUI();
 
-		public RemoveJobFavorites(String id) {
-			jobId = id;
-		}
+        }
 
-		@Override
-		protected void onPreExecute() {
-			showProgressBar(context, rootView);
-		}
+    }
 
-		@Override
-		protected String doInBackground(String... params) {
+    RemoveJobFavorites removeJobFavorites;
 
-			String resultStr = null;
-			try {
+    public class RemoveJobFavorites extends AsyncTask<String, String, String> {
 
-				HttpClient httpClient = new DefaultHttpClient();
-				HttpPost request = new HttpPost(GlobalClaass.Webservice_Url);
+        String jobId;
 
-				List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
+        public RemoveJobFavorites(String id) {
+            jobId = id;
+        }
 
-				nameValuePairs.add(new BasicNameValuePair("action",
-						"removeToFavorite"));
+        @Override
+        protected void onPreExecute() {
+            showProgressBar(context, rootView);
+        }
 
-				nameValuePairs.add(new BasicNameValuePair("job_id", jobId));
-				nameValuePairs.add(new BasicNameValuePair("user_id",
-						GlobalClaass.getUserId(context)));
-				request.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+        @Override
+        protected String doInBackground(String... params) {
 
-				HttpResponse response = httpClient.execute(request);
+            String resultStr = null;
+            try {
 
-				HttpEntity entity = response.getEntity();
+                HttpClient httpClient = new DefaultHttpClient();
+                HttpPost request = new HttpPost(GlobalClaass.Webservice_Url);
 
-				resultStr = EntityUtils.toString(entity);
+                List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
 
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+                nameValuePairs.add(new BasicNameValuePair("action",
+                        "removeToFavorite"));
 
-			return resultStr;
+                nameValuePairs.add(new BasicNameValuePair("job_id", jobId));
+                nameValuePairs.add(new BasicNameValuePair("user_id",
+                        GlobalClaass.getUserId(context)));
+                request.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 
-		}
+                HttpResponse response = httpClient.execute(request);
 
-		@Override
-		protected void onPostExecute(String result) {
+                HttpEntity entity = response.getEntity();
 
-			hideProgressBar(context, rootView);
+                resultStr = EntityUtils.toString(entity);
 
-			jobObject.setJobFavorite(false);
-			refineUI();
-		}
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
 
-	}
+            return resultStr;
 
-	AddJobFavorites addJobFavorites;
+        }
 
-	public class AddJobFavorites extends AsyncTask<String, String, String> {
+        @Override
+        protected void onPostExecute(String result) {
 
-		String jobId;
+            hideProgressBar(context, rootView);
 
-		public AddJobFavorites(String id) {
-			jobId = id;
-		}
+            jobObject.setJobFavorite(false);
+            refineUI();
+        }
 
-		@Override
-		protected void onPreExecute() {
-			showProgressBar(context, rootView);
-		}
+    }
 
-		@Override
-		protected String doInBackground(String... params) {
+    AddJobFavorites addJobFavorites;
 
-			String resultStr = null;
-			try {
+    public class AddJobFavorites extends AsyncTask<String, String, String> {
 
-				HttpClient httpClient = new DefaultHttpClient();
-				HttpPost request = new HttpPost(GlobalClaass.Webservice_Url);
+        String jobId;
 
-				List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
+        public AddJobFavorites(String id) {
+            jobId = id;
+        }
 
-				nameValuePairs.add(new BasicNameValuePair("action",
-						"addToFavorite"));
+        @Override
+        protected void onPreExecute() {
+            showProgressBar(context, rootView);
+        }
 
-				nameValuePairs.add(new BasicNameValuePair("job_id", jobId));
-				nameValuePairs.add(new BasicNameValuePair("user_id",
-						GlobalClaass.getUserId(context)));
-				request.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+        @Override
+        protected String doInBackground(String... params) {
 
-				HttpResponse response = httpClient.execute(request);
+            String resultStr = null;
+            try {
 
-				HttpEntity entity = response.getEntity();
+                HttpClient httpClient = new DefaultHttpClient();
+                HttpPost request = new HttpPost(GlobalClaass.Webservice_Url);
 
-				resultStr = EntityUtils.toString(entity);
+                List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
 
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+                nameValuePairs.add(new BasicNameValuePair("action",
+                        "addToFavorite"));
 
-			return resultStr;
+                nameValuePairs.add(new BasicNameValuePair("job_id", jobId));
+                nameValuePairs.add(new BasicNameValuePair("user_id",
+                        GlobalClaass.getUserId(context)));
+                request.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 
-		}
+                HttpResponse response = httpClient.execute(request);
 
-		@Override
-		protected void onPostExecute(String result) {
+                HttpEntity entity = response.getEntity();
 
-			hideProgressBar(context, rootView);
+                resultStr = EntityUtils.toString(entity);
 
-			jobObject.setJobFavorite(true);
-			refineUI();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
 
-		}
+            return resultStr;
 
-	}
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+
+            hideProgressBar(context, rootView);
+
+            jobObject.setJobFavorite(true);
+            refineUI();
+
+        }
+
+    }
 
 }

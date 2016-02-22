@@ -27,7 +27,7 @@ public class WriteReview extends Activity{
 		setContentView(R.layout.write_review);
 
 		context = this;
-		font=Typeface.createFromAsset(getAssets(), "mark.ttf");
+		font=Typeface.createFromAsset(getAssets(), "fonts/mark.ttf");
 
 		txt_feedback = (TextView) findViewById(R.id.txt_feedback);
 		txt_support = (TextView) findViewById(R.id.txt_support);

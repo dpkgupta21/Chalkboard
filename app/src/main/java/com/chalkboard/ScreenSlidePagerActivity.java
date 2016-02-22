@@ -14,7 +14,6 @@ import android.view.View;
 import android.view.Window;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.TextView;
 
 public class ScreenSlidePagerActivity extends FragmentActivity {
 	/**
@@ -51,7 +50,7 @@ public class ScreenSlidePagerActivity extends FragmentActivity {
 	      
 	        indicator.setViewPager(mPager);
 		
-		font=Typeface.createFromAsset(getAssets(), "mark.ttf");
+		font=Typeface.createFromAsset(getAssets(), "fonts/mark.ttf");
 
 		btn_singup = (Button) findViewById(R.id.btn_signup);
 

@@ -33,7 +33,6 @@ import com.chalkboard.GlobalClaass;
 import com.chalkboard.NotificationListAdapter;
 import com.chalkboard.NotificationObject;
 import com.chalkboard.R;
-import com.chalkboard.teacher.JobMatchesFragment.GetJobMatchesItem;
 
 public class JobNotificationFragment extends Fragment {
 

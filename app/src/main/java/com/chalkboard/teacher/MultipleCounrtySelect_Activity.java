@@ -16,11 +16,9 @@ import org.json.JSONObject;
 
 import com.chalkboard.CountryData;
 import com.chalkboard.GlobalClaass;
-import com.chalkboard.PreferenceConnector;
 import com.chalkboard.R;
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -35,7 +33,6 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -228,7 +225,7 @@ public class MultipleCounrtySelect_Activity extends Activity{
 			// TODO Auto-generated constructor stub
 
 			event_note_data = note_data_list;
-			font = Typeface.createFromAsset(context.getAssets(), "mark.ttf");
+			font = Typeface.createFromAsset(context.getAssets(), "fonts/mark.ttf");
 			
 		}
 

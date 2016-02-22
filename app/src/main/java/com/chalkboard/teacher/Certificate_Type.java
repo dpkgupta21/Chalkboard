@@ -178,8 +178,8 @@ public class Certificate_Type extends Activity{
 			// TODO Auto-generated constructor stub
 
 			event_note_data = note_data_list;
-			font=Typeface.createFromAsset(getAssets(), "mark.ttf");
-			font2=Typeface.createFromAsset(getAssets(), "marlbold.ttf");
+			font=Typeface.createFromAsset(getAssets(), "fonts/mark.ttf");
+			font2=Typeface.createFromAsset(getAssets(), "fonts/marlbold.ttf");
 
 		}
 

@@ -77,8 +77,8 @@ public class TeacherChatBoardActivity extends Activity{
 		super.onCreate(savedInstanceState);
 		
 		context = this;
-		font=Typeface.createFromAsset(getAssets(), "mark.ttf");
-		font2=Typeface.createFromAsset(getAssets(), "marlbold.ttf");
+		font=Typeface.createFromAsset(getAssets(), "fonts/mark.ttf");
+		font2=Typeface.createFromAsset(getAssets(), "fonts/marlbold.ttf");
 		
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		
