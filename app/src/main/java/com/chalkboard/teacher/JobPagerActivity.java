@@ -79,7 +79,7 @@ public class JobPagerActivity extends FragmentActivity {
 
         ((ImageView) (findViewById(R.id.header_logo)))
                 .setVisibility(View.GONE);
-        findViewById(R.id.top_header_count).setVisibility(View.GONE);
+        //findViewById(R.id.top_header_count).setVisibility(View.GONE);
 
         ((TextView) (findViewById(R.id.header_text))).setText(getString(R.string.job_detail_page_title));
 

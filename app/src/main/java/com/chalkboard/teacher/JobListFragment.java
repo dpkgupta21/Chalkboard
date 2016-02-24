@@ -52,7 +52,6 @@ public class JobListFragment extends Fragment {
     View rootView = null;
 
     Activity context = null;
-
     ArrayList<JobObject> dataList = null;
 
     EditText edtSearch = null;

@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
@@ -17,6 +18,8 @@ import com.android.volley.VolleyError;
 import com.chalkboard.GlobalClaass;
 import com.chalkboard.R;
 import com.chalkboard.customviews.CustomProgressDialog;
+import com.chalkboard.teacher.JobObject;
+import com.chalkboard.teacher.JobPagerActivity;
 import com.chalkboard.teacher.matchrequest.adapter.SentAdapter;
 import com.chalkboard.model.MatchReceivedDTO;
 import com.chalkboard.model.MatchSentDTO;
@@ -29,6 +32,7 @@ import com.google.gson.reflect.TypeToken;
 import com.volley.ApplicationController;
 import com.volley.CustomJsonRequest;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.lang.reflect.Type;
@@ -36,6 +40,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static com.chalkboard.GlobalClaass.showToastMessage;
 
 
 public class SentFragment extends Fragment {
@@ -48,6 +54,7 @@ public class SentFragment extends Fragment {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private List<MatchSentDTO> matchSentDTOList;
+    private ArrayList<JobObject> dataList = null;
 
 
     public SentFragment() {
@@ -101,13 +108,38 @@ public class SentFragment extends Fragment {
                         public void onResponse(JSONObject response) {
 
                             try {
-                                Utils.ShowLog(TAG, "got some response = " + response.toString());
-                                Type type = new TypeToken<ArrayList<MatchSentDTO>>() {
-                                }.getType();
-                                matchSentDTOList = new Gson().
-                                        fromJson(response.getJSONArray("data").
-                                                toString(), type);
-                                setSentValues(matchSentDTOList);
+                                if(Utils.getWebServiceStatus(response)) {
+                                    Utils.ShowLog(TAG, "got some response = " + response.toString());
+                                    Type type = new TypeToken<ArrayList<MatchSentDTO>>() {
+                                    }.getType();
+                                    dataList = new ArrayList<JobObject>();
+                                    JSONArray jsonArray = response.getJSONArray("data");
+
+                                    for (int i = 0; i < jsonArray.length(); i++) {
+
+                                        JSONObject jsonobj = jsonArray.getJSONObject(i);
+
+                                        JobObject jobObj = new JobObject();
+
+                                        jobObj.setId(jsonobj.getString("id"));
+                                        jobObj.setJobDate(jsonobj.getString("start_date"));
+                                        jobObj.setJobFavorite(jsonobj.getBoolean("is_favorite"));
+                                        jobObj.setJobLocation(jsonobj.getString("city") + ", "
+                                                + jsonobj.getString("country"));
+                                        jobObj.setJobImage(jsonobj.getString("image"));
+                                        jobObj.setJobName(jsonobj.getString("title"));
+
+                                        dataList.add(jobObj);
+
+                                    }
+                                    matchSentDTOList = new Gson().
+                                            fromJson(response.getJSONArray("data").
+                                                    toString(), type);
+                                    setSentValues(matchSentDTOList);
+                                }else{
+                                    Toast.makeText(getActivity(), "" + response.getString("message").trim(),
+                                            Toast.LENGTH_SHORT).show();
+                                }
 
                             } catch (Exception e) {
                                 CustomProgressDialog.hideProgressDialog();
@@ -148,10 +180,14 @@ public class SentFragment extends Fragment {
                     recyclerView, new MyOnClickListener() {
                 @Override
                 public void onRecyclerClick(View view, int position) {
-                    Intent intent = new Intent(getActivity(),
-                            MatchSentDetailActivity.class);
-                    intent.putExtra("sentDetail", matchSentDTOList.get(position));
-                    startActivity(intent);
+                    startActivity(new Intent(getActivity(),
+                            JobPagerActivity.class).putExtra("dataList",
+                            dataList).putExtra("position", position));
+
+//                    Intent intent = new Intent(getActivity(),
+//                            MatchSentDetailActivity.class);
+//                    intent.putExtra("sentDetail", matchSentDTOList.get(position));
+//                    startActivity(intent);
                 }
 
                 @Override
