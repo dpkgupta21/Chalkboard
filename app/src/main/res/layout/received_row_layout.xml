@@ -27,35 +27,38 @@
         android:orientation="vertical"
         android:paddingBottom="@dimen/margin_20dp">
 
-        <TextView
+        <com.chalkboard.customviews.MyTextViewMarlBold
             android:id="@+id/txt_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="left"
             android:text="Md. Alnasir"
+            android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="@color/grey"
             android:textStyle="bold" />
 
-        <TextView
+        <com.chalkboard.customviews.MyTextViewMark
             android:id="@+id/txt_city_country"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/txt_name"
             android:layout_marginTop="@dimen/margin_10dp"
             android:gravity="left"
+            android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor."
             android:textColor="@color/grey" />
 
 
     </RelativeLayout>
 
-    <TextView
+    <com.chalkboard.customviews.MyTextViewMark
         android:id="@+id/txt_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_margin="@dimen/margin_10dp"
         android:text="15 June 2015"
+        android:textAppearance="?android:attr/textAppearanceSmall"
         android:textColor="@color/grey" />
 
     <ImageView

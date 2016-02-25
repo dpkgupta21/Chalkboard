@@ -58,7 +58,7 @@ public class TeacherPagerActivity extends FragmentActivity {
        ((TextView) (findViewById(R.id.header_text))).setText("Browse Teachers");
        
        
-       findViewById(R.id.top_header_count).setVisibility(View.GONE);
+      // findViewById(R.id.top_header_count).setVisibility(View.GONE);
        
        
 		(findViewById(R.id.header_left_menu)).setOnClickListener(new OnClickListener() {			

@@ -34,16 +34,17 @@
             android:orientation="vertical"
             android:paddingBottom="20dp">
 
-            <TextView
+            <com.chalkboard.customviews.MyTextViewMarlBold
                 android:id="@+id/txt_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="left"
                 android:text="Md. Alnasir"
+                android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@color/grey"
                 android:textStyle="bold" />
 
-            <TextView
+            <com.chalkboard.customviews.MyTextViewMark
                 android:id="@+id/txt_country"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -51,13 +52,14 @@
                 android:layout_marginTop="@dimen/margin_10dp"
                 android:gravity="left"
                 android:text="Lorem"
+                android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@color/grey" />
 
 
 
         </RelativeLayout>
 
-        <TextView
+        <com.chalkboard.customviews.MyTextViewMark
             android:id="@+id/txt_date_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -65,6 +67,7 @@
             android:layout_marginLeft="@dimen/margin_5dp"
             android:layout_marginTop="@dimen/margin_10dp"
             android:gravity="left"
+            android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="05:00 PM"
             android:textColor="@color/grey" />
     </RelativeLayout>

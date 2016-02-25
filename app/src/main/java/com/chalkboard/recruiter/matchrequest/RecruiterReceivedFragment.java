@@ -185,7 +185,7 @@ public class RecruiterReceivedFragment extends Fragment implements SwipeMenuList
                         // set item width
                         checkItem.setWidth(convert_dp_to_px(50));
                         // set a icon
-                        checkItem.setIcon(R.drawable.blue_right_icon);
+                        checkItem.setBackground(R.drawable.blue_right_icon);
                         // add to menu
                         menu.addMenuItem(checkItem);
 
@@ -199,7 +199,7 @@ public class RecruiterReceivedFragment extends Fragment implements SwipeMenuList
                         // set item width
                         crossItem.setWidth(convert_dp_to_px(50));
                         // set a icon
-                        crossItem.setIcon(R.drawable.orange_close_icon);
+                        crossItem.setBackground(R.drawable.orange_close_icon);
                         // add to menu
                         menu.addMenuItem(crossItem);
                         break;
@@ -213,7 +213,7 @@ public class RecruiterReceivedFragment extends Fragment implements SwipeMenuList
                         // set item width
                         deleteItem.setWidth(convert_dp_to_px(50));
                         // set a icon
-                        deleteItem.setIcon(R.drawable.circle_delete_icon);
+                        deleteItem.setBackground(R.drawable.circle_delete_icon);
                         // add to menu
                         menu.addMenuItem(deleteItem);
                         break;
@@ -267,14 +267,13 @@ public class RecruiterReceivedFragment extends Fragment implements SwipeMenuList
         if (Utils.isOnline(getActivity())) {
             Map<String, String> params = new HashMap<>();
             if (status == 1) {
-                params.put("action", WebserviceConstant.TEACHER_ACCEPT_RECEIVED_REQUEST);
+                params.put("action", WebserviceConstant.RECRUITER_ACCEPT_RECEIVED_REQUEST);
             } else {
-                params.put("action", WebserviceConstant.TEACHER_REJECT_RECEIVED_REQUEST);
+                params.put("action", WebserviceConstant.RECRUITER_REJECT_RECEIVED_REQUEST);
             }
 
-            params.put("match_id", recruiterMatchReceivedDTOList.get(position).getId());
-            params.put("status", "" + status);
-            params.put("message", "");
+            params.put("match_id", recruiterMatchReceivedDTOList.get(position).getMatch_id());
+
 
             CustomProgressDialog.showProgDialog(getActivity(), null);
             CustomJsonRequest postReq = new CustomJsonRequest(Request.Method.POST,
