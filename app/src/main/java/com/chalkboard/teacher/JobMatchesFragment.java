@@ -356,7 +356,7 @@ public class JobMatchesFragment extends Fragment {
 //        }
 
 
-        if (matchesDTOList.size() > 0) {
+        if (matchesDTOList!=null && matchesDTOList.size() > 0) {
 
             adapter = new JobMatchListAdapter(context, matchReceivedDTOList);
 
@@ -400,7 +400,7 @@ public class JobMatchesFragment extends Fragment {
 
 
         } else {
-            ((TextView) rootView.findViewById(R.id.error_message)).setText(get_message);
+            ((TextView) rootView.findViewById(R.id.error_message)).setVisibility(View.VISIBLE);
         }
 
     }

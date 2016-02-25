@@ -13,6 +13,7 @@ import com.chalkboard.customviews.CustomAlert;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -24,6 +25,20 @@ import java.util.regex.Pattern;
 
 public class Utils {
 
+
+    public static String formatCityCountry(String city, String country) {
+        String cityCountry = null;
+        if (!city.equalsIgnoreCase("")) {
+            cityCountry = city;
+            if (!country.equalsIgnoreCase("")) {
+                cityCountry = city + ", " + country;
+            }
+        } else {
+            cityCountry = country;
+        }
+
+        return cityCountry;
+    }
 
     public static void CopyStream(InputStream is, OutputStream os) {
         final int buffer_size = 1024;

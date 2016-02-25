@@ -85,7 +85,7 @@ public class ReceivedAdapter extends BaseAdapter {
             holder = new ViewHolder();
             convertView = mLayoutInflater.inflate(R.layout.received_row_layout,
                     parent, false);
-            holder.txtAboutDetail = (TextView) convertView.findViewById(R.id.txt_message_detail);
+            holder.txtCityCountry = (TextView) convertView.findViewById(R.id.txt_city_country);
             holder.txtName = (TextView) convertView.findViewById(R.id.txt_name);
             holder.txtDate = (TextView) convertView.findViewById(R.id.txt_date);
             holder.imgMoreIcon = (ImageView) convertView.findViewById(R.id.img_more_icon);
@@ -101,7 +101,7 @@ public class ReceivedAdapter extends BaseAdapter {
         ImageLoader.getInstance().displayImage(matchReceivedDTO.getImage(), holder.circleImage,
                 options);
 
-        holder.txtAboutDetail.setText(matchReceivedDTO.getAbout());
+        holder.txtCityCountry.setText(matchReceivedDTO.getCity()+", "+matchReceivedDTO.getCountry());
         holder.txtName.setText(matchReceivedDTO.getName());
         holder.txtDate.setText(matchReceivedDTO.getMatch_date());
 
@@ -112,7 +112,7 @@ public class ReceivedAdapter extends BaseAdapter {
 
     public class ViewHolder {
         ImageView circleImage;
-        TextView txtAboutDetail;
+        TextView txtCityCountry;
         ImageView imgMoreIcon;
         TextView txtName;
         TextView txtDate;

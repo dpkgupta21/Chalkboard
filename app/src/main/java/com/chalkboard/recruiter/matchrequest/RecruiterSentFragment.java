@@ -17,7 +17,7 @@ import com.android.volley.VolleyError;
 import com.chalkboard.GlobalClaass;
 import com.chalkboard.R;
 import com.chalkboard.customviews.CustomProgressDialog;
-import com.chalkboard.model.MatchSentDTO;
+import com.chalkboard.model.RecruiterMatchSentDTO;
 import com.chalkboard.recruiter.matchrequest.adapter.RecruiterSentAdapter;
 import com.chalkboard.utility.MyOnClickListener;
 import com.chalkboard.utility.RecyclerTouchListener;
@@ -46,7 +46,7 @@ public class RecruiterSentFragment extends Fragment {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    private List<MatchSentDTO> matchSentDTOList;
+    private List<RecruiterMatchSentDTO> matchSentDTOList;
 
 
     public RecruiterSentFragment() {
@@ -88,7 +88,7 @@ public class RecruiterSentFragment extends Fragment {
 
         if (Utils.isOnline(getActivity())) {
             Map<String, String> params = new HashMap<>();
-            params.put("action", WebserviceConstant.TEACHER_SENT_REQUEST);
+            params.put("action", WebserviceConstant.RECRUITER_SENT_REQUEST);
             params.put("user_id", GlobalClaass.getUserId(getActivity()));
             //params.put("user_id", "2");
 
@@ -100,13 +100,17 @@ public class RecruiterSentFragment extends Fragment {
                         public void onResponse(JSONObject response) {
 
                             try {
-                                Utils.ShowLog(TAG, "got some response = " + response.toString());
-                                Type type = new TypeToken<ArrayList<MatchSentDTO>>() {
-                                }.getType();
-                                matchSentDTOList = new Gson().
-                                        fromJson(response.getJSONArray("data").
-                                                toString(), type);
-                                setSentValues(matchSentDTOList);
+                                if(Utils.getWebServiceStatus(response)) {
+                                    Utils.ShowLog(TAG, "got some response = " + response.toString());
+                                    Type type = new TypeToken<ArrayList<RecruiterMatchSentDTO>>() {
+                                    }.getType();
+                                    matchSentDTOList = new Gson().
+                                            fromJson(response.getJSONArray("data").
+                                                    toString(), type);
+                                    setSentValues(matchSentDTOList);
+                                }else{
+                                    setSentValues(null);
+                                }
 
                             } catch (Exception e) {
                                 CustomProgressDialog.hideProgressDialog();
@@ -135,10 +139,11 @@ public class RecruiterSentFragment extends Fragment {
 
     }
 
-    private void setSentValues(final List<MatchSentDTO> matchSentDTOList) {
+    private void setSentValues(final List<RecruiterMatchSentDTO> matchSentDTOList) {
 
 
         if (matchSentDTOList != null && matchSentDTOList.size() > 0) {
+            recyclerView.setVisibility(View.VISIBLE);
             setViewVisibility(R.id.tv_no_sent, view, View.GONE);
             mAdapter = new RecruiterSentAdapter(getActivity(), matchSentDTOList);
             recyclerView.setAdapter(mAdapter);
@@ -147,10 +152,10 @@ public class RecruiterSentFragment extends Fragment {
                     recyclerView, new MyOnClickListener() {
                 @Override
                 public void onRecyclerClick(View view, int position) {
-                    Intent intent = new Intent(getActivity(),
-                            RecruiterMatchSentDetailActivity.class);
-                    intent.putExtra("sentDetail", matchSentDTOList.get(position));
-                    startActivity(intent);
+//                    Intent intent = new Intent(getActivity(),
+//                            RecruiterMatchSentDetailActivity.class);
+//                    intent.putExtra("sentDetail", matchSentDTOList.get(position));
+//                    startActivity(intent);
                 }
 
                 @Override

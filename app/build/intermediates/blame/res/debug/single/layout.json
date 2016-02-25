@@ -112,6 +112,10 @@
         "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/layout/item_teacher_list.xml"
     },
     {
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/layout/recruiter_sent_row_layout.xml",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/layout/recruiter_sent_row_layout.xml"
+    },
+    {
         "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/layout/fragment_received.xml",
         "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/layout/fragment_received.xml"
     },
@@ -194,6 +198,10 @@
     {
         "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/layout/fragment_match_request.xml",
         "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/layout/fragment_match_request.xml"
+    },
+    {
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/layout/recruiter_received_row_layout.xml",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/layout/recruiter_received_row_layout.xml"
     },
     {
         "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/layout/row_profile.xml",

@@ -660,6 +660,17 @@ public class JobListActivity extends FragmentActivity implements ConnectionCallb
                 case 1:
                     (findViewById(R.id.header_logo)).setVisibility(View.GONE);
 
+                    ((TextView) (findViewById(R.id.header_text))).setText("Inbox");
+                    findViewById(R.id.bottom_bar).setVisibility(View.GONE);
+                    mDrawerLayout.closeDrawer(relative_layout);
+                    fragment = new JobInboxFragment();
+                    fragmentManager = getSupportFragmentManager();
+                    fragmentManager.beginTransaction()
+                            .replace(R.id.page_container, fragment).commit();
+                    break;
+                case 2:
+                    (findViewById(R.id.header_logo)).setVisibility(View.GONE);
+
                     ((TextView) (findViewById(R.id.header_text)))
                             .setText("Favorite Jobs");
 
@@ -672,7 +683,7 @@ public class JobListActivity extends FragmentActivity implements ConnectionCallb
 
 
                     break;
-                case 2:
+                case 3:
                     (findViewById(R.id.header_logo)).setVisibility(View.GONE);
 
                     ((TextView) (findViewById(R.id.header_text)))
@@ -686,7 +697,7 @@ public class JobListActivity extends FragmentActivity implements ConnectionCallb
                             .replace(R.id.page_container, fragment).commit();
 
                     break;
-                case 3:
+                case 4:
                     (findViewById(R.id.header_logo)).setVisibility(View.GONE);
 
                     ((TextView) (findViewById(R.id.header_text)))
@@ -714,17 +725,6 @@ public class JobListActivity extends FragmentActivity implements ConnectionCallb
 //                    break;
 
 
-                case 4:
-                    (findViewById(R.id.header_logo)).setVisibility(View.GONE);
-
-                    ((TextView) (findViewById(R.id.header_text))).setText("Inbox");
-                    findViewById(R.id.bottom_bar).setVisibility(View.GONE);
-                    mDrawerLayout.closeDrawer(relative_layout);
-                    fragment = new JobInboxFragment();
-                    fragmentManager = getSupportFragmentManager();
-                    fragmentManager.beginTransaction()
-                            .replace(R.id.page_container, fragment).commit();
-                    break;
                 case 5:
                     (findViewById(R.id.header_logo)).setVisibility(View.GONE);
 
@@ -867,12 +867,23 @@ public class JobListActivity extends FragmentActivity implements ConnectionCallb
         }
 
         String a = "", b = "", c = "", d = "";
+        String cityCountry = null;
         if (GlobalClaass.getCity(mActivity) != null) {
             a = GlobalClaass.getCity(mActivity);
         }
         if (GlobalClaass.getCountry(mActivity) != null) {
             b = GlobalClaass.getCountry(mActivity);
         }
+
+        if (!a.equalsIgnoreCase("")) {
+            cityCountry = a;
+            if (!b.equalsIgnoreCase("")) {
+                cityCountry = a + ", " + b;
+            }
+        } else {
+            cityCountry = b;
+        }
+
         if (GlobalClaass.getAge(mActivity) != null) {
             c = GlobalClaass.getAge(mActivity);
         }
@@ -881,7 +892,7 @@ public class JobListActivity extends FragmentActivity implements ConnectionCallb
         }
         ((TextView) findViewById(R.id.profile_location_age)).setTypeface(font);
         ((TextView) findViewById(R.id.profile_location_age))
-                .setText(a + ", " + b + " | " + c + ((d
+                .setText(cityCountry + " | " + c + ((d
                         .equalsIgnoreCase("male")) ? " M" : " F"));
 
 

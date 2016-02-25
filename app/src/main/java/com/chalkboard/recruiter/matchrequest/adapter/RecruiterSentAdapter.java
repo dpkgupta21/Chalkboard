@@ -10,7 +10,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.chalkboard.R;
-import com.chalkboard.model.MatchSentDTO;
+import com.chalkboard.model.RecruiterMatchSentDTO;
+import com.chalkboard.utility.Utils;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
@@ -24,10 +25,10 @@ public class RecruiterSentAdapter extends RecyclerView.Adapter<RecruiterSentAdap
 
 
     private Context context;
-    private List<MatchSentDTO> matchSentDTOList;
+    private List<RecruiterMatchSentDTO> matchSentDTOList;
     private DisplayImageOptions options;
 
-    public RecruiterSentAdapter(Context context, List<MatchSentDTO> matchSentDTOList) {
+    public RecruiterSentAdapter(Context context, List<RecruiterMatchSentDTO> matchSentDTOList) {
 
         this.context = context;
         this.matchSentDTOList = matchSentDTOList;
@@ -50,7 +51,7 @@ public class RecruiterSentAdapter extends RecyclerView.Adapter<RecruiterSentAdap
     @Override
     public DetailsViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).
-                inflate(R.layout.match_sent_row_layout, parent, false);
+                inflate(R.layout.recruiter_sent_row_layout, parent, false);
 
         DetailsViewHolder detailsViewHolder = new DetailsViewHolder(v);
         return detailsViewHolder;
@@ -62,11 +63,11 @@ public class RecruiterSentAdapter extends RecyclerView.Adapter<RecruiterSentAdap
         ImageLoader.getInstance().displayImage(matchSentDTOList.get(position).getImage(),
                 detailsViewHolder.circleImage,
                 options);
-        detailsViewHolder.txtTitle.setText(matchSentDTOList.get(position).getTitle());
-        detailsViewHolder.txtCountry.setText(matchSentDTOList.get(position).getCity() + ", " +
-                matchSentDTOList.get(position).getCountry());
-        detailsViewHolder.txtRecruiterName.setText(matchSentDTOList.get(position).getRecruiter().getName());
-        detailsViewHolder.txtDateTime.setText(matchSentDTOList.get(position).getMatch_date());
+        detailsViewHolder.txtTeacherName.setText(matchSentDTOList.get(position).getName());
+        detailsViewHolder.txtTeacherAge.setText(matchSentDTOList.get(position).getAge());
+        detailsViewHolder.txtTeacherGender.setText(matchSentDTOList.get(position).getGender());
+        detailsViewHolder.txtTeacherLocation.setText(Utils.formatCityCountry(matchSentDTOList.get(position).getCity(),
+                matchSentDTOList.get(position).getCountry()));
 
 
     }
@@ -80,21 +81,21 @@ public class RecruiterSentAdapter extends RecyclerView.Adapter<RecruiterSentAdap
     public static class DetailsViewHolder extends RecyclerView.ViewHolder {
 
         ImageView circleImage;
-        TextView txtTitle;
-        TextView txtCountry;
-        TextView txtRecruiterName;
-        TextView txtDateTime;
+        TextView txtTeacherName;
+        TextView txtTeacherAge;
+        TextView txtTeacherGender;
+        TextView txtTeacherLocation;
 
 
         public DetailsViewHolder(View itemView) {
 
             super(itemView);
 
-            circleImage = (ImageView) itemView.findViewById(R.id.circle_img);
-            txtTitle = (TextView) itemView.findViewById(R.id.txt_title);
-            txtCountry = (TextView) itemView.findViewById(R.id.txt_country);
-            txtRecruiterName = (TextView) itemView.findViewById(R.id.txt_recruiter_name);
-            txtDateTime = (TextView) itemView.findViewById(R.id.txt_date_time);
+            circleImage = (ImageView) itemView.findViewById(R.id.teacher_circle_img);
+            txtTeacherName = (TextView) itemView.findViewById(R.id.txt_teacher_name);
+            txtTeacherAge = (TextView) itemView.findViewById(R.id.txt_teacher_age);
+            txtTeacherGender = (TextView) itemView.findViewById(R.id.txt_teacher_gender);
+            txtTeacherLocation = (TextView) itemView.findViewById(R.id.txt_teacher_location);
 
         }
     }

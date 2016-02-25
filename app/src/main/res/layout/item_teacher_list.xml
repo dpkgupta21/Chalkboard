@@ -1,7 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="90dp"
-    android:background="@android:color/white" >
+    android:background="@android:color/white">
 
     <ImageView
         android:layout_width="70dp"
@@ -11,9 +11,9 @@
         android:layout_margin="6dp"
         android:adjustViewBounds="true"
         android:contentDescription="@string/app_name"
-        
+
         android:src="@drawable/back_circle" />
-    
+
     <ImageView
         android:id="@+id/teacher_image"
         android:layout_width="70dp"
@@ -36,9 +36,9 @@
         android:paddingRight="5dp"
         android:paddingTop="10dp"
         android:singleLine="true"
-        android:textStyle="bold"
         android:text="Teacher name in list android"
-       android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/teacher_location"
@@ -51,7 +51,7 @@
         android:paddingRight="5dp"
         android:singleLine="true"
         android:text="Medrid Spain"
-         android:textAppearance="?android:attr/textAppearanceMedium"  />
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <ImageView
         android:id="@+id/teacher_favorite_image"

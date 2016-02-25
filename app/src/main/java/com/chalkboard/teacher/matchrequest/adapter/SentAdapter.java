@@ -65,7 +65,6 @@ public class SentAdapter extends RecyclerView.Adapter<SentAdapter.DetailsViewHol
         detailsViewHolder.txtTitle.setText(matchSentDTOList.get(position).getTitle());
         detailsViewHolder.txtCountry.setText(matchSentDTOList.get(position).getCity() + ", " +
                 matchSentDTOList.get(position).getCountry());
-        detailsViewHolder.txtRecruiterName.setText(matchSentDTOList.get(position).getRecruiter().getName());
         detailsViewHolder.txtDateTime.setText(matchSentDTOList.get(position).getMatch_date());
 
 
@@ -82,7 +81,6 @@ public class SentAdapter extends RecyclerView.Adapter<SentAdapter.DetailsViewHol
         ImageView circleImage;
         TextView txtTitle;
         TextView txtCountry;
-        TextView txtRecruiterName;
         TextView txtDateTime;
 
 
@@ -93,7 +91,6 @@ public class SentAdapter extends RecyclerView.Adapter<SentAdapter.DetailsViewHol
             circleImage = (ImageView) itemView.findViewById(R.id.circle_img);
             txtTitle = (TextView) itemView.findViewById(R.id.txt_title);
             txtCountry = (TextView) itemView.findViewById(R.id.txt_country);
-            txtRecruiterName = (TextView) itemView.findViewById(R.id.txt_recruiter_name);
             txtDateTime = (TextView) itemView.findViewById(R.id.txt_date_time);
 
         }

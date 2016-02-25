@@ -1,7 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="#efefef" >
+    android:background="#efefef">
 
     <com.baoyz.swipemenulistview.SwipeMenuListView
         android:id="@+id/list"
@@ -19,10 +19,11 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:gravity="center"
-        android:padding="@dimen/padding"
-        android:textColor="@android:color/black"
+        android:text="No Matches"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textStyle="bold" />
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:visibility="gone" />
 
     <include layout="@layout/bar_progress" />
 

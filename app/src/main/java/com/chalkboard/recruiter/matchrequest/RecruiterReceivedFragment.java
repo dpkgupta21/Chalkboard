@@ -1,7 +1,6 @@
 package com.chalkboard.recruiter.matchrequest;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -24,10 +23,8 @@ import com.baoyz.swipemenulistview.SwipeMenuListView;
 import com.chalkboard.GlobalClaass;
 import com.chalkboard.R;
 import com.chalkboard.customviews.CustomProgressDialog;
-import com.chalkboard.model.MatchReceivedDTO;
 import com.chalkboard.model.RecruiterMatchReceivedDTO;
 import com.chalkboard.recruiter.matchrequest.adapter.RecruiterReceivedAdapter;
-import com.chalkboard.teacher.TeacherChatBoardActivity;
 import com.chalkboard.utility.Utils;
 import com.chalkboard.webservice.WebserviceConstant;
 import com.google.gson.Gson;
@@ -98,7 +95,7 @@ public class RecruiterReceivedFragment extends Fragment implements SwipeMenuList
 
         if (Utils.isOnline(getActivity())) {
             Map<String, String> params = new HashMap<>();
-            params.put("action", WebserviceConstant.TEACHER_RECEIVED_REQUEST);
+            params.put("action", WebserviceConstant.RECRUITER_RECEIVED_REQUEST);
             params.put("user_id", GlobalClaass.getUserId(getActivity()));
             //params.put("user_id", "2");
 
@@ -150,7 +147,9 @@ public class RecruiterReceivedFragment extends Fragment implements SwipeMenuList
 
 
         if (recruiterMatchReceivedDTOList != null && recruiterMatchReceivedDTOList.size() > 0) {
+            listviewReceived.setVisibility(View.VISIBLE);
             setViewVisibility(R.id.tv_no_received, view, View.GONE);
+            setViewVisibility(R.id.view_horizontal,view, View.VISIBLE);
             receivedAdapter = new RecruiterReceivedAdapter(getActivity(), recruiterMatchReceivedDTOList);
             createSwipeMenu();
             listviewReceived.setAdapter(receivedAdapter);
@@ -158,6 +157,7 @@ public class RecruiterReceivedFragment extends Fragment implements SwipeMenuList
         } else {
             listviewReceived.setVisibility(View.GONE);
             setViewVisibility(R.id.tv_no_received, view, View.VISIBLE);
+            setViewVisibility(R.id.view_horizontal, view, View.GONE);
         }
 
     }
@@ -185,7 +185,7 @@ public class RecruiterReceivedFragment extends Fragment implements SwipeMenuList
                         // set item width
                         checkItem.setWidth(convert_dp_to_px(50));
                         // set a icon
-                        checkItem.setIcon(R.drawable.check_circle_icon);
+                        checkItem.setIcon(R.drawable.blue_right_icon);
                         // add to menu
                         menu.addMenuItem(checkItem);
 
@@ -199,7 +199,7 @@ public class RecruiterReceivedFragment extends Fragment implements SwipeMenuList
                         // set item width
                         crossItem.setWidth(convert_dp_to_px(50));
                         // set a icon
-                        crossItem.setIcon(R.drawable.croos_circle_icon);
+                        crossItem.setIcon(R.drawable.orange_close_icon);
                         // add to menu
                         menu.addMenuItem(crossItem);
                         break;

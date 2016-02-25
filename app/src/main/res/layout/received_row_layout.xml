@@ -37,7 +37,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/txt_message_detail"
+            android:id="@+id/txt_city_country"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/txt_name"
@@ -46,18 +46,17 @@
             android:text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor."
             android:textColor="@color/grey" />
 
-        <TextView
-            android:id="@+id/txt_date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/txt_message_detail"
-            android:layout_marginTop="@dimen/margin_5dp"
-            android:gravity="left"
-            android:text="15 June 2015"
-            android:textColor="@color/grey" />
-
 
     </RelativeLayout>
+
+    <TextView
+        android:id="@+id/txt_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_margin="@dimen/margin_10dp"
+        android:text="15 June 2015"
+        android:textColor="@color/grey" />
 
     <ImageView
         android:id="@+id/img_more_icon"

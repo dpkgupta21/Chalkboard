@@ -10,8 +10,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.chalkboard.R;
-import com.chalkboard.model.MatchReceivedDTO;
 import com.chalkboard.model.RecruiterMatchReceivedDTO;
+import com.chalkboard.utility.Utils;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
@@ -84,13 +84,13 @@ public class RecruiterReceivedAdapter extends BaseAdapter {
         RecruiterMatchReceivedDTO recruiterMatchReceivedDTO = recruiterMatchReceivedDTOList.get(position);
         if (convertView == null) {
             holder = new ViewHolder();
-            convertView = mLayoutInflater.inflate(R.layout.received_row_layout,
+            convertView = mLayoutInflater.inflate(R.layout.recruiter_received_row_layout,
                     parent, false);
-            holder.txtAboutDetail = (TextView) convertView.findViewById(R.id.txt_message_detail);
-            holder.txtName = (TextView) convertView.findViewById(R.id.txt_name);
-            holder.txtDate = (TextView) convertView.findViewById(R.id.txt_date);
+            holder.txtTeacherName = (TextView) convertView.findViewById(R.id.txt_teacher_name);
+            holder.txtTeacherLocation = (TextView) convertView.findViewById(R.id.txt_teacher_location);
+            holder.txtJobTitle = (TextView) convertView.findViewById(R.id.txt_job_name);
             holder.imgMoreIcon = (ImageView) convertView.findViewById(R.id.img_more_icon);
-            holder.circleImage = (ImageView) convertView.findViewById(R.id.circle_image);
+            holder.circleImage = (ImageView) convertView.findViewById(R.id.teacher_circle_img);
 
 
             convertView.setTag(holder);
@@ -102,10 +102,10 @@ public class RecruiterReceivedAdapter extends BaseAdapter {
         ImageLoader.getInstance().displayImage(recruiterMatchReceivedDTO.getImage(), holder.circleImage,
                 options);
 
-        holder.txtAboutDetail.setText(recruiterMatchReceivedDTO.getAbout());
-        holder.txtName.setText(recruiterMatchReceivedDTO.getName());
-        //holder.txtDate.setText(recruiterMatchReceivedDTO.getMatch_date());
-
+        holder.txtTeacherName.setText(recruiterMatchReceivedDTO.getName());
+        holder.txtTeacherLocation.setText(Utils.formatCityCountry(recruiterMatchReceivedDTO.getCity()
+                , recruiterMatchReceivedDTO.getCountry()));
+        holder.txtJobTitle.setText(recruiterMatchReceivedDTO.getJob().getTitle());
 
         return convertView;
     }
@@ -113,10 +113,10 @@ public class RecruiterReceivedAdapter extends BaseAdapter {
 
     public class ViewHolder {
         ImageView circleImage;
-        TextView txtAboutDetail;
+        TextView txtTeacherName;
         ImageView imgMoreIcon;
-        TextView txtName;
-        TextView txtDate;
+        TextView txtTeacherLocation;
+        TextView txtJobTitle;
 
     }
 }

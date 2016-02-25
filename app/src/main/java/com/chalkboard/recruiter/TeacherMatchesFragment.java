@@ -45,265 +45,259 @@ import com.chalkboard.teacher.TeacherChatBoardActivity;
 
 public class TeacherMatchesFragment extends Fragment {
 
-	SwipeMenuListView lvTeacherList = null;
+    SwipeMenuListView lvTeacherList = null;
 
-	View rootView = null;
+    View rootView = null;
 
-	Activity context = null;
+    Activity context = null;
 
-	ArrayList<TeacherObject> dataList = null;
+    ArrayList<TeacherObject> dataList = null;
 
-	GetTeacherItem getTeacherItem = null;
+    GetTeacherItem getTeacherItem = null;
 
-	TeacherMatchListAdapter itmAdap;
-	
-	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
+    TeacherMatchListAdapter itmAdap;
 
-		context = getActivity();
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
 
-		rootView = inflater.inflate(R.layout.swipe_list, container,
-				false);
+        context = getActivity();
 
-		
-		lvTeacherList = (SwipeMenuListView) rootView.findViewById(R.id.list);
+        rootView = inflater.inflate(R.layout.swipe_list, container,
+                false);
 
-		dataList = new ArrayList<TeacherObject>();
-		
-		itmAdap = new TeacherMatchListAdapter(context, dataList);
 
-		lvTeacherList.setAdapter(itmAdap);
-		
-		
-		
-		lvTeacherList.setOnMenuItemClickListener(new SwipeMenuListView.OnMenuItemClickListener() {
-		    @Override
-		    public boolean onMenuItemClick(int position, SwipeMenu menu, int index) {
-		        switch (index) {
-		        case 0:
-		            // chat
-		        	startActivity(new Intent(context, TeacherChatBoardActivity.class).putExtra("id", dataList.get(position).getId()).putExtra("name",
-							dataList.get(position).getTeacherName()));
-		            break;
-		        case 1:
-		            // delete
-		        	removeJobMatch = new RemoveJobMatch(dataList.get(position).getId());
-					removeJobMatch.execute();
-		            break;
-		        }
-		        // false : close the menu; true : not close the menu
-		        return false;
-		    }
-		});
-		
-		SwipeMenuCreator creator = new SwipeMenuCreator() {
+        lvTeacherList = (SwipeMenuListView) rootView.findViewById(R.id.list);
 
-		    @Override
-		    public void create(SwipeMenu menu) {
-		       
-		    	 // create "delete" item
-		        SwipeMenuItem chatItem = new SwipeMenuItem(
-		                context);
-		        // set item background
-		        chatItem.setBackground(R.drawable.chat_back);
-		        // set item width
-		        chatItem.setWidth(150);
-		        // set a icon
-		        chatItem.setIcon(R.drawable.chat_slide);
-		        // add to menu
-		        menu.addMenuItem(chatItem);
-		    	
+        dataList = new ArrayList<TeacherObject>();
 
-		        // create "delete" item
-		        SwipeMenuItem deleteItem = new SwipeMenuItem(
-		                context);
-		        // set item background
-		        deleteItem.setBackground(R.drawable.delete_back);
-		        // set item width
-		        deleteItem.setWidth(150);
-		        // set a icon
-		        deleteItem.setIcon(R.drawable.delete_slide);
-		        // add to menu
-		        menu.addMenuItem(deleteItem);
-		    }
-		};
-		
-		// set creator
-		lvTeacherList.setMenuCreator(creator);
+        itmAdap = new TeacherMatchListAdapter(context, dataList);
 
-		//lvTeacherList.setSwipeDirection(SwipeMenuListView.DIRECTION_LEFT);
+        lvTeacherList.setAdapter(itmAdap);
 
-		
-		
-		
-		return rootView;
-	}
 
-	
-	
-	void executeTask(){
-		
-	if(GlobalClaass.isInternetPresent(context)){
-			
-		getTeacherItem = new GetTeacherItem();
-		getTeacherItem.execute();
-				
-			}
-			else {
-				GlobalClaass.showToastMessage(context,"Please check internet connection");
-			}
-		
-		
-	}
-	
-	@Override
-	public void onResume() {
-		super.onResume();
-		executeTask();
-	}
-	
-	@Override
-	public void onDestroyView() {
-		// TODO Auto-generated method stub
-		super.onDestroyView();
-		
-		GlobalClaass.clearAsyncTask(getTeacherItem);
+        lvTeacherList.setOnMenuItemClickListener(new SwipeMenuListView.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(int position, SwipeMenu menu, int index) {
+                switch (index) {
+                    case 0:
+                        // chat
+                        startActivity(new Intent(context, TeacherChatBoardActivity.class).putExtra("id", dataList.get(position).getId()).putExtra("name",
+                                dataList.get(position).getTeacherName()));
+                        break;
+                    case 1:
+                        // delete
+                        removeJobMatch = new RemoveJobMatch(dataList.get(position).getId());
+                        removeJobMatch.execute();
+                        break;
+                }
+                // false : close the menu; true : not close the menu
+                return false;
+            }
+        });
 
-		GlobalClaass.clearAsyncTask(removeJobMatch);
-	}
-	
-	
-	class GetTeacherItem extends AsyncTask<String, String, String> {
+        SwipeMenuCreator creator = new SwipeMenuCreator() {
 
-		@Override
-		protected void onPreExecute() {
-			showProgressBar(context, rootView);
-		}
+            @Override
+            public void create(SwipeMenu menu) {
 
-		@Override
-		protected String doInBackground(String... params) {
+                // create "delete" item
+                SwipeMenuItem chatItem = new SwipeMenuItem(
+                        context);
+                // set item background
+                chatItem.setBackground(R.drawable.chat_back);
+                // set item width
+                chatItem.setWidth(150);
+                // set a icon
+                chatItem.setIcon(R.drawable.chat_slide);
+                // add to menu
+                menu.addMenuItem(chatItem);
 
-			String resultStr = null;
-			try {
 
-				HttpClient httpClient = new DefaultHttpClient();
-				HttpPost request = new HttpPost(GlobalClaass.Webservice_Url);
+                // create "delete" item
+                SwipeMenuItem deleteItem = new SwipeMenuItem(
+                        context);
+                // set item background
+                deleteItem.setBackground(R.drawable.delete_back);
+                // set item width
+                deleteItem.setWidth(150);
+                // set a icon
+                deleteItem.setIcon(R.drawable.delete_slide);
+                // add to menu
+                menu.addMenuItem(deleteItem);
+            }
+        };
 
-				List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(
-						2);
-				nameValuePairs
-						.add(new BasicNameValuePair("action", "myMachesTeachers"));
-				
-				nameValuePairs
-				.add(new BasicNameValuePair("user_id", GlobalClaass.getUserId(context)));
-				
-				//nameValuePairs
-				//.add(new BasicNameValuePair("user_id", "659"));
-				
-				request.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+        // set creator
+        lvTeacherList.setMenuCreator(creator);
 
-				HttpResponse response = httpClient.execute(request);
+        //lvTeacherList.setSwipeDirection(SwipeMenuListView.DIRECTION_LEFT);
 
-				HttpEntity entity = response.getEntity();
 
-				resultStr = EntityUtils.toString(entity);
+        return rootView;
+    }
 
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
 
-			return resultStr;
+    void executeTask() {
 
-		}
+        if (GlobalClaass.isInternetPresent(context)) {
 
-		@Override
-		protected void onPostExecute(String result) {
+            getTeacherItem = new GetTeacherItem();
+            getTeacherItem.execute();
 
-			// Toast.makeText(context, result, Toast.LENGTH_LONG).show();
+        } else {
+            GlobalClaass.showToastMessage(context, "Please check internet connection");
+        }
 
-			hideProgressBar(context, rootView);
 
-			setUpUi(result);
-		}
+    }
 
-	}
+    @Override
+    public void onResume() {
+        super.onResume();
+        executeTask();
+    }
 
-	public void setUpUi(String result) {
-		String get_message = "";
-		try {
-			
-			Log.e("Deepak", " teacher match result: " + result);
-			
-			dataList = new ArrayList<TeacherObject>();
-			
-			if (itmAdap != null) {
-				itmAdap.notifyDataSetChanged();
-			}
+    @Override
+    public void onDestroyView() {
+        // TODO Auto-generated method stub
+        super.onDestroyView();
 
-			itmAdap = new TeacherMatchListAdapter(context, dataList);
+        GlobalClaass.clearAsyncTask(getTeacherItem);
 
-			lvTeacherList.setAdapter(itmAdap);
-			
-			JSONObject jObject = new JSONObject(result);
+        GlobalClaass.clearAsyncTask(removeJobMatch);
+    }
 
-			 get_message = jObject.getString("message").trim();
-			String get_replycode = jObject.getString("status").trim();
 
-			JSONArray jrr = jObject.getJSONArray("teachers");
+    class GetTeacherItem extends AsyncTask<String, String, String> {
 
-			
+        @Override
+        protected void onPreExecute() {
+            showProgressBar(context, rootView);
+        }
 
-			for (int i = 0; i < jrr.length(); i++) {
+        @Override
+        protected String doInBackground(String... params) {
 
-				JSONObject jobj = jrr.getJSONObject(i);
+            String resultStr = null;
+            try {
 
-				TeacherObject itmObj = new TeacherObject();
+                HttpClient httpClient = new DefaultHttpClient();
+                HttpPost request = new HttpPost(GlobalClaass.Webservice_Url);
 
-				itmObj.setId(jobj.get("id").toString());
-				itmObj.setTeacherAbout(jobj.get("about").toString());
-				
-				itmObj.setTeacherAge(jobj.get("age").toString());
-				//itmObj.setTeacherEducation(jobj.getString("TeacherEducation"));
-				itmObj.setTeacherEmail(jobj.get("email").toString());
-				
-				//itmObj.setTeacherExperience(jobj.getString("TeacherExperience"));
-				itmObj.setTeacherGender(jobj.get("gender").toString());
-				itmObj.setTeacherImage(jobj.get("image").toString());
-				
-				itmObj.setTeacherLocation(jobj.get("city").toString() + ", "
-						+ jobj.get("country").toString());
-				itmObj.setTeacherName(jobj.get("name").toString());
-				
+                List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(
+                        2);
+                nameValuePairs
+                        .add(new BasicNameValuePair("action", "myMachesTeachers"));
 
-				itmObj.setTeacherMatch(jobj.getBoolean("is_match"));
-				itmObj.setTeacherFavorite(jobj.getBoolean("is_favorite"));
-				
-				dataList.add(itmObj);
+                nameValuePairs
+                        .add(new BasicNameValuePair("user_id", GlobalClaass.getUserId(context)));
 
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+                //nameValuePairs
+                //.add(new BasicNameValuePair("user_id", "659"));
 
-		if (dataList.size() > 0) {
-			
-			itmAdap = new TeacherMatchListAdapter(context, dataList);
+                request.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 
-			lvTeacherList.setAdapter(itmAdap);
+                HttpResponse response = httpClient.execute(request);
 
-			lvTeacherList.setOnItemClickListener(new OnItemClickListener() {
+                HttpEntity entity = response.getEntity();
 
-				@Override
-				public void onItemClick(AdapterView<?> arg0, View arg1,
-						int position, long arg3) {
+                resultStr = EntityUtils.toString(entity);
 
-					startActivity(new Intent(context, TeacherChatBoardActivity.class).putExtra("id", dataList.get(position).getId()).putExtra("name",
-							dataList.get(position).getTeacherName()));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
 
-				}
-			});
-			
+            return resultStr;
+
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+
+            // Toast.makeText(context, result, Toast.LENGTH_LONG).show();
+
+            hideProgressBar(context, rootView);
+
+            setUpUi(result);
+        }
+
+    }
+
+    public void setUpUi(String result) {
+        String get_message = "";
+        try {
+
+            Log.e("Deepak", " teacher match result: " + result);
+
+            dataList = new ArrayList<TeacherObject>();
+
+            if (itmAdap != null) {
+                itmAdap.notifyDataSetChanged();
+            }
+
+            itmAdap = new TeacherMatchListAdapter(context, dataList);
+
+            lvTeacherList.setAdapter(itmAdap);
+
+            JSONObject jObject = new JSONObject(result);
+
+            get_message = jObject.getString("message").trim();
+            String get_replycode = jObject.getString("status").trim();
+
+            JSONArray jrr = jObject.getJSONArray("teachers");
+
+
+            for (int i = 0; i < jrr.length(); i++) {
+
+                JSONObject jobj = jrr.getJSONObject(i);
+
+                TeacherObject itmObj = new TeacherObject();
+
+                itmObj.setId(jobj.get("id").toString());
+                itmObj.setTeacherAbout(jobj.get("about").toString());
+
+                itmObj.setTeacherAge(jobj.get("age").toString());
+                //itmObj.setTeacherEducation(jobj.getString("TeacherEducation"));
+                itmObj.setTeacherEmail(jobj.get("email").toString());
+
+                //itmObj.setTeacherExperience(jobj.getString("TeacherExperience"));
+                itmObj.setTeacherGender(jobj.get("gender").toString());
+                itmObj.setTeacherImage(jobj.get("image").toString());
+
+                itmObj.setTeacherLocation(jobj.get("city").toString() + ", "
+                        + jobj.get("country").toString());
+                itmObj.setTeacherName(jobj.get("name").toString());
+
+
+                itmObj.setTeacherMatch(jobj.getBoolean("is_match"));
+                itmObj.setTeacherFavorite(jobj.getBoolean("is_favorite"));
+
+                dataList.add(itmObj);
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        if (dataList != null && dataList.size() > 0) {
+
+            itmAdap = new TeacherMatchListAdapter(context, dataList);
+
+            lvTeacherList.setAdapter(itmAdap);
+
+            lvTeacherList.setOnItemClickListener(new OnItemClickListener() {
+
+                @Override
+                public void onItemClick(AdapterView<?> arg0, View arg1,
+                                        int position, long arg3) {
+
+                    startActivity(new Intent(context, TeacherChatBoardActivity.class).putExtra("id", dataList.get(position).getId()).putExtra("name",
+                            dataList.get(position).getTeacherName()));
+
+                }
+            });
+
 			
 			
 			/*lvTeacherList.setOnItemLongClickListener(new OnItemLongClickListener() {
@@ -323,180 +317,178 @@ public class TeacherMatchesFragment extends Fragment {
 				}
 				
 			});*/
-			
-			
-			
-		}		
-		else {
-			((TextView)rootView.findViewById(R.id.error_message)).setText(get_message);
-		}
-		
-	}
-
-	class TeacherMatchListAdapter extends BaseAdapter {
-
-		Activity mContext;
-		LayoutInflater inflater;
-		private List<TeacherObject> mainDataList = null;
-		
-		private List<TeacherObject> arrList = null;
-		Typeface font,font2;
-		ImageLoader imageloader = null;
-
-		public TeacherMatchListAdapter(Activity context, List<TeacherObject> mainDataList) {
-
-			mContext = context;
-			this.mainDataList = mainDataList;
-			inflater = LayoutInflater.from(mContext);
-			font = Typeface.createFromAsset(mContext.getAssets(), "fonts/mark.ttf");
-			font2=Typeface.createFromAsset(mContext.getAssets(), "fonts/marlbold.ttf");
-			arrList = new ArrayList<TeacherObject>();
-			
-			arrList.addAll(this.mainDataList);
-			
-			imageloader = new ImageLoader(mContext);
-
-		}
-
-		class ViewHolder {
-			protected TextView name, offer_by, date;
-			protected ImageView image;
-			protected ImageView favourite;
-
-			
-			protected ImageView chat;
-			protected ImageView remove;
-			
-			protected TextView location;
-
-		}
-
-		@Override
-		public int getCount() {
-			return mainDataList.size();
-		}
-
-		@Override
-		public TeacherObject getItem(int position) {
-			return mainDataList.get(position);
-		}
-
-		@Override
-		public long getItemId(int position) {
-			return position;
-		}
-
-		public View getView(final int position, View view, ViewGroup parent) {
-			final ViewHolder holder;
-			if (view == null) {
-				holder = new ViewHolder();
-				view = inflater.inflate(R.layout.item_teacher_match_list, null);
-
-				holder.name = (TextView) view.findViewById(R.id.teacher_name);
-				holder.date = (TextView) view.findViewById(R.id.teacher_date);
-				holder.location = (TextView) view
-						.findViewById(R.id.teacher_location);
-
-				holder.image = (ImageView) view.findViewById(R.id.teacher_image);
-				holder.offer_by = (TextView) view
-						.findViewById(R.id.teacher_offer_by);
-				
-				
-				try {
-
-					holder.name.setTypeface(font2);
-					holder.date.setTypeface(font);
-					holder.location.setTypeface(font);
-					holder.offer_by.setTypeface(font);
-				} catch (Exception e) {
-
-				}
-				
-				view.setTag(holder);
-
-			} else {
-				holder = (ViewHolder) view.getTag();
-			}
-
-			holder.name.setText(mainDataList.get(position).getTeacherName() + " | "
-					+ mainDataList.get(position).getTeacherAge());
-
-			holder.location
-					.setText(mainDataList.get(position).getTeacherLocation());
-
-			
-		//	holder.date.setText(mainDataList.get(position).getJobDate());
-
-			//holder.offer_by.setText(mainDataList.get(position)
-				//	.getJobRecruiterName());
 
 
+        } else {
+            ((TextView) rootView.findViewById(R.id.error_message)).setVisibility(View.VISIBLE);
+        }
 
-			imageloader.DisplayImage(mainDataList.get(position).getTeacherImage(),
-					holder.image);
+    }
 
-			return view;
-		}
+    class TeacherMatchListAdapter extends BaseAdapter {
+
+        Activity mContext;
+        LayoutInflater inflater;
+        private List<TeacherObject> mainDataList = null;
+
+        private List<TeacherObject> arrList = null;
+        Typeface font, font2;
+        ImageLoader imageloader = null;
+
+        public TeacherMatchListAdapter(Activity context, List<TeacherObject> mainDataList) {
+
+            mContext = context;
+            this.mainDataList = mainDataList;
+            inflater = LayoutInflater.from(mContext);
+            font = Typeface.createFromAsset(mContext.getAssets(), "fonts/mark.ttf");
+            font2 = Typeface.createFromAsset(mContext.getAssets(), "fonts/marlbold.ttf");
+            arrList = new ArrayList<TeacherObject>();
+
+            arrList.addAll(this.mainDataList);
+
+            imageloader = new ImageLoader(mContext);
+
+        }
+
+        class ViewHolder {
+            protected TextView name, offer_by, date;
+            protected ImageView image;
+            protected ImageView favourite;
 
 
-	}
-	RemoveJobMatch removeJobMatch;
+            protected ImageView chat;
+            protected ImageView remove;
 
-	class RemoveJobMatch extends AsyncTask<String, String, String> {
+            protected TextView location;
 
-		String teacherId;
+        }
 
-		public RemoveJobMatch(String id) {
-			teacherId = id;
-		}
+        @Override
+        public int getCount() {
+            return mainDataList.size();
+        }
 
-		@Override
-		protected void onPreExecute() {
-			showProgressBar(context, rootView);
-		}
+        @Override
+        public TeacherObject getItem(int position) {
+            return mainDataList.get(position);
+        }
 
-		@Override
-		protected String doInBackground(String... params) {
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
 
-			String resultStr = null;
-			try {
+        public View getView(final int position, View view, ViewGroup parent) {
+            final ViewHolder holder;
+            if (view == null) {
+                holder = new ViewHolder();
+                view = inflater.inflate(R.layout.item_teacher_match_list, null);
 
-				HttpClient httpClient = new DefaultHttpClient();
-				HttpPost request = new HttpPost(GlobalClaass.Webservice_Url);
+                holder.name = (TextView) view.findViewById(R.id.teacher_name);
+                holder.date = (TextView) view.findViewById(R.id.teacher_date);
+                holder.location = (TextView) view
+                        .findViewById(R.id.teacher_location);
 
-				List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
+                holder.image = (ImageView) view.findViewById(R.id.teacher_image);
+                holder.offer_by = (TextView) view
+                        .findViewById(R.id.teacher_offer_by);
 
-				nameValuePairs.add(new BasicNameValuePair("action",
-						"removeFromMatchProfile"));
 
-				nameValuePairs.add(new BasicNameValuePair("teacher_id",
-						teacherId));
-				nameValuePairs.add(new BasicNameValuePair("user_id",
-						GlobalClaass.getUserId(context)));
-				request.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+                try {
 
-				HttpResponse response = httpClient.execute(request);
+                    holder.name.setTypeface(font2);
+                    holder.date.setTypeface(font);
+                    holder.location.setTypeface(font);
+                    holder.offer_by.setTypeface(font);
+                } catch (Exception e) {
 
-				HttpEntity entity = response.getEntity();
+                }
 
-				resultStr = EntityUtils.toString(entity);
+                view.setTag(holder);
 
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+            } else {
+                holder = (ViewHolder) view.getTag();
+            }
 
-			return resultStr;
+            holder.name.setText(mainDataList.get(position).getTeacherName() + " | "
+                    + mainDataList.get(position).getTeacherAge());
 
-		}
+            holder.location
+                    .setText(mainDataList.get(position).getTeacherLocation());
 
-		@Override
-		protected void onPostExecute(String result) {
 
-			hideProgressBar(context, rootView);
+            //	holder.date.setText(mainDataList.get(position).getJobDate());
 
-			executeTask();
+            //holder.offer_by.setText(mainDataList.get(position)
+            //	.getJobRecruiterName());
 
-		}
 
-	}
+            imageloader.DisplayImage(mainDataList.get(position).getTeacherImage(),
+                    holder.image);
+
+            return view;
+        }
+
+
+    }
+
+    RemoveJobMatch removeJobMatch;
+
+    class RemoveJobMatch extends AsyncTask<String, String, String> {
+
+        String teacherId;
+
+        public RemoveJobMatch(String id) {
+            teacherId = id;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            showProgressBar(context, rootView);
+        }
+
+        @Override
+        protected String doInBackground(String... params) {
+
+            String resultStr = null;
+            try {
+
+                HttpClient httpClient = new DefaultHttpClient();
+                HttpPost request = new HttpPost(GlobalClaass.Webservice_Url);
+
+                List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
+
+                nameValuePairs.add(new BasicNameValuePair("action",
+                        "removeFromMatchProfile"));
+
+                nameValuePairs.add(new BasicNameValuePair("teacher_id",
+                        teacherId));
+                nameValuePairs.add(new BasicNameValuePair("user_id",
+                        GlobalClaass.getUserId(context)));
+                request.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+
+                HttpResponse response = httpClient.execute(request);
+
+                HttpEntity entity = response.getEntity();
+
+                resultStr = EntityUtils.toString(entity);
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            return resultStr;
+
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+
+            hideProgressBar(context, rootView);
+
+            executeTask();
+
+        }
+
+    }
 }

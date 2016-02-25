@@ -1144,6 +1144,7 @@ public class TeachersListActivity extends FragmentActivity
         }
 
         String a = "", b = "";
+        String cityCountry=null;
         if (!GlobalClaass.getCity(context).equalsIgnoreCase("")) {
             a = GlobalClaass.getCity(context);
         }
@@ -1151,7 +1152,16 @@ public class TeachersListActivity extends FragmentActivity
             b = GlobalClaass.getCountry(context);
         }
 
-        ((TextView) findViewById(R.id.profile_location_age)).setText(a + ", " + b);
+        if(!a.equalsIgnoreCase("")){
+            cityCountry=a;
+            if (!b.equalsIgnoreCase("")){
+                cityCountry=a+", "+b;
+            }
+        }else{
+            cityCountry=b;
+        }
+
+        ((TextView) findViewById(R.id.profile_location_age)).setText(cityCountry);
 
         //((TextView) findViewById(R.id.profile_location_age)).setTypeface(font);
     }

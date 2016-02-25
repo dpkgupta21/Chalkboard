@@ -53,15 +53,6 @@
                 android:text="Lorem"
                 android:textColor="@color/grey" />
 
-            <TextView
-                android:id="@+id/txt_recruiter_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/txt_country"
-                android:layout_marginTop="@dimen/margin_10dp"
-                android:gravity="left"
-                android:text="15 June 2015"
-                android:textColor="@color/app_color" />
 
 
         </RelativeLayout>

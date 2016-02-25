@@ -17,14 +17,29 @@ public class RecruiterMatchReceivedDTO implements Serializable {
     public String about;
     public String age;
     public String gender;
-    public String TeacherEducation;
     public String image;
     public boolean is_favorite;
     public boolean is_match;
     public JobDTO Job;
+    public List<TeacherExperienceDTO> TeacherEducationA;
+    public List<TeacherExperienceDTO> TeacherExperienceA;
 
-    public List<TeacherExperienceDTO> TeacherExperience;
 
+    public List<TeacherExperienceDTO> getTeacherEducationA() {
+        return TeacherEducationA;
+    }
+
+    public void setTeacherEducationA(List<TeacherExperienceDTO> teacherEducationA) {
+        TeacherEducationA = teacherEducationA;
+    }
+
+    public List<TeacherExperienceDTO> getTeacherExperienceA() {
+        return TeacherExperienceA;
+    }
+
+    public void setTeacherExperienceA(List<TeacherExperienceDTO> teacherExperienceA) {
+        TeacherExperienceA = teacherExperienceA;
+    }
 
     public JobDTO getJob() {
         return Job;
@@ -106,14 +121,6 @@ public class RecruiterMatchReceivedDTO implements Serializable {
         this.gender = gender;
     }
 
-    public String getTeacherEducation() {
-        return TeacherEducation;
-    }
-
-    public void setTeacherEducation(String teacherEducation) {
-        TeacherEducation = teacherEducation;
-    }
-
     public String getImage() {
         return image;
     }
@@ -138,11 +145,5 @@ public class RecruiterMatchReceivedDTO implements Serializable {
         this.is_match = is_match;
     }
 
-    public List<TeacherExperienceDTO> getTeacherExperience() {
-        return TeacherExperience;
-    }
 
-    public void setTeacherExperience(List<TeacherExperienceDTO> teacherExperience) {
-        TeacherExperience = teacherExperience;
-    }
 }

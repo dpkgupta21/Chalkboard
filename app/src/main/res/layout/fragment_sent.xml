@@ -1,8 +1,14 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.app.traphoria.alert.MessageFragment">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/grey" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_sent"
@@ -11,11 +17,11 @@
 
     <com.chalkboard.customviews.MyTextViewMarlBold
         android:id="@+id/tv_no_sent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
         android:text="@string/no_sent_request"
         android:textColor="@color/black"
         android:textStyle="normal"
         android:visibility="gone" />
-</RelativeLayout>
+</LinearLayout>

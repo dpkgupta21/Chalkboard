@@ -66,7 +66,7 @@ public class SelectJobTypeActivity extends Activity {
         lvJobList = (ListView) findViewById(R.id.list);
 
         (findViewById(R.id.close_header)).setVisibility(View.VISIBLE);
-        ((TextView) findViewById(R.id.close_header_text)).setText(getString(R.string.select_type));
+        ((TextView) findViewById(R.id.txt_header_text)).setText(getString(R.string.select_type));
 
 
         ((TextView) findViewById(R.id.txt_view_clear)).setOnClickListener(new OnClickListener() {
@@ -231,10 +231,10 @@ public class SelectJobTypeActivity extends Activity {
 
             if (dataList.size() > 0) {
 
-                final CountryListAdapter itmAdap = new CountryListAdapter(
+                 adapter = new CountryListAdapter(
                         context, dataList);
 
-                lvJobList.setAdapter(itmAdap);
+                lvJobList.setAdapter(adapter);
 
                 lvJobList.setOnItemClickListener(new OnItemClickListener() {
 

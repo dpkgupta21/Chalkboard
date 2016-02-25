@@ -149,6 +149,8 @@ public class ReceivedFragment extends Fragment implements SwipeMenuListView.OnMe
 
         if (matchReceivedDTOList != null && matchReceivedDTOList.size() > 0) {
             setViewVisibility(R.id.tv_no_received, view, View.GONE);
+            listviewReceived.setVisibility(View.VISIBLE);
+
             receivedAdapter = new ReceivedAdapter(getActivity(), matchReceivedDTOList);
             createSwipeMenu();
             listviewReceived.setAdapter(receivedAdapter);
@@ -183,7 +185,7 @@ public class ReceivedFragment extends Fragment implements SwipeMenuListView.OnMe
                         // set item width
                         checkItem.setWidth(convert_dp_to_px(50));
                         // set a icon
-                        checkItem.setIcon(R.drawable.check_circle_icon);
+                        checkItem.setIcon(R.drawable.blue_right_icon);
                         // add to menu
                         menu.addMenuItem(checkItem);
 
@@ -197,7 +199,7 @@ public class ReceivedFragment extends Fragment implements SwipeMenuListView.OnMe
                         // set item width
                         crossItem.setWidth(convert_dp_to_px(50));
                         // set a icon
-                        crossItem.setIcon(R.drawable.croos_circle_icon);
+                        crossItem.setIcon(R.drawable.orange_close_icon);
                         // add to menu
                         menu.addMenuItem(crossItem);
                         break;

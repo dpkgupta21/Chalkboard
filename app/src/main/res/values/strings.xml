@@ -52,10 +52,10 @@
 
     <string-array name="teacher_drawer_items">
         <item>Jobs</item>
+        <item>Inbox</item>
         <item>Favorites</item>
         <item>Match Request</item>
         <item>Matches</item>
-        <item>Inbox</item>
         <item>Help</item>
         <item>Settings</item>
         <item>Logout</item>
@@ -65,10 +65,10 @@
     <!-- Keep them in order as the titles are in -->
     <array name="teacher_unselected_drawer_icons">
         <item>@drawable/search_menu</item>
+        <item>@drawable/inbox_menu</item>
         <item>@drawable/favourite_menu</item>
         <item>@drawable/match_menu</item>
         <item>@drawable/match_menu</item>
-        <item>@drawable/inbox_menu</item>
         <item>@drawable/help_menu</item>
         <item>@drawable/settings_menu</item>
         <item>@drawable/logout_menu</item>
@@ -76,10 +76,10 @@
 
     <array name="teacher_selected_drawer_icons">
         <item>@drawable/search_menublackk</item>
+        <item>@drawable/inbox_menu_black</item>
         <item>@drawable/favourite_menu_black</item>
         <item>@drawable/match_menu_black</item>
         <item>@drawable/match_menu_black</item>
-        <item>@drawable/inbox_menu_black</item>
         <item>@drawable/help_menu_black</item>
         <item>@drawable/settings_menu_black</item>
         <item>@drawable/logout_menu</item>
