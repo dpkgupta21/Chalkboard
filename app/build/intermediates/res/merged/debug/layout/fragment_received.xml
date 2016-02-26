@@ -1,0 +1,30 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".alert.NotificationFragment">
+
+
+    <com.baoyz.swipemenulistview.SwipeMenuListView
+        android:id="@+id/listview_received"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <com.chalkboard.customviews.MyTextViewMarlBold
+        android:id="@+id/tv_no_received"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="@string/no_received_request"
+        android:textColor="@color/black"
+        android:textStyle="normal"
+        android:visibility="gone" />
+
+    <View
+        android:id="@+id/view_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="@dimen/margin_5dp"
+        android:background="@color/grey" />
+</LinearLayout>

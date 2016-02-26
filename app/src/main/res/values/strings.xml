@@ -32,6 +32,8 @@
     <string name="send_match_request">Send Match Request</string>
     <string name="remove_match_request">Remove Match Request</string>
 
+    <string name="match_teacher">Match Teacher</string>
+    <string name="unmatch_teacher">UnMatch Teacher</string>
 
     <string name="send">Send</string>
     <string name="cancel">Cancel</string>

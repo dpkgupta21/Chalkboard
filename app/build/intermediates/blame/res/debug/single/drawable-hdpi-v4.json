@@ -432,12 +432,12 @@
         "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-hdpi/abc_ic_commit_search_api_mtrl_alpha.png"
     },
     {
-        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/delete_icon.png",
-        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-hdpi/delete_icon.png"
-    },
-    {
         "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/blue_right_icon.jpg",
         "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-hdpi/blue_right_icon.jpg"
+    },
+    {
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/delete_icon.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-hdpi/delete_icon.png"
     },
     {
         "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/orange_close_icon.jpg",

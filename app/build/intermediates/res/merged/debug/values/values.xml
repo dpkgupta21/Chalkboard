@@ -499,6 +499,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="job_detail_page_title">Jobs</string>
     <string name="login_instructions">Login to twiter</string>
+    <string name="match_teacher">Match Teacher</string>
     <string name="no_received_request">No Received Request</string>
     <string name="no_sent_request">No Sent Request</string>
     <string name="received">Received</string>
@@ -516,6 +517,7 @@
     <string name="twitter_consumer_key">dRraR0LUBwqvyCYcNNq0csQcK</string>
     <string name="twitter_consumer_secret">EHaiAzJD6GgJc1FjzRaCxp5eomOXba5Jhv2dYlbShB7lShHIuk</string>
     <string name="twitter_oauth_verifier">oauth_verifier</string>
+    <string name="unmatch_teacher">UnMatch Teacher</string>
     <string name="wallet_buy_button_place_holder" translation_description="Text on a button that allows a user to make a payment with Google Wallet [CHAR LIMIT=30]">Buy with Google</string>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
     <style name="AlertDialog.AppCompat.Light" parent="Base.AlertDialog.AppCompat.Light"/>
