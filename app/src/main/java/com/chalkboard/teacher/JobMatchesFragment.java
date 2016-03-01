@@ -177,17 +177,17 @@ public class JobMatchesFragment extends Fragment {
             menu.addMenuItem(chatItem);
 
 
-            // create "delete" item
-            SwipeMenuItem deleteItem = new SwipeMenuItem(
-                    context);
-            // set item background
-            deleteItem.setBackground(R.drawable.delete_back);
-            // set item width
-            deleteItem.setWidth(150);
-            // set a icon
-            deleteItem.setIcon(R.drawable.delete_slide);
-            // add to menu
-            menu.addMenuItem(deleteItem);
+//            // create "delete" item
+//            SwipeMenuItem deleteItem = new SwipeMenuItem(
+//                    context);
+//            // set item background
+//            deleteItem.setBackground(R.drawable.delete_back);
+//            // set item width
+//            deleteItem.setWidth(150);
+//            // set a icon
+//            deleteItem.setIcon(R.drawable.delete_slide);
+//            // add to menu
+//            menu.addMenuItem(deleteItem);
         }
     };
 //

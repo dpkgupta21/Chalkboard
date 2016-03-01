@@ -283,8 +283,7 @@ public class RecruiterReceivedFragment extends Fragment implements SwipeMenuList
                                 if (Utils.getWebServiceStatus(response)) {
 
                                     // call send message activity
-                                    if (response.getString("data").equalsIgnoreCase("Successfully accepted.")
-                                            && status == 1) {
+                                    if (response.getString("data").equalsIgnoreCase("Successfully accepted.")) {
                                         CustomProgressDialog.hideProgressDialog();
                                         getMatchRequestList();
 //                                        startActivity(new Intent(getActivity().getApplicationContext(),

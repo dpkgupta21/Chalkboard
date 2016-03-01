@@ -107,13 +107,13 @@ public class ReceivedFragment extends Fragment implements SwipeMenuListView.OnMe
                         @Override
                         public void onResponse(JSONObject response) {
                             try {
-                                if(Utils.getWebServiceStatus(response)) {
+                                if (Utils.getWebServiceStatus(response)) {
                                     Utils.ShowLog(TAG, "got some response = " + response.toString());
                                     Type type = new TypeToken<ArrayList<MatchReceivedDTO>>() {
                                     }.getType();
                                     matchReceivedDTOList = new Gson().fromJson(response.getJSONArray("data").toString(), type);
                                     setReceivedValues();
-                                }else{
+                                } else {
                                     setReceivedValues();
                                 }
 
@@ -284,13 +284,14 @@ public class ReceivedFragment extends Fragment implements SwipeMenuListView.OnMe
                                 if (Utils.getWebServiceStatus(response)) {
 
                                     // call send message activity
-                                    if (response.getString("data").equalsIgnoreCase("Successfully accepted.") && status == 1) {
+                                    if (response.getString("data").equalsIgnoreCase("Successfully accepted.")) {
 
-                                        startActivity(new Intent(getActivity().getApplicationContext(),
-                                                TeacherChatBoardActivity.class).putExtra("id",
-                                                matchReceivedDTOList.get(position).getRecruiter_id()).
-                                                putExtra("name",
-                                                        matchReceivedDTOList.get(position).getName()));
+                                        getMatchRequestList();
+//                                        startActivity(new Intent(getActivity().getApplicationContext(),
+//                                                TeacherChatBoardActivity.class).putExtra("id",
+//                                                matchReceivedDTOList.get(position).getRecruiter_id()).
+//                                                putExtra("name",
+//                                                        matchReceivedDTOList.get(position).getName()));
 
                                     }
 
