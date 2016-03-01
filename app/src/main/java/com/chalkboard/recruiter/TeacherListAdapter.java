@@ -18,8 +18,10 @@ import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,310 +33,327 @@ import android.widget.TextView;
 
 import com.chalkboard.GlobalClaass;
 import com.chalkboard.ImageLoader;
+import com.chalkboard.PreferenceConnector;
 import com.chalkboard.R;
+import com.chalkboard.model.ReadMapIdDTO;
 
 public class TeacherListAdapter extends BaseAdapter {
 
-	Activity context;
-	LayoutInflater inflater;
-	Typeface font,font2;
-	private List<TeacherObject> mainDataList = null;
+    Activity context;
+    LayoutInflater inflater;
+    Typeface font, font2;
+    private List<TeacherObject> mainDataList = null;
 
-	private List<TeacherObject> arrList = null;
+    private List<TeacherObject> arrList = null;
 
-	ImageLoader imageloader = null;
-	
-	View rootView = null;
+    ImageLoader imageloader = null;
 
-	public TeacherListAdapter(Activity context, List<TeacherObject> mainDataList, View rootview) {
+    View rootView = null;
+    private ReadMapIdDTO readMapIdDTO;
 
-		this.rootView = rootview;
-		
-		this.context = context;
-		this.mainDataList = mainDataList;
-		inflater = LayoutInflater.from(this.context);
-		font = Typeface.createFromAsset(this.context.getAssets(), "fonts/mark.ttf");
-		font2=Typeface.createFromAsset(this.context.getAssets(), "fonts/marlbold.ttf");
-		arrList = new ArrayList<TeacherObject>();
+    public TeacherListAdapter(Activity context, List<TeacherObject> mainDataList, View rootview) {
 
-		arrList.addAll(this.mainDataList);
+        this.rootView = rootview;
 
-		imageloader = new ImageLoader(this.context);
+        this.context = context;
+        this.mainDataList = mainDataList;
+        inflater = LayoutInflater.from(this.context);
+        font = Typeface.createFromAsset(this.context.getAssets(), "fonts/mark.ttf");
+        font2 = Typeface.createFromAsset(this.context.getAssets(), "fonts/marlbold.ttf");
+        arrList = new ArrayList<TeacherObject>();
 
-	}
+        arrList.addAll(this.mainDataList);
 
-	class ViewHolder {
-		protected TextView name;
-		protected ImageView image;
-		protected ImageView favourite;
+        imageloader = new ImageLoader(this.context);
+        readMapIdDTO = PreferenceConnector.getObjectFromPref(context,
+                PreferenceConnector.READ_MAP_ID);
 
-		protected TextView location;
+    }
 
-	}
+    class ViewHolder {
+        protected TextView name;
+        protected ImageView image;
+        protected ImageView favourite;
 
-	@Override
-	public int getCount() {
-		return mainDataList.size();
-	}
+        protected TextView location;
 
-	@Override
-	public TeacherObject getItem(int position) {
-		return mainDataList.get(position);
-	}
+    }
 
-	@Override
-	public long getItemId(int position) {
-		return position;
-	}
-
-	public View getView(final int position, View view, ViewGroup parent) {
-		final ViewHolder holder;
-		if (view == null) {
-			holder = new ViewHolder();
-			view = inflater.inflate(R.layout.item_teacher_list, null);
-
-			holder.name = (TextView) view.findViewById(R.id.teacher_name);
-			holder.location = (TextView) view
-					.findViewById(R.id.teacher_location);
-
-			holder.image = (ImageView) view.findViewById(R.id.teacher_image);
-
-			holder.favourite = (ImageView) view
-					.findViewById(R.id.teacher_favorite_image);
-
-			try {
-
-				holder.name.setTypeface(font2);
-				holder.location.setTypeface(font);
-			} catch (Exception e) {
-
-			}
-
-			view.setTag(holder);
-
-		} else {
-			holder = (ViewHolder) view.getTag();
-		}
-
-		String name = "", location = "";
-
-		Log.e("PrintData", mainDataList.get(position).getTeacherName());
-
-		if (!(mainDataList.get(position).getTeacherName().toString().trim()
-				.equalsIgnoreCase("null"))) {
-
-			name = (mainDataList.get(position).getTeacherName());
-		}
-
-		if (!(mainDataList.get(position).getTeacherAge().toString().trim()
-				.equalsIgnoreCase("null"))) {
-
-			if (name.equalsIgnoreCase("null")) {
-				name = mainDataList.get(position).getTeacherAge();
-			} else {
-				name = name + " | "
-						+ mainDataList.get(position).getTeacherAge();
-			}
-			// age = (mainDataList.get(position).getTeacherAge());
-		}
-		if (!(mainDataList.get(position).getTeacherGender().toString().trim()
-				.equalsIgnoreCase("null"))) {
-
-			if (name.equalsIgnoreCase("null")) {
-				name = mainDataList.get(position).getTeacherGender();
-				if (name.equalsIgnoreCase("Male")) {
-					name = "M";
-				} else {
-					name = "F";
-				}
-
-			} else {
-				if (mainDataList.get(position).getTeacherGender().toString()
-						.trim().equalsIgnoreCase("Male")) {
-					name = name + " " + "M";
-				} else {
-					name = name + " " + "F";
-				}
-
-			}
-
-		}
-
-		if (!(mainDataList.get(position).getTeacherLocation().toString().trim()
-				.equalsIgnoreCase("null"))) {
-			location = (mainDataList.get(position).getTeacherLocation());
-		} else {
-			location = "";
-		}
-
-		holder.name.setText(name);
-
-		holder.location.setText(location);
-
-		if (mainDataList.get(position).isTeacherFavorite()) {
-			holder.favourite.setImageResource(R.drawable.icon_like);
-		} else {
-			holder.favourite.setImageResource(R.drawable.unlike_icon);
-		}
-
-		holder.favourite.setOnClickListener(new OnClickListener() {			
-			@Override
-			public void onClick(View arg0) {
-				
-				if (mainDataList.get(position).isTeacherFavorite()) {
-					//holder.favourite.setImageResource(R.drawable.icon_like);
-					new RemoveJobFavorites(mainDataList.get(position).getId()).execute();
-					mainDataList.get(position).setTeacherFavorite(false);
-					holder.favourite.setImageResource(R.drawable.unlike_icon);
-				} else {
-					//holder.favourite.setImageResource(R.drawable.unlike_icon);
-					new AddJobFavorites(mainDataList.get(position).getId()).execute();
-					mainDataList.get(position).setTeacherFavorite(true);
-					holder.favourite.setImageResource(R.drawable.icon_like);
-				}
-				
-			}
-		});
-		
-		imageloader.DisplayImage(mainDataList.get(position).getTeacherImage(),
-				holder.image);
+    @Override
+    public int getCount() {
+        return mainDataList.size();
+    }
 
-		return view;
-	}
+    @Override
+    public TeacherObject getItem(int position) {
+        return mainDataList.get(position);
+    }
 
-	public void filter(String charText) {
-		charText = charText.toLowerCase(Locale.getDefault());
-		mainDataList.clear();
-		if (charText.length() == 0) {
-			mainDataList.addAll(arrList);
-		} else {
-			for (TeacherObject wp : arrList) {
-				if (wp.getTeacherLocation().toLowerCase(Locale.getDefault())
-						.contains(charText)) {
-					mainDataList.add(wp);
-				}
-			}
-		}
-		notifyDataSetChanged();
-	}
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
 
-	RemoveJobFavorites removeJobFavorites;
+    public View getView(final int position, View view, ViewGroup parent) {
+        final ViewHolder holder;
+        if (view == null) {
+            holder = new ViewHolder();
+            view = inflater.inflate(R.layout.item_teacher_list, null);
 
-	class RemoveJobFavorites extends AsyncTask<String, String, String> {
+            holder.name = (TextView) view.findViewById(R.id.teacher_name);
+            holder.location = (TextView) view
+                    .findViewById(R.id.teacher_location);
 
-		String teacherId;
+            holder.image = (ImageView) view.findViewById(R.id.teacher_image);
 
-		public RemoveJobFavorites(String id) {
-			teacherId = id;
-		}
+            holder.favourite = (ImageView) view
+                    .findViewById(R.id.teacher_favorite_image);
 
-		@Override
-		protected void onPreExecute() {
-			showProgressBar(context, rootView);
-		}
+            try {
 
-		@Override
-		protected String doInBackground(String... params) {
+                holder.name.setTypeface(font2);
+                holder.location.setTypeface(font);
+            } catch (Exception e) {
 
-			String resultStr = null;
-			try {
+            }
 
-				HttpClient httpClient = new DefaultHttpClient();
-				HttpPost request = new HttpPost(GlobalClaass.Webservice_Url);
+            view.setTag(holder);
 
-				List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
+        } else {
+            holder = (ViewHolder) view.getTag();
+        }
 
-				nameValuePairs.add(new BasicNameValuePair("action",
-						"removeFromFavoriteProfile"));
+        String name = "", location = "";
 
-				nameValuePairs.add(new BasicNameValuePair("teacher_id",
-						teacherId));
-				nameValuePairs.add(new BasicNameValuePair("user_id",
-						GlobalClaass.getUserId(context)));
-				request.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+        Log.e("PrintData", mainDataList.get(position).getTeacherName());
+        if (!(mainDataList.get(position).getTeacherName().toString().trim()
+                .equalsIgnoreCase("null"))) {
 
-				HttpResponse response = httpClient.execute(request);
+            name = (mainDataList.get(position).getTeacherName());
+        }
 
-				HttpEntity entity = response.getEntity();
+        if (!(mainDataList.get(position).getTeacherAge().toString().trim()
+                .equalsIgnoreCase("null"))) {
+
+            if (name.equalsIgnoreCase("null")) {
+                name = mainDataList.get(position).getTeacherAge();
+            } else {
+                name = name + " | "
+                        + mainDataList.get(position).getTeacherAge();
+            }
+            // age = (mainDataList.get(position).getTeacherAge());
+        }
+        if (!(mainDataList.get(position).getTeacherGender().toString().trim()
+                .equalsIgnoreCase("null"))) {
+
+            if (name.equalsIgnoreCase("null")) {
+                name = mainDataList.get(position).getTeacherGender();
+                if (name.equalsIgnoreCase("Male")) {
+                    name = "M";
+                } else {
+                    name = "F";
+                }
+
+            } else {
+                if (mainDataList.get(position).getTeacherGender().toString()
+                        .trim().equalsIgnoreCase("Male")) {
+                    name = name + " " + "M";
+                } else {
+                    name = name + " " + "F";
+                }
+
+            }
+
+        }
+
+        if (!(mainDataList.get(position).getTeacherLocation().toString().trim()
+                .equalsIgnoreCase("null"))) {
+            location = (mainDataList.get(position).getTeacherLocation());
+        } else {
+            location = "";
+        }
+
+
+        holder.name.setText(name);
+
+        holder.location.setText(location);
+
+//        Check bold if already read
+        String teacherId = mainDataList.get(position).getId();
+        boolean isAlreadyRead = readMapIdDTO.getRecruiterMapId().get(teacherId);
+
+        if (isAlreadyRead) {
+            holder.name.setTextColor(ContextCompat.getColor(context, R.color.black));
+            holder.location.setTextColor(ContextCompat.getColor(context, R.color.black));
+
+        } else {
+            holder.name.setTextColor(ContextCompat.getColor(context, R.color.dark_grey));
+            holder.location.setTextColor(ContextCompat.getColor(context, R.color.dark_grey));
+
+        }
 
-				resultStr = EntityUtils.toString(entity);
+        if (mainDataList.get(position).isTeacherFavorite()) {
+            holder.favourite.setImageResource(R.drawable.icon_like);
+        } else {
+            holder.favourite.setImageResource(R.drawable.unlike_icon);
+        }
 
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+        holder.favourite.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
 
-			return resultStr;
+                if (mainDataList.get(position).isTeacherFavorite()) {
+                    //holder.favourite.setImageResource(R.drawable.icon_like);
+                    new RemoveJobFavorites(mainDataList.get(position).getId()).execute();
+                    mainDataList.get(position).setTeacherFavorite(false);
+                    holder.favourite.setImageResource(R.drawable.unlike_icon);
+                } else {
+                    //holder.favourite.setImageResource(R.drawable.unlike_icon);
+                    new AddJobFavorites(mainDataList.get(position).getId()).execute();
+                    mainDataList.get(position).setTeacherFavorite(true);
+                    holder.favourite.setImageResource(R.drawable.icon_like);
+                }
 
-		}
+            }
+        });
 
-		@Override
-		protected void onPostExecute(String result) {
+        imageloader.DisplayImage(mainDataList.get(position).getTeacherImage(),
+                holder.image);
 
-			hideProgressBar(context, rootView);
+        return view;
+    }
 
+    public void filter(String charText) {
+        charText = charText.toLowerCase(Locale.getDefault());
+        mainDataList.clear();
+        if (charText.length() == 0) {
+            mainDataList.addAll(arrList);
+        } else {
+            for (TeacherObject wp : arrList) {
+                if (wp.getTeacherLocation().toLowerCase(Locale.getDefault())
+                        .contains(charText)) {
+                    mainDataList.add(wp);
+                }
+            }
+        }
+        notifyDataSetChanged();
+    }
 
-		}
+    RemoveJobFavorites removeJobFavorites;
 
-	}
+    class RemoveJobFavorites extends AsyncTask<String, String, String> {
 
-	AddJobFavorites addJobFavorites;
+        String teacherId;
 
-	class AddJobFavorites extends AsyncTask<String, String, String> {
+        public RemoveJobFavorites(String id) {
+            teacherId = id;
+        }
 
-		String teacherId;
+        @Override
+        protected void onPreExecute() {
+            showProgressBar(context, rootView);
+        }
 
-		public AddJobFavorites(String id) {
-			teacherId = id;
-		}
+        @Override
+        protected String doInBackground(String... params) {
 
-		@Override
-		protected void onPreExecute() {
-			showProgressBar(context, rootView);
-		}
+            String resultStr = null;
+            try {
 
-		@Override
-		protected String doInBackground(String... params) {
+                HttpClient httpClient = new DefaultHttpClient();
+                HttpPost request = new HttpPost(GlobalClaass.Webservice_Url);
 
-			String resultStr = null;
-			try {
+                List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
 
-				HttpClient httpClient = new DefaultHttpClient();
-				HttpPost request = new HttpPost(GlobalClaass.Webservice_Url);
+                nameValuePairs.add(new BasicNameValuePair("action",
+                        "removeFromFavoriteProfile"));
 
-				List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
+                nameValuePairs.add(new BasicNameValuePair("teacher_id",
+                        teacherId));
+                nameValuePairs.add(new BasicNameValuePair("user_id",
+                        GlobalClaass.getUserId(context)));
+                request.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 
-				nameValuePairs.add(new BasicNameValuePair("action",
-						"addToFavoriteProfile"));
+                HttpResponse response = httpClient.execute(request);
 
-				nameValuePairs.add(new BasicNameValuePair("teacher_id",
-						teacherId));
-				nameValuePairs.add(new BasicNameValuePair("user_id",
-						GlobalClaass.getUserId(context)));
-				request.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+                HttpEntity entity = response.getEntity();
 
-				HttpResponse response = httpClient.execute(request);
+                resultStr = EntityUtils.toString(entity);
 
-				HttpEntity entity = response.getEntity();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
 
-				resultStr = EntityUtils.toString(entity);
+            return resultStr;
 
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+        }
 
-			return resultStr;
+        @Override
+        protected void onPostExecute(String result) {
 
-		}
+            hideProgressBar(context, rootView);
 
-		@Override
-		protected void onPostExecute(String result) {
 
-			hideProgressBar(context, rootView);
+        }
 
-		
+    }
 
-		}
+    AddJobFavorites addJobFavorites;
 
-	}
-	
+    class AddJobFavorites extends AsyncTask<String, String, String> {
+
+        String teacherId;
+
+        public AddJobFavorites(String id) {
+            teacherId = id;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            showProgressBar(context, rootView);
+        }
+
+        @Override
+        protected String doInBackground(String... params) {
+
+            String resultStr = null;
+            try {
+                HttpClient httpClient = new DefaultHttpClient();
+                HttpPost request = new HttpPost(GlobalClaass.Webservice_Url);
+
+                List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
+
+                nameValuePairs.add(new BasicNameValuePair("action",
+                        "addToFavoriteProfile"));
+
+                nameValuePairs.add(new BasicNameValuePair("teacher_id",
+                        teacherId));
+                nameValuePairs.add(new BasicNameValuePair("user_id",
+                        GlobalClaass.getUserId(context)));
+                request.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+
+                HttpResponse response = httpClient.execute(request);
+
+                HttpEntity entity = response.getEntity();
+
+                resultStr = EntityUtils.toString(entity);
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            return resultStr;
+
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+
+            hideProgressBar(context, rootView);
+
+
+        }
+
+    }
+
 }

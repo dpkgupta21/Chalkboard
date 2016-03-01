@@ -7,7 +7,6 @@
         <item>Favorites</item>
         <item>Match Request</item>
         <item>Matches</item>
-        <item>My Notifications</item>
         <item>Posted Jobs</item>
         <item>Inbox</item>
         <item>Help</item>
@@ -21,7 +20,6 @@
         <item>@drawable/favourite_menu_black</item>
         <item>@drawable/match_menu_black</item>
         <item>@drawable/match_menu_black</item>
-        <item>@drawable/notification_menu_black</item>
         <item>@drawable/posted_job_menu_black</item>
         <item>@drawable/inbox_menu_black</item>
         <item>@drawable/help_menu_black</item>
@@ -35,7 +33,6 @@
         <item>@drawable/favourite_menu</item>
         <item>@drawable/match_menu</item>
         <item>@drawable/match_menu</item>
-        <item>@drawable/notification_menu</item>
         <item>@drawable/posted_job_menu</item>
         <item>@drawable/inbox_menu</item>
         <item>@drawable/help_menu</item>
@@ -143,6 +140,7 @@
     <color name="common_signin_btn_light_text_disabled">#FFAAAAAA</color>
     <color name="common_signin_btn_light_text_focused">#FF737373</color>
     <color name="common_signin_btn_light_text_pressed">@android:color/white</color>
+    <color name="dark_grey">#A4A4A4</color>
     <color name="default_circle_indicator_fill_color">#FFDF0400</color>
     <color name="default_circle_indicator_page_color">#00000000</color>
     <color name="default_circle_indicator_stroke_color">#FFDF0400</color>
@@ -190,6 +188,7 @@
     <color name="switch_thumb_disabled_material_light">#ffbdbdbd</color>
     <color name="switch_thumb_normal_material_dark">#ffbdbdbd</color>
     <color name="switch_thumb_normal_material_light">#fff1f1f1</color>
+    <color name="transparent">#00000000</color>
     <color name="wallet_bright_foreground_disabled_holo_light">#ffb2b2b2</color>
     <color name="wallet_bright_foreground_holo_dark">#fff3f3f3</color>
     <color name="wallet_bright_foreground_holo_light">#ff000000</color>
@@ -517,7 +516,7 @@
     <string name="twitter_consumer_key">dRraR0LUBwqvyCYcNNq0csQcK</string>
     <string name="twitter_consumer_secret">EHaiAzJD6GgJc1FjzRaCxp5eomOXba5Jhv2dYlbShB7lShHIuk</string>
     <string name="twitter_oauth_verifier">oauth_verifier</string>
-    <string name="unmatch_teacher">UnMatch Teacher</string>
+    <string name="unmatch_teacher">Unmatch Teacher</string>
     <string name="wallet_buy_button_place_holder" translation_description="Text on a button that allows a user to make a payment with Google Wallet [CHAR LIMIT=30]">Buy with Google</string>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
     <style name="AlertDialog.AppCompat.Light" parent="Base.AlertDialog.AppCompat.Light"/>

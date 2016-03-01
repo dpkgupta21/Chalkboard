@@ -35,7 +35,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.chalkboard.GlobalClaass;
+import com.chalkboard.PreferenceConnector;
 import com.chalkboard.R;
+import com.chalkboard.model.ReadMapIdDTO;
 
 public class JobPagerActivity extends FragmentActivity {
 
@@ -57,6 +59,14 @@ public class JobPagerActivity extends FragmentActivity {
         dataList = (ArrayList<JobObject>) getIntent().getSerializableExtra(
                 "dataList");
         context = this;
+
+
+        ReadMapIdDTO readMapIdDTO = PreferenceConnector.getObjectFromPref(context,
+                PreferenceConnector.READ_MAP_ID);
+        readMapIdDTO.getTeacherMapId().put(dataList.get(position).getId(), false);
+        PreferenceConnector.putObjectIntoPref(context, readMapIdDTO,
+                PreferenceConnector.READ_MAP_ID);
+
 
 
         setContentView(R.layout.activity_pager);

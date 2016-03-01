@@ -100,7 +100,11 @@ public class TeacherPageFragment extends Fragment {
         btn_match_request.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                showSendMatchRequestDialog();
+                if (btn_match_request.getText().toString().equalsIgnoreCase(getString(R.string.match_teacher))) {
+                    showSendMatchRequestDialog();
+                } else {
+                    dblBtnCallbackResponse(true, 1001);
+                }
 
             }
         });
@@ -296,10 +300,11 @@ public class TeacherPageFragment extends Fragment {
         String message = "This lets " + teacherObject.getTeacherName() +
                 " know you're interested. You'll get a notification if it's a match!";
         new CustomAlert(getActivity(), TeacherPageFragment.this)
-                .doubleButtonAlertDialog(
+                .circleTransparentDialog(
                         message,
                         getString(R.string.send),
-                        getString(R.string.cancel), "dblBtnCallbackResponse", 1000);
+                        getString(R.string.cancel), teacherObject.getTeacherImage(),
+                        "dblBtnCallbackResponse", 1000);
     }
 
     public void dblBtnCallbackResponse(Boolean flag, int code) {
@@ -315,7 +320,6 @@ public class TeacherPageFragment extends Fragment {
         }
 
     }
-
 
 
     RemoveJobMatch removeJobMatch;

@@ -158,6 +158,12 @@ public class TeachersListActivity extends FragmentActivity
     private RelativeLayout relative_layout;
     private RecruiterNavDrawerListAdapter adapter;
 
+
+    public DrawerLayout getDrawerLayout() {
+        mDrawerLayout.openDrawer(mFilterList);
+        return mDrawerLayout;
+    }
+
     @Override
     protected void onCreate(Bundle arg0) {
         super.onCreate(arg0);
@@ -192,13 +198,10 @@ public class TeachersListActivity extends FragmentActivity
 
             if (login_type.equalsIgnoreCase("facebook")) {
                 if (GlobalClaass.isInternetPresent(context)) {
-
                     connectToFB();
                 } else {
                     GlobalClaass.showToastMessage(context, "Please check internet connection");
                 }
-
-
             }
         }
 
@@ -364,30 +367,26 @@ public class TeachersListActivity extends FragmentActivity
         navDrawerItems.add(new RecruiterNavDrawerItem(navMenuTitles[5], navMenuUnSelectIcons
                 .getResourceId(5, -1), navMenuSelectIcons
                 .getResourceId(5, -1)));
-        // My Notifications
+        // Posted Jobs
         navDrawerItems.add(new RecruiterNavDrawerItem(navMenuTitles[6], navMenuUnSelectIcons
                 .getResourceId(6, -1), navMenuSelectIcons
                 .getResourceId(6, -1)));
-        // Posted Jobs
+        // Inbox
         navDrawerItems.add(new RecruiterNavDrawerItem(navMenuTitles[7], navMenuUnSelectIcons
                 .getResourceId(7, -1), navMenuSelectIcons
                 .getResourceId(7, -1)));
-        // Inbox
+        // Help
         navDrawerItems.add(new RecruiterNavDrawerItem(navMenuTitles[8], navMenuUnSelectIcons
                 .getResourceId(8, -1), navMenuSelectIcons
                 .getResourceId(8, -1)));
-        // Help
+        // Settings
         navDrawerItems.add(new RecruiterNavDrawerItem(navMenuTitles[9], navMenuUnSelectIcons
                 .getResourceId(9, -1), navMenuSelectIcons
                 .getResourceId(9, -1)));
-        // Settings
+        //Logout
         navDrawerItems.add(new RecruiterNavDrawerItem(navMenuTitles[10], navMenuUnSelectIcons
                 .getResourceId(10, -1), navMenuSelectIcons
                 .getResourceId(10, -1)));
-        // Logout
-        navDrawerItems.add(new RecruiterNavDrawerItem(navMenuTitles[11], navMenuUnSelectIcons
-                .getResourceId(11, -1), navMenuSelectIcons
-                .getResourceId(11, -1)));
 
 
         // Recycle the typed array
@@ -989,22 +988,22 @@ public class TeachersListActivity extends FragmentActivity
                     fragmentManager.beginTransaction()
                             .replace(R.id.page_container, fragment).commit();
                     break;
+//                case 6:
+//                    mDrawerLayout.closeDrawer(relative_layout);
+//                    setDrawerState(false);
+//
+//                    ((ImageView) (findViewById(R.id.header_logo)))
+//                            .setVisibility(View.GONE);
+//
+//                    ((TextView) (findViewById(R.id.header_text))).setText("My Notifications");
+//
+//                    fragment = new TeacherNotificationFragment();
+//                    fragmentManager = getSupportFragmentManager();
+//                    fragmentManager.beginTransaction()
+//                            .replace(R.id.page_container, fragment)
+//                            .commit();
+//                    break;
                 case 6:
-                    mDrawerLayout.closeDrawer(relative_layout);
-                    setDrawerState(false);
-
-                    ((ImageView) (findViewById(R.id.header_logo)))
-                            .setVisibility(View.GONE);
-
-                    ((TextView) (findViewById(R.id.header_text))).setText("My Notifications");
-
-                    fragment = new TeacherNotificationFragment();
-                    fragmentManager = getSupportFragmentManager();
-                    fragmentManager.beginTransaction()
-                            .replace(R.id.page_container, fragment)
-                            .commit();
-                    break;
-                case 7:
 
                     setDrawerState(false);
 
@@ -1020,7 +1019,7 @@ public class TeachersListActivity extends FragmentActivity
                             .replace(R.id.page_container, fragment)
                             .commit();
                     break;
-                case 8:
+                case 7:
                     mDrawerLayout.closeDrawer(relative_layout);
                     setDrawerState(false);
 
@@ -1034,7 +1033,7 @@ public class TeachersListActivity extends FragmentActivity
                     fragmentManager.beginTransaction()
                             .replace(R.id.page_container, fragment).commit();
                     break;
-                case 9:
+                case 8:
                     mDrawerLayout.closeDrawer(relative_layout);
                     setDrawerState(false);
 
@@ -1049,12 +1048,12 @@ public class TeachersListActivity extends FragmentActivity
                     GlobalClaass.activitySlideForwardAnimation(context);
 
                     break;
-                case 10:
+                case 9:
                     mDrawerLayout.closeDrawer(relative_layout);
                     startActivity(new Intent(context, Setting_Activity.class));
 
                     break;
-                case 11:
+                case 10:
                     ((TextView) (findViewById(R.id.header_text))).setText("");
 
                     mDrawerLayout.closeDrawer(relative_layout);
@@ -1144,7 +1143,7 @@ public class TeachersListActivity extends FragmentActivity
         }
 
         String a = "", b = "";
-        String cityCountry=null;
+        String cityCountry = null;
         if (!GlobalClaass.getCity(context).equalsIgnoreCase("")) {
             a = GlobalClaass.getCity(context);
         }
@@ -1152,13 +1151,13 @@ public class TeachersListActivity extends FragmentActivity
             b = GlobalClaass.getCountry(context);
         }
 
-        if(!a.equalsIgnoreCase("")){
-            cityCountry=a;
-            if (!b.equalsIgnoreCase("")){
-                cityCountry=a+", "+b;
+        if (!a.equalsIgnoreCase("")) {
+            cityCountry = a;
+            if (!b.equalsIgnoreCase("")) {
+                cityCountry = a + ", " + b;
             }
-        }else{
-            cityCountry=b;
+        } else {
+            cityCountry = b;
         }
 
         ((TextView) findViewById(R.id.profile_location_age)).setText(cityCountry);

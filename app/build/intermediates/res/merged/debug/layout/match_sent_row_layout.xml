@@ -3,7 +3,7 @@
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:id="@+id/card_view"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="90dp"
     card_view:cardCornerRadius="0dp">
 
 
@@ -11,13 +11,26 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="6dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/back_circle" />
+
+
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/circle_img"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginLeft="@dimen/margin_10dp"
-            android:layout_marginTop="@dimen/margin_25dp"
-            android:padding="@dimen/margin_20dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="6dp"
+            android:contentDescription="@string/app_name"
+            android:padding="3dp"
             app:civ_border_color="@color/grey"
             app:civ_border_width="1dp" />
 
@@ -26,19 +39,16 @@
             android:id="@+id/relative"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginTop="20dp"
-            android:layout_toLeftOf="@+id/txt_date_time"
             android:layout_toRightOf="@+id/circle_img"
-            android:orientation="vertical"
-            android:paddingBottom="20dp">
+            android:orientation="vertical">
 
             <com.chalkboard.customviews.MyTextViewMarlBold
                 android:id="@+id/txt_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="left"
+                android:padding="@dimen/margin_5dp"
+                android:singleLine="true"
                 android:text="Md. Alnasir"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@color/grey"
@@ -49,12 +59,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/txt_title"
-                android:layout_marginTop="@dimen/margin_10dp"
                 android:gravity="left"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:singleLine="true"
                 android:text="Lorem"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@color/grey" />
-
 
 
         </RelativeLayout>
@@ -63,12 +74,12 @@
             android:id="@+id/txt_date_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginLeft="@dimen/margin_5dp"
-            android:layout_marginTop="@dimen/margin_10dp"
+            android:layout_toRightOf="@+id/circle_img"
             android:gravity="left"
-            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:padding="5dp"
+            android:singleLine="true"
             android:text="05:00 PM"
+            android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="@color/grey" />
     </RelativeLayout>
 

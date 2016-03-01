@@ -18,11 +18,10 @@ import com.android.volley.VolleyError;
 import com.chalkboard.GlobalClaass;
 import com.chalkboard.R;
 import com.chalkboard.customviews.CustomProgressDialog;
+import com.chalkboard.model.MatchSentDTO;
 import com.chalkboard.teacher.JobObject;
 import com.chalkboard.teacher.JobPagerActivity;
 import com.chalkboard.teacher.matchrequest.adapter.SentAdapter;
-import com.chalkboard.model.MatchReceivedDTO;
-import com.chalkboard.model.MatchSentDTO;
 import com.chalkboard.utility.MyOnClickListener;
 import com.chalkboard.utility.RecyclerTouchListener;
 import com.chalkboard.utility.Utils;
@@ -40,8 +39,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import static com.chalkboard.GlobalClaass.showToastMessage;
 
 
 public class SentFragment extends Fragment {

@@ -5,7 +5,9 @@ import static com.chalkboard.GlobalClaass.showProgressBar;
 import static com.chalkboard.GlobalClaass.showToastMessage;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -44,6 +46,7 @@ import android.widget.TextView;
 import com.chalkboard.GlobalClaass;
 import com.chalkboard.PreferenceConnector;
 import com.chalkboard.R;
+import com.chalkboard.model.ReadMapIdDTO;
 
 public class JobListFragment extends Fragment {
 
@@ -69,7 +72,6 @@ public class JobListFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         context = getActivity();
-
 
 
         GlobalClaass.savePrefrencesfor(context,
@@ -316,6 +318,18 @@ public class JobListFragment extends Fragment {
             } else {
 
                 JSONArray jrr = jObject.getJSONArray("jobs");
+                ReadMapIdDTO readMapIdDTO = PreferenceConnector.getObjectFromPref(context,
+                        PreferenceConnector.READ_MAP_ID);
+                Map<String, Boolean> teacherMap = null;
+                if (readMapIdDTO == null) {
+                    readMapIdDTO = new ReadMapIdDTO();
+                    teacherMap = new HashMap<>();
+                } else {
+                    teacherMap = readMapIdDTO.getTeacherMapId();
+                    if(teacherMap==null){
+                        teacherMap = new HashMap<>();
+                    }
+                }
 
                 for (int i = 0; i < jrr.length(); i++) {
 
@@ -324,6 +338,16 @@ public class JobListFragment extends Fragment {
                     JobObject itmObj = new JobObject();
 
                     itmObj.setId(jobj.getString("id"));
+
+
+                        if (!teacherMap.containsKey(itmObj.getId())) {
+                            teacherMap.put(itmObj.getId(), true);
+                        }
+//                    } else {
+//                        teacherMap.put(itmObj.getId(), true);
+//                    }
+
+
                     itmObj.setJobDate(jobj.getString("start_date"));
                     itmObj.setJobFavorite(jobj.getBoolean("is_favorite"));
                     itmObj.setJobLocation(jobj.getString("city") + ", "
@@ -334,6 +358,11 @@ public class JobListFragment extends Fragment {
                     dataList.add(itmObj);
 
                 }
+
+                readMapIdDTO.setTeacherMapId(teacherMap);
+                PreferenceConnector.putObjectIntoPref(context, readMapIdDTO,
+                        PreferenceConnector.READ_MAP_ID);
+
             }
 
         } catch (Exception e) {

@@ -4,9 +4,11 @@
 
     <color name="list_divider">#55ffffff</color>
     <color name="black">#000000</color>
+    <color name="transparent">#00000000</color>
     <color name="white">#ffffff</color>
     <color name="app_color">#00c7d4</color>
     <color name="grey">#bbbbbb</color>
+    <color name="dark_grey">#A4A4A4</color>
 
     <color name="list_background">#00000000</color>
     <color name="list_background_pressed">#ffffff</color>

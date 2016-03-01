@@ -57,20 +57,22 @@
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:contentDescription="@string/app_name"
-        android:padding="10dp" />
+        android:padding="5dp" />
 
-    <!--<TextView-->
-    <!--android:id="@+id/top_header_count"-->
-    <!--android:layout_width="25dp"-->
-    <!--android:layout_height="25dp"-->
-    <!--android:layout_alignParentRight="true"-->
-    <!--android:layout_centerVertical="true"-->
-    <!--android:layout_margin="10dp"-->
-    <!--android:background="@drawable/notification_menu"-->
-    <!--android:gravity="center"-->
-    <!--android:paddingRight="6dp"-->
-    <!--android:paddingTop="4dp"-->
-    <!--android:textColor="@android:color/black"-->
-    <!--android:textSize="10dp" />-->
+    <TextView
+        android:id="@+id/top_header_count"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_margin="10dp"
+        android:background="@drawable/chat_icon"
+        android:gravity="center"
+        android:paddingRight="6dp"
+        android:paddingTop="4dp"
+        android:text=""
+        android:textColor="@android:color/black"
+        android:textSize="10dp"
+        android:visibility="gone" />
 
 </RelativeLayout>

@@ -18,7 +18,10 @@ import com.chalkboard.GlobalClaass;
 import com.chalkboard.R;
 import com.chalkboard.customviews.CustomProgressDialog;
 import com.chalkboard.model.RecruiterMatchSentDTO;
+import com.chalkboard.recruiter.TeacherObject;
+import com.chalkboard.recruiter.TeacherPagerActivity;
 import com.chalkboard.recruiter.matchrequest.adapter.RecruiterSentAdapter;
+import com.chalkboard.teacher.JobObject;
 import com.chalkboard.utility.MyOnClickListener;
 import com.chalkboard.utility.RecyclerTouchListener;
 import com.chalkboard.utility.Utils;
@@ -28,6 +31,7 @@ import com.google.gson.reflect.TypeToken;
 import com.volley.ApplicationController;
 import com.volley.CustomJsonRequest;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.lang.reflect.Type;
@@ -47,6 +51,7 @@ public class RecruiterSentFragment extends Fragment {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private List<RecruiterMatchSentDTO> matchSentDTOList;
+    private ArrayList<TeacherObject> dataList = null;
 
 
     public RecruiterSentFragment() {
@@ -100,15 +105,86 @@ public class RecruiterSentFragment extends Fragment {
                         public void onResponse(JSONObject response) {
 
                             try {
-                                if(Utils.getWebServiceStatus(response)) {
+                                if (Utils.getWebServiceStatus(response)) {
                                     Utils.ShowLog(TAG, "got some response = " + response.toString());
+                                    dataList = new ArrayList<TeacherObject>();
+
+                                    JSONArray jrr = response.getJSONArray("data");
+
+                                    for (int i = 0; i < jrr.length(); i++) {
+
+                                        JSONObject jobj = jrr.getJSONObject(i);
+
+                                        TeacherObject itmObj = new TeacherObject();
+
+                                        itmObj.setId(jobj.getString("id"));
+                                        itmObj.setTeacherAbout(jobj.getString("about"));
+
+                                        itmObj.setTeacherAge(jobj.getString("age"));
+
+                                        if (jobj.has("TeacherEducation")) {
+                                            if (!jobj.get("TeacherEducation").toString().equalsIgnoreCase("")) {
+                                                itmObj.setTeacherEducation(jobj.getString("TeacherEducation"));
+                                            } else {
+                                                itmObj.setTeacherEducation("");
+                                            }
+                                        } else {
+                                            itmObj.setTeacherEducation("");
+                                        }
+
+
+                                        itmObj.setTeacherEmail(jobj.getString("email"));
+
+                                        if (jobj.has("TeacherExperience")) {
+                                            if (!jobj.get("TeacherExperience").toString().equalsIgnoreCase("")) {
+                                                itmObj.setTeacherExperience(jobj.getString("TeacherExperience"));
+                                            } else {
+                                                itmObj.setTeacherExperience("");
+                                            }
+                                        } else {
+                                            itmObj.setTeacherExperience("");
+                                        }
+
+
+                                        itmObj.setTeacherGender(jobj.getString("gender"));
+                                        itmObj.setTeacherImage(jobj.getString("image"));
+//                                        String city = "null";
+//                                        if (!jobj.getString("city").toString().trim().equalsIgnoreCase("null")) {
+//                                            city = jobj.getString("city");
+//
+//                                        }
+//
+//
+//                                        if (!jobj.getString("country").toString().trim().equalsIgnoreCase("null")) {
+//                                            if (city.equalsIgnoreCase("null")) {
+//                                                city = jobj.getString("country");
+//                                            } else {
+//                                                city = city + "," + jobj.getString("country");
+//                                            }
+//
+//                                        }
+
+                                        itmObj.setTeacherLocation(Utils.formatCityCountry(jobj.getString("city"), jobj.getString("country")));
+                                        itmObj.setTeacherName(jobj.getString("name"));
+
+
+                                        itmObj.setTeacherMatch(jobj.getBoolean("is_match"));
+                                        itmObj.setTeacherFavorite(jobj.getBoolean("is_favorite"));
+
+                                        dataList.add(itmObj);
+
+                                    }
+
+
                                     Type type = new TypeToken<ArrayList<RecruiterMatchSentDTO>>() {
                                     }.getType();
+
+
                                     matchSentDTOList = new Gson().
                                             fromJson(response.getJSONArray("data").
                                                     toString(), type);
                                     setSentValues(matchSentDTOList);
-                                }else{
+                                } else {
                                     setSentValues(null);
                                 }
 
@@ -152,10 +228,10 @@ public class RecruiterSentFragment extends Fragment {
                     recyclerView, new MyOnClickListener() {
                 @Override
                 public void onRecyclerClick(View view, int position) {
-//                    Intent intent = new Intent(getActivity(),
-//                            RecruiterMatchSentDetailActivity.class);
-//                    intent.putExtra("sentDetail", matchSentDTOList.get(position));
-//                    startActivity(intent);
+
+                    startActivity(new Intent(getActivity(), TeacherPagerActivity.class)
+                            .putExtra("dataList", dataList).putExtra("position",
+                                    position));
                 }
 
                 @Override

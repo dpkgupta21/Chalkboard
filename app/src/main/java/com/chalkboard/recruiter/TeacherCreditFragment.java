@@ -32,6 +32,7 @@ import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -76,7 +77,14 @@ public class TeacherCreditFragment extends Fragment {
 
 		font=Typeface.createFromAsset(context.getAssets(), "fonts/mark.ttf");
 		font2=Typeface.createFromAsset(context.getAssets(), "fonts/marlbold.ttf");
-		
+
+
+		ImageView notifIcon = (ImageView) context.findViewById(R.id.header_right_menu);
+		notifIcon.setVisibility(View.VISIBLE);
+		notifIcon.setImageResource(R.drawable.notification_menu);
+		notifIcon.setOnClickListener(notificationClick);
+
+
 		//edtSearch = (EditText) rootView.findViewById(R.id.search_list);
 		//edtSearch.setVisibility(View.VISIBLE);
 
@@ -137,6 +145,24 @@ public class TeacherCreditFragment extends Fragment {
 
 		return rootView;
 	}
+
+
+	View.OnClickListener notificationClick = new View.OnClickListener() {
+		@Override
+		public void onClick(View v) {
+			((ImageView) (context.findViewById(R.id.header_logo)))
+					.setVisibility(View.GONE);
+
+			((TextView) (context.findViewById(R.id.header_text))).setText("My Notifications");
+
+			TeacherNotificationFragment fragment = new TeacherNotificationFragment();
+			FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+			fragmentManager.beginTransaction()
+					.replace(R.id.page_container, fragment)
+					.commit();
+		}
+	};
+
 
 	@Override
 	public void onDestroyView() {

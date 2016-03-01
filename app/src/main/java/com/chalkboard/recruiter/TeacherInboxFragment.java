@@ -27,11 +27,13 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -46,140 +48,163 @@ import com.chalkboard.teacher.TeacherChatBoardActivity;
 
 public class TeacherInboxFragment extends Fragment {
 
-	ListView lvJobList = null;
+    ListView lvJobList = null;
 
-	View rootView = null;
+    View rootView = null;
 
-	Activity context = null;
+    Activity context = null;
 
-	ArrayList<InboxObject> dataList = null;
+    ArrayList<InboxObject> dataList = null;
 
-	GetInboxJobItem getJobItem = null;
+    GetInboxJobItem getJobItem = null;
 
-	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
 
-		context = getActivity();
+        context = getActivity();
 
-		rootView = inflater.inflate(R.layout.fragment_list, container, false);
+        rootView = inflater.inflate(R.layout.fragment_list, container, false);
 
-		lvJobList = (ListView) rootView.findViewById(R.id.list);
+        ImageView notifIcon = (ImageView) context.findViewById(R.id.header_right_menu);
+        notifIcon.setVisibility(View.VISIBLE);
+        notifIcon.setImageResource(R.drawable.notification_menu);
+        notifIcon.setOnClickListener(notificationClick);
 
-		return rootView;
-	}
 
-	@Override
-	public void onDestroyView() {
-		super.onDestroyView();
-		GlobalClaass.clearAsyncTask(getJobItem);
-	}
+        lvJobList = (ListView) rootView.findViewById(R.id.list);
 
-	@Override
-	public void onResume() {
-		super.onResume();
-		if (GlobalClaass.isInternetPresent(context)) {
+        return rootView;
+    }
 
-			getJobItem = new GetInboxJobItem();
-			getJobItem.execute();
+    View.OnClickListener notificationClick = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            ((ImageView) (context.findViewById(R.id.header_logo)))
+                    .setVisibility(View.GONE);
 
-		} else {
-			GlobalClaass.showToastMessage(context,
-					"Please check internet connection");
-		}
+            ((TextView) (context.findViewById(R.id.header_text))).setText("My Notifications");
 
-	}
+            TeacherNotificationFragment fragment = new TeacherNotificationFragment();
+            FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+            fragmentManager.beginTransaction()
+                    .replace(R.id.page_container, fragment)
+                    .commit();
+        }
+    };
 
-	class GetInboxJobItem extends AsyncTask<String, String, String> {
 
-		@Override
-		protected void onPreExecute() {
-			showProgressBar(context, rootView);
-		}
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        GlobalClaass.clearAsyncTask(getJobItem);
+    }
 
-		@Override
-		protected String doInBackground(String... params) {
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (GlobalClaass.isInternetPresent(context)) {
 
-			String resultStr = null;
-			try {
+            getJobItem = new GetInboxJobItem();
+            getJobItem.execute();
 
-				HttpClient httpClient = new DefaultHttpClient();
-				HttpPost request = new HttpPost(GlobalClaass.Webservice_Url);
+        } else {
+            GlobalClaass.showToastMessage(context,
+                    "Please check internet connection");
+        }
 
-				List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(
-						2);
-				nameValuePairs.add(new BasicNameValuePair("action", "inbox"));
+    }
 
-				nameValuePairs.add(new BasicNameValuePair("user_id",
-						GlobalClaass.getUserId(context)));
+    class GetInboxJobItem extends AsyncTask<String, String, String> {
 
-				request.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+        @Override
+        protected void onPreExecute() {
+            showProgressBar(context, rootView);
+        }
 
-				HttpResponse response = httpClient.execute(request);
+        @Override
+        protected String doInBackground(String... params) {
 
-				HttpEntity entity = response.getEntity();
+            String resultStr = null;
+            try {
 
-				resultStr = EntityUtils.toString(entity);
+                HttpClient httpClient = new DefaultHttpClient();
+                HttpPost request = new HttpPost(GlobalClaass.Webservice_Url);
 
-			} catch (final Exception e) {
-				
-context.runOnUiThread(new Runnable() {
-					
-					@Override
-					public void run() {
-						// TODO Auto-generated method stub
-						Toast.makeText(context, "222exception in dib"+e.getMessage(), 3000).show();	
-					}
-				});
+                List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(
+                        2);
+                nameValuePairs.add(new BasicNameValuePair("action", "inbox"));
 
-				e.printStackTrace();
-			}
+                nameValuePairs.add(new BasicNameValuePair("user_id",
+                        GlobalClaass.getUserId(context)));
 
-			return resultStr;
+                request.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 
-		}
+                HttpResponse response = httpClient.execute(request);
 
-		@Override
-		protected void onPostExecute(String result) {
+                HttpEntity entity = response.getEntity();
 
-			hideProgressBar(context, rootView);
+                resultStr = EntityUtils.toString(entity);
 
-			setUpUi(result);
-		}
-	}
+            } catch (final Exception e) {
 
-	public void setUpUi(String result) {
-		
-		Log.e("Deepakkkkkkkkkkkk", result);
-		
-		String get_message = "";
-		try {
-			dataList = new ArrayList<InboxObject>();
+                context.runOnUiThread(new Runnable() {
 
-			JSONObject jObject = new JSONObject(result);
+                    @Override
+                    public void run() {
+                        // TODO Auto-generated method stub
+                        // Toast.makeText(context, "222exception in dib" + e.getMessage(), 3000).show();
+                    }
+                });
 
-			get_message = jObject.getString("message").trim();
-			String get_replycode = jObject.getString("status").trim();
+                e.printStackTrace();
+            }
 
-			JSONArray jrr = jObject.getJSONArray("conversions");
+            return resultStr;
 
-			DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-			Calendar cal = Calendar.getInstance();
-			
-			for (int i = 0; i < jrr.length(); i++) {
+        }
 
-				JSONObject jobj = jrr.getJSONObject(i);
+        @Override
+        protected void onPostExecute(String result) {
 
-				InboxObject itmObj = new InboxObject();
+            hideProgressBar(context, rootView);
 
-				itmObj.setMessage(jobj.getString("message"));
-				itmObj.setImage(jobj.getString("image"));
-				itmObj.setUnread(jobj.getString("unread"));
-				itmObj.setUser(jobj.getString("user"));
-				itmObj.setUserId(jobj.getString("user_id"));
-				
-				// "timestamp":"2015-09-30 10:51:14"				
-				
+            setUpUi(result);
+        }
+    }
+
+    public void setUpUi(String result) {
+
+        Log.e("Deepakkkkkkkkkkkk", result);
+
+        String get_message = "";
+        try {
+            dataList = new ArrayList<InboxObject>();
+
+            JSONObject jObject = new JSONObject(result);
+
+            get_message = jObject.getString("message").trim();
+            String get_replycode = jObject.getString("status").trim();
+
+            JSONArray jrr = jObject.getJSONArray("conversions");
+
+            DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            Calendar cal = Calendar.getInstance();
+
+            for (int i = 0; i < jrr.length(); i++) {
+
+                JSONObject jobj = jrr.getJSONObject(i);
+
+                InboxObject itmObj = new InboxObject();
+
+                itmObj.setMessage(jobj.getString("message"));
+                itmObj.setImage(jobj.getString("image"));
+                itmObj.setUnread(jobj.getString("unread"));
+                itmObj.setUser(jobj.getString("user"));
+                itmObj.setUserId(jobj.getString("user_id"));
+
+                // "timestamp":"2015-09-30 10:51:14"
+
 //				if (!jobj.getString("timestamp").trim().equalsIgnoreCase("")) {
 //				
 //					System.out.println(dateFormat.format(cal.getTime()));
@@ -205,49 +230,43 @@ context.runOnUiThread(new Runnable() {
 //				}else{
 //					itmObj.setTimestamp("");
 //				}
-				
-				
 
-				
-				
-				
-				dataList.add(itmObj);
 
-			}
-		} catch (Exception e) {
-			
-			
-					// TODO Auto-generated method stub
-					Toast.makeText(context, "22exception in setup"+e.getMessage(), 3000).show();	
-				
-			e.printStackTrace();
-		}
+                dataList.add(itmObj);
 
-		if (dataList.size() > 0) {
-			InboxListAdapter itmAdap = new InboxListAdapter(context, dataList);
+            }
+        } catch (Exception e) {
 
-			lvJobList.setAdapter(itmAdap);
 
-			lvJobList.setOnItemClickListener(new OnItemClickListener() {
+            // TODO Auto-generated method stub
+            //Toast.makeText(context, "22exception in setup" + e.getMessage(), 3000).show();
 
-				@Override
-				public void onItemClick(AdapterView<?> arg0, View arg1,
-						int position, long arg3) {
+            e.printStackTrace();
+        }
 
-					startActivity(new Intent(context,
-							TeacherChatBoardActivity.class).putExtra("id",
-							dataList.get(position).getUserId()).putExtra("name",
-									dataList.get(position).getUser()));
+        if (dataList.size() > 0) {
+            InboxListAdapter itmAdap = new InboxListAdapter(context, dataList);
 
-				}
-			});
-		}
+            lvJobList.setAdapter(itmAdap);
 
-		else {
-			((TextView) rootView.findViewById(R.id.error_message))
-					.setText(get_message);
-		}
+            lvJobList.setOnItemClickListener(new OnItemClickListener() {
 
-	}
+                @Override
+                public void onItemClick(AdapterView<?> arg0, View arg1,
+                                        int position, long arg3) {
+
+                    startActivity(new Intent(context,
+                            TeacherChatBoardActivity.class).putExtra("id",
+                            dataList.get(position).getUserId()).putExtra("name",
+                            dataList.get(position).getUser()));
+
+                }
+            });
+        } else {
+            ((TextView) rootView.findViewById(R.id.error_message))
+                    .setText(get_message);
+        }
+
+    }
 
 }

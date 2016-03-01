@@ -4,9 +4,15 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 
+import com.chalkboard.preferences.ObjectSerializer;
+
+import java.io.IOException;
+
 public class PreferenceConnector {
 	public static final String PREF_NAME = "ChalkBoardPrefrences";
 	public static final int MODE = Context.MODE_PRIVATE;
+
+	public static final String READ_MAP_ID = "READ_MAP_ID";
 
 	public static final String USERID = "USERID";
 	public static final String ROLE = "ROLE";
@@ -47,6 +53,55 @@ public class PreferenceConnector {
 
 	public static Editor getEditor(Context context) {
 		return getPreferences(context).edit();
+	}
+
+
+
+	public static <E> void putObjectIntoPref(Context context, E e, String key) {
+		SharedPreferences preferences = context.getSharedPreferences(PREF_NAME,
+				Context.MODE_PRIVATE);
+		SharedPreferences.Editor editor = preferences.edit();
+		try {
+			editor.putString(key, ObjectSerializer.serialize(e));
+		} catch (IOException exc) {
+			exc.printStackTrace();
+		}
+
+		editor.commit();
+
+	}
+
+	public static <E> void removeObjectIntoPref(Context context, String key) {
+		SharedPreferences preferences = context.getSharedPreferences(PREF_NAME,
+				Context.MODE_PRIVATE);
+		SharedPreferences.Editor editor = preferences.edit();
+		editor.remove(key);
+		editor.commit();
+
+	}
+
+	/**
+	 * This method is use to get your object from preference.<br>
+	 * How to use<br>
+	 * Bean bean = getObjectFromPref(context,key);
+	 *
+	 * @param context
+	 * @param key
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	public static <E> E getObjectFromPref(Context context, String key) {
+		try {
+			SharedPreferences preferences = context.getSharedPreferences(PREF_NAME,
+					Context.MODE_PRIVATE);
+			SharedPreferences.Editor editor = preferences.edit();
+
+			return (E) ObjectSerializer.deserialize(context.getSharedPreferences(PREF_NAME,
+					Context.MODE_PRIVATE).getString(key, null));
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 }

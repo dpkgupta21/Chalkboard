@@ -9,10 +9,12 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.chalkboard.R;
+import com.chalkboard.recruiter.TeacherNotificationFragment;
 
 
 public class RecruiterMatchRequestFragment extends Fragment implements View.OnClickListener {
@@ -32,7 +34,11 @@ public class RecruiterMatchRequestFragment extends Fragment implements View.OnCl
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_match_request, container, false);
-
+        mActivity = getActivity();
+        ImageView notifIcon = (ImageView) mActivity.findViewById(R.id.header_right_menu);
+        notifIcon.setVisibility(View.VISIBLE);
+        notifIcon.setImageResource(R.drawable.notification_menu);
+        notifIcon.setOnClickListener(notificationClick);
         return view;
     }
 
@@ -50,6 +56,22 @@ public class RecruiterMatchRequestFragment extends Fragment implements View.OnCl
         ll_sent.setOnClickListener(this);
         openFragment(0);
     }
+
+    View.OnClickListener notificationClick = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            ((ImageView) (mActivity.findViewById(R.id.header_logo)))
+                    .setVisibility(View.GONE);
+
+            ((TextView) (mActivity.findViewById(R.id.header_text))).setText("My Notifications");
+
+            TeacherNotificationFragment fragment = new TeacherNotificationFragment();
+            FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+            fragmentManager.beginTransaction()
+                    .replace(R.id.page_container, fragment)
+                    .commit();
+        }
+    };
 
     @Override
     public void onClick(View v) {

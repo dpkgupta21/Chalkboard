@@ -4,7 +4,9 @@ import static com.chalkboard.GlobalClaass.hideProgressBar;
 import static com.chalkboard.GlobalClaass.showProgressBar;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -23,6 +25,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -36,7 +39,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.chalkboard.GlobalClaass;
+import com.chalkboard.PreferenceConnector;
 import com.chalkboard.R;
+import com.chalkboard.model.ReadMapIdDTO;
 import com.chalkboard.recruiter.navigationdrawer.TeachersListActivity;
 
 public class TeacherListFragment extends Fragment {
@@ -60,11 +65,15 @@ public class TeacherListFragment extends Fragment {
 
         context = getActivity();
 
-        rootView = inflater.inflate(R.layout.fragment_list, container,
-                false);
+        rootView = inflater.inflate(R.layout.fragment_list, container, false);
 
-        ((ImageView) context.findViewById(R.id.header_right_menu)).
-                setImageResource(R.drawable.filter_icon);
+        ImageView filterIcon = (ImageView) context.findViewById(R.id.header_right_menu);
+        filterIcon.setVisibility(View.VISIBLE);
+        filterIcon.setImageResource(R.drawable.filter_icon);
+        filterIcon.setOnClickListener(filterClick);
+
+//        ((ImageView) context.findViewById(R.id.header_right_menu)).
+//                setImageResource(R.drawable.filter_icon);
 
         edtSearch = (EditText) rootView.findViewById(R.id.search_list);
         edtSearch.setVisibility(View.VISIBLE);
@@ -105,6 +114,14 @@ public class TeacherListFragment extends Fragment {
 
         return rootView;
     }
+
+
+    View.OnClickListener filterClick = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            ((TeachersListActivity) context).getDrawerLayout();
+        }
+    };
 
     @Override
     public void onResume() {
@@ -256,13 +273,30 @@ public class TeacherListFragment extends Fragment {
 //			if(jObject.has("teacher")){
             JSONArray jrr = jObject.getJSONArray("teachers");
 
+            ReadMapIdDTO readMapIdDTO = PreferenceConnector.getObjectFromPref(context,
+                    PreferenceConnector.READ_MAP_ID);
+            Map<String, Boolean> recruiterMap = null;
+            if (readMapIdDTO == null && readMapIdDTO.getRecruiterMapId() == null) {
+                readMapIdDTO = new ReadMapIdDTO();
+                recruiterMap = new HashMap<>();
+            } else {
+                recruiterMap = readMapIdDTO.getRecruiterMapId();
+                if(recruiterMap==null){
+                    recruiterMap = new HashMap<>();
+                }
+            }
             for (int i = 0; i < jrr.length(); i++) {
 
                 JSONObject jobj = jrr.getJSONObject(i);
 
                 TeacherObject itmObj = new TeacherObject();
-
                 itmObj.setId(jobj.getString("id"));
+
+                if (!recruiterMap.containsKey(itmObj.getId())) {
+                    recruiterMap.put(itmObj.getId(), true);
+                }
+
+
                 itmObj.setTeacherAbout(jobj.getString("about"));
 
                 itmObj.setTeacherAge(jobj.getString("age"));
@@ -320,6 +354,9 @@ public class TeacherListFragment extends Fragment {
                 dataList.add(itmObj);
 
             }
+            readMapIdDTO.setRecruiterMapId(recruiterMap);
+            PreferenceConnector.putObjectIntoPref(context, readMapIdDTO,
+                    PreferenceConnector.READ_MAP_ID);
 
 
         } catch (Exception e) {

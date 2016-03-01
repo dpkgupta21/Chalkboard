@@ -239,10 +239,10 @@ public class JobPageFragment extends Fragment {
         String message = "This lets " + jobObject.getJobRecruiterName() +
                 " know you're interested. You'll get a notification if it's a match!";
         new CustomAlert(getActivity(), JobPageFragment.this)
-                .doubleButtonAlertDialog(
+                .circleTransparentDialog(
                         message,
                         getString(R.string.send),
-                        getString(R.string.cancel), "dblBtnCallbackResponse", 1000);
+                        getString(R.string.cancel), jobObject.getJobImage(), "dblBtnCallbackResponse", 1000);
     }
 
     public void dblBtnCallbackResponse(Boolean flag, int code) {
@@ -280,7 +280,12 @@ public class JobPageFragment extends Fragment {
         btn_send_match_request.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                showSendMatchRequestDialog();
+                if (btn_send_match_request.getText().toString().
+                        equalsIgnoreCase(getString(R.string.send_match_request))) {
+                    showSendMatchRequestDialog();
+                } else {
+                    dblBtnCallbackResponse(true, 1001);
+                }
 
             }
         });

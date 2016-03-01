@@ -25,6 +25,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -56,6 +57,8 @@ public class TeacherNotificationFragment extends Fragment {
 
 		lvJobList = (ListView) rootView.findViewById(R.id.list);
 
+		ImageView notifIcon = (ImageView) context.findViewById(R.id.header_right_menu);
+		notifIcon.setVisibility(View.GONE);
 		if(GlobalClaass.isInternetPresent(context)){
 			
 			getJobItem = new GetJobNotificationItem();

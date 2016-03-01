@@ -180,10 +180,9 @@ public class ReceivedFragment extends Fragment implements SwipeMenuListView.OnMe
                         SwipeMenuItem checkItem = new SwipeMenuItem(
                                 getActivity());
                         // set item background
-                        checkItem.setBackground(new ColorDrawable(Color.rgb(0xFF,
-                                0xFF, 0xFF)));
+                        checkItem.setBackground(R.drawable.chat_back);
                         // set item width
-                        checkItem.setWidth(convert_dp_to_px(50));
+                        checkItem.setWidth(150);
                         // set a icon
                         checkItem.setIcon(R.drawable.blue_right_icon);
                         // add to menu
@@ -194,10 +193,9 @@ public class ReceivedFragment extends Fragment implements SwipeMenuListView.OnMe
                         SwipeMenuItem crossItem = new SwipeMenuItem(
                                 getActivity());
                         // set item background
-                        crossItem.setBackground(new ColorDrawable(Color.rgb(0xFF,
-                                0xFF, 0xFF)));
+                        crossItem.setBackground(R.drawable.delete_back);
                         // set item width
-                        crossItem.setWidth(convert_dp_to_px(50));
+                        crossItem.setWidth(150);
                         // set a icon
                         crossItem.setIcon(R.drawable.orange_close_icon);
                         // add to menu
@@ -208,10 +206,9 @@ public class ReceivedFragment extends Fragment implements SwipeMenuListView.OnMe
                         SwipeMenuItem deleteItem = new SwipeMenuItem(
                                 getActivity());
                         // set item background
-                        deleteItem.setBackground(new ColorDrawable(Color.rgb(0xFF,
-                                0xFF, 0xFF)));
+                        deleteItem.setBackground(R.drawable.delete_back);
                         // set item width
-                        deleteItem.setWidth(convert_dp_to_px(50));
+                        deleteItem.setWidth(150);
                         // set a icon
                         deleteItem.setIcon(R.drawable.circle_delete_icon);
                         // add to menu

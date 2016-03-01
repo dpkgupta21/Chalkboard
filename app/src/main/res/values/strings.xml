@@ -33,7 +33,7 @@
     <string name="remove_match_request">Remove Match Request</string>
 
     <string name="match_teacher">Match Teacher</string>
-    <string name="unmatch_teacher">UnMatch Teacher</string>
+    <string name="unmatch_teacher">Unmatch Teacher</string>
 
     <string name="send">Send</string>
     <string name="cancel">Cancel</string>
@@ -95,7 +95,6 @@
         <item>Favorites</item>
         <item>Match Request</item>
         <item>Matches</item>
-        <item>My Notifications</item>
         <item>Posted Jobs</item>
         <item>Inbox</item>
         <item>Help</item>
@@ -112,7 +111,6 @@
         <item>@drawable/favourite_menu</item>
         <item>@drawable/match_menu</item>
         <item>@drawable/match_menu</item>
-        <item>@drawable/notification_menu</item>
         <item>@drawable/posted_job_menu</item>
         <item>@drawable/inbox_menu</item>
         <item>@drawable/help_menu</item>
@@ -127,7 +125,6 @@
         <item>@drawable/favourite_menu_black</item>
         <item>@drawable/match_menu_black</item>
         <item>@drawable/match_menu_black</item>
-        <item>@drawable/notification_menu_black</item>
         <item>@drawable/posted_job_menu_black</item>
         <item>@drawable/inbox_menu_black</item>
         <item>@drawable/help_menu_black</item>

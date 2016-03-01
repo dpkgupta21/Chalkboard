@@ -1,15 +1,20 @@
 package com.chalkboard.customviews;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 
+import com.chalkboard.ImageLoader;
 import com.chalkboard.R;
 
 import java.lang.reflect.Method;
@@ -20,6 +25,7 @@ public class CustomAlert {
     private Context context;
     private Object mObj;
     private AlertDialog alertDialog;
+    private Dialog dialog = null;
 
     public CustomAlert(Context context) {
         this.context = context;
@@ -144,4 +150,70 @@ public class CustomAlert {
             e.printStackTrace();
         }
     }
+
+    public void circleTransparentDialog(String msg, String positiveBtn,
+                                        String negativeBtn, String circleImgUrl,
+                                        final String callbackFunc, final int requestCode) {
+        dialog = new Dialog(context);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.circle_alert_dialog);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+        ImageLoader imageloader = new ImageLoader(context);
+        ImageView img_round = (ImageView) dialog.findViewById(R.id.img_circle);
+        imageloader.DisplayImage(circleImgUrl,
+                img_round);
+        TextView text_msg = (TextView) dialog.findViewById(R.id.doubleBtnAlertMsg);
+        text_msg.setText(msg);
+        Button positive = (Button) dialog.findViewById(R.id.dblBtnAlert_positveBtn);
+        Button negative = (Button) dialog.findViewById(R.id.dblBtnAlert_negativeBtn);
+
+        positive.setText(positiveBtn);
+        negative.setText(negativeBtn);
+
+        positive.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!TextUtils.isEmpty(callbackFunc)) {
+                    try {
+                        Method callbackMethod = mObj.getClass().getMethod(callbackFunc,
+                                Boolean.class, int.class);
+                        callbackMethod.invoke(mObj, true, requestCode);
+                    } catch (NoSuchMethodException ex) {
+                        ex.printStackTrace();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+                if (dialog != null) {
+                    dialog.dismiss();
+                    dialog = null;
+                }
+            }
+        });
+
+        negative.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!TextUtils.isEmpty(callbackFunc)) {
+                    try {
+                        Method callbackMethod = mObj.getClass().getMethod(callbackFunc,
+                                Boolean.class, int.class);
+                        callbackMethod.invoke(mObj, false, requestCode);
+                    } catch (NoSuchMethodException ex) {
+                        ex.printStackTrace();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+                if (dialog != null) {
+                    dialog.dismiss();
+                    dialog = null;
+                }
+            }
+        });
+        dialog.show();
+    }
+
+
 }

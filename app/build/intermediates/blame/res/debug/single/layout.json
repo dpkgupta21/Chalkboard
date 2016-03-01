@@ -516,12 +516,12 @@
         "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/abc_list_menu_item_icon.xml"
     },
     {
-        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/layout/activity_recruiter_profile_edit.xml",
-        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/layout/activity_recruiter_profile_edit.xml"
-    },
-    {
         "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/layout/signup2.xml",
         "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/layout/signup2.xml"
+    },
+    {
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/layout/activity_recruiter_profile_edit.xml",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/layout/activity_recruiter_profile_edit.xml"
     },
     {
         "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/layout/com_facebook_usersettingsfragment.xml",

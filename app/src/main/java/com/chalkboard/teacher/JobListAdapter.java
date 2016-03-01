@@ -20,6 +20,7 @@ import org.apache.http.util.EntityUtils;
 import android.app.Activity;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -30,7 +31,9 @@ import android.widget.TextView;
 
 import com.chalkboard.GlobalClaass;
 import com.chalkboard.ImageLoader;
+import com.chalkboard.PreferenceConnector;
 import com.chalkboard.R;
+import com.chalkboard.model.ReadMapIdDTO;
 
 public class JobListAdapter extends BaseAdapter {
 	
@@ -42,6 +45,8 @@ public class JobListAdapter extends BaseAdapter {
 	public ImageLoader imageloader = null;
 
 	View rootView;
+
+	private ReadMapIdDTO readMapIdDTO;
 	
 	public JobListAdapter(Activity context, List<JobObject> mainDataList, View rootview) {
 
@@ -58,6 +63,9 @@ public class JobListAdapter extends BaseAdapter {
 		inflater = LayoutInflater.from(this.context);
 
 		imageloader = new ImageLoader(this.context);
+
+		readMapIdDTO = PreferenceConnector.getObjectFromPref(context,
+				PreferenceConnector.READ_MAP_ID);
 
 	}
 
@@ -125,6 +133,21 @@ public class JobListAdapter extends BaseAdapter {
 				+ mainDataList.get(position).getJobDate());
 
 		holder.location.setText(mainDataList.get(position).getJobLocation());
+
+		//        Check bold if already read
+		String jobId = mainDataList.get(position).getId();
+		boolean isAlreadyRead = readMapIdDTO.getTeacherMapId().get(jobId);
+
+		if (isAlreadyRead) {
+			holder.name.setTextColor(ContextCompat.getColor(context, R.color.black));
+			holder.location.setTextColor(ContextCompat.getColor(context, R.color.black));
+
+		} else {
+			holder.name.setTextColor(ContextCompat.getColor(context, R.color.dark_grey));
+			holder.location.setTextColor(ContextCompat.getColor(context, R.color.dark_grey));
+
+		}
+
 
 		if (mainDataList.get(position).isJobFavorite()) {
 			//holder.favourite.setImageResource(R.drawable.like_icon);

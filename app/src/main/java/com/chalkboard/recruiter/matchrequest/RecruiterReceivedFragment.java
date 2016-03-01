@@ -149,7 +149,7 @@ public class RecruiterReceivedFragment extends Fragment implements SwipeMenuList
         if (recruiterMatchReceivedDTOList != null && recruiterMatchReceivedDTOList.size() > 0) {
             listviewReceived.setVisibility(View.VISIBLE);
             setViewVisibility(R.id.tv_no_received, view, View.GONE);
-            setViewVisibility(R.id.view_horizontal,view, View.VISIBLE);
+            setViewVisibility(R.id.view_horizontal, view, View.VISIBLE);
             receivedAdapter = new RecruiterReceivedAdapter(getActivity(), recruiterMatchReceivedDTOList);
             createSwipeMenu();
             listviewReceived.setAdapter(receivedAdapter);
@@ -180,12 +180,11 @@ public class RecruiterReceivedFragment extends Fragment implements SwipeMenuList
                         SwipeMenuItem checkItem = new SwipeMenuItem(
                                 getActivity());
                         // set item background
-                        checkItem.setBackground(new ColorDrawable(Color.rgb(0xFF,
-                                0xFF, 0xFF)));
+                        checkItem.setBackground(R.drawable.chat_back);
                         // set item width
-                        checkItem.setWidth(convert_dp_to_px(50));
+                        checkItem.setWidth(150);
                         // set a icon
-                        checkItem.setBackground(R.drawable.blue_right_icon);
+                        checkItem.setIcon(R.drawable.blue_right_icon);
                         // add to menu
                         menu.addMenuItem(checkItem);
 
@@ -194,12 +193,11 @@ public class RecruiterReceivedFragment extends Fragment implements SwipeMenuList
                         SwipeMenuItem crossItem = new SwipeMenuItem(
                                 getActivity());
                         // set item background
-                        crossItem.setBackground(new ColorDrawable(Color.rgb(0xFF,
-                                0xFF, 0xFF)));
+                        crossItem.setBackground(R.drawable.delete_back);
                         // set item width
-                        crossItem.setWidth(convert_dp_to_px(50));
+                        crossItem.setWidth(150);
                         // set a icon
-                        crossItem.setBackground(R.drawable.orange_close_icon);
+                        crossItem.setIcon(R.drawable.orange_close_icon);
                         // add to menu
                         menu.addMenuItem(crossItem);
                         break;
@@ -208,12 +206,11 @@ public class RecruiterReceivedFragment extends Fragment implements SwipeMenuList
                         SwipeMenuItem deleteItem = new SwipeMenuItem(
                                 getActivity());
                         // set item background
-                        deleteItem.setBackground(new ColorDrawable(Color.rgb(0xFF,
-                                0xFF, 0xFF)));
+                        deleteItem.setBackground(R.drawable.delete_back);
                         // set item width
-                        deleteItem.setWidth(convert_dp_to_px(50));
+                        deleteItem.setWidth(150);
                         // set a icon
-                        deleteItem.setBackground(R.drawable.circle_delete_icon);
+                        deleteItem.setIcon(R.drawable.circle_delete_icon);
                         // add to menu
                         menu.addMenuItem(deleteItem);
                         break;
@@ -286,8 +283,10 @@ public class RecruiterReceivedFragment extends Fragment implements SwipeMenuList
                                 if (Utils.getWebServiceStatus(response)) {
 
                                     // call send message activity
-                                    if (response.getString("data").equalsIgnoreCase("Successfully accepted.") && status == 1) {
-
+                                    if (response.getString("data").equalsIgnoreCase("Successfully accepted.")
+                                            && status == 1) {
+                                        CustomProgressDialog.hideProgressDialog();
+                                        getMatchRequestList();
 //                                        startActivity(new Intent(getActivity().getApplicationContext(),
 //                                                TeacherChatBoardActivity.class).putExtra("id",
 //                                                recruiterMatchReceivedDTOList.get(position).getRecruiter_id()).

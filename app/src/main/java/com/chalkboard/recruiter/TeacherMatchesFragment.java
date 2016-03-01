@@ -24,6 +24,7 @@ import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -66,6 +67,10 @@ public class TeacherMatchesFragment extends Fragment {
         rootView = inflater.inflate(R.layout.swipe_list, container,
                 false);
 
+        ImageView notifIcon = (ImageView) context.findViewById(R.id.header_right_menu);
+        notifIcon.setVisibility(View.VISIBLE);
+        notifIcon.setImageResource(R.drawable.notification_menu);
+        notifIcon.setOnClickListener(notificationClick);
 
         lvTeacherList = (SwipeMenuListView) rootView.findViewById(R.id.list);
 
@@ -137,6 +142,21 @@ public class TeacherMatchesFragment extends Fragment {
         return rootView;
     }
 
+    View.OnClickListener notificationClick = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            ((ImageView) (context.findViewById(R.id.header_logo)))
+                    .setVisibility(View.GONE);
+
+            ((TextView) (context.findViewById(R.id.header_text))).setText("My Notifications");
+
+            TeacherNotificationFragment fragment = new TeacherNotificationFragment();
+            FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+            fragmentManager.beginTransaction()
+                    .replace(R.id.page_container, fragment)
+                    .commit();
+        }
+    };
 
     void executeTask() {
 
