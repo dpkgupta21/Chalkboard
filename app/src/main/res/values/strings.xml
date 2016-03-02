@@ -38,7 +38,8 @@
     <string name="send">Send</string>
     <string name="cancel">Cancel</string>
 
-
+    <string name="ok">Ok</string>
+    <string name="dismiss">Dismiss</string>
     <!-- Match Request-->
 
     <string name="received">Received</string>

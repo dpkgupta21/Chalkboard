@@ -2,7 +2,6 @@ package com.chalkboard.recruiter.navigationdrawer.adapter;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -73,31 +72,38 @@ public class RecruiterNavDrawerListAdapter extends BaseAdapter {
         if (((ListView) parent).isItemChecked(position)) {
             holder.img_menu_icon.setImageResource(navDrawerItems.get(position).getSelectIcon());
             holder.txt_menu_title.setTextColor(context.getResources().getColor(android.R.color.black));
+            holder.txt_unread_projects.setTextColor(context.getResources().getColor(android.R.color.black));
         } else {
             holder.img_menu_icon.setImageResource(navDrawerItems.get(position).getIcon());
             holder.txt_menu_title.setTextColor(context.getResources().getColor(android.R.color.white));
+            holder.txt_unread_projects.setTextColor(context.getResources().getColor(android.R.color.white));
         }
 
         if (menuCountDTO != null) {
             if (position == 1) {
+                holder.txt_unread_projects.setVisibility(View.VISIBLE);
                 holder.txt_unread_projects.setText("" +
-                        (menuCountDTO.getCredits() != 0 ? "" : menuCountDTO.getCredits()));
+                        (menuCountDTO.getCredits() == 0 ? "" : menuCountDTO.getCredits()));
             } else if (position == 4) {
+                holder.txt_unread_projects.setVisibility(View.VISIBLE);
                 holder.txt_unread_projects.setText("" +
-                        (menuCountDTO.getCredits() != 0 ? "" : menuCountDTO.getMatchRequestCount()));
+                        (menuCountDTO.getMatchRequestCount() == 0 ? "" :
+                                menuCountDTO.getMatchRequestCount()));
             } else if (position == 5) {
+                holder.txt_unread_projects.setVisibility(View.VISIBLE);
                 holder.txt_unread_projects.setText("" +
-                        (menuCountDTO.getCredits() != 0 ? "" : menuCountDTO.getMatchCount()));
-            } else if (position == 6) {
+                        (menuCountDTO.getMatchCount() == 0 ? "" : menuCountDTO.getMatchCount()));
+            } else if (position == 7) {
+                holder.txt_unread_projects.setVisibility(View.VISIBLE);
                 holder.txt_unread_projects.setText("" +
-                        (menuCountDTO.getCredits() != 0 ? "" : menuCountDTO.getNotification()));
-            } else if (position == 8) {
-                holder.txt_unread_projects.setText("" +
-                        (menuCountDTO.getCredits() != 0 ? "" : menuCountDTO.getMsgcount()));
+                        (menuCountDTO.getMsgcount() == 0 ? "" : menuCountDTO.getMsgcount()));
             } else {
                 holder.txt_unread_projects.setVisibility(View.INVISIBLE);
             }
+        } else {
+            holder.txt_unread_projects.setVisibility(View.INVISIBLE);
         }
+
         holder.txt_menu_title.setText(navDrawerItems.get(position).getTitle());
 
         return mView;

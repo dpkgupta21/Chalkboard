@@ -1,23 +1,16 @@
 package com.chalkboard.recruiter.matchrequest.adapter;
 
 import android.app.Activity;
-import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-
+import com.chalkboard.ImageLoader;
 import com.chalkboard.R;
 import com.chalkboard.model.RecruiterMatchReceivedDTO;
 import com.chalkboard.utility.Utils;
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
-import com.nostra13.universalimageloader.core.assist.ImageScaleType;
-import com.nostra13.universalimageloader.core.display.SimpleBitmapDisplayer;
-
 import java.util.List;
 
 public class RecruiterReceivedAdapter extends BaseAdapter {
@@ -26,24 +19,14 @@ public class RecruiterReceivedAdapter extends BaseAdapter {
     private Activity mActivity;
     private LayoutInflater mLayoutInflater;
     private List<RecruiterMatchReceivedDTO> recruiterMatchReceivedDTOList;
-    private DisplayImageOptions options;
+    private ImageLoader imageLoader;
 
     public RecruiterReceivedAdapter(Activity mActivity,
                                     List<RecruiterMatchReceivedDTO> recruiterMatchReceivedDTOList) {
         this.mActivity = mActivity;
         this.recruiterMatchReceivedDTOList = recruiterMatchReceivedDTOList;
-        ImageLoader.getInstance().init(ImageLoaderConfiguration.createDefault(mActivity));
-        options = new DisplayImageOptions.Builder()
-                .resetViewBeforeLoading(true)
-                .cacheOnDisk(true)
-                .imageScaleType(ImageScaleType.EXACTLY)
-                .bitmapConfig(Bitmap.Config.RGB_565)
-                .considerExifParams(true)
-                .displayer(new SimpleBitmapDisplayer())
-                .showImageOnLoading(R.drawable.unactive_circle)
-                .showImageOnFail(R.drawable.unactive_circle)
-                .showImageForEmptyUri(R.drawable.unactive_circle)
-                .build();
+        imageLoader = new ImageLoader(mActivity);
+
         try {
             mLayoutInflater = (LayoutInflater) mActivity
                     .getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
@@ -99,9 +82,8 @@ public class RecruiterReceivedAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        ImageLoader.getInstance().displayImage(recruiterMatchReceivedDTO.getImage(), holder.circleImage,
-                options);
-
+        imageLoader.DisplayImage(recruiterMatchReceivedDTO.getImage(),
+                holder.circleImage);
         holder.txtTeacherName.setText(recruiterMatchReceivedDTO.getName());
         holder.txtTeacherLocation.setText(Utils.formatCityCountry(recruiterMatchReceivedDTO.getCity()
                 , recruiterMatchReceivedDTO.getCountry()));

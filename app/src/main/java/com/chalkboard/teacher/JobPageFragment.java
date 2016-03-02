@@ -18,8 +18,10 @@ import android.widget.TextView;
 import com.chalkboard.GlobalClaass;
 import com.chalkboard.ImageLoader;
 import com.chalkboard.ImageLoader11;
+import com.chalkboard.PreferenceConnector;
 import com.chalkboard.R;
 import com.chalkboard.customviews.CustomAlert;
+import com.chalkboard.model.ReadMapIdDTO;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -69,10 +71,16 @@ public class JobPageFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         setRetainInstance(true);
-
+        context = getActivity();
         jobObject = (JobObject) getArguments().getSerializable(JOB_OBJECT);
 
-        context = getActivity();
+        ReadMapIdDTO readMapIdDTO = PreferenceConnector.getObjectFromPref(context,
+                PreferenceConnector.READ_MAP_ID);
+        readMapIdDTO.getTeacherMapId().put(jobObject.getId(), false);
+        PreferenceConnector.putObjectIntoPref(context, readMapIdDTO,
+                PreferenceConnector.READ_MAP_ID);
+
+
         imageloader = new ImageLoader(context);
 //        font = Typeface.createFromAsset(context.getAssets(), "mark.ttf");
 //        font2 = Typeface.createFromAsset(context.getAssets(), "marlbold.ttf");
@@ -241,8 +249,8 @@ public class JobPageFragment extends Fragment {
         new CustomAlert(getActivity(), JobPageFragment.this)
                 .circleTransparentDialog(
                         message,
-                        getString(R.string.send),
-                        getString(R.string.cancel), jobObject.getJobImage(), "dblBtnCallbackResponse", 1000);
+                        getString(R.string.cancel),
+                        getString(R.string.send), jobObject.getJobImage(), "dblBtnCallbackResponse", 1000);
     }
 
     public void dblBtnCallbackResponse(Boolean flag, int code) {

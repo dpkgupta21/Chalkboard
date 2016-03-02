@@ -9,14 +9,10 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.chalkboard.ImageLoader;
 import com.chalkboard.R;
 import com.chalkboard.model.MatchReceivedDTO;
-import com.chalkboard.model.MatchReceivedDTO;
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
-import com.nostra13.universalimageloader.core.assist.ImageScaleType;
-import com.nostra13.universalimageloader.core.display.SimpleBitmapDisplayer;
+
 
 import java.util.List;
 
@@ -26,23 +22,12 @@ public class ReceivedAdapter extends BaseAdapter {
     private Activity mActivity;
     private LayoutInflater mLayoutInflater;
     private List<MatchReceivedDTO> matchReceivedDTOList;
-    private DisplayImageOptions options;
+    private ImageLoader imageLoader;
 
     public ReceivedAdapter(Activity mActivity, List<MatchReceivedDTO> matchReceivedDTOList) {
         this.mActivity = mActivity;
         this.matchReceivedDTOList = matchReceivedDTOList;
-        ImageLoader.getInstance().init(ImageLoaderConfiguration.createDefault(mActivity));
-        options = new DisplayImageOptions.Builder()
-                .resetViewBeforeLoading(true)
-                .cacheOnDisk(true)
-                .imageScaleType(ImageScaleType.EXACTLY)
-                .bitmapConfig(Bitmap.Config.RGB_565)
-                .considerExifParams(true)
-                .displayer(new SimpleBitmapDisplayer())
-                .showImageOnLoading(R.drawable.unactive_circle)
-                .showImageOnFail(R.drawable.unactive_circle)
-                .showImageForEmptyUri(R.drawable.unactive_circle)
-                .build();
+        imageLoader = new ImageLoader(mActivity);
         try {
             mLayoutInflater = (LayoutInflater) mActivity
                     .getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
@@ -98,9 +83,9 @@ public class ReceivedAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        ImageLoader.getInstance().displayImage(matchReceivedDTO.getImage(), holder.circleImage,
-                options);
 
+        imageLoader.DisplayImage(matchReceivedDTO.getImage(),
+                holder.circleImage);
         holder.txtCityCountry.setText(matchReceivedDTO.getCity()+", "+matchReceivedDTO.getCountry());
         holder.txtName.setText(matchReceivedDTO.getName());
         holder.txtDate.setText(matchReceivedDTO.getMatch_date());

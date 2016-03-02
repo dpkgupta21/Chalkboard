@@ -9,13 +9,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.chalkboard.ImageLoader;
 import com.chalkboard.R;
 import com.chalkboard.model.MatchSentDTO;
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
-import com.nostra13.universalimageloader.core.assist.ImageScaleType;
-import com.nostra13.universalimageloader.core.display.SimpleBitmapDisplayer;
 
 import java.util.List;
 
@@ -25,26 +21,13 @@ public class SentAdapter extends RecyclerView.Adapter<SentAdapter.DetailsViewHol
 
     private Context context;
     private List<MatchSentDTO> matchSentDTOList;
-    private DisplayImageOptions options;
+    private ImageLoader imageLoader;
 
     public SentAdapter(Context context, List<MatchSentDTO> matchSentDTOList) {
 
         this.context = context;
         this.matchSentDTOList = matchSentDTOList;
-        ImageLoader.getInstance().init(ImageLoaderConfiguration.createDefault(context));
-        options = new DisplayImageOptions.Builder()
-                .resetViewBeforeLoading(true)
-                .cacheOnDisk(true)
-                .imageScaleType(ImageScaleType.EXACTLY)
-                .bitmapConfig(Bitmap.Config.RGB_565)
-                .considerExifParams(true)
-                .displayer(new SimpleBitmapDisplayer())
-                .showImageOnLoading(R.drawable.unactive_circle)
-                .showImageOnFail(R.drawable.unactive_circle)
-                .showImageForEmptyUri(R.drawable.unactive_circle)
-                .build();
-
-
+        imageLoader = new ImageLoader(context);
     }
 
     @Override
@@ -59,9 +42,8 @@ public class SentAdapter extends RecyclerView.Adapter<SentAdapter.DetailsViewHol
     @Override
     public void onBindViewHolder(DetailsViewHolder detailsViewHolder, int position) {
 
-        ImageLoader.getInstance().displayImage(matchSentDTOList.get(position).getImage(),
-                detailsViewHolder.circleImage,
-                options);
+        imageLoader.DisplayImage(matchSentDTOList.get(position).getImage(),
+                detailsViewHolder.circleImage);
         detailsViewHolder.txtTitle.setText(matchSentDTOList.get(position).getTitle());
         detailsViewHolder.txtCountry.setText(matchSentDTOList.get(position).getCity() + ", " +
                 matchSentDTOList.get(position).getCountry());

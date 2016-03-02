@@ -1,7 +1,6 @@
 package com.chalkboard.recruiter.matchrequest.adapter;
 
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,14 +8,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.chalkboard.ImageLoader;
 import com.chalkboard.R;
 import com.chalkboard.model.RecruiterMatchSentDTO;
 import com.chalkboard.utility.Utils;
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
-import com.nostra13.universalimageloader.core.assist.ImageScaleType;
-import com.nostra13.universalimageloader.core.display.SimpleBitmapDisplayer;
 
 import java.util.List;
 
@@ -26,26 +21,13 @@ public class RecruiterSentAdapter extends RecyclerView.Adapter<RecruiterSentAdap
 
     private Context context;
     private List<RecruiterMatchSentDTO> matchSentDTOList;
-    private DisplayImageOptions options;
+    private ImageLoader imageLoader;
 
     public RecruiterSentAdapter(Context context, List<RecruiterMatchSentDTO> matchSentDTOList) {
 
         this.context = context;
         this.matchSentDTOList = matchSentDTOList;
-        ImageLoader.getInstance().init(ImageLoaderConfiguration.createDefault(context));
-        options = new DisplayImageOptions.Builder()
-                .resetViewBeforeLoading(true)
-                .cacheOnDisk(true)
-                .imageScaleType(ImageScaleType.EXACTLY)
-                .bitmapConfig(Bitmap.Config.RGB_565)
-                .considerExifParams(true)
-                .displayer(new SimpleBitmapDisplayer())
-                .showImageOnLoading(R.drawable.unactive_circle)
-                .showImageOnFail(R.drawable.unactive_circle)
-                .showImageForEmptyUri(R.drawable.unactive_circle)
-                .build();
-
-
+        imageLoader = new ImageLoader(this.context);
     }
 
     @Override
@@ -60,9 +42,9 @@ public class RecruiterSentAdapter extends RecyclerView.Adapter<RecruiterSentAdap
     @Override
     public void onBindViewHolder(DetailsViewHolder detailsViewHolder, int position) {
 
-        ImageLoader.getInstance().displayImage(matchSentDTOList.get(position).getImage(),
-                detailsViewHolder.circleImage,
-                options);
+
+        imageLoader.DisplayImage(matchSentDTOList.get(position).getImage(),
+                detailsViewHolder.circleImage);
         detailsViewHolder.txtTeacherName.setText(matchSentDTOList.get(position).getName());
         detailsViewHolder.txtTeacherAge.setText(matchSentDTOList.get(position).getAge());
         detailsViewHolder.txtTeacherGender.setText(matchSentDTOList.get(position).getGender());

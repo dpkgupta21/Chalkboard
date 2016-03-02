@@ -13,6 +13,8 @@ import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -37,9 +39,10 @@ import com.chalkboard.GlobalClaass;
 import com.chalkboard.ImageLoader;
 import com.chalkboard.ImageLoader11;
 import com.chalkboard.Login_Activity;
-import com.chalkboard.PreferenceConnector;
 import com.chalkboard.R;
 import com.chalkboard.Setting_Activity;
+import com.chalkboard.menucount.MenuCountHandler;
+import com.chalkboard.model.MenuCountDTO;
 import com.chalkboard.teacher.JobFavoriteFragment;
 import com.chalkboard.teacher.JobInboxFragment;
 import com.chalkboard.teacher.JobListFragment;
@@ -48,6 +51,7 @@ import com.chalkboard.teacher.JobNotificationFragment;
 import com.chalkboard.teacher.TeacherProfileViewActivity;
 import com.chalkboard.teacher.matchrequest.MatchRequestFragment;
 import com.chalkboard.teacher.navigationdrawer.adapter.NavDrawerListAdapter;
+import com.chalkboard.utility.Utils;
 import com.facebook.Session;
 import com.facebook.SessionLoginBehavior;
 import com.facebook.SessionState;
@@ -60,6 +64,7 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
 import com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListener;
 import com.google.android.gms.plus.Plus;
+import com.google.gson.Gson;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -70,9 +75,9 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
-import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -98,7 +103,9 @@ public class JobListActivity extends FragmentActivity implements ConnectionCallb
     private SharedPreferences mPrefs;
     String access_token;
     Boolean Connectiontimeout = false;
-
+    private final MenuHandler myHandler =
+            new MenuHandler(JobListActivity.this);
+    private MenuCountDTO menuDTO;
     //G+
 
     private static final int RC_SIGN_IN = 0;
@@ -641,6 +648,10 @@ public class JobListActivity extends FragmentActivity implements ConnectionCallb
             Fragment fragment = null;
             FragmentManager fragmentManager = null;
 
+            // Call Menu count
+            new Thread(new MenuCountHandler(myHandler,
+                    JobListActivity.this)).start();
+
             switch (position) {
                 case 0:
                     findViewById(R.id.bottom_bar).setVisibility(View.VISIBLE);
@@ -1057,6 +1068,7 @@ public class JobListActivity extends FragmentActivity implements ConnectionCallb
 
     }
 
+
     @Override
     protected void onResume() {
         // TODO Auto-generated method stub
@@ -1068,6 +1080,25 @@ public class JobListActivity extends FragmentActivity implements ConnectionCallb
 
     }
 
+
+    public static class MenuHandler extends Handler {
+
+
+        public final WeakReference<JobListActivity> mActivity;
+
+        MenuHandler(JobListActivity activity) {
+            mActivity = new WeakReference<JobListActivity>(activity);
+        }
+
+        @Override
+        public void handleMessage(Message msg) {
+            Utils.ShowLog("TAG", "handleMessage in MenuHandler");
+            JobListActivity activity = mActivity.get();
+            activity.menuDTO = ((MenuCountDTO) msg.obj);
+            activity.adapter.setMenuDTO(activity.menuDTO);
+            activity.adapter.notifyDataSetChanged();
+        }
+    }
 
     public class GetCount extends AsyncTask<String, String, String> {
 
@@ -1121,51 +1152,16 @@ public class JobListActivity extends FragmentActivity implements ConnectionCallb
 
 
         protected void onPostExecute(String responseString) {
-            JSONObject jObject, Jobj;
-            JSONArray jarray;
-
-            String get_replycode = "", get_message = "", noticount = "", messagecount = "", creditcount = "";
-
             try {
+                MenuCountDTO menuDTO = new Gson().fromJson(responseString, MenuCountDTO.class);
 
-                jObject = new JSONObject(responseString);
-                get_replycode = jObject.getString("status").trim();
-                get_message = jObject.getString("message").trim();
-                noticount = jObject.getString("notification").trim();
-                messagecount = jObject.getString("msgcount").trim();
-                creditcount = jObject.getString("credits").trim();
-                Log.e("Count show", messagecount + "  " + noticount);
-
-
-                if (noticount != null && !noticount.equalsIgnoreCase("") && !noticount.equalsIgnoreCase("0")) {
-                    adapter.setNotificationCount(Integer.parseInt(noticount));
-                    adapter.notifyDataSetChanged();
-                }
-
-
-                if (messagecount != null && !messagecount.equalsIgnoreCase("")) {
-
-                    GlobalClaass.savePrefrencesfor(context, PreferenceConnector.Header_Count, messagecount);
-
-                    if (messagecount.length() == 1) {
-                        //top_header_count.setText("  " + messagecount);
-                    }
-                    if (messagecount.length() == 2) {
-                        //top_header_count.setText(" " + messagecount);
-                    } else {
-                        //top_header_count.setText(messagecount);
-                    }
-
-
-                } else {
-                    //top_header_count.setVisibility(View.GONE);
-                }
+                adapter.setMenuDTO(menuDTO);
+                adapter.notifyDataSetChanged();
 
 
             } catch (Exception e) {
-
+                e.printStackTrace();
             }
-
 
             GlobalClaass.hideProgressBar(context);
 

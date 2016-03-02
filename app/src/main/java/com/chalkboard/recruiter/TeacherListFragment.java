@@ -276,7 +276,7 @@ public class TeacherListFragment extends Fragment {
             ReadMapIdDTO readMapIdDTO = PreferenceConnector.getObjectFromPref(context,
                     PreferenceConnector.READ_MAP_ID);
             Map<String, Boolean> recruiterMap = null;
-            if (readMapIdDTO == null && readMapIdDTO.getRecruiterMapId() == null) {
+            if (readMapIdDTO == null ) {
                 readMapIdDTO = new ReadMapIdDTO();
                 recruiterMap = new HashMap<>();
             } else {

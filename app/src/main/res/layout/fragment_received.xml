@@ -21,10 +21,5 @@
         android:textStyle="normal"
         android:visibility="gone" />
 
-    <View
-        android:id="@+id/view_horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:layout_marginTop="@dimen/margin_5dp"
-        android:background="@color/grey" />
+
 </LinearLayout>

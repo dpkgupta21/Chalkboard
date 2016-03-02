@@ -12,8 +12,6 @@ public class MenuCountDTO implements Serializable {
     public int matchCount;
     public int notification;
     public int msgcount;
-    public String message;
-    public boolean status;
 
     public int getCredits() {
         return credits;
@@ -55,19 +53,4 @@ public class MenuCountDTO implements Serializable {
         this.msgcount = msgcount;
     }
 
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public boolean isStatus() {
-        return status;
-    }
-
-    public void setStatus(boolean status) {
-        this.status = status;
-    }
 }

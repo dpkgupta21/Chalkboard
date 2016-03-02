@@ -1,6 +1,7 @@
 package com.chalkboard.recruiter.matchrequest;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -22,9 +23,11 @@ import com.baoyz.swipemenulistview.SwipeMenuItem;
 import com.baoyz.swipemenulistview.SwipeMenuListView;
 import com.chalkboard.GlobalClaass;
 import com.chalkboard.R;
+import com.chalkboard.customviews.CustomAlert;
 import com.chalkboard.customviews.CustomProgressDialog;
 import com.chalkboard.model.RecruiterMatchReceivedDTO;
 import com.chalkboard.recruiter.matchrequest.adapter.RecruiterReceivedAdapter;
+import com.chalkboard.teacher.TeacherChatBoardActivity;
 import com.chalkboard.utility.Utils;
 import com.chalkboard.webservice.WebserviceConstant;
 import com.google.gson.Gson;
@@ -113,6 +116,7 @@ public class RecruiterReceivedFragment extends Fragment implements SwipeMenuList
                                             fromJson(response.getJSONArray("data").toString(), type);
                                     setReceivedValues();
                                 } else {
+                                    recruiterMatchReceivedDTOList = null;
                                     setReceivedValues();
                                 }
 
@@ -149,7 +153,6 @@ public class RecruiterReceivedFragment extends Fragment implements SwipeMenuList
         if (recruiterMatchReceivedDTOList != null && recruiterMatchReceivedDTOList.size() > 0) {
             listviewReceived.setVisibility(View.VISIBLE);
             setViewVisibility(R.id.tv_no_received, view, View.GONE);
-            setViewVisibility(R.id.view_horizontal, view, View.VISIBLE);
             receivedAdapter = new RecruiterReceivedAdapter(getActivity(), recruiterMatchReceivedDTOList);
             createSwipeMenu();
             listviewReceived.setAdapter(receivedAdapter);
@@ -157,7 +160,6 @@ public class RecruiterReceivedFragment extends Fragment implements SwipeMenuList
         } else {
             listviewReceived.setVisibility(View.GONE);
             setViewVisibility(R.id.tv_no_received, view, View.VISIBLE);
-            setViewVisibility(R.id.view_horizontal, view, View.GONE);
         }
 
     }
@@ -281,17 +283,30 @@ public class RecruiterReceivedFragment extends Fragment implements SwipeMenuList
                             try {
                                 Utils.ShowLog(TAG, "got some response = " + response.toString());
                                 if (Utils.getWebServiceStatus(response)) {
-
+                                    CustomProgressDialog.hideProgressDialog();
                                     // call send message activity
-                                    if (response.getString("data").equalsIgnoreCase("Successfully accepted.")) {
-                                        CustomProgressDialog.hideProgressDialog();
-                                        getMatchRequestList();
+                                    if (response.getString("data").
+                                            equalsIgnoreCase("Successfully accepted.")) {
+
+                                        //getMatchRequestList();
+
+                                        Intent intent = new Intent(mActivity,
+                                                TeacherChatBoardActivity.class);
+                                        intent.putExtra("id", recruiterMatchReceivedDTOList.get(position).getId());
+                                        intent.putExtra("name",
+                                                recruiterMatchReceivedDTOList.get(position).getName());
+                                        intent.putExtra("isAfterMatch",true);
+                                        startActivity(intent);
 //                                        startActivity(new Intent(getActivity().getApplicationContext(),
 //                                                TeacherChatBoardActivity.class).putExtra("id",
 //                                                recruiterMatchReceivedDTOList.get(position).getRecruiter_id()).
 //                                                putExtra("name",
 //                                                        recruiterMatchReceivedDTOList.get(position).getName()));
 
+                                    } else if (response.getString("data").
+                                            equalsIgnoreCase("Successfully removed.")) {
+
+                                        showAfterMatchRejectDialog();
                                     }
 
                                 } else {
@@ -321,6 +336,23 @@ public class RecruiterReceivedFragment extends Fragment implements SwipeMenuList
             Utils.showNoNetworkDialog(getActivity());
         }
 
+
+    }
+
+    private void showAfterMatchRejectDialog() {
+        String message = "Some recruiters have multiple jobs that aren't shown in their listing. Are you "
+                + "sure you want to dismiss this one?";
+        new CustomAlert(mActivity, RecruiterReceivedFragment.this).doubleButtonAlertDialog(
+                message,
+                getString(R.string.cancel),
+                getString(R.string.dismiss), "dblBtnCallbackResponse", 1000);
+        ;
+    }
+
+    public void dblBtnCallbackResponse(Boolean flag, int code) {
+        if (flag) {
+            getMatchRequestList();
+        }
 
     }
 

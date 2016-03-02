@@ -5,10 +5,6 @@
     android:orientation="vertical"
     tools:context="com.app.traphoria.alert.MessageFragment">
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/grey" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_sent"

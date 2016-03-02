@@ -23,7 +23,9 @@ import com.baoyz.swipemenulistview.SwipeMenuItem;
 import com.baoyz.swipemenulistview.SwipeMenuListView;
 import com.chalkboard.GlobalClaass;
 import com.chalkboard.R;
+import com.chalkboard.customviews.CustomAlert;
 import com.chalkboard.customviews.CustomProgressDialog;
+import com.chalkboard.teacher.JobPageFragment;
 import com.chalkboard.teacher.TeacherChatBoardActivity;
 import com.chalkboard.teacher.matchrequest.adapter.ReceivedAdapter;
 import com.chalkboard.model.MatchReceivedDTO;
@@ -114,6 +116,7 @@ public class ReceivedFragment extends Fragment implements SwipeMenuListView.OnMe
                                     matchReceivedDTOList = new Gson().fromJson(response.getJSONArray("data").toString(), type);
                                     setReceivedValues();
                                 } else {
+                                    matchReceivedDTOList = null;
                                     setReceivedValues();
                                 }
 
@@ -270,8 +273,6 @@ public class ReceivedFragment extends Fragment implements SwipeMenuListView.OnMe
             }
 
             params.put("match_id", matchReceivedDTOList.get(position).getId());
-            params.put("status", "" + status);
-            params.put("message", "");
 
             CustomProgressDialog.showProgDialog(getActivity(), null);
             CustomJsonRequest postReq = new CustomJsonRequest(Request.Method.POST,
@@ -286,22 +287,37 @@ public class ReceivedFragment extends Fragment implements SwipeMenuListView.OnMe
                                     // call send message activity
                                     if (response.getString("data").equalsIgnoreCase("Successfully accepted.")) {
 
-                                        getMatchRequestList();
-//                                        startActivity(new Intent(getActivity().getApplicationContext(),
+
+                                        Intent intent = new Intent(mActivity,
+                                                TeacherChatBoardActivity.class);
+                                        intent.putExtra("id",
+                                                matchReceivedDTOList.get(position).getRecruiter_id());
+                                        intent.putExtra("name",
+                                                matchReceivedDTOList.get(position).getName());
+                                        intent.putExtra("isAfterMatch", true);
+                                        startActivity(intent);
+                                    } else if (response.getString("data").equalsIgnoreCase("Successfully removed.")) {
+                                        showAfterMatchRejectDialog();
+                                    }
+// startActivity(new Intent(getActivity().getApplicationContext(),
 //                                                TeacherChatBoardActivity.class).putExtra("id",
 //                                                matchReceivedDTOList.get(position).getRecruiter_id()).
 //                                                putExtra("name",
 //                                                        matchReceivedDTOList.get(position).getName()));
 
-                                    }
 
                                 } else {
                                     CustomProgressDialog.hideProgressDialog();
                                     Utils.showDialog(getActivity(), "Error", Utils.getWebServiceMessage(response));
                                 }
-                            } catch (Exception e) {
+                            } catch (
+                                    Exception e
+                                    )
+
+                            {
                                 e.printStackTrace();
                             }
+
                             CustomProgressDialog.hideProgressDialog();
                         }
                     }, new Response.ErrorListener() {
@@ -318,13 +334,32 @@ public class ReceivedFragment extends Fragment implements SwipeMenuListView.OnMe
                     30000, 0,
                     DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
             CustomProgressDialog.showProgDialog(getActivity(), null);
-        } else {
+        } else
+
+        {
             Utils.showNoNetworkDialog(getActivity());
         }
 
 
     }
 
+
+    private void showAfterMatchRejectDialog() {
+        String message = "Some recruiters have multiple jobs that aren't shown in their listing. Are you "
+                + "sure you want to dismiss this one?";
+        new CustomAlert(mActivity, ReceivedFragment.this).doubleButtonAlertDialog(
+                message,
+                getString(R.string.cancel),
+                getString(R.string.dismiss), "dblBtnCallbackResponse", 1000);
+        ;
+    }
+
+    public void dblBtnCallbackResponse(Boolean flag, int code) {
+        if (flag) {
+            getMatchRequestList();
+        }
+
+    }
 
 //    private void showLogOutDialog() {
 //        new CustomAlert(getActivity())

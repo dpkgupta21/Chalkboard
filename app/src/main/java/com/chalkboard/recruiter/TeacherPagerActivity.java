@@ -150,6 +150,11 @@ public class TeacherPagerActivity extends FragmentActivity {
 
         @Override
         public Fragment getItem(int pos) {
+            ReadMapIdDTO readMapIdDTO = PreferenceConnector.getObjectFromPref(mActivity,
+                    PreferenceConnector.READ_MAP_ID);
+            readMapIdDTO.getRecruiterMapId().put(dataList.get(position).getId(), false);
+            PreferenceConnector.putObjectIntoPref(mActivity, readMapIdDTO,
+                    PreferenceConnector.READ_MAP_ID);
 
             return TeacherPageFragment
                     .newInstance(dataList.get(pos));

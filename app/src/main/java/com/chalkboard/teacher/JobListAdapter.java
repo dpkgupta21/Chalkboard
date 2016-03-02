@@ -140,11 +140,9 @@ public class JobListAdapter extends BaseAdapter {
 
 		if (isAlreadyRead) {
 			holder.name.setTextColor(ContextCompat.getColor(context, R.color.black));
-			holder.location.setTextColor(ContextCompat.getColor(context, R.color.black));
 
 		} else {
 			holder.name.setTextColor(ContextCompat.getColor(context, R.color.dark_grey));
-			holder.location.setTextColor(ContextCompat.getColor(context, R.color.dark_grey));
 
 		}
 

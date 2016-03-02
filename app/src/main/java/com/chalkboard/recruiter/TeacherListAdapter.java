@@ -178,18 +178,14 @@ public class TeacherListAdapter extends BaseAdapter {
 
         holder.location.setText(location);
 
-//        Check bold if already read
+        // Check bold if already read
         String teacherId = mainDataList.get(position).getId();
         boolean isAlreadyRead = readMapIdDTO.getRecruiterMapId().get(teacherId);
 
         if (isAlreadyRead) {
             holder.name.setTextColor(ContextCompat.getColor(context, R.color.black));
-            holder.location.setTextColor(ContextCompat.getColor(context, R.color.black));
-
         } else {
             holder.name.setTextColor(ContextCompat.getColor(context, R.color.dark_grey));
-            holder.location.setTextColor(ContextCompat.getColor(context, R.color.dark_grey));
-
         }
 
         if (mainDataList.get(position).isTeacherFavorite()) {

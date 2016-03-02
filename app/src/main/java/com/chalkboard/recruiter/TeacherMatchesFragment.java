@@ -118,18 +118,6 @@ public class TeacherMatchesFragment extends Fragment {
                 // add to menu
                 menu.addMenuItem(chatItem);
 
-
-                // create "delete" item
-                SwipeMenuItem deleteItem = new SwipeMenuItem(
-                        context);
-                // set item background
-                deleteItem.setBackground(R.drawable.delete_back);
-                // set item width
-                deleteItem.setWidth(150);
-                // set a icon
-                deleteItem.setIcon(R.drawable.delete_slide);
-                // add to menu
-                menu.addMenuItem(deleteItem);
             }
         };
 

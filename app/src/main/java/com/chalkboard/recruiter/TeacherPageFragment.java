@@ -48,6 +48,8 @@ public class TeacherPageFragment extends Fragment {
     View rootView = null;
 
     Activity context = null;
+    TeacherObject teacherObject;
+
 
     //Typeface font,font2;
     public TeacherPageFragment() {
@@ -66,7 +68,6 @@ public class TeacherPageFragment extends Fragment {
         return teacherFragment;
     }
 
-    TeacherObject teacherObject;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -302,8 +303,8 @@ public class TeacherPageFragment extends Fragment {
         new CustomAlert(getActivity(), TeacherPageFragment.this)
                 .circleTransparentDialog(
                         message,
-                        getString(R.string.send),
-                        getString(R.string.cancel), teacherObject.getTeacherImage(),
+                        getString(R.string.cancel),
+                        getString(R.string.send),teacherObject.getTeacherImage(),
                         "dblBtnCallbackResponse", 1000);
     }
 

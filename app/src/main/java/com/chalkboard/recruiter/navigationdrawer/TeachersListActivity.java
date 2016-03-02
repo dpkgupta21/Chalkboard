@@ -13,6 +13,8 @@ import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -50,6 +52,7 @@ import com.chalkboard.R;
 import com.chalkboard.RangeSeekBar;
 import com.chalkboard.RangeSeekBar.OnRangeSeekBarChangeListener;
 import com.chalkboard.Setting_Activity;
+import com.chalkboard.menucount.MenuCountHandler;
 import com.chalkboard.model.MenuCountDTO;
 import com.chalkboard.recruiter.MyPostedJobs;
 import com.chalkboard.recruiter.RecruiterProfileEditActivity;
@@ -63,6 +66,7 @@ import com.chalkboard.recruiter.Teacher_Create_New_Job;
 import com.chalkboard.recruiter.matchrequest.RecruiterMatchRequestFragment;
 import com.chalkboard.recruiter.navigationdrawer.adapter.RecruiterNavDrawerListAdapter;
 import com.chalkboard.teacher.JobObject;
+import com.chalkboard.utility.Utils;
 import com.facebook.Session;
 import com.facebook.SessionLoginBehavior;
 import com.facebook.SessionState;
@@ -88,6 +92,7 @@ import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -124,6 +129,10 @@ public class TeachersListActivity extends FragmentActivity
     private Facebook facebook = new Facebook(APP_ID);
     private AsyncFacebookRunner mAsyncRunner;
     private SharedPreferences mPrefs;
+
+    private final MenuHandler myHandler =
+            new MenuHandler(TeachersListActivity.this);
+    private MenuCountDTO menuDTO;
     //String access_token;
     //Boolean Connectiontimeout = false;
 
@@ -898,7 +907,9 @@ public class TeachersListActivity extends FragmentActivity
             Intent intent = null;
             Fragment fragment = null;
             FragmentManager fragmentManager = null;
-
+            // Call Menu count
+            new Thread(new MenuCountHandler(myHandler,
+                    TeachersListActivity.this)).start();
             switch (position) {
                 case 0:
                     mDrawerLayout.closeDrawer(relative_layout);
@@ -1106,6 +1117,25 @@ public class TeachersListActivity extends FragmentActivity
         }
     };
 
+
+    public static class MenuHandler extends Handler {
+
+
+        public final WeakReference<TeachersListActivity> mActivity;
+
+        MenuHandler(TeachersListActivity activity) {
+            mActivity = new WeakReference<TeachersListActivity>(activity);
+        }
+
+        @Override
+        public void handleMessage(Message msg) {
+            Utils.ShowLog("TAG", "handleMessage in MenuHandler");
+            TeachersListActivity activity = mActivity.get();
+            activity.menuDTO = ((MenuCountDTO) msg.obj);
+            activity.adapter.setMenuCountDTO(activity.menuDTO);
+            activity.adapter.notifyDataSetChanged();
+        }
+    }
 
     private void setProfile() {
         if (GlobalClaass.getImage(context).equalsIgnoreCase("")) {

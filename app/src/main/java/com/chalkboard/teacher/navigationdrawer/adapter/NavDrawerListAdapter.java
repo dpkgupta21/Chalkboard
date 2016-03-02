@@ -12,6 +12,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.chalkboard.R;
+import com.chalkboard.model.MenuCountDTO;
 import com.chalkboard.teacher.navigationdrawer.NavDrawerItem;
 
 import java.util.ArrayList;
@@ -22,6 +23,7 @@ public class NavDrawerListAdapter extends BaseAdapter {
     private Context context;
     private ArrayList<NavDrawerItem> navDrawerItems;
     private int notificationCount;
+    private MenuCountDTO menuDTO;
 
     public NavDrawerListAdapter(Context context,
                                 ArrayList<NavDrawerItem> navDrawerItems) {
@@ -29,10 +31,9 @@ public class NavDrawerListAdapter extends BaseAdapter {
         this.navDrawerItems = navDrawerItems;
     }
 
-    public void setNotificationCount(int notificationCount){
-        this.notificationCount=notificationCount;
+    public void setMenuDTO(MenuCountDTO menuDTO) {
+        this.menuDTO = menuDTO;
     }
-
 
     @Override
     public int getCount() {
@@ -69,20 +70,46 @@ public class NavDrawerListAdapter extends BaseAdapter {
             holder = (ViewHolder) mView.getTag();
         }
 
-        if(((ListView)parent).isItemChecked(position)) {
+        if (((ListView) parent).isItemChecked(position)) {
             holder.img_menu_icon.setImageResource(navDrawerItems.get(position).getSelectIcon());
             holder.txt_menu_title.setTextColor(context.getResources().getColor(android.R.color.black));
-        }else{
+        } else {
             holder.img_menu_icon.setImageResource(navDrawerItems.get(position).getIcon());
             holder.txt_menu_title.setTextColor(context.getResources().getColor(android.R.color.white));
         }
 
-        if(notificationCount!=0){
-            holder.txt_unread_projects.setVisibility(View.VISIBLE);
-            holder.txt_unread_projects.setText(""+notificationCount);
-        }else{
-            holder.txt_unread_projects.setVisibility(View.INVISIBLE);
+        if (menuDTO != null) {
+            if (position == 1) {
+                if (menuDTO.getMsgcount() != 0) {
+                    holder.txt_unread_projects.setVisibility(View.VISIBLE);
+                    holder.txt_unread_projects.setText("" + menuDTO.getMsgcount());
+                } else {
+                    holder.txt_unread_projects.setVisibility(View.INVISIBLE);
+                }
+            } else if (position == 3) {
+                if (menuDTO.getMatchRequestCount() != 0) {
+                    holder.txt_unread_projects.setVisibility(View.VISIBLE);
+                    holder.txt_unread_projects.setText("" + menuDTO.getMatchRequestCount());
+                } else {
+                    holder.txt_unread_projects.setVisibility(View.INVISIBLE);
+                }
+            } else if (position == 4) {
+                if (menuDTO.getMatchCount() != 0) {
+                    holder.txt_unread_projects.setVisibility(View.VISIBLE);
+                    holder.txt_unread_projects.setText("" + menuDTO.getMatchCount());
+                } else {
+                    holder.txt_unread_projects.setVisibility(View.INVISIBLE);
+                }
+            } else {
+                holder.txt_unread_projects.setVisibility(View.INVISIBLE);
+            }
         }
+//        if (notificationCount != 0) {
+//            holder.txt_unread_projects.setVisibility(View.VISIBLE);
+//            holder.txt_unread_projects.setText("" + notificationCount);
+//        } else {
+//            holder.txt_unread_projects.setVisibility(View.INVISIBLE);
+//        }
         holder.txt_unread_projects.setTypeface(Typeface.createFromAsset(context.getAssets(), "fonts/marlbold.ttf"));
         holder.txt_menu_title.setText(navDrawerItems.get(position).getTitle());
 

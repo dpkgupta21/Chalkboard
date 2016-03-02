@@ -14,9 +14,10 @@ public class WebserviceConstant {
     public static String RECRUITER_SENT_REQUEST = "recruiterSentRequest";
     public static String RECRUITER_REJECT_RECEIVED_REQUEST = "recruiterRejectReceived";
     public static String RECRUITER_ACCEPT_RECEIVED_REQUEST = "recruiterAcceptReceived";
+    public static String USER_STATISTICS = "userStatics";
 
-    public static String FAVORITE_REMOVE_LIST = "removeToMatchList";
-    public static String FAVORITE_ADD_LIST = "addToMatchList";
+//    public static String FAVORITE_REMOVE_LIST = "removeToMatchList";
+//    public static String FAVORITE_ADD_LIST = "addToMatchList";
 
 
     public static String MATCHES_JOBS_REQUEST = "matchesJobs";
