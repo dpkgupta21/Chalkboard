@@ -62,29 +62,18 @@ public class TeacherListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         context = getActivity();
-
         rootView = inflater.inflate(R.layout.fragment_list, container, false);
-
         ImageView filterIcon = (ImageView) context.findViewById(R.id.header_right_menu);
         filterIcon.setVisibility(View.VISIBLE);
         filterIcon.setImageResource(R.drawable.filter_icon);
         filterIcon.setOnClickListener(filterClick);
-
 //        ((ImageView) context.findViewById(R.id.header_right_menu)).
 //                setImageResource(R.drawable.filter_icon);
-
         edtSearch = (EditText) rootView.findViewById(R.id.search_list);
         edtSearch.setVisibility(View.VISIBLE);
-
-
         edtSearch.setHint("Search by location or country preference");
-
-
         lvTeacherList = (ListView) rootView.findViewById(R.id.list);
-
-
         edtSearch.addTextChangedListener(new TextWatcher() {
 
             @Override

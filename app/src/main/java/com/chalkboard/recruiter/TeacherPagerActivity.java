@@ -102,6 +102,30 @@ public class TeacherPagerActivity extends FragmentActivity {
 
         teacherPager.setCurrentItem(position);
 
+        teacherPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+
+                ReadMapIdDTO readMapIdDTO = PreferenceConnector.getObjectFromPref(mActivity,
+                        PreferenceConnector.READ_MAP_ID);
+                readMapIdDTO.getRecruiterMapId().put(dataList.get(position).getId(), false);
+                PreferenceConnector.putObjectIntoPref(mActivity, readMapIdDTO,
+                        PreferenceConnector.READ_MAP_ID);
+
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+
     }
 
     private OnClickListener shareClickListener = new OnClickListener() {
@@ -150,11 +174,11 @@ public class TeacherPagerActivity extends FragmentActivity {
 
         @Override
         public Fragment getItem(int pos) {
-            ReadMapIdDTO readMapIdDTO = PreferenceConnector.getObjectFromPref(mActivity,
-                    PreferenceConnector.READ_MAP_ID);
-            readMapIdDTO.getRecruiterMapId().put(dataList.get(position).getId(), false);
-            PreferenceConnector.putObjectIntoPref(mActivity, readMapIdDTO,
-                    PreferenceConnector.READ_MAP_ID);
+//            ReadMapIdDTO readMapIdDTO = PreferenceConnector.getObjectFromPref(mActivity,
+//                    PreferenceConnector.READ_MAP_ID);
+//            readMapIdDTO.getRecruiterMapId().put(dataList.get(pos).getId(), false);
+//            PreferenceConnector.putObjectIntoPref(mActivity, readMapIdDTO,
+//                    PreferenceConnector.READ_MAP_ID);
 
             return TeacherPageFragment
                     .newInstance(dataList.get(pos));
@@ -168,5 +192,11 @@ public class TeacherPagerActivity extends FragmentActivity {
             //return 10;
         }
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
+
 
 }

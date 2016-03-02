@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -21,8 +22,10 @@ import android.widget.TextView;
 import com.chalkboard.GlobalClaass;
 import com.chalkboard.ImageLoader;
 import com.chalkboard.ImageLoader11;
+import com.chalkboard.PreferenceConnector;
 import com.chalkboard.R;
 import com.chalkboard.customviews.CustomAlert;
+import com.chalkboard.model.ReadMapIdDTO;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -84,6 +87,15 @@ public class TeacherPageFragment extends Fragment {
 
         refineUI();
         return rootView;
+    }
+
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+
+
     }
 
     private void refineUI() {
@@ -304,7 +316,7 @@ public class TeacherPageFragment extends Fragment {
                 .circleTransparentDialog(
                         message,
                         getString(R.string.cancel),
-                        getString(R.string.send),teacherObject.getTeacherImage(),
+                        getString(R.string.send), teacherObject.getTeacherImage(),
                         "dblBtnCallbackResponse", 1000);
     }
 
