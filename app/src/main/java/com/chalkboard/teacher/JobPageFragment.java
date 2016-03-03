@@ -74,13 +74,6 @@ public class JobPageFragment extends Fragment {
         context = getActivity();
         jobObject = (JobObject) getArguments().getSerializable(JOB_OBJECT);
 
-        ReadMapIdDTO readMapIdDTO = PreferenceConnector.getObjectFromPref(context,
-                PreferenceConnector.READ_MAP_ID);
-        readMapIdDTO.getTeacherMapId().put(jobObject.getId(), false);
-        PreferenceConnector.putObjectIntoPref(context, readMapIdDTO,
-                PreferenceConnector.READ_MAP_ID);
-
-
         imageloader = new ImageLoader(context);
 //        font = Typeface.createFromAsset(context.getAssets(), "mark.ttf");
 //        font2 = Typeface.createFromAsset(context.getAssets(), "marlbold.ttf");

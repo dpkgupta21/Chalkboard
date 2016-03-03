@@ -84,7 +84,6 @@ public class SentFragment extends Fragment {
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler_sent);
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(llm);
-
         getMatchSentRequestList();
 
     }
@@ -105,7 +104,7 @@ public class SentFragment extends Fragment {
                         public void onResponse(JSONObject response) {
 
                             try {
-                                if(Utils.getWebServiceStatus(response)) {
+                                if (Utils.getWebServiceStatus(response)) {
                                     Utils.ShowLog(TAG, "got some response = " + response.toString());
                                     Type type = new TypeToken<ArrayList<MatchSentDTO>>() {
                                     }.getType();
@@ -133,7 +132,7 @@ public class SentFragment extends Fragment {
                                             fromJson(response.getJSONArray("data").
                                                     toString(), type);
                                     setSentValues(matchSentDTOList);
-                                }else{
+                                } else {
                                     Toast.makeText(getActivity(), "" + response.getString("message").trim(),
                                             Toast.LENGTH_SHORT).show();
                                 }

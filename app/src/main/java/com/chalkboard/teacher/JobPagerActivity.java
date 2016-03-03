@@ -135,6 +135,29 @@ public class JobPagerActivity extends FragmentActivity {
 
         jobPager.setOffscreenPageLimit(20);
 
+        jobPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+
+                ReadMapIdDTO readMapIdDTO = PreferenceConnector.getObjectFromPref(context,
+                        PreferenceConnector.READ_MAP_ID);
+                readMapIdDTO.getTeacherMapId().put(dataList.get(position).getId(), false);
+                PreferenceConnector.putObjectIntoPref(context, readMapIdDTO,
+                        PreferenceConnector.READ_MAP_ID);
+
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
     }
 
     private OnClickListener shareClickListener = new OnClickListener() {

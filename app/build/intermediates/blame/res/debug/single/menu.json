@@ -1,6 +1,10 @@
 [
     {
-        "merged": "F:\\Chalk\\Chalkboard\\app\\build\\intermediates\\res\\merged\\debug\\menu\\main.xml",
-        "source": "F:\\Chalk\\Chalkboard\\app\\src\\main\\res\\menu\\main.xml"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/menu/main.xml",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/menu/main.xml"
+    },
+    {
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/F:\\Chalk\\Chalkboard\\app\\build\\intermediates\\res\\merged\\debug\\menu\\main.xml",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/F:\\Chalk\\Chalkboard\\app\\src\\main\\res\\menu\\main.xml"
     }
 ]
