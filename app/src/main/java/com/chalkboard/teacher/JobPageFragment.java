@@ -200,7 +200,7 @@ public class JobPageFragment extends Fragment {
 
             String get_message = jObject.getString("message").trim();
             String get_replycode = jObject.getString("status").trim();
-
+            jobObject.setJobTitle(jObject.getString("title").trim());
             String salary = jObject.getString("salary").trim();
 
 
@@ -238,7 +238,8 @@ public class JobPageFragment extends Fragment {
 
     private void showSendMatchRequestDialog() {
         String message = "This lets " + jobObject.getJobRecruiterName() +
-                " know you're interested. You'll get a notification if it's a match!";
+                " know your interested in their job. They'll view your profile, and you'll"+
+                " get a notification if it's a match!";
         new CustomAlert(getActivity(), JobPageFragment.this)
                 .circleTransparentDialog(
                         message,

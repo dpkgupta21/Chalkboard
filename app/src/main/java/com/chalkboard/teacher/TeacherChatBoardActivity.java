@@ -173,8 +173,8 @@ public class TeacherChatBoardActivity extends Activity {
     }
 
     private void showSendMatchRequestDialog(String recruiterName) {
-        String message = "Awesome, you've matched with" + recruiterName +
-                "! Say hello to start chatting about the job!";
+        String message = "Awesome, you've matched with " + recruiterName +
+                "! Say hello and introduce yourself to start chatting about the job!";
         new CustomAlert(context, TeacherChatBoardActivity.this)
                 .singleButtonAlertDialog(
                         message,
