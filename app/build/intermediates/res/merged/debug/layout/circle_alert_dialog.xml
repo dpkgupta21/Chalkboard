@@ -34,16 +34,16 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="40dp"
                 android:gravity="bottom"
                 android:orientation="horizontal"
-                android:paddingBottom="10dp"
                 android:weightSum="2">
 
                 <com.chalkboard.customviews.MyButtonViewMarlBold
-                    android:id="@+id/dblBtnAlert_negativeBtn"
+                    android:id="@+id/dblBtnAlert_positveBtn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="5dp"
@@ -55,7 +55,7 @@
                     android:textColor="@color/white" />
 
                 <com.chalkboard.customviews.MyButtonViewMarlBold
-                    android:id="@+id/dblBtnAlert_positveBtn"
+                    android:id="@+id/dblBtnAlert_negativeBtn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"

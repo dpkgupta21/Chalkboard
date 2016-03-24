@@ -183,11 +183,11 @@ public class ReceivedFragment extends Fragment implements SwipeMenuListView.OnMe
                         SwipeMenuItem checkItem = new SwipeMenuItem(
                                 getActivity());
                         // set item background
-                        checkItem.setBackground(R.drawable.chat_back);
+                        checkItem.setBackground(R.drawable.accept_green);
                         // set item width
                         checkItem.setWidth(150);
                         // set a icon
-                        checkItem.setIcon(R.drawable.blue_right_icon);
+                        checkItem.setIcon(R.drawable.accept_icon_text);
                         // add to menu
                         menu.addMenuItem(checkItem);
 
@@ -196,7 +196,7 @@ public class ReceivedFragment extends Fragment implements SwipeMenuListView.OnMe
                         SwipeMenuItem crossItem = new SwipeMenuItem(
                                 getActivity());
                         // set item background
-                        crossItem.setBackground(R.drawable.delete_back);
+                        crossItem.setBackground(R.drawable.orange_decline);
                         // set item width
                         crossItem.setWidth(150);
                         // set a icon

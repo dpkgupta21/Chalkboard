@@ -151,8 +151,8 @@ public class CustomAlert {
         }
     }
 
-    public void circleTransparentDialog(String msg, String positiveBtn,
-                                        String negativeBtn, String circleImgUrl,
+    public void circleTransparentDialog(String msg, String negativeBtn,
+                                        String positiveBtn, String circleImgUrl,
                                         final String callbackFunc, final int requestCode) {
         dialog = new Dialog(context);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);

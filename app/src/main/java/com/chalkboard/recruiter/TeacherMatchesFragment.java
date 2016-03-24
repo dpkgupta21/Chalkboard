@@ -114,7 +114,7 @@ public class TeacherMatchesFragment extends Fragment {
                 // set item width
                 chatItem.setWidth(150);
                 // set a icon
-                chatItem.setIcon(R.drawable.chat_slide);
+                chatItem.setIcon(R.drawable.chat_icon_text);
                 // add to menu
                 menu.addMenuItem(chatItem);
 
