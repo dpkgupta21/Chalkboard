@@ -224,12 +224,12 @@
         "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable/location_black_menu_icon_footer.9.png"
     },
     {
-        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable/com_facebook_logo.png",
-        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/3.23.1/res/drawable/com_facebook_logo.png"
-    },
-    {
         "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable/button_yelloborder.xml",
         "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable/button_yelloborder.xml"
+    },
+    {
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable/com_facebook_logo.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/3.23.1/res/drawable/com_facebook_logo.png"
     },
     {
         "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable/common_signin_btn_icon_light.xml",
