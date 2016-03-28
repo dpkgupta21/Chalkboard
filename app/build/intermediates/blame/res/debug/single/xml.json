@@ -1,6 +1,10 @@
 [
     {
-        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/xml/nav_states.xml",
-        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/xml/nav_states.xml"
+        "merged": "D:\\Android\\Chalkboard\\app\\build\\intermediates\\res\\merged\\debug\\xml\\nav_states.xml",
+        "source": "D:\\Android\\Chalkboard\\app\\src\\main\\res\\xml\\nav_states.xml"
+    },
+    {
+        "merged": "D:\\Users\\DeepakGupta\\Workspace1\\Chalkboard\\app\\build\\intermediates\\res\\merged\\debug\\xml\\nav_states.xml",
+        "source": "D:\\Users\\DeepakGupta\\Workspace1\\Chalkboard\\app\\src\\main\\res\\xml\\nav_states.xml"
     }
 ]

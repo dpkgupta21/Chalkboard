@@ -1,6 +1,10 @@
 [
     {
-        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/menu/main.xml",
-        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/menu/main.xml"
+        "merged": "D:\\Users\\DeepakGupta\\Workspace1\\Chalkboard\\app\\build\\intermediates\\res\\merged\\debug\\menu\\main.xml",
+        "source": "D:\\Users\\DeepakGupta\\Workspace1\\Chalkboard\\app\\src\\main\\res\\menu\\main.xml"
+    },
+    {
+        "merged": "D:\\Android\\Chalkboard\\app\\build\\intermediates\\res\\merged\\debug\\menu\\main.xml",
+        "source": "D:\\Android\\Chalkboard\\app\\src\\main\\res\\menu\\main.xml"
     }
 ]

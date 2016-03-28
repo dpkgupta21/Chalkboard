@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/values-mdpi-v4/values-mdpi-v4.xml",
+        "outputFile": "D:\\Android\\Chalkboard\\app\\build\\intermediates\\res\\merged\\debug\\values-mdpi-v4\\values-mdpi-v4.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,31 @@
                     "endOffset": 114
                 },
                 "from": {
-                    "file": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/3.23.1/res/values-mdpi-v4/values.xml",
+                    "file": "D:\\Android\\Chalkboard\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\3.23.1\\res\\values-mdpi-v4\\values.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 175,
+                        "endColumn": 63,
+                        "endOffset": 234
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "outputFile": "D:\\Users\\DeepakGupta\\Workspace1\\Chalkboard\\app\\build\\intermediates\\res\\merged\\debug\\values-mdpi-v4\\values-mdpi-v4.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 63,
+                    "endOffset": 114
+                },
+                "from": {
+                    "file": "D:\\Users\\DeepakGupta\\Workspace1\\Chalkboard\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\3.23.1\\res\\values-mdpi-v4\\values.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
