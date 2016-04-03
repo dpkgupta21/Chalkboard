@@ -48,6 +48,7 @@ import com.chalkboard.teacher.JobInboxFragment;
 import com.chalkboard.teacher.JobListFragment;
 import com.chalkboard.teacher.JobMatchesFragment;
 import com.chalkboard.teacher.JobNotificationFragment;
+import com.chalkboard.teacher.TeacherProfileEditActivity;
 import com.chalkboard.teacher.TeacherProfileViewActivity;
 import com.chalkboard.teacher.matchrequest.MatchRequestFragment;
 import com.chalkboard.teacher.navigationdrawer.adapter.NavDrawerListAdapter;
@@ -358,7 +359,7 @@ public class JobListActivity extends FragmentActivity implements ConnectionCallb
                     @Override
                     public void onClick(View arg0) {
                         startActivity(new Intent(mActivity,
-                                TeacherProfileViewActivity.class));
+                                TeacherProfileEditActivity.class));
                         GlobalClaass.activitySlideForwardAnimation(mActivity);
                     }
                 });

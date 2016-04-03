@@ -85,6 +85,7 @@ import com.chalkboard.ImageLoader;
 import com.chalkboard.PreferenceConnector;
 import com.chalkboard.R;
 import com.chalkboard.customviews.CustomAlert;
+import com.chalkboard.teacher.navigationdrawer.JobListActivity;
 
 @SuppressLint("NewApi")
 public class TeacherProfileEditActivity extends Activity implements
@@ -294,7 +295,7 @@ public class TeacherProfileEditActivity extends Activity implements
                 startActivity(new Intent(context,
                         TeacherProfileViewActivity.class));
                 GlobalClaass.activitySlideBackAnimation(context);
-                finish();
+
             }
         });
 
@@ -327,9 +328,10 @@ public class TeacherProfileEditActivity extends Activity implements
             public void onClick(View arg0) {
                 // TODO Auto-generated method stub
 
-                new CustomAlert(context, TeacherProfileEditActivity.this).doubleButtonAlertDialog(
-                        "Would you like to save your profile changes?",
-                        "Save", "cancel", "dblBtnCallbackResponse", 1100);
+                dblBtnCallbackResponse(true, 1001);
+//                new CustomAlert(context, TeacherProfileEditActivity.this).doubleButtonAlertDialog(
+//                        "Would you like to save your profile changes?",
+//                        "Save", "cancel", "dblBtnCallbackResponse", 1100);
             }
 
         });
@@ -1354,7 +1356,7 @@ public class TeacherProfileEditActivity extends Activity implements
 					
 					
 				/*	if (!jobj.getString("CountryPreference").equalsIgnoreCase(
-							"null")) {
+                            "null")) {
 						//st_county_pref = jobj.getString("CountryPreference");
 						
 						Log.e("Deepak", jobj.getString("CountryPreference"));
@@ -1397,6 +1399,7 @@ public class TeacherProfileEditActivity extends Activity implements
                             yes.setChecked(true);
                             et_certificatetype.setVisibility(View.VISIBLE);
                             et_certificatetype.setText(jobj.getString("certification_value"));
+                            et_certificatetype.setTag(jobj.getString("certification_type"));
                         } else {
                             GlobalClaass.savePrefrencesfor(context,
                                     PreferenceConnector.RadioValue, "0");
@@ -1574,7 +1577,7 @@ public class TeacherProfileEditActivity extends Activity implements
                     entity.addPart("certification",
                             new StringBody(GlobalClaass.getRadioValue(context)));
                     entity.addPart("certification_type", new StringBody(
-                            st_certificate));
+                            et_certificatetype.getTag().toString() ));
                     entity.addPart("job_start_date", new StringBody(edit_date
                             .getText().toString()));
 
@@ -1775,7 +1778,7 @@ public class TeacherProfileEditActivity extends Activity implements
                     GlobalClaass.showToastMessage(context, get_message);
 
                     startActivity(new Intent(context,
-                            TeacherProfileViewActivity.class));
+                            JobListActivity.class));
                     GlobalClaass.activitySlideBackAnimation(context);
                     finish();
 
@@ -1794,10 +1797,10 @@ public class TeacherProfileEditActivity extends Activity implements
 
     @Override
     public void onBackPressed() {
+        new CustomAlert(context, TeacherProfileEditActivity.this).doubleButtonAlertDialog(
+                "Would you like to save your profile changes?",
+                "Save", "cancel", "dblBtnCallbackResponse", 1100);
 
-        startActivity(new Intent(context, TeacherProfileViewActivity.class));
-        GlobalClaass.activitySlideBackAnimation(context);
-        finish();
     }
 
 }

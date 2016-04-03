@@ -70,6 +70,12 @@ public class TeacherListAdapter extends BaseAdapter {
 
     }
 
+    private void refreshList(){
+        readMapIdDTO = PreferenceConnector.getObjectFromPref(context,
+                PreferenceConnector.READ_MAP_ID);
+        notifyDataSetChanged();
+    }
+
     class ViewHolder {
         protected TextView name;
         protected ImageView image;
@@ -347,6 +353,12 @@ public class TeacherListAdapter extends BaseAdapter {
 
             hideProgressBar(context, rootView);
 
+            ReadMapIdDTO readMapIdDTO = PreferenceConnector.getObjectFromPref(context,
+                    PreferenceConnector.READ_MAP_ID);
+            readMapIdDTO.getRecruiterMapId().put(teacherId, false);
+            PreferenceConnector.putObjectIntoPref(context, readMapIdDTO,
+                    PreferenceConnector.READ_MAP_ID);
+            refreshList();
 
         }
 

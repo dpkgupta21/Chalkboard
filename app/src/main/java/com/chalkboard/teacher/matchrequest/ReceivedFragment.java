@@ -11,6 +11,7 @@ import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Toast;
 
 import com.android.volley.DefaultRetryPolicy;
@@ -29,6 +30,7 @@ import com.chalkboard.teacher.JobPageFragment;
 import com.chalkboard.teacher.TeacherChatBoardActivity;
 import com.chalkboard.teacher.matchrequest.adapter.ReceivedAdapter;
 import com.chalkboard.model.MatchReceivedDTO;
+import com.chalkboard.teacher.navigationdrawer.JobListActivity;
 import com.chalkboard.utility.Utils;
 import com.chalkboard.webservice.WebserviceConstant;
 import com.google.gson.Gson;
@@ -45,7 +47,8 @@ import java.util.List;
 import java.util.Map;
 
 
-public class ReceivedFragment extends Fragment implements SwipeMenuListView.OnMenuItemClickListener {
+public class ReceivedFragment extends Fragment implements SwipeMenuListView.OnMenuItemClickListener,
+        AdapterView.OnItemClickListener {
 
 
     private View view;
@@ -87,6 +90,7 @@ public class ReceivedFragment extends Fragment implements SwipeMenuListView.OnMe
         super.onActivityCreated(savedInstanceState);
         mActivity = getActivity();
         listviewReceived = (SwipeMenuListView) view.findViewById(R.id.listview_received);
+        listviewReceived.setOnItemClickListener(this);
     }
 
     @Override
@@ -359,6 +363,12 @@ public class ReceivedFragment extends Fragment implements SwipeMenuListView.OnMe
             getMatchRequestList();
         }
 
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        mActivity.finish();
+        startActivity(new Intent(mActivity, JobListActivity.class));
     }
 
 //    private void showLogOutDialog() {

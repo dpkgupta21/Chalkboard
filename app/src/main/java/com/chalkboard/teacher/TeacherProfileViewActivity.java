@@ -112,8 +112,7 @@ public class TeacherProfileViewActivity extends Activity {
 			@Override
 			public void onClick(View arg0) {
 				//startActivity(new Intent(context, TeacherProfileEditActivity.class));
-				finish();
-				GlobalClaass.activitySlideForwardAnimation(context);
+				onBackPressed();
 
 			}
 		});
