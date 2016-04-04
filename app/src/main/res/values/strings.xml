@@ -81,7 +81,7 @@
         <item>@drawable/search_menublackk</item>
         <item>@drawable/inbox_menu_black</item>
         <item>@drawable/favourite_menu_black</item>
-        <item>@drawable/clock_black_icon</item>
+        <item>@drawable/watch_black_icon</item>
         <item>@drawable/match_menu_black</item>
         <item>@drawable/help_menu_black</item>
         <item>@drawable/settings_menu_black</item>
@@ -124,7 +124,7 @@
         <item>@drawable/credit_menu_black</item>
         <item>@drawable/search_menublackk</item>
         <item>@drawable/favourite_menu_black</item>
-        <item>@drawable/clock_black_icon</item>
+        <item>@drawable/watch_black_icon</item>
         <item>@drawable/match_menu_black</item>
         <item>@drawable/posted_job_menu_black</item>
         <item>@drawable/inbox_menu_black</item>

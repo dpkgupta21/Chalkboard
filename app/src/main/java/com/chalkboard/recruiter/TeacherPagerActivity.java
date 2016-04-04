@@ -62,7 +62,7 @@ public class TeacherPagerActivity extends FragmentActivity {
         header_left_menu.setOnClickListener(removeJobClickListener);
 
         ImageView header_right_menu = (ImageView) findViewById(R.id.header_right_menu);
-        header_right_menu.setImageResource(R.drawable.group_icon);
+        header_right_menu.setImageResource(R.drawable.share_icon_box);
         header_right_menu.setOnClickListener(shareClickListener);
 
         ((ImageView) (findViewById(R.id.header_logo)))
