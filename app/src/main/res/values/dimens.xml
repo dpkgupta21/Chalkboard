@@ -14,7 +14,7 @@
        <dimen name="paddingmini">4dp</dimen>
     
        <dimen name="textsizesmall">12dp</dimen>
-    <dimen name="textsize">16dp</dimen>
+    <dimen name="textsize">16sp</dimen>
      <dimen name="textsizebig">20dp</dimen>
       <dimen name="marginelarge">35dp</dimen>
      

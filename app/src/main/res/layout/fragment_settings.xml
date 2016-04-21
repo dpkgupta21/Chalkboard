@@ -44,7 +44,7 @@
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:padding="10dp"
-            android:src="@drawable/arrow_iocn" />
+            android:src="@drawable/back_top" />
     </RelativeLayout>
 
     <ScrollView
@@ -117,7 +117,7 @@
                     android:id="@+id/txt_facebook"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:drawableRight="@drawable/facebook_settings"
+                    android:drawableRight="@drawable/facebook_icon"
                     android:gravity="center_vertical"
                     android:padding="@dimen/padding"
                     android:text="Connect to Facebook"
@@ -128,7 +128,7 @@
                     android:id="@+id/txt_facebook11"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:drawableRight="@drawable/facebook_settings"
+                    android:drawableRight="@drawable/facebook_icon"
                     android:gravity="center_vertical"
                     android:padding="@dimen/padding"
                     android:text="Facebook Connected"
@@ -145,7 +145,7 @@
                     android:id="@+id/txt_google"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:drawableRight="@drawable/googleplus_settings"
+                    android:drawableRight="@drawable/google_icon"
                     android:gravity="center_vertical"
                     android:padding="@dimen/padding"
                     android:text="Connect to Google"
@@ -156,7 +156,7 @@
                     android:id="@+id/txt_google11"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:drawableRight="@drawable/googleplus_settings"
+                    android:drawableRight="@drawable/google_icon"
                     android:gravity="center_vertical"
                     android:padding="@dimen/padding"
                     android:text="Google Connected"
@@ -217,7 +217,7 @@
                     android:id="@+id/txt_getsupport"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:drawableRight="@drawable/support_settings"
+                    android:drawableRight="@drawable/support_icon"
                     android:gravity="center_vertical"
                     android:padding="@dimen/padding"
                     android:text="Get Support"

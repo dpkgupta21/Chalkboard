@@ -119,7 +119,7 @@ public class JobListFragment extends Fragment {
             public void onClick(View arg0) {
                 startActivity(new Intent(context, SelectJobTypeActivity.class));
                 rlType.setBackgroundColor(Color.parseColor("#00c7d4"));
-                ivType.setImageResource(R.drawable.clock_white_icon);
+                ivType.setImageResource(R.drawable.clock_icon_white);
                 tvType.setTextColor(Color.WHITE);
                 //context.overridePendingTransition(R.anim.slide_up, 0);
             }

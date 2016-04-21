@@ -101,7 +101,7 @@
                 android:layout_margin="5dp"
                 android:background="@drawable/white_shape"
                 android:drawablePadding="5dp"
-                android:drawableRight="@drawable/search_menu_black"
+                android:drawableRight="@drawable/search_input_icon"
                 android:hint="Type Country Name"
                android:textAppearance="?android:attr/textAppearanceMedium"
                 android:visibility="gone" />

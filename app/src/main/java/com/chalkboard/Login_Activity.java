@@ -27,6 +27,7 @@ import android.widget.Toast;
 
 import com.chalkboard.recruiter.navigationdrawer.TeachersListActivity;
 import com.chalkboard.teacher.navigationdrawer.JobListActivity;
+import com.chalkboard.utility.Utils;
 import com.facebook.AccessToken;
 import com.facebook.Request;
 import com.facebook.Request.GraphUserCallback;
@@ -268,7 +269,7 @@ public class Login_Activity extends Activity implements ConnectionCallbacks,
             public void onClick(View arg0) {
                 // TODO Auto-generated method stub
                 if (GlobalClaass.isInternetPresent(context)) {
-
+                    Utils.hideKeyboard(context);
                     validateValues();
 
                 } else {

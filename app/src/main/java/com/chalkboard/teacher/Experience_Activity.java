@@ -229,7 +229,7 @@ public class Experience_Activity extends Activity{
 				holder = (ViewHolder) convertView.getTag();
 			}
 									
-			holder.country_name.setText(event_note_data.get(position).getCountry_Name()+" Years");
+			holder.country_name.setText(event_note_data.get(position).getCountry_Name());
 			
 			convertView.setOnClickListener(new OnClickListener() {
 				

@@ -387,7 +387,7 @@ public class JobPageFragment extends Fragment {
                                     jobObject.getId());
                             removeJobFavorites.execute();
                         } else {
-                            img_fav_icon.setImageResource(R.drawable.like_icon);
+                            img_fav_icon.setImageResource(R.drawable.like_icon_active);
 
                             addJobFavorites = new AddJobFavorites(jobObject
                                     .getId());

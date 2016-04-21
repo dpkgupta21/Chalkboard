@@ -89,29 +89,21 @@ public class InboxListAdapter extends BaseAdapter {
 		}
 
 		holder.name.setText(mainDataList.get(position).getUser());
-		
-		
-		
 		holder.date.setText(mainDataList.get(position).getTimestamp());
-		
-		
-		
+
 		if (Integer.parseInt(mainDataList.get(position).getUnread()) > 0) {
-			holder.unread.setText( mainDataList.get(position).getUnread());
+			holder.unread.setText(mainDataList.get(position).getUnread());
 			holder.unread.setVisibility(View.VISIBLE);
-			holder.name.setTextColor(Color.parseColor("#00c7d4"));
+			holder.name.setTextColor(Color.parseColor("#000000"));
+
 		}else{
 			holder.unread.setText("");
 			holder.unread.setVisibility(View.INVISIBLE);
-			holder.name.setTextColor(Color.parseColor("#000000"));	
+			holder.name.setTextColor(Color.parseColor("#00c7d4"));
 		}
-		
-		
+
 		holder.lastmessage.setText(mainDataList.get(position).getMessage());
 
-	
-
-		
 		imageloader.DisplayImage(
 				mainDataList.get(position).getImage(), holder.image);
 

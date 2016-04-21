@@ -44,7 +44,7 @@
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:padding="10dp"
-            android:src="@drawable/arrow_iocn" />
+            android:src="@drawable/back_top" />
     </RelativeLayout>
 
     <ScrollView
@@ -168,7 +168,7 @@
                             android:layout_weight="1"
                             android:background="@drawable/corner"
                             android:ems="10"
-                            android:hint="City"
+                            android:hint="State/City"
                             android:padding="@dimen/padding"
                             android:singleLine="true"
                             android:textAppearance="?android:attr/textAppearanceMedium"
@@ -185,7 +185,7 @@
                         android:drawablePadding="@dimen/paddingsmall"
                         android:drawableRight="@drawable/location_icon"
                         android:ems="10"
-                        android:hint="Location"
+                        android:hint="Current Location"
                         android:padding="@dimen/padding"
                         android:singleLine="true"
                         android:textAppearance="?android:attr/textAppearanceMedium"
@@ -243,11 +243,14 @@
                     <EditText
                         android:id="@+id/et_summery"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/mapsize"
+                        android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/margin"
                         android:layout_marginRight="@dimen/margin"
                         android:background="@drawable/corner"
                         android:ems="10"
+                        android:maxLines="6"
+                        android:minLines="6"
+                        android:scrollbars="vertical"
                         android:gravity="left|top"
                         android:hint="Briefly tell recruiters a bit about yourself (i.e. relevant experience, preferred age group, and why you want to teach!)"
                         android:padding="@dimen/padding"

@@ -53,6 +53,8 @@
     <string name="select_countries">Select Countries</string>
     <string name="select_type">Select Type</string>
 
+    <string name="recover_here">Forgot Password? Recover <u>Here</u></string>
+
     <string-array name="teacher_drawer_items">
         <item>Jobs</item>
         <item>Inbox</item>
@@ -70,7 +72,7 @@
         <item>@drawable/search_menu</item>
         <item>@drawable/inbox_menu</item>
         <item>@drawable/favourite_menu</item>
-        <item>@drawable/clock_white_icon</item>
+        <item>@drawable/watch_icon_white</item>
         <item>@drawable/match_menu</item>
         <item>@drawable/help_menu</item>
         <item>@drawable/settings_menu</item>
@@ -85,7 +87,7 @@
         <item>@drawable/match_menu_black</item>
         <item>@drawable/help_menu_black</item>
         <item>@drawable/settings_menu_black</item>
-        <item>@drawable/logout_menu</item>
+        <item>@drawable/logout_menu_black</item>
     </array>
 
 
@@ -106,11 +108,11 @@
     <!-- User Nav Drawer List Item Icons -->
     <!-- Keep them in order as the titles are in -->
     <array name="recruiter_unselected_drawer_icons">
-        <item>@drawable/postjob_menu</item>
+        <item>@drawable/postjob_menu_white</item>
         <item>@drawable/credit_menu</item>
         <item>@drawable/search_menu</item>
         <item>@drawable/favourite_menu</item>
-        <item>@drawable/clock_white_icon</item>
+        <item>@drawable/watch_icon_white</item>
         <item>@drawable/match_menu</item>
         <item>@drawable/posted_job_menu</item>
         <item>@drawable/inbox_menu</item>

@@ -48,7 +48,7 @@
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentTop="true"
                     android:padding="5dp"
-                    android:src="@drawable/pin_icon" />
+                    android:src="@drawable/place_icon" />
 
                 <ImageView
                     android:id="@+id/img_fav_icon"

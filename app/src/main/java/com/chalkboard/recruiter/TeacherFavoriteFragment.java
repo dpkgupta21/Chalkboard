@@ -66,7 +66,7 @@ public class TeacherFavoriteFragment extends Fragment {
 
         ImageView notifIcon = (ImageView) context.findViewById(R.id.header_right_menu);
         notifIcon.setVisibility(View.VISIBLE);
-        notifIcon.setImageResource(R.drawable.notification_menu);
+        notifIcon.setImageResource(R.drawable.menu_notification_white_icon);
         notifIcon.setOnClickListener(notificationClick);
 
         lvTeacherList = (ListView) rootView.findViewById(R.id.list);
@@ -408,7 +408,7 @@ public class TeacherFavoriteFragment extends Fragment {
             holder.location.setText(location);
 
             if (mainDataList.get(position).isTeacherFavorite()) {
-                holder.favourite.setImageResource(R.drawable.icon_like);
+                holder.favourite.setImageResource(R.drawable.like_icon_active);
             } else {
                 holder.favourite.setImageResource(R.drawable.unlike_icon);
             }
@@ -426,7 +426,7 @@ public class TeacherFavoriteFragment extends Fragment {
                         //holder.favourite.setImageResource(R.drawable.unlike_icon);
                         new AddJobFavorites(mainDataList.get(position).getId()).execute();
                         mainDataList.get(position).setTeacherFavorite(true);
-                        holder.favourite.setImageResource(R.drawable.icon_like);
+                        holder.favourite.setImageResource(R.drawable.like_icon_active);
                     }
 
                 }

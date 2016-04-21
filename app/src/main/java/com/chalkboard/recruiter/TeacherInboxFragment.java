@@ -7,7 +7,6 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 import org.apache.http.HttpEntity;
@@ -36,14 +35,12 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 
 import com.chalkboard.GlobalClaass;
 import com.chalkboard.InboxListAdapter;
 import com.chalkboard.InboxObject;
 import com.chalkboard.R;
-import com.chalkboard.recruiter.TeacherFavoriteFragment.GetTeacherItem;
 import com.chalkboard.teacher.TeacherChatBoardActivity;
 
 public class TeacherInboxFragment extends Fragment {
@@ -68,7 +65,7 @@ public class TeacherInboxFragment extends Fragment {
 
         ImageView notifIcon = (ImageView) context.findViewById(R.id.header_right_menu);
         notifIcon.setVisibility(View.VISIBLE);
-        notifIcon.setImageResource(R.drawable.notification_menu);
+        notifIcon.setImageResource(R.drawable.menu_notification_white_icon);
         notifIcon.setOnClickListener(notificationClick);
 
 

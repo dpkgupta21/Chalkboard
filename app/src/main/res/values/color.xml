@@ -12,5 +12,6 @@
 
     <color name="list_background">#00000000</color>
     <color name="list_background_pressed">#ffffff</color>
+    <color name="unread_txt_color">#00c7d4</color>
 
 </resources>

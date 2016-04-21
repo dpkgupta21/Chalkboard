@@ -37,7 +37,7 @@ public class RecruiterMatchRequestFragment extends Fragment implements View.OnCl
         mActivity = getActivity();
         ImageView notifIcon = (ImageView) mActivity.findViewById(R.id.header_right_menu);
         notifIcon.setVisibility(View.VISIBLE);
-        notifIcon.setImageResource(R.drawable.notification_menu);
+        notifIcon.setImageResource(R.drawable.menu_notification_white_icon);
         notifIcon.setOnClickListener(notificationClick);
         return view;
     }

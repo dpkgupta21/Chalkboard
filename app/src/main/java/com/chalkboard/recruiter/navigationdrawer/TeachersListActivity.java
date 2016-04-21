@@ -1232,7 +1232,7 @@ public class TeachersListActivity extends FragmentActivity
 //        ivSettings.setImageResource(R.drawable.settings_menu);
 //        ivFavourites.setImageResource(R.drawable.favourite_menu);
 //        ivMatches.setImageResource(R.drawable.match_menu);
-//        ivNotifications.setImageResource(R.drawable.notification_menu);
+//        ivNotifications.setImageResource(R.drawable.notification_menu_black);
 //        ivInbox.setImageResource(R.drawable.inbox_menu);
 //        ivHelp.setImageResource(R.drawable.help_menu);
 //        ivSearch.setImageResource(R.drawable.search_menu);

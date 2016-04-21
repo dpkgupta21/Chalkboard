@@ -46,8 +46,6 @@ public class ChatListAdapter extends BaseAdapter {
 		protected TextView message;
 
 		RelativeLayout rlBG;
-		ImageView p;
-		ImageView p1;
 		ImageView attachment;
 
 	}
@@ -79,8 +77,7 @@ public class ChatListAdapter extends BaseAdapter {
 
 			holder.image = (ImageView) view.findViewById(R.id.message_image);
 
-			holder.p = (ImageView) view.findViewById(R.id.p);
-			holder.p1 = (ImageView) view.findViewById(R.id.p1);
+
 			
 			holder.b = (ImageView) view.findViewById(R.id.b);
 			holder.b1 = (ImageView) view.findViewById(R.id.b1);
@@ -139,9 +136,9 @@ public class ChatListAdapter extends BaseAdapter {
 			holder.b.setVisibility(View.GONE);
 			
 			holder.image.setImageResource(0);
-			holder.rlBG.setBackgroundResource(R.drawable.chat_bg);
-			holder.p.setVisibility(View.VISIBLE);
-			holder.p1.setVisibility(View.GONE);
+			holder.rlBG.setBackgroundResource(R.drawable.chat_msg_boundary);
+
+
 
 		} else {
 			imageloader.DisplayImage(mainDataList.get(position).getUserImg(),
@@ -151,9 +148,7 @@ public class ChatListAdapter extends BaseAdapter {
 			holder.b1.setVisibility(View.GONE);
 			
 			holder.image1.setImageResource(0);
-			holder.rlBG.setBackgroundResource(R.drawable.chat_bg1);
-			holder.p1.setVisibility(View.VISIBLE);
-			holder.p.setVisibility(View.GONE);
+			holder.rlBG.setBackgroundResource(R.drawable.chat_msg_boundary);
 		}
 
 		return view;

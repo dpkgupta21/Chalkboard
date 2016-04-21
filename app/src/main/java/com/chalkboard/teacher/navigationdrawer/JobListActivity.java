@@ -49,7 +49,6 @@ import com.chalkboard.teacher.JobListFragment;
 import com.chalkboard.teacher.JobMatchesFragment;
 import com.chalkboard.teacher.JobNotificationFragment;
 import com.chalkboard.teacher.TeacherProfileEditActivity;
-import com.chalkboard.teacher.TeacherProfileViewActivity;
 import com.chalkboard.teacher.matchrequest.MatchRequestFragment;
 import com.chalkboard.teacher.navigationdrawer.adapter.NavDrawerListAdapter;
 import com.chalkboard.utility.Utils;
@@ -146,7 +145,7 @@ public class JobListActivity extends FragmentActivity implements ConnectionCallb
         mActivity = this;
 
         ImageView header_right_menu = (ImageView) findViewById(R.id.header_right_menu);
-        header_right_menu.setImageResource(R.drawable.notification_menu);
+        header_right_menu.setImageResource(R.drawable.menu_notification_white_icon);
 
         login_type = getIntent().getStringExtra("LoginType");
         font = Typeface.createFromAsset(getAssets(), "fonts/mark.ttf");
@@ -834,7 +833,7 @@ public class JobListActivity extends FragmentActivity implements ConnectionCallb
 //        ivSettings.setImageResource(R.drawable.settings_menu);
 //        ivFavourites.setImageResource(R.drawable.favourite_menu);
 //        ivMatches.setImageResource(R.drawable.match_menu);
-//        ivNotifications.setImageResource(R.drawable.notification_menu);
+//        ivNotifications.setImageResource(R.drawable.notification_menu_black);
 //        ivInbox.setImageResource(R.drawable.inbox_menu);
 //        ivHelp.setImageResource(R.drawable.help_menu);
 //        ivSearch.setImageResource(R.drawable.search_menu);
@@ -887,12 +886,12 @@ public class JobListActivity extends FragmentActivity implements ConnectionCallb
             b = GlobalClaass.getCountry(mActivity);
         }
 
-        if (!a.equalsIgnoreCase("")) {
+        if (a != null && !a.equalsIgnoreCase("")) {
             cityCountry = a;
-            if (!b.equalsIgnoreCase("")) {
+            if (b != null && !b.equalsIgnoreCase("")) {
                 cityCountry = a + ", " + b;
             }
-        } else {
+        } else if (b != null && !b.equalsIgnoreCase("")) {
             cityCountry = b;
         }
 
@@ -902,10 +901,31 @@ public class JobListActivity extends FragmentActivity implements ConnectionCallb
         if (GlobalClaass.getGender(mActivity) != null) {
             d = GlobalClaass.getGender(mActivity);
         }
+
+        String age = null;
+        if (c != null && !c.equalsIgnoreCase("") && !c.equalsIgnoreCase("null")) {
+            age = c;
+            if (d != null && !d.equalsIgnoreCase("") && !d.equalsIgnoreCase("null")) {
+                age = c + (d.equalsIgnoreCase("male") ? " M" : " F");
+            }
+        } else if (d != null && !d.equalsIgnoreCase("") && !d.equalsIgnoreCase("null")) {
+            age = d;
+        }
+
+
+        String merge = null;
+        if (cityCountry != null) {
+            merge = cityCountry;
+            if (age != null) {
+                merge = cityCountry + " | " + age;
+            }
+        } else if (age != null) {
+            merge = age;
+        }
+
         ((TextView) findViewById(R.id.profile_location_age)).setTypeface(font);
         ((TextView) findViewById(R.id.profile_location_age))
-                .setText(cityCountry + " | " + c + ((d
-                        .equalsIgnoreCase("male")) ? " M" : " F"));
+                .setText(merge);
 
 
     }

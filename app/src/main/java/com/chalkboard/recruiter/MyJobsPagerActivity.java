@@ -44,7 +44,7 @@ public class MyJobsPagerActivity extends FragmentActivity {
 		font2=Typeface.createFromAsset(getAssets(), "fonts/marlbold.ttf");
 		
 		((ImageView)(findViewById(R.id.header_left_menu))).setVisibility(View.GONE);
-		((ImageView)(findViewById(R.id.header_right_menu))).setImageResource(R.drawable.cross_icon);
+		((ImageView)(findViewById(R.id.header_right_menu))).setImageResource(R.drawable.remove_job);
 		
 		
 		

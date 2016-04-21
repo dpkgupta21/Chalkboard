@@ -92,7 +92,7 @@
             android:adjustViewBounds="true"
             android:contentDescription="@string/app_name"
             android:padding="2dp"
-            android:src="@drawable/blue_chat" />
+            android:src="@drawable/chat_icon_text" />
     </LinearLayout>
 
 </RelativeLayout>

@@ -69,7 +69,7 @@ public class TeacherMatchesFragment extends Fragment {
 
         ImageView notifIcon = (ImageView) context.findViewById(R.id.header_right_menu);
         notifIcon.setVisibility(View.VISIBLE);
-        notifIcon.setImageResource(R.drawable.notification_menu);
+        notifIcon.setImageResource(R.drawable.menu_notification_white_icon);
         notifIcon.setOnClickListener(notificationClick);
 
         lvTeacherList = (SwipeMenuListView) rootView.findViewById(R.id.list);

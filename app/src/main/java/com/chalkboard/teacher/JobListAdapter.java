@@ -152,9 +152,9 @@ public class JobListAdapter extends BaseAdapter {
 
         if (mainDataList.get(position).isJobFavorite()) {
             //holder.favourite.setImageResource(R.drawable.like_icon);
-            holder.favourite.setImageResource(R.drawable.icon_like);
+            holder.favourite.setImageResource(R.drawable.like_icon_active);
         } else {
-            holder.favourite.setImageResource(R.drawable.unlike_icon);
+            holder.favourite.setImageResource(R.drawable.like_icon_grey);
         }
 
         holder.favourite.setOnClickListener(new OnClickListener() {
@@ -167,14 +167,14 @@ public class JobListAdapter extends BaseAdapter {
                     //holder.favourite.setImageResource(R.drawable.icon_like);
 
                     new RemoveJobFavorites(mainDataList.get(position).getId()).execute();
-                    holder.favourite.setImageResource(R.drawable.unlike_icon);
+                    holder.favourite.setImageResource(R.drawable.like_icon_grey);
                     mainDataList.get(position).setJobFavorite(false);
 
                 } else {
                     //holder.favourite.setImageResource(R.drawable.unlike_icon);
 
                     new AddJobFavorites(mainDataList.get(position).getId()).execute();
-                    holder.favourite.setImageResource(R.drawable.icon_like);
+                    holder.favourite.setImageResource(R.drawable.like_icon_active);
                     mainDataList.get(position).setJobFavorite(true);
 
 

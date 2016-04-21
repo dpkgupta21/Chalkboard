@@ -215,7 +215,7 @@ public class TeacherPageFragment extends Fragment {
                                     teacherObject.getId());
                             removeJobFavorites.execute();
                         } else {
-                            img_fav_icon.setImageResource(R.drawable.like_icon);
+                            img_fav_icon.setImageResource(R.drawable.like_icon_active);
 
                             addJobFavorites = new AddJobFavorites(teacherObject
                                     .getId());

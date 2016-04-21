@@ -29,15 +29,6 @@
         android:contentDescription="@string/app_name"
         android:src="@drawable/back_circle" />
 
-    <ImageView
-        android:id="@+id/p1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_toLeftOf="@+id/chat_bg"
-        android:background="@drawable/p1"
-        android:visibility="gone" />
-
     <RelativeLayout
         android:id="@+id/chat_bg"
         android:layout_width="match_parent"
@@ -64,14 +55,7 @@
             android:textSize="@dimen/textsize" />
     </RelativeLayout>
 
-    <ImageView
-        android:id="@+id/p"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/chat_bg"
-        android:background="@drawable/p"
-        android:visibility="gone" />
+  
 
     <ImageView
         android:id="@+id/message_image1"

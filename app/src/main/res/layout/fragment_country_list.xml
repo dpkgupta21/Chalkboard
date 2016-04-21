@@ -55,7 +55,7 @@
             android:layout_margin="10dp"
             android:background="@drawable/whiteshap11"
             android:drawablePadding="5dp"
-            android:drawableRight="@drawable/search_menu_black"
+            android:drawableRight="@drawable/search_input_icon"
             android:hint="Search by Job title, location, type"
             android:singleLine="true"
             android:textAppearance="?android:attr/textAppearanceMedium"

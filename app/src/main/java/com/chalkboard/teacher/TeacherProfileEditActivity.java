@@ -59,6 +59,7 @@ import android.provider.MediaStore.Images;
 import android.util.Log;
 import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -224,6 +225,22 @@ public class TeacherProfileEditActivity extends Activity implements
         } catch (Exception e) {
 
         }
+
+
+        et_summery.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (v.getId() == R.id.et_summery) {
+                    v.getParent().requestDisallowInterceptTouchEvent(true);
+                    switch (event.getAction() & MotionEvent.ACTION_MASK) {
+                        case MotionEvent.ACTION_UP:
+                            v.getParent().requestDisallowInterceptTouchEvent(false);
+                            break;
+                    }
+                }
+                return false;
+            }
+        });
 
         // add_education.addView(view);
 
@@ -465,6 +482,13 @@ public class TeacherProfileEditActivity extends Activity implements
 //                    TeacherProfileViewActivity.class));
 //            GlobalClaass.activitySlideBackAnimation(context);
 //            finish();
+        }else{
+            if(code==1100){
+                startActivity(new Intent(context,
+                        JobListActivity.class));
+                GlobalClaass.activitySlideBackAnimation(context);
+                finish();
+            }
         }
 
     }
@@ -708,11 +732,16 @@ public class TeacherProfileEditActivity extends Activity implements
 
                     startActivityForResult(intent, RESULT_CAMERA);
 
-                } else if (options[item].equals("Library")) {
-                    Intent intent = new Intent(
-                            Intent.ACTION_PICK,
-                            android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                    startActivityForResult(intent, RESULT_LIBRARY);
+                } else if (options[item].equals("Choose an image")) {
+                    Intent intent = new Intent();
+                    intent.setType("image/*");
+                    intent.setAction(Intent.ACTION_GET_CONTENT);
+                    startActivityForResult(
+                            Intent.createChooser(intent, "Select Picture"), RESULT_LIBRARY);
+//                    Intent intent = new Intent(
+//                            Intent.ACTION_PICK,
+//                            android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+//                    startActivityForResult(intent, RESULT_LIBRARY);
 
                 }
             }
@@ -1576,8 +1605,10 @@ public class TeacherProfileEditActivity extends Activity implements
                             .getText().toString()));
                     entity.addPart("certification",
                             new StringBody(GlobalClaass.getRadioValue(context)));
-                    entity.addPart("certification_type", new StringBody(
-                            et_certificatetype.getTag().toString() ));
+                    if(et_certificatetype!=null && et_certificatetype.getTag()!=null) {
+                        entity.addPart("certification_type", new StringBody(
+                                et_certificatetype.getTag().toString()));
+                    }
                     entity.addPart("job_start_date", new StringBody(edit_date
                             .getText().toString()));
 
