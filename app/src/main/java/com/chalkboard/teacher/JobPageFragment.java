@@ -19,10 +19,8 @@ import android.widget.TextView;
 import com.chalkboard.GlobalClaass;
 import com.chalkboard.ImageLoader;
 import com.chalkboard.ImageLoader11;
-import com.chalkboard.PreferenceConnector;
 import com.chalkboard.R;
 import com.chalkboard.customviews.CustomAlert;
-import com.chalkboard.model.ReadMapIdDTO;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 import com.nostra13.universalimageloader.core.display.SimpleBitmapDisplayer;
@@ -324,7 +322,7 @@ public class JobPageFragment extends Fragment {
                 displayImage(jobObject.getJobImage(),
                         ((ImageView) rootView.findViewById(R.id.job_image)), options);
 
-        ImageLoader11 imageloader11 = new ImageLoader11(context);
+        //ImageLoader11 imageloader11 = new ImageLoader11(context);
 
         imageloader.DisplayImage(jobObject.getJobPhoto(),
                 ((ImageView) rootView.findViewById(R.id.img_job_icon)));

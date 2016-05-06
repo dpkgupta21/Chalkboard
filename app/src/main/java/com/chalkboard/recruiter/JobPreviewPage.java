@@ -2,6 +2,7 @@ package com.chalkboard.recruiter;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -19,6 +20,9 @@ import com.chalkboard.ImageLoader;
 import com.chalkboard.ImageLoader11;
 import com.chalkboard.R;
 import com.chalkboard.teacher.JobObject;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.assist.ImageScaleType;
+import com.nostra13.universalimageloader.core.display.SimpleBitmapDisplayer;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -44,7 +48,8 @@ public class JobPreviewPage extends Fragment {
     Activity context = null;
 
     GetJobDetail getJobDetail = null;
-
+    public ImageLoader imageloader = null;
+    private DisplayImageOptions options;
 
     public JobPreviewPage() {
     }
@@ -72,6 +77,19 @@ public class JobPreviewPage extends Fragment {
         jobObject = (JobObject) getArguments().getSerializable(JOB_OBJECT);
 
         context = getActivity();
+
+        options = new DisplayImageOptions.Builder()
+                .resetViewBeforeLoading(true)
+                .cacheOnDisk(true)
+                .imageScaleType(ImageScaleType.EXACTLY)
+                .bitmapConfig(Bitmap.Config.RGB_565)
+                .considerExifParams(true)
+                .displayer(new SimpleBitmapDisplayer())
+                .showImageOnLoading(R.drawable.splash)
+                .showImageOnFail(R.drawable.splash)
+                .showImageForEmptyUri(R.drawable.splash)
+                .build();
+
 
         rootView = inflater.inflate(R.layout.my_job_preview, container, false);
 
@@ -171,6 +189,9 @@ public class JobPreviewPage extends Fragment {
 
             jobObject.setJobDescription(description);
 
+            String image = jObject.getString("image").trim();
+            jobObject.setJobImage(image);
+
             boolean is_draft = jObject.getBoolean("is_draft");
 
             jobObject.setIs_draft(is_draft);
@@ -189,9 +210,9 @@ public class JobPreviewPage extends Fragment {
 
             jobObject.setJobPhoto(school_photo);
 
-            String logo = jObj.getString("logo").trim();
 
-            jobObject.setJobImage(logo);
+
+
 
 
             jobObject.setId(jObject.getString("id").trim());
@@ -222,10 +243,14 @@ public class JobPreviewPage extends Fragment {
         imageloader.DisplayImage(jobObject.getJobPhoto(),
                 ((ImageView) rootView.findViewById(R.id.job_icon)));
 
-        ImageLoader11 imageloader1 = new ImageLoader11(context);
+        //ImageLoader11 imageloader1 = new ImageLoader11(context);
 
-        imageloader1.DisplayImage(jobObject.getJobImage(),
-                ((ImageView) rootView.findViewById(R.id.job_image)));
+        com.nostra13.universalimageloader.core.ImageLoader.getInstance().
+                displayImage(jobObject.getJobImage(),
+                        ((ImageView) rootView.findViewById(R.id.job_image)), options);
+
+//        imageloader1.DisplayImage(jobObject.getJobImage(),
+//                ((ImageView) rootView.findViewById(R.id.job_image)));
 
         if (jobObject.isIs_draft()) {
             ((TextView) rootView.findViewById(R.id.remove_publish_job))
