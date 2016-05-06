@@ -67,7 +67,7 @@ public class TeacherChatBoardActivity extends Activity {
 
     ListView lvJobList = null;
 
-    TextView tvLocation = null;
+    //TextView tvLocation = null;
     TextView top_header_count;
     EditText edtMessage;
     protected static final int RESULT_CAMERA = 5;
@@ -112,7 +112,7 @@ public class TeacherChatBoardActivity extends Activity {
         ((ImageView) (findViewById(R.id.header_logo)))
                 .setVisibility(View.GONE);
 
-        tvLocation = (TextView) findViewById(R.id.location);
+        //tvLocation = (TextView) findViewById(R.id.location);
 
         ((TextView) (findViewById(R.id.header_text))).setText(sender_name);
 
@@ -135,7 +135,7 @@ public class TeacherChatBoardActivity extends Activity {
 
         edtMessage = (EditText) findViewById(R.id.message_field);
         try {
-            tvLocation.setTypeface(font);
+            //tvLocation.setTypeface(font);
             edtMessage.setTypeface(font);
             top_header_count.setTypeface(font);
             ((TextView) (findViewById(R.id.header_text))).setTypeface(font2);

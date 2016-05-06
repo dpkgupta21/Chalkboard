@@ -43,21 +43,21 @@
 
                 <ImageView
                     android:id="@+id/img_location_icon"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentTop="true"
-                    android:padding="5dp"
+                    android:padding="15dp"
                     android:src="@drawable/place_icon" />
 
                 <ImageView
                     android:id="@+id/img_fav_icon"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentTop="true"
-                    android:padding="5dp"
-                    android:src="@drawable/unlike_icon" />
+                    android:padding="15dp"
+                    android:src="@drawable/like_icon_grey" />
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
@@ -81,12 +81,7 @@
                         android:padding="@dimen/padding"
                         android:src="@drawable/white_circle" />
 
-                    <ImageView
-                        android:layout_width="@dimen/imagess"
-                        android:layout_height="@dimen/imagess"
-                        android:layout_margin="@dimen/margin"
-                        android:contentDescription="@string/app_name"
-                        android:src="@drawable/circle_border_boundary" />
+
                 </RelativeLayout>
 
                 <com.chalkboard.customviews.MyTextViewMarlBold
@@ -140,9 +135,10 @@
                         android:padding="5dp"
                         android:text=""
                         android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:textColor="@android:color/black" />
+                        android:textColor="@android:color/black"
+                        android:textSize="13sp" />
 
-                    <TextView
+                    <com.chalkboard.customviews.MyTextViewMarlBold
                         android:id="@+id/current_heading"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -151,10 +147,10 @@
                         android:text="CURRENT JOB"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:textColor="@android:color/black"
-                        android:textStyle="bold"
+                        android:textSize="15sp"
                         android:visibility="gone" />
 
-                    <TextView
+                    <com.chalkboard.customviews.MyTextViewMark
                         android:id="@+id/current_job_show"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -162,9 +158,10 @@
                         android:orientation="vertical"
                         android:padding="5dp"
                         android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:textColor="@android:color/black" />
+                        android:textColor="@android:color/black"
+                        android:textSize="13sp" />
 
-                    <TextView
+                    <com.chalkboard.customviews.MyTextViewMarlBold
                         android:id="@+id/education_heading"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -173,7 +170,7 @@
                         android:text="EDUCATION"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:textColor="@android:color/black"
-                        android:textStyle="bold"
+                        android:textSize="15sp"
                         android:visibility="gone" />
 
                     <com.chalkboard.customviews.MyTextViewMark
@@ -184,7 +181,8 @@
                         android:orientation="vertical"
                         android:padding="5dp"
                         android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:textColor="@android:color/black"></com.chalkboard.customviews.MyTextViewMark>
+                        android:textColor="@android:color/black"
+                        android:textSize="13sp"></com.chalkboard.customviews.MyTextViewMark>
                 </RelativeLayout>
             </ScrollView>
 
@@ -205,7 +203,7 @@
                     android:gravity="center"
                     android:padding="@dimen/padding"
                     android:singleLine="true"
-                    android:text="Match Teacher"
+                    android:text="Send Match Request"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@android:color/white"
                     android:textStyle="bold" />

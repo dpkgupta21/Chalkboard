@@ -15,6 +15,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0px"
+
             android:layout_weight=".45">
 
             <ImageView
@@ -31,21 +32,21 @@
 
             <ImageView
                 android:id="@+id/img_location_icon"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:padding="5dp"
-                android:src="@drawable/pin_icon" />
+                android:layout_margin="15dp"
+                android:src="@drawable/place_icon" />
 
             <ImageView
                 android:id="@+id/img_fav_icon"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentTop="true"
-                android:padding="5dp"
-                android:src="@drawable/unlike_icon" />
+                android:layout_margin="15dp"
+                android:src="@drawable/like_icon_grey" />
 
 
             <ImageView
@@ -55,11 +56,34 @@
                 android:layout_above="@+id/bottom_button_layout"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentRight="true"
-                android:layout_margin="@dimen/margin"
+                android:layout_margin="15dp"
                 android:adjustViewBounds="true"
                 android:contentDescription="@string/app_name"
+                android:padding="3dp"
                 android:src="@drawable/white_circle" />
 
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_above="@+id/bottom_button_layout"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_margin="15dp"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/back_circle" />
+
+            <com.chalkboard.customviews.MyTextViewMarlBold
+                android:id="@+id/txt_recruiter_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/txt_job_location"
+                android:layout_toLeftOf="@+id/img_job_icon"
+                android:paddingLeft="15dp"
+                android:paddingRight="5dp"
+                android:text="Recruiter"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@android:color/white" />
 
             <com.chalkboard.customviews.MyTextViewMarlBold
                 android:id="@+id/txt_job_location"
@@ -67,8 +91,10 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_toLeftOf="@+id/img_job_icon"
-                android:paddingLeft="5dp"
+                android:paddingBottom="15dp"
+                android:paddingLeft="15dp"
                 android:paddingRight="5dp"
+                android:paddingTop="5dp"
                 android:text="location"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@android:color/white" />
@@ -134,15 +160,15 @@
                     android:padding="@dimen/padding"
                     android:text="Title"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textColor="@android:color/black"
-                    android:textStyle="bold" />
+                    android:textColor="@android:color/black" />
 
                 <View
                     android:id="@+id/view_horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_below="@+id/txt_job_title"
-                    android:background="@color/grey" />
+                    android:background="@color/grey"
+                    android:padding="2dp" />
 
                 <com.chalkboard.customviews.MyTextViewMark
                     android:id="@+id/txt_job_description"
@@ -152,8 +178,7 @@
                     android:padding="@dimen/padding"
                     android:text="Desc"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textColor="@android:color/black"
-                    android:textStyle="bold" />
+                    android:textColor="@android:color/black" />
 
                 <LinearLayout
                     android:id="@+id/info_ll"
@@ -176,6 +201,7 @@
                             android:text="SALARY"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:textColor="@android:color/black"
+                            android:textSize="15sp"
                             android:textStyle="bold" />
 
                         <com.chalkboard.customviews.MyTextViewMark
@@ -185,8 +211,10 @@
                             android:layout_alignParentBottom="true"
                             android:padding="@dimen/padding"
                             android:singleLine="false"
+                            android:text="dkjfwknfw"
                             android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:textColor="@android:color/black" />
+                            android:textColor="@android:color/black"
+                            android:textSize="13sp" />
                     </RelativeLayout>
 
                     <RelativeLayout
@@ -203,6 +231,7 @@
                             android:text="START DATE"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:textColor="@android:color/black"
+                            android:textSize="15sp"
                             android:textStyle="bold" />
 
                         <com.chalkboard.customviews.MyTextViewMark
@@ -213,11 +242,12 @@
                             android:padding="@dimen/padding"
                             android:singleLine="true"
                             android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:textColor="@android:color/black" />
+                            android:textColor="@android:color/black"
+                            android:textSize="13sp" />
                     </RelativeLayout>
                 </LinearLayout>
 
-                <com.chalkboard.customviews.MyTextViewMark
+                <com.chalkboard.customviews.MyTextViewMarlBold
                     android:id="@+id/txt_about_company_lbl"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -226,9 +256,10 @@
                     android:text="ABOUT COMPANY"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@android:color/black"
+                    android:textSize="15sp"
                     android:textStyle="bold" />
 
-                <com.chalkboard.customviews.MyTextViewMarlBold
+                <com.chalkboard.customviews.MyTextViewMark
                     android:id="@+id/txt_about_company_val"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -236,7 +267,8 @@
                     android:layout_below="@+id/txt_about_company_lbl"
                     android:padding="@dimen/padding"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textColor="@android:color/black" />
+                    android:textColor="@android:color/black"
+                    android:textSize="13sp" />
 
 
             </RelativeLayout>

@@ -86,7 +86,7 @@
                     <ImageView
                         android:layout_width="25dp"
                         android:layout_height="25dp"
-                        android:src="@drawable/email_drawable"
+                        android:src="@drawable/mail_icon"
                          android:layout_marginLeft="@dimen/margin"
                         android:layout_marginRight="@dimen/margin" />
 

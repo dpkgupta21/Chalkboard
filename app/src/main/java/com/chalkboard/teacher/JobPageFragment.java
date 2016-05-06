@@ -2,6 +2,7 @@ package com.chalkboard.teacher;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -22,6 +23,9 @@ import com.chalkboard.PreferenceConnector;
 import com.chalkboard.R;
 import com.chalkboard.customviews.CustomAlert;
 import com.chalkboard.model.ReadMapIdDTO;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.assist.ImageScaleType;
+import com.nostra13.universalimageloader.core.display.SimpleBitmapDisplayer;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -48,6 +52,7 @@ public class JobPageFragment extends Fragment {
     //Typeface font,font2;
     GetJobDetail getJobDetail = null;
     public ImageLoader imageloader = null;
+    private DisplayImageOptions options;
 
     public JobPageFragment() {
     }
@@ -72,6 +77,19 @@ public class JobPageFragment extends Fragment {
 
         setRetainInstance(true);
         context = getActivity();
+
+        options = new DisplayImageOptions.Builder()
+                .resetViewBeforeLoading(true)
+                .cacheOnDisk(true)
+                .imageScaleType(ImageScaleType.EXACTLY)
+                .bitmapConfig(Bitmap.Config.RGB_565)
+                .considerExifParams(true)
+                .displayer(new SimpleBitmapDisplayer())
+                .showImageOnLoading(R.drawable.splash)
+                .showImageOnFail(R.drawable.splash)
+                .showImageForEmptyUri(R.drawable.splash)
+                .build();
+
         jobObject = (JobObject) getArguments().getSerializable(JOB_OBJECT);
 
         imageloader = new ImageLoader(context);
@@ -238,7 +256,7 @@ public class JobPageFragment extends Fragment {
 
     private void showSendMatchRequestDialog() {
         String message = "This lets " + jobObject.getJobRecruiterName() +
-                " know your interested in their job. They'll view your profile, and you'll"+
+                " know your interested in their job. They'll view your profile, and you'll" +
                 " get a notification if it's a match!";
         new CustomAlert(getActivity(), JobPageFragment.this)
                 .circleTransparentDialog(
@@ -262,14 +280,23 @@ public class JobPageFragment extends Fragment {
     }
 
     private void refineUI() {
-//        ((TextView) rootView.findViewById(R.id.job_name)).setText(jobObject
-//                .getJobName());
+        ((TextView) rootView.findViewById(R.id.txt_recruiter_name)).setText(jobObject
+                .getJobRecruiterName());
 //        ((TextView) rootView.findViewById(R.id.job_offer_by)).setText("By "
 //                + jobObject.getJobRecruiterName());
-        ((TextView) rootView.findViewById(R.id.txt_job_location)).setText("@ "
-                + jobObject.getJobLocation());
+        ((TextView) rootView.findViewById(R.id.txt_job_location)).setText(
+                jobObject.getJobLocation());
 
         final Button btn_send_match_request = (Button) rootView.findViewById(R.id.btn_send_match_request);
+        final ImageView img_fav_icon = (ImageView) rootView.findViewById(R.id.img_fav_icon);
+        if (jobObject.isJobFavorite()) {
+            img_fav_icon.setImageResource(R.drawable.like_icon_active);
+
+        } else {
+            img_fav_icon.setImageResource(R.drawable.like_icon_grey);
+
+        }
+
         if (jobObject.isJobMatch()) {
 
             btn_send_match_request
@@ -293,14 +320,18 @@ public class JobPageFragment extends Fragment {
         });
 
         ImageLoader imageloader = new ImageLoader(context);
+        com.nostra13.universalimageloader.core.ImageLoader.getInstance().
+                displayImage(jobObject.getJobImage(),
+                        ((ImageView) rootView.findViewById(R.id.job_image)), options);
+
         ImageLoader11 imageloader11 = new ImageLoader11(context);
 
-        imageloader.DisplayImage(jobObject.getJobImage(),
+        imageloader.DisplayImage(jobObject.getJobPhoto(),
                 ((ImageView) rootView.findViewById(R.id.img_job_icon)));
 
 
-        imageloader11.DisplayImage(jobObject.getJobPhoto(),
-                ((ImageView) rootView.findViewById(R.id.job_image)));
+//        imageloader11.DisplayImage(jobObject.getJobImage(),
+//                ((ImageView) rootView.findViewById(R.id.job_image)));
 
 //        if (jobObject.isJobFavorite()) {
 //            ((TextView) rootView.findViewById(R.id.add_to_favorite))
@@ -373,8 +404,6 @@ public class JobPageFragment extends Fragment {
                     }
                 });
 
-        final ImageView img_fav_icon = (ImageView) rootView.findViewById(R.id.img_fav_icon);
-
         img_fav_icon
                 .setOnClickListener(new OnClickListener() {
 
@@ -382,7 +411,7 @@ public class JobPageFragment extends Fragment {
                     public void onClick(View arg0) {
 
                         if (jobObject.isJobFavorite()) {
-                            img_fav_icon.setImageResource(R.drawable.unlike_icon);
+                            img_fav_icon.setImageResource(R.drawable.like_icon_grey);
                             removeJobFavorites = new RemoveJobFavorites(
                                     jobObject.getId());
                             removeJobFavorites.execute();
@@ -403,7 +432,7 @@ public class JobPageFragment extends Fragment {
                 .setText(jobObject.getJobDescription());
         ((TextView) rootView.findViewById(R.id.txt_salary_val)).setText(jobObject
                 .getJobSalary());
-        ((TextView) rootView.findViewById(R.id.txt_salary_val)).setText(jobObject
+        ((TextView) rootView.findViewById(R.id.txt_start_date_val)).setText(jobObject
                 .getJobDate());
         ((TextView) rootView.findViewById(R.id.txt_about_company_val))
                 .setText(jobObject.getJobRecruiterAbout());

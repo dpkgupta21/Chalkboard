@@ -1,19 +1,35 @@
 [
     {
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/checked_icon.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/checked_icon.png"
+    },
+    {
         "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/com_facebook_close.png",
         "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/3.23.1/res/drawable-ldpi-v4/com_facebook_close.png"
     },
     {
-        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/D:\\Android\\Chalkboard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\unactive_circle.png",
-        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/D:\\Android\\Chalkboard\\app\\src\\main\\res\\drawable-ldpi\\unactive_circle.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/settings_menu_black.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/settings_menu_black.png"
     },
     {
-        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/D:\\Android\\Chalkboard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\accept_icon_text.png",
-        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/D:\\Android\\Chalkboard\\app\\src\\main\\res\\drawable-ldpi\\accept_icon_text.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/review_settings.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/review_settings.png"
     },
     {
-        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/D:\\Users\\DeepakGupta\\Workspace1\\Chalkboard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\com_facebook_close.png",
-        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/D:\\Users\\DeepakGupta\\Workspace1\\Chalkboard\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\3.23.1\\res\\drawable-ldpi-v4\\com_facebook_close.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/down_arrow_icon.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/down_arrow_icon.png"
+    },
+    {
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/help_menu_black.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/help_menu_black.png"
+    },
+    {
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/notification_menu_black.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/notification_menu_black.png"
+    },
+    {
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/inbox_menu.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/inbox_menu.png"
     },
     {
         "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/unlike_icon.png",
@@ -24,171 +40,251 @@
         "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/more_icon.png"
     },
     {
-        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/D:\\Users\\DeepakGupta\\Workspace1\\Chalkboard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\circle_border.png",
-        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/D:\\Users\\DeepakGupta\\Workspace1\\Chalkboard\\app\\src\\main\\res\\drawable-ldpi\\circle_border.png"
-    },
-    {
         "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/accept_icon_text.png",
         "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/accept_icon_text.png"
     },
     {
-        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/chat_slide.png",
-        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/chat_slide.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/google_icon.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/google_icon.png"
+    },
+    {
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/msg_send.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/msg_send.png"
     },
     {
         "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/circle_delete_icon.png",
         "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/circle_delete_icon.png"
     },
     {
-        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/arrow_iocn.png",
-        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/arrow_iocn.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/posted_job_menu_black.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/posted_job_menu_black.png"
     },
     {
-        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/D:\\Android\\Chalkboard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\chat_slide.png",
-        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/D:\\Android\\Chalkboard\\app\\src\\main\\res\\drawable-ldpi\\chat_slide.png"
-    },
-    {
-        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/D:\\Users\\DeepakGupta\\Workspace1\\Chalkboard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\more_icon.png",
-        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/D:\\Users\\DeepakGupta\\Workspace1\\Chalkboard\\app\\src\\main\\res\\drawable-ldpi\\more_icon.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/location_white_menu_icon_footer.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/location_white_menu_icon_footer.png"
     },
     {
         "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/unactive_circle.png",
         "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/unactive_circle.png"
     },
     {
-        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/D:\\Users\\DeepakGupta\\Workspace1\\Chalkboard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\chat_icon_text.png",
-        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/D:\\Users\\DeepakGupta\\Workspace1\\Chalkboard\\app\\src\\main\\res\\drawable-ldpi\\chat_icon_text.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/filter_icon.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/filter_icon.png"
     },
     {
-        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/watch_icon.png",
-        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/watch_icon.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/like_icon_active.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/like_icon_active.png"
     },
     {
-        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/D:\\Users\\DeepakGupta\\Workspace1\\Chalkboard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\android__header_menu.png",
-        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/D:\\Users\\DeepakGupta\\Workspace1\\Chalkboard\\app\\src\\main\\res\\drawable-ldpi\\android__header_menu.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/menu_notification_white_icon.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/menu_notification_white_icon.png"
     },
     {
-        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/D:\\Android\\Chalkboard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\chat_icon_text.png",
-        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/D:\\Android\\Chalkboard\\app\\src\\main\\res\\drawable-ldpi\\chat_icon_text.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/postjob_menu_black.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/postjob_menu_black.png"
     },
     {
-        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/D:\\Users\\DeepakGupta\\Workspace1\\Chalkboard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\unlike_icon.png",
-        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/D:\\Users\\DeepakGupta\\Workspace1\\Chalkboard\\app\\src\\main\\res\\drawable-ldpi\\unlike_icon.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/like_icon_grey.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/like_icon_grey.png"
+    },
+    {
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/favourite_menu_black.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/favourite_menu_black.png"
+    },
+    {
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/bell_icon.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/bell_icon.png"
+    },
+    {
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/remove_job.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/remove_job.png"
+    },
+    {
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/interested_box.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/interested_box.png"
     },
     {
         "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/circle_border.png",
         "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/circle_border.png"
     },
     {
-        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/D:\\Android\\Chalkboard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\pin_icon.png",
-        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/D:\\Android\\Chalkboard\\app\\src\\main\\res\\drawable-ldpi\\pin_icon.png"
-    },
-    {
-        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/D:\\Android\\Chalkboard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\com_facebook_close.png",
-        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/D:\\Android\\Chalkboard\\app\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\3.23.1\\res\\drawable-ldpi-v4\\com_facebook_close.png"
-    },
-    {
-        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/D:\\Android\\Chalkboard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\clock_icon.png",
-        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/D:\\Android\\Chalkboard\\app\\src\\main\\res\\drawable-ldpi\\clock_icon.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/company_icon.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/company_icon.png"
     },
     {
         "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/chat_icon_text.png",
         "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/chat_icon_text.png"
     },
     {
-        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/D:\\Users\\DeepakGupta\\Workspace1\\Chalkboard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\chat_slide.png",
-        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/D:\\Users\\DeepakGupta\\Workspace1\\Chalkboard\\app\\src\\main\\res\\drawable-ldpi\\chat_slide.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/support_icon.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/support_icon.png"
     },
     {
-        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/D:\\Android\\Chalkboard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\app_icon.png",
-        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/D:\\Android\\Chalkboard\\app\\src\\main\\res\\drawable-ldpi\\app_icon.png"
-    },
-    {
-        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/D:\\Android\\Chalkboard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\circle_delete_icon.png",
-        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/D:\\Android\\Chalkboard\\app\\src\\main\\res\\drawable-ldpi\\circle_delete_icon.png"
-    },
-    {
-        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/D:\\Users\\DeepakGupta\\Workspace1\\Chalkboard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\pin_icon.png",
-        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/D:\\Users\\DeepakGupta\\Workspace1\\Chalkboard\\app\\src\\main\\res\\drawable-ldpi\\pin_icon.png"
-    },
-    {
-        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/D:\\Users\\DeepakGupta\\Workspace1\\Chalkboard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\arrow_iocn.png",
-        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/D:\\Users\\DeepakGupta\\Workspace1\\Chalkboard\\app\\src\\main\\res\\drawable-ldpi\\arrow_iocn.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/postjob_menu_white.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/postjob_menu_white.png"
     },
     {
         "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/clock_icon_white.png",
         "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/clock_icon_white.png"
     },
     {
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/icon_drawer.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/icon_drawer.png"
+    },
+    {
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/job_tittle.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/job_tittle.png"
+    },
+    {
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/edit_grey_icon.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/edit_grey_icon.png"
+    },
+    {
         "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/orange_close_icon.png",
         "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/orange_close_icon.png"
+    },
+    {
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/check_btn.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/check_btn.png"
     },
     {
         "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/app_icon.png",
         "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/app_icon.png"
     },
     {
-        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/D:\\Users\\DeepakGupta\\Workspace1\\Chalkboard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\accept_icon_text.png",
-        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/D:\\Users\\DeepakGupta\\Workspace1\\Chalkboard\\app\\src\\main\\res\\drawable-ldpi\\accept_icon_text.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/favourite_menu.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/favourite_menu.png"
     },
     {
-        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/pin_icon.png",
-        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/pin_icon.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/postjob_menu.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/postjob_menu.png"
+    },
+    {
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/clock_black_icon.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/clock_black_icon.png"
+    },
+    {
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/calender_icon.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/calender_icon.png"
+    },
+    {
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/logout_menu_black.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/logout_menu_black.png"
+    },
+    {
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/mail_icon.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/mail_icon.png"
+    },
+    {
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/inbox_menu_black.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/inbox_menu_black.png"
+    },
+    {
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/logout_menu.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/logout_menu.png"
     },
     {
         "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/android__header_menu.png",
         "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/android__header_menu.png"
     },
     {
-        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/D:\\Android\\Chalkboard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\unlike_icon.png",
-        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/D:\\Android\\Chalkboard\\app\\src\\main\\res\\drawable-ldpi\\unlike_icon.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/search_input_icon.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/search_input_icon.png"
     },
     {
-        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/clock_icon.png",
-        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/clock_icon.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/back_top.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/back_top.png"
     },
     {
-        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/D:\\Android\\Chalkboard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\android__header_menu.png",
-        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/D:\\Android\\Chalkboard\\app\\src\\main\\res\\drawable-ldpi\\android__header_menu.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/input_place_icon.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/input_place_icon.png"
     },
     {
-        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/D:\\Android\\Chalkboard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\circle_border.png",
-        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/D:\\Android\\Chalkboard\\app\\src\\main\\res\\drawable-ldpi\\circle_border.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/credit_menu.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/credit_menu.png"
     },
     {
-        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/D:\\Android\\Chalkboard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\clock_icon_white.png",
-        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/D:\\Android\\Chalkboard\\app\\src\\main\\res\\drawable-ldpi\\clock_icon_white.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/match_menu.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/match_menu.png"
     },
     {
-        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/D:\\Users\\DeepakGupta\\Workspace1\\Chalkboard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\app_icon.png",
-        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/D:\\Users\\DeepakGupta\\Workspace1\\Chalkboard\\app\\src\\main\\res\\drawable-ldpi\\app_icon.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/share_icon_box.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/share_icon_box.png"
     },
     {
-        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/D:\\Android\\Chalkboard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\watch_icon.png",
-        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/D:\\Android\\Chalkboard\\app\\src\\main\\res\\drawable-ldpi\\watch_icon.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/search_menublackk.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/search_menublackk.png"
     },
     {
-        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/D:\\Users\\DeepakGupta\\Workspace1\\Chalkboard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\circle_delete_icon.png",
-        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/D:\\Users\\DeepakGupta\\Workspace1\\Chalkboard\\app\\src\\main\\res\\drawable-ldpi\\circle_delete_icon.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/watch_icon_white.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/watch_icon_white.png"
     },
     {
-        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/D:\\Android\\Chalkboard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\more_icon.png",
-        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/D:\\Android\\Chalkboard\\app\\src\\main\\res\\drawable-ldpi\\more_icon.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/app_defalt_circle.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/app_defalt_circle.png"
     },
     {
-        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/D:\\Android\\Chalkboard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\arrow_iocn.png",
-        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/D:\\Android\\Chalkboard\\app\\src\\main\\res\\drawable-ldpi\\arrow_iocn.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/watch_black_icon.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/watch_black_icon.png"
     },
     {
-        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/D:\\Users\\DeepakGupta\\Workspace1\\Chalkboard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\orange_close_icon.png",
-        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/D:\\Users\\DeepakGupta\\Workspace1\\Chalkboard\\app\\src\\main\\res\\drawable-ldpi\\orange_close_icon.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/match_menu_black.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/match_menu_black.png"
     },
     {
-        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/D:\\Users\\DeepakGupta\\Workspace1\\Chalkboard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\unactive_circle.png",
-        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/D:\\Users\\DeepakGupta\\Workspace1\\Chalkboard\\app\\src\\main\\res\\drawable-ldpi\\unactive_circle.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/credit_menu_black.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/credit_menu_black.png"
     },
     {
-        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/D:\\Android\\Chalkboard\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\orange_close_icon.png",
-        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/D:\\Android\\Chalkboard\\app\\src\\main\\res\\drawable-ldpi\\orange_close_icon.png"
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/search_menu.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/search_menu.png"
+    },
+    {
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/salary_icon.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/salary_icon.png"
+    },
+    {
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/posted_job_menu.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/posted_job_menu.png"
+    },
+    {
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/settings_menu.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/settings_menu.png"
+    },
+    {
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/key_icon.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/key_icon.png"
+    },
+    {
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/location_black_menu_icon_footer.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/location_black_menu_icon_footer.png"
+    },
+    {
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/mike.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/mike.png"
+    },
+    {
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/help_menu.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/help_menu.png"
+    },
+    {
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/input_calender_icon.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/input_calender_icon.png"
+    },
+    {
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/facebook_icon.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/facebook_icon.png"
+    },
+    {
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/place_icon.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/place_icon.png"
+    },
+    {
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/twitter_icon.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/twitter_icon.png"
+    },
+    {
+        "merged": "/Users/DeepakGupta/Workspace1/Chalkboard/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/reject_icon_text.png",
+        "source": "/Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/res/drawable-ldpi/reject_icon_text.png"
     }
 ]

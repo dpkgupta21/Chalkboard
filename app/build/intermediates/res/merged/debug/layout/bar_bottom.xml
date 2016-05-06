@@ -3,30 +3,30 @@
     android:layout_width="match_parent"
     android:layout_height="50dp"
     android:layout_alignParentBottom="true"
-    android:background="#efefef">
+    android:background="#efefef"
+    android:weightSum="2">
 
     <RelativeLayout
         android:id="@+id/bottom_location"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:gravity="center">
 
         <ImageView
             android:id="@+id/bottom_location_image"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_above="@+id/bottom_location_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:contentDescription="@string/app_name"
-            android:padding="5dp"
             android:src="@drawable/location_black_menu_icon_footer" />
 
         <com.chalkboard.customviews.MyTextViewMark
             android:id="@+id/bottom_location_text"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/bottom_location_image"
             android:gravity="center"
-            android:padding="2dp"
             android:text="LOCATION"
             android:textColor="@android:color/black"
             android:textSize="@dimen/textsize" />
@@ -41,24 +41,23 @@
         android:id="@+id/bottom_type"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:gravity="center">
 
         <ImageView
             android:id="@+id/bottom_type_image"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_above="@+id/bottom_type_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:contentDescription="@string/app_name"
-            android:padding="5dp"
-            android:src="@drawable/clock_black_icon" />
+            android:src="@drawable/calender_icon" />
 
         <com.chalkboard.customviews.MyTextViewMark
             android:id="@+id/bottom_type_text"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/bottom_type_image"
             android:gravity="center"
-            android:padding="2dp"
             android:text="TYPE"
             android:textColor="@android:color/black"
             android:textSize="@dimen/textsize" />

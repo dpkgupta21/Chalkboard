@@ -1,23 +1,38 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent" 
-    >
+    android:layout_height="fill_parent">
 
-    <NumberPicker
-        android:id="@+id/numberPicker1"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:id="@+id/relative"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/margin" />
+        android:gravity="center_horizontal">
+
+        <NumberPicker
+            android:id="@+id/number_month"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="@dimen/margin" />
+
+        <NumberPicker
+            android:id="@+id/numberPicker1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="@dimen/margin"
+            android:layout_toRightOf="@+id/number_month" />
+    </RelativeLayout>
 
     <Button
         android:id="@+id/button1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/numberPicker1"
+        android:layout_below="@+id/relative"
         android:layout_centerHorizontal="true"
-         android:layout_margin="@dimen/textsizebig"
+        android:layout_margin="@dimen/textsizebig"
         android:layout_marginTop="@dimen/margin"
         android:background="@drawable/sky_color_shape_round"
         android:padding="@dimen/paddingsmall"
@@ -31,8 +46,8 @@
         android:layout_height="1dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:text=""
         android:layout_margin="@dimen/textsizebig"
+        android:text=""
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
 </RelativeLayout>

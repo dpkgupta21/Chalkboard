@@ -19,6 +19,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -26,6 +27,11 @@ import java.util.regex.Pattern;
 public class Utils {
 
 
+    public static String currentYear(){
+        int year = Calendar.getInstance().get(Calendar.YEAR);
+
+        return year+"";
+    }
     public static String formatCityCountry(String city, String country) {
         String cityCountry = null;
         if (!city.equalsIgnoreCase("")) {

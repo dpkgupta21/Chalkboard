@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_id">481576728669882</string>
+    <!--<string name="app_id">481576728669882</string>-->
+    <string name="app_id">1004201546332224</string>
     <string name="app_name">Chalkboard</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
@@ -32,8 +33,9 @@
     <string name="send_match_request">Send Match Request</string>
     <string name="remove_match_request">Remove Match Request</string>
 
-    <string name="match_teacher">Match Teacher</string>
-    <string name="unmatch_teacher">Unmatch Teacher</string>
+
+    <string name="match_teacher">Send Match Request</string>
+    <string name="unmatch_teacher">Remove Match</string>
 
     <string name="send">Send</string>
     <string name="cancel">Cancel</string>

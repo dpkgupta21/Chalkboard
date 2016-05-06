@@ -250,13 +250,16 @@
                     <EditText
                         android:id="@+id/create_job_description"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/scroll"
+                        android:layout_height="wrap_content"
                         android:layout_margin="@dimen/margin"
                         android:background="@drawable/corner"
                         android:ems="10"
                         android:gravity="left|top"
                         android:hint="Job Description"
+                        android:maxLines="4"
+                        android:minLines="4"
                         android:padding="@dimen/padding"
+                        android:scrollbars="vertical"
                         android:textAppearance="?android:attr/textAppearanceMedium"></EditText>
 
                     <EditText
@@ -278,14 +281,17 @@
                     <EditText
                         android:id="@+id/create_requirement"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/scroll"
+                        android:layout_height="wrap_content"
                         android:layout_margin="@dimen/margin"
                         android:background="@drawable/corner"
                         android:ems="10"
                         android:gravity="left|top"
                         android:hint="Requirement"
+                        android:maxLines="4"
+                        android:minLines="4"
                         android:padding="@dimen/padding"
-                        android:singleLine="true"
+                        android:scrollbars="vertical"
+                        android:singleLine="false"
                         android:textAppearance="?android:attr/textAppearanceMedium"></EditText>
 
                     <RelativeLayout

@@ -1,13 +1,13 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#424242" >
+    android:background="#424242">
 
     <RelativeLayout
         android:id="@+id/toplay"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="#00c7d4" >
+        android:background="#00c7d4">
 
         <TextView
             android:id="@+id/textView1"
@@ -39,7 +39,7 @@
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:padding="10dp"
-            android:src="@drawable/arrow_iocn" />
+            android:src="@drawable/back_top" />
     </RelativeLayout>
 
     <LinearLayout
@@ -50,19 +50,19 @@
         android:layout_marginTop="15dp"
         android:gravity="center_horizontal"
         android:orientation="horizontal"
-        android:weightSum="1" >
+        android:weightSum="1">
 
         <LinearLayout
             android:layout_width="0px"
             android:layout_height="match_parent"
             android:layout_weight=".9"
             android:background="@android:color/white"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="0px"
-                android:layout_weight=".45" >
+                android:layout_weight=".45">
 
                 <ImageView
                     android:id="@+id/profile_image"
@@ -80,7 +80,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_above="@+id/profile_name"
-                    android:layout_centerHorizontal="true" >
+                    android:layout_centerHorizontal="true">
 
                     <ImageView
                         android:id="@+id/profile_icon"
@@ -102,8 +102,7 @@
                         android:layout_width="@dimen/mapsize"
                         android:layout_height="@dimen/mapsize"
                         android:layout_margin="@dimen/margin"
-                        android:contentDescription="@string/app_name"
-                        android:src="@drawable/circle_border_boundary" />
+                        android:contentDescription="@string/app_name" />
                 </RelativeLayout>
 
                 <com.chalkboard.customviews.MyTextViewMark
@@ -117,9 +116,9 @@
                     android:text=""
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@android:color/white"
-                    android:textStyle="bold" />
+                    android:textSize="18sp" />
 
-                <TextView
+                <com.chalkboard.customviews.MyTextViewMark
                     android:id="@+id/profile_location"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -129,7 +128,8 @@
                     android:singleLine="true"
                     android:text=""
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textColor="@android:color/white" />
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp" />
             </RelativeLayout>
 
             <ScrollView
@@ -137,24 +137,25 @@
                 android:layout_height="0px"
                 android:layout_weight=".55"
                 android:fillViewport="true"
-                android:scrollbars="none" >
+                android:scrollbars="none">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="5dp" >
+                    android:padding="5dp">
 
-                    <TextView
+                    <com.chalkboard.customviews.MyTextViewMark
                         android:id="@+id/profile_description"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="5dp"
                         android:text=""
                         android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:textColor="@android:color/black" />
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp" />
 
-                    <TextView
+                    <com.chalkboard.customviews.MyTextViewMarlBold
                         android:id="@+id/current_heading"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -162,8 +163,7 @@
                         android:padding="5dp"
                         android:text="CURRENT JOB"
                         android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:textColor="@android:color/black"
-                        android:textStyle="bold" />
+                        android:textColor="@android:color/black" />
 
                     <LinearLayout
                         android:id="@+id/add_exepereince"
@@ -173,7 +173,7 @@
                         android:orientation="vertical"
                         android:padding="5dp" />
 
-                    <TextView
+                    <com.chalkboard.customviews.MyTextViewMarlBold
                         android:id="@+id/education_heading"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -181,18 +181,16 @@
                         android:padding="5dp"
                         android:text="EDUCATION"
                         android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:textColor="@android:color/black"
-                        android:textStyle="bold" />
+                        android:textColor="@android:color/black" />
 
-                    <TextView
+                    <com.chalkboard.customviews.MyTextViewMark
                         android:id="@+id/education_detail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/add_exepereince"
                         android:padding="5dp"
                         android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:textColor="@android:color/black"
-                        android:textStyle="bold" />
+                        android:textColor="@color/black" />
 
                     <LinearLayout
                         android:id="@+id/add_education"
@@ -200,8 +198,7 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/education_heading"
                         android:orientation="vertical"
-                        android:padding="5dp" >
-                    </LinearLayout>
+                        android:padding="5dp"></LinearLayout>
                 </RelativeLayout>
             </ScrollView>
         </LinearLayout>

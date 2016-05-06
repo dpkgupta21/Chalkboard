@@ -221,7 +221,8 @@ public class Experience_Activity extends Activity{
 				}
 				
 				convertView.setTag(holder);
-				convertView.setTag(R.id.name,holder.country_name);
+				convertView.setTag(R.id.name, holder.country_name);
+
 				convertView.setTag(R.id.mcheck,holder.mcheck);
 			}
 
@@ -230,7 +231,9 @@ public class Experience_Activity extends Activity{
 			}
 									
 			holder.country_name.setText(event_note_data.get(position).getCountry_Name());
-			
+			holder.country_name.setGravity(View.TEXT_ALIGNMENT_CENTER);
+			holder.mcheck.setVisibility(View.GONE);
+
 			convertView.setOnClickListener(new OnClickListener() {
 				
 				@Override

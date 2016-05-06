@@ -13,7 +13,7 @@
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
         android:padding="10dp"
-        android:src="@drawable/arrow_iocn"
+        android:src="@drawable/back_top"
         android:visibility="gone" />
 
 
@@ -57,7 +57,7 @@
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:contentDescription="@string/app_name"
-        android:padding="5dp" />
+        android:padding="10dp" />
 
     <TextView
         android:id="@+id/top_header_count"

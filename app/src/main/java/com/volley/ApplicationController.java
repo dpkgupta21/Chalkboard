@@ -10,6 +10,13 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.Volley;
 import com.chalkboard.ApplicationBitmapCache;
+import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
+import com.nostra13.universalimageloader.cache.memory.impl.WeakMemoryCache;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.nostra13.universalimageloader.core.assist.ImageScaleType;
+import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
+import com.nostra13.universalimageloader.core.display.SimpleBitmapDisplayer;
 
 import org.acra.ACRA;
 
@@ -29,6 +36,25 @@ public class ApplicationController extends Application {
 
 		ACRA.init(this);
 		mInstance = this;
+
+		DisplayImageOptions defaultOptions = new DisplayImageOptions.Builder()
+				.cacheOnDisc(true)
+				.cacheInMemory(true)
+				.imageScaleType(ImageScaleType.EXACTLY)
+				.displayer(new SimpleBitmapDisplayer()).build();
+
+		ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(
+				getApplicationContext())
+				.defaultDisplayImageOptions(defaultOptions)
+				.memoryCache(new WeakMemoryCache())
+				.threadPriority(Thread.NORM_PRIORITY - 2)
+				.denyCacheImageMultipleSizesInMemory()
+				.discCacheFileNameGenerator(new Md5FileNameGenerator())
+				.tasksProcessingOrder(QueueProcessingType.LIFO)
+				.discCacheSize(500 * 1024 * 1024).build();
+
+		com.nostra13.universalimageloader.core.ImageLoader.getInstance().init(config);
+
 	}
 
 	public static synchronized ApplicationController getInstance() {

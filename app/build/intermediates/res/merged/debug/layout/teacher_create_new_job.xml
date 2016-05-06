@@ -1,12 +1,12 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent">
 
     <RelativeLayout
         android:id="@+id/toplay"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="#00c7d4" >
+        android:background="#00c7d4">
 
         <TextView
             android:id="@+id/createheader"
@@ -51,14 +51,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/toplay"
-        android:scrollbars="none" >
+        android:scrollbars="none">
 
         <LinearLayout
             android:id="@+id/linearLayout1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="100dp"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -66,7 +66,7 @@
                 android:layout_below="@+id/toplay"
                 android:gravity="center_horizontal"
                 android:orientation="horizontal"
-                android:weightSum="1" >
+                android:weightSum="1">
 
                 <LinearLayout
                     android:layout_width="0px"
@@ -74,14 +74,14 @@
                     android:layout_below="@+id/toplay"
                     android:layout_weight=".9"
                     android:gravity="center"
-                    android:orientation="vertical" >
+                    android:orientation="vertical">
 
                     <RelativeLayout
                         android:id="@+id/image_layout"
                         android:layout_width="fill_parent"
                         android:layout_height="@dimen/mapsize"
                         android:layout_margin="@dimen/margin"
-                        android:background="@drawable/corner" >
+                        android:background="@drawable/corner">
 
                         <ImageView
                             android:id="@+id/imageView1"
@@ -129,8 +129,7 @@
                         android:hint="Job Title"
                         android:padding="@dimen/padding"
                         android:singleLine="true"
-                        android:textAppearance="?android:attr/textAppearanceMedium" >
-                    </EditText>
+                        android:textAppearance="?android:attr/textAppearanceMedium"></EditText>
 
                     <EditText
                         android:id="@+id/create_company_name"
@@ -145,8 +144,7 @@
                         android:hint="Company"
                         android:padding="@dimen/padding"
                         android:singleLine="true"
-                        android:textAppearance="?android:attr/textAppearanceMedium" >
-                    </EditText>
+                        android:textAppearance="?android:attr/textAppearanceMedium"></EditText>
 
                     <LinearLayout
                         android:id="@+id/lay4"
@@ -154,7 +152,7 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="@dimen/margin"
                         android:gravity="center"
-                        android:orientation="horizontal" >
+                        android:orientation="horizontal">
 
                         <EditText
                             android:id="@+id/create_country_name"
@@ -173,8 +171,7 @@
                             android:hint="Country"
                             android:padding="@dimen/padding"
                             android:singleLine="true"
-                            android:textAppearance="?android:attr/textAppearanceMedium" >
-                        </EditText>
+                            android:textAppearance="?android:attr/textAppearanceMedium"></EditText>
 
                         <EditText
                             android:id="@+id/create_city_name"
@@ -187,8 +184,7 @@
                             android:hint="City"
                             android:padding="@dimen/padding"
                             android:singleLine="true"
-                            android:textAppearance="?android:attr/textAppearanceMedium" >
-                        </EditText>
+                            android:textAppearance="?android:attr/textAppearanceMedium"></EditText>
                     </LinearLayout>
 
                     <EditText
@@ -199,13 +195,12 @@
                         android:layout_marginRight="@dimen/margin"
                         android:background="@drawable/corner"
                         android:drawablePadding="@dimen/paddingsmall"
-                        android:drawableRight="@drawable/locationicon"
+                        android:drawableRight="@drawable/input_place_icon"
                         android:ems="10"
                         android:hint="Location"
                         android:padding="@dimen/padding"
                         android:singleLine="true"
-                        android:textAppearance="?android:attr/textAppearanceMedium" >
-                    </EditText>
+                        android:textAppearance="?android:attr/textAppearanceMedium"></EditText>
 
                     <fragment
                         android:id="@+id/map"
@@ -232,8 +227,7 @@
                         android:hint="Job Type"
                         android:padding="@dimen/padding"
                         android:singleLine="true"
-                        android:textAppearance="?android:attr/textAppearanceMedium" >
-                    </EditText>
+                        android:textAppearance="?android:attr/textAppearanceMedium"></EditText>
 
                     <EditText
                         android:id="@+id/create_srart_date"
@@ -251,21 +245,22 @@
                         android:hint="Start date"
                         android:padding="@dimen/padding"
                         android:singleLine="true"
-                        android:textAppearance="?android:attr/textAppearanceMedium" >
-                    </EditText>
+                        android:textAppearance="?android:attr/textAppearanceMedium"></EditText>
 
                     <EditText
                         android:id="@+id/create_job_description"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/scroll"
+                        android:layout_height="wrap_content"
                         android:layout_margin="@dimen/margin"
                         android:background="@drawable/corner"
                         android:ems="10"
                         android:gravity="left|top"
                         android:hint="Job Description"
+                        android:maxLines="4"
+                        android:minLines="4"
                         android:padding="@dimen/padding"
-                        android:textAppearance="?android:attr/textAppearanceMedium" >
-                    </EditText>
+                        android:scrollbars="vertical"
+                        android:textAppearance="?android:attr/textAppearanceMedium"></EditText>
 
                     <EditText
                         android:id="@+id/create_salary"
@@ -281,22 +276,23 @@
                         android:inputType="number"
                         android:padding="@dimen/padding"
                         android:singleLine="true"
-                        android:textAppearance="?android:attr/textAppearanceMedium" >
-                    </EditText>
+                        android:textAppearance="?android:attr/textAppearanceMedium"></EditText>
 
                     <EditText
                         android:id="@+id/create_requirement"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/scroll"
+                        android:layout_height="wrap_content"
                         android:layout_margin="@dimen/margin"
                         android:background="@drawable/corner"
                         android:ems="10"
                         android:gravity="left|top"
                         android:hint="Requirement"
+                        android:maxLines="4"
+                        android:minLines="4"
                         android:padding="@dimen/padding"
-                        android:singleLine="true"
-                        android:textAppearance="?android:attr/textAppearanceMedium" >
-                    </EditText>
+                        android:scrollbars="vertical"
+                        android:singleLine="false"
+                        android:textAppearance="?android:attr/textAppearanceMedium"></EditText>
 
                     <RelativeLayout
                         android:layout_width="fill_parent"
@@ -304,7 +300,7 @@
                         android:layout_marginLeft="@dimen/margin"
                         android:layout_marginRight="@dimen/margin"
                         android:gravity="center"
-                        android:orientation="horizontal" >
+                        android:orientation="horizontal">
 
                         <TextView
                             android:id="@+id/create_citizen_required"
@@ -315,8 +311,7 @@
                             android:layout_marginTop="@dimen/margin"
                             android:text="EU Citizen Required&quot;"
                             android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:textColor="@android:color/black" >
-                        </TextView>
+                            android:textColor="@android:color/black"></TextView>
 
                         <Switch
                             android:id="@+id/citizenship_swich"

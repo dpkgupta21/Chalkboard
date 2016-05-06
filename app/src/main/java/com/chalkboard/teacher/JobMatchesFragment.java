@@ -368,6 +368,9 @@ public class JobMatchesFragment extends Fragment {
                 public void onItemClick(AdapterView<?> arg0, View arg1,
                                         int position, long arg3) {
 
+//                    startActivity(new Intent(context,
+//                            JobPagerActivity.class).putExtra("dataList",
+//                            dataList).putExtra("position", position));
                     startActivity(new Intent(context,
                             TeacherChatBoardActivity.class).putExtra("id",
                             matchesDTOList.get(position).getRecruiter_id()).putExtra("name",

@@ -1,25 +1,8 @@
 package com.chalkboard.recruiter;
 
-import static com.chalkboard.GlobalClaass.hideProgressBar;
-import static com.chalkboard.GlobalClaass.showProgressBar;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.util.EntityUtils;
-import org.json.JSONObject;
-
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -37,271 +20,261 @@ import com.chalkboard.ImageLoader11;
 import com.chalkboard.R;
 import com.chalkboard.teacher.JobObject;
 
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.util.EntityUtils;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static com.chalkboard.GlobalClaass.hideProgressBar;
+import static com.chalkboard.GlobalClaass.showProgressBar;
+
 public class JobPreviewPage extends Fragment {
 
-	View rootView = null;
-
-	Activity context = null;
-
-	GetJobDetail getJobDetail = null;
-	
-	
-
-	public JobPreviewPage() {
-	}
-
-	
-	
-	static String JOB_OBJECT = "JOB_OBJECT";
-
-	public static JobPreviewPage newInstance(JobObject jobObject) {
-		JobPreviewPage jobPageFragment = new JobPreviewPage();
-
-		Bundle args = new Bundle();
-		args.putSerializable(JOB_OBJECT, jobObject);
-		jobPageFragment.setArguments(args);
-
-		return jobPageFragment;
-	}
-
-	JobObject jobObject;
-
-	Typeface font,font2;
-	
-	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
+    View rootView = null;
 
-		jobObject = (JobObject) getArguments().getSerializable(JOB_OBJECT);
+    Activity context = null;
 
-		context = getActivity();
+    GetJobDetail getJobDetail = null;
 
-		rootView = inflater.inflate(R.layout.my_job_preview, container, false);
-		
-		font = Typeface.createFromAsset(context.getAssets(), "fonts/mark.ttf");
-		font2=Typeface.createFromAsset(context.getAssets(), "fonts/marlbold.ttf");
-		
-		
 
-		
-		try {
+    public JobPreviewPage() {
+    }
 
-			((TextView) rootView.findViewById(R.id.job_name)).setTypeface(font2);
-			((TextView) rootView.findViewById(R.id.job_offer_by)).setTypeface(font);
-			((TextView) rootView.findViewById(R.id.job_location)).setTypeface(font);
-			
 
+    static String JOB_OBJECT = "JOB_OBJECT";
 
-			((TextView) rootView.findViewById(R.id.job_description)).setTypeface(font);
-			
-			((TextView) rootView.findViewById(R.id.salary)).setTypeface(font);
-			((TextView) rootView.findViewById(R.id.start_date)).setTypeface(font);
-			((TextView) rootView.findViewById(R.id.about_company)).setTypeface(font);
-			
-			
-			((TextView)rootView.findViewById(R.id.edit_job)).setTypeface(font2);
-			
-			((TextView)rootView.findViewById(R.id.remove_publish_job)).setTypeface(font2);
-			
-			((TextView)rootView.findViewById(R.id.about_heading)).setTypeface(font2);
-			((TextView)rootView.findViewById(R.id.salary_text)).setTypeface(font2);
-			((TextView)rootView.findViewById(R.id.date_text)).setTypeface(font2);
-			
-		} catch (Exception e) {
+    public static JobPreviewPage newInstance(JobObject jobObject) {
+        JobPreviewPage jobPageFragment = new JobPreviewPage();
 
-		}
-		
-          if(GlobalClaass.isInternetPresent(context)){
-			
-        	getJobDetail = new GetJobDetail(jobObject.getId());
-      		getJobDetail.execute();
-			
-		}
-		else {
-			GlobalClaass.showToastMessage(context,"Please check internet connection");
-		}
+        Bundle args = new Bundle();
+        args.putSerializable(JOB_OBJECT, jobObject);
+        jobPageFragment.setArguments(args);
 
-		
+        return jobPageFragment;
+    }
 
-		return rootView;
-	}
+    JobObject jobObject;
 
-	@Override
-	public void onDestroyView() {
-		super.onDestroyView();
-		GlobalClaass.clearAsyncTask(getJobDetail);
-		
-	}
 
-	public class GetJobDetail extends AsyncTask<String, String, String> {
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
 
-		String jobId;
+        jobObject = (JobObject) getArguments().getSerializable(JOB_OBJECT);
 
-		public GetJobDetail(String id) {
-			jobId = id;
-		}
+        context = getActivity();
 
-		@Override
-		protected void onPreExecute() {
-			showProgressBar(context, rootView);
-		}
+        rootView = inflater.inflate(R.layout.my_job_preview, container, false);
 
-		@Override
-		protected String doInBackground(String... params) {
 
-			String resultStr = null;
-			try {
+        if (GlobalClaass.isInternetPresent(context)) {
 
-				HttpClient httpClient = new DefaultHttpClient();
-				HttpPost request = new HttpPost(GlobalClaass.Webservice_Url);
+            getJobDetail = new GetJobDetail(jobObject.getId());
+            getJobDetail.execute();
 
-				List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
+        } else {
+            GlobalClaass.showToastMessage(context, "Please check internet connection");
+        }
 
-				nameValuePairs
-						.add(new BasicNameValuePair("action", "jobDetail"));
 
-				nameValuePairs.add(new BasicNameValuePair("job_id", jobId));
-				nameValuePairs.add(new BasicNameValuePair("user_id",
-						GlobalClaass.getUserId(context)));
-				request.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+        return rootView;
+    }
 
-				HttpResponse response = httpClient.execute(request);
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        GlobalClaass.clearAsyncTask(getJobDetail);
 
-				HttpEntity entity = response.getEntity();
+    }
 
-				resultStr = EntityUtils.toString(entity);
+    public class GetJobDetail extends AsyncTask<String, String, String> {
 
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+        String jobId;
 
-			return resultStr;
+        public GetJobDetail(String id) {
+            jobId = id;
+        }
 
-		}
+        @Override
+        protected void onPreExecute() {
+            showProgressBar(context, rootView);
+        }
 
-		@Override
-		protected void onPostExecute(String result) {
+        @Override
+        protected String doInBackground(String... params) {
 
-			hideProgressBar(context, rootView);
+            String resultStr = null;
+            try {
 
-			setUpUi(result);
-		}
+                HttpClient httpClient = new DefaultHttpClient();
+                HttpPost request = new HttpPost(GlobalClaass.Webservice_Url);
 
-	}
+                List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
 
-	public void setUpUi(String result) {
+                nameValuePairs
+                        .add(new BasicNameValuePair("action", "jobDetail"));
 
-		try {
+                nameValuePairs.add(new BasicNameValuePair("job_id", jobId));
+                nameValuePairs.add(new BasicNameValuePair("user_id",
+                        GlobalClaass.getUserId(context)));
+                request.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 
-			Log.e("Dotsquares", "resultttttttttttttttttttttttt:" + result);
+                HttpResponse response = httpClient.execute(request);
 
-			JSONObject jObject = new JSONObject(result);
+                HttpEntity entity = response.getEntity();
 
-			String get_message = jObject.getString("message").trim();
-			String get_replycode = jObject.getString("status").trim();
+                resultStr = EntityUtils.toString(entity);
 
-			String salary = jObject.getString("salary").trim();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
 
-			jobObject.setJobSalary(salary);
+            return resultStr;
 
-			String description = jObject.getString("description").trim();
+        }
 
-			jobObject.setJobDescription(description);
+        @Override
+        protected void onPostExecute(String result) {
 
-			boolean is_draft = jObject.getBoolean("is_draft");
+            hideProgressBar(context, rootView);
 
-			jobObject.setIs_draft(is_draft);
+            setUpUi(result);
+        }
 
-			JSONObject jObj = jObject.getJSONObject("Recruiter");
+    }
 
-			String name = jObj.getString("name").trim();
+    public void setUpUi(String result) {
 
-			jobObject.setJobRecruiterName(name);
+        try {
 
-			String school_photo = jObj.getString("school_photo").trim();
-			
-			String about = jObj.getString("about").trim();
+            Log.e("Dotsquares", "resultttttttttttttttttttttttt:" + result);
 
-			jobObject.setJobRecruiterAbout(about);
-			
-			jobObject.setJobPhoto(school_photo);
-			
-			String logo = jObj.getString("logo").trim();
+            JSONObject jObject = new JSONObject(result);
 
-			jobObject.setJobImage(logo);
-			
-			
-			
-			jobObject.setId(jObject.getString("id").trim());
-			jobObject.setJobTitle(jObject.getString("title").trim());
-			jobObject.setJobCity(jObject.getString("city").trim());
-			jobObject.setJobCountry(jObject.getString("country").trim());
-			jobObject.setJobStartdate(jObject.getString("start_date").trim());
-			jobObject.setJobIsfavourate(jObject.getString("is_favorite").trim());
-			jobObject.setJobIsmatch(jObject.getString("is_match").trim());
-			
-			
-			
+            String get_message = jObject.getString("message").trim();
+            String get_replycode = jObject.getString("status").trim();
 
-			refineUI();
+            String salary = jObject.getString("salary").trim();
 
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+            jobObject.setJobSalary(salary);
 
-	}
+            String description = jObject.getString("description").trim();
 
-	private void refineUI() {
-		((TextView) rootView.findViewById(R.id.job_name)).setText(jobObject
-				.getJobName());
-		((TextView) rootView.findViewById(R.id.job_offer_by)).setText("By "
-				+ jobObject.getJobRecruiterName());
-		((TextView) rootView.findViewById(R.id.job_location)).setText("@ "
-				+ jobObject.getJobLocation());
+            jobObject.setJobDescription(description);
 
-		ImageLoader imageloader = new ImageLoader(context);
+            boolean is_draft = jObject.getBoolean("is_draft");
 
-		imageloader.DisplayImage(jobObject.getJobPhoto(),
-				((ImageView) rootView.findViewById(R.id.job_icon)));
+            jobObject.setIs_draft(is_draft);
 
-		ImageLoader11 imageloader1 = new ImageLoader11(context);
+            JSONObject jObj = jObject.getJSONObject("Recruiter");
 
-		imageloader1.DisplayImage(jobObject.getJobImage(),
-				((ImageView) rootView.findViewById(R.id.job_image)));
-		
-		if (jobObject.isIs_draft()) {
-			((TextView) rootView.findViewById(R.id.remove_publish_job))
-					.setText("Publish Job");
-			((TextView) rootView.findViewById(R.id.remove_publish_job))
-					.setOnClickListener(new OnClickListener() {
-						@Override
-						public void onClick(View arg0) {
-							new PublishJob(jobObject.getId()).execute();
-						}
-					});
-		} else {
-			((TextView) rootView.findViewById(R.id.remove_publish_job))
-					.setText("Remove Job");
-			((TextView) rootView.findViewById(R.id.remove_publish_job))
-					.setOnClickListener(new OnClickListener() {
-						@Override
-						public void onClick(View arg0) {
-							new RemoveJob(jobObject.getId()).execute();
-						}
-					});
-		}
+            String name = jObj.getString("name").trim();
 
-		((TextView) rootView.findViewById(R.id.edit_job))
-		.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View arg0) {
-				startActivity(new Intent(context,
-						EditJobActivity.class).putExtra("Data", jobObject));
-			}
-		});
-		
+            jobObject.setJobRecruiterName(name);
+
+            String school_photo = jObj.getString("school_photo").trim();
+
+            String about = jObj.getString("about").trim();
+
+            jobObject.setJobRecruiterAbout(about);
+
+            jobObject.setJobPhoto(school_photo);
+
+            String logo = jObj.getString("logo").trim();
+
+            jobObject.setJobImage(logo);
+
+
+            jobObject.setId(jObject.getString("id").trim());
+            jobObject.setJobTitle(jObject.getString("title").trim());
+            jobObject.setJobCity(jObject.getString("city").trim());
+            jobObject.setJobCountry(jObject.getString("country").trim());
+            jobObject.setJobStartdate(jObject.getString("start_date").trim());
+            jobObject.setJobIsfavourate(jObject.getString("is_favorite").trim());
+            jobObject.setJobIsmatch(jObject.getString("is_match").trim());
+
+
+            refineUI();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    private void refineUI() {
+        ((TextView) rootView.findViewById(R.id.job_name)).setText(jobObject
+                .getJobName());
+        ((TextView) rootView.findViewById(R.id.job_offer_by)).setText(jobObject.getJobRecruiterName());
+        ((TextView) rootView.findViewById(R.id.job_location)).setText(jobObject.getJobLocation());
+
+        ImageLoader imageloader = new ImageLoader(context);
+
+        imageloader.DisplayImage(jobObject.getJobPhoto(),
+                ((ImageView) rootView.findViewById(R.id.job_icon)));
+
+        ImageLoader11 imageloader1 = new ImageLoader11(context);
+
+        imageloader1.DisplayImage(jobObject.getJobImage(),
+                ((ImageView) rootView.findViewById(R.id.job_image)));
+
+        if (jobObject.isIs_draft()) {
+            ((TextView) rootView.findViewById(R.id.remove_publish_job))
+                    .setText("Publish Job");
+            ((TextView) rootView.findViewById(R.id.remove_publish_job))
+                    .setOnClickListener(new OnClickListener() {
+                        @Override
+                        public void onClick(View arg0) {
+                            new PublishJob(jobObject.getId()).execute();
+                        }
+                    });
+        } else {
+            ((TextView) rootView.findViewById(R.id.remove_publish_job))
+                    .setText("Remove Job");
+            ((TextView) rootView.findViewById(R.id.remove_publish_job))
+                    .setOnClickListener(new OnClickListener() {
+                        @Override
+                        public void onClick(View arg0) {
+                            new RemoveJob(jobObject.getId()).execute();
+                        }
+                    });
+        }
+
+        ((ImageView) rootView.findViewById(R.id.img_edit_job))
+                .setOnClickListener(new OnClickListener() {
+                    @Override
+                    public void onClick(View arg0) {
+                        startActivity(new Intent(context,
+                                EditJobActivity.class).putExtra("Data", jobObject));
+                    }
+                });
+
+
+        rootView.findViewById(R.id.img_location_icon)
+                .setOnClickListener(new OnClickListener() {
+
+                    @Override
+                    public void onClick(View arg0) {
+
+                        String map = "http://maps.google.co.in/maps?q=" +
+                                jobObject.getJobLocation();
+
+                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(map));
+                        startActivity(intent);
+
+                    }
+                });
 		/*if (jobObject.isJobFavorite()) {
-			((TextView) rootView.findViewById(R.id.add_to_favorite))
+            ((TextView) rootView.findViewById(R.id.add_to_favorite))
 					.setText("Remove from Favorites");
 			((TextView) rootView.findViewById(R.id.add_to_favorite))
 					.setOnClickListener(new OnClickListener() {
@@ -342,7 +315,7 @@ public class JobPreviewPage extends Fragment {
 					});
 		} else {
 
-			((TextView) rootView.findViewById(R.id.match_job))
+			((TextView) rootView.findViewById(R.id.match_job))f
 					.setText("Match Job");
 			((TextView) rootView.findViewById(R.id.match_job))
 					.setOnClickListener(new OnClickListener() {
@@ -356,199 +329,193 @@ public class JobPreviewPage extends Fragment {
 
 		}*/
 
-		rootView.findViewById(R.id.share_job)
-		.setOnClickListener(new OnClickListener() {
+//        rootView.findViewById(R.id.share_job)
+//                .setOnClickListener(new OnClickListener() {
+//
+//                    @Override
+//                    public void onClick(View arg0) {
+//
+//                        String shareBody = jobObject.getJobName() + " @ " + jobObject.getJobLocation();
+//                        Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+//                        sharingIntent.setType("text/plain");
+//                        sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Chalkboard Android");
+//                        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
+//                        startActivity(Intent.createChooser(sharingIntent, "Share via..."));
+//
+//                    }
+//                });
 
-			@Override
-			public void onClick(View arg0) {
-				
-				String shareBody = jobObject.getJobName() + " @ " + jobObject.getJobLocation();
-			    Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
-			        sharingIntent.setType("text/plain");
-			        sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Chalkboard Android");
-			        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
-			        startActivity(Intent.createChooser(sharingIntent, "Share via..."));
-				
-			}
-		});
-		
-		((TextView) rootView.findViewById(R.id.job_description))
-				.setText(jobObject.getJobDescription());
-		((TextView) rootView.findViewById(R.id.salary)).setText(jobObject
-				.getJobSalary());
+        ((TextView) rootView.findViewById(R.id.job_description))
+                .setText(jobObject.getJobDescription());
+        ((TextView) rootView.findViewById(R.id.salary)).setText(jobObject
+                .getJobSalary());
 
-		((TextView) rootView.findViewById(R.id.start_date)).setText(jobObject
-				.getJobDate());
+        ((TextView) rootView.findViewById(R.id.start_date)).setText(jobObject
+                .getJobDate());
 
-		((TextView) rootView.findViewById(R.id.about_company))
-				.setText(jobObject.getJobRecruiterAbout());
-		
-		
-		
-		
-		
-	}
+        ((TextView) rootView.findViewById(R.id.about_company))
+                .setText(jobObject.getJobRecruiterAbout());
 
-	
 
-	class RemoveJob extends AsyncTask<String, String, String> {
+    }
 
-		String jobId;
 
-		public RemoveJob(String id) {
-			jobId = id;
-		}
+    class RemoveJob extends AsyncTask<String, String, String> {
 
-		@Override
-		protected void onPreExecute() {
-			showProgressBar(context, rootView);
-		}
+        String jobId;
 
-		@Override
-		protected String doInBackground(String... params) {
+        public RemoveJob(String id) {
+            jobId = id;
+        }
 
-			String resultStr = null;
-			try {
+        @Override
+        protected void onPreExecute() {
+            showProgressBar(context, rootView);
+        }
 
-				HttpClient httpClient = new DefaultHttpClient();
-				HttpPost request = new HttpPost(GlobalClaass.Webservice_Url);
+        @Override
+        protected String doInBackground(String... params) {
 
-				List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
+            String resultStr = null;
+            try {
 
-				nameValuePairs.add(new BasicNameValuePair("action",
-						"remove_job"));
+                HttpClient httpClient = new DefaultHttpClient();
+                HttpPost request = new HttpPost(GlobalClaass.Webservice_Url);
 
-				nameValuePairs.add(new BasicNameValuePair("job_id",
-						jobId));
-				nameValuePairs.add(new BasicNameValuePair("user_id",
-						GlobalClaass.getUserId(context)));
-				request.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+                List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
 
-				HttpResponse response = httpClient.execute(request);
+                nameValuePairs.add(new BasicNameValuePair("action",
+                        "remove_job"));
 
-				HttpEntity entity = response.getEntity();
+                nameValuePairs.add(new BasicNameValuePair("job_id",
+                        jobId));
+                nameValuePairs.add(new BasicNameValuePair("user_id",
+                        GlobalClaass.getUserId(context)));
+                request.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 
-				resultStr = EntityUtils.toString(entity);
+                HttpResponse response = httpClient.execute(request);
 
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+                HttpEntity entity = response.getEntity();
 
-			return resultStr;
+                resultStr = EntityUtils.toString(entity);
 
-		}
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
 
-		@Override
-		protected void onPostExecute(String result) {
-			Log.e("Publish job","qqqqqqqqqqqqqqqqqqq     "+result);
-			JSONObject jObject, jobj;
-			String get_status = "", get_message = "";
+            return resultStr;
 
-			try {
+        }
 
-				jObject = new JSONObject(result);
+        @Override
+        protected void onPostExecute(String result) {
+            Log.e("Publish job", "qqqqqqqqqqqqqqqqqqq     " + result);
+            JSONObject jObject, jobj;
+            String get_status = "", get_message = "";
 
-				get_message = jObject.getString("message").trim();
-				get_status = jObject.getString("status").trim();
+            try {
 
-				if(get_status.equalsIgnoreCase("true")){
+                jObject = new JSONObject(result);
 
-					context.finish();
-					GlobalClaass.activitySlideForwardAnimation(context);
-				}
-				else {
-					GlobalClaass.showToastMessage(context, get_message);
-				}
+                get_message = jObject.getString("message").trim();
+                get_status = jObject.getString("status").trim();
 
-			} catch (Exception e) {
+                if (get_status.equalsIgnoreCase("true")) {
 
-			}
-			
-			hideProgressBar(context, rootView);
+                    context.finish();
+                    GlobalClaass.activitySlideForwardAnimation(context);
+                } else {
+                    GlobalClaass.showToastMessage(context, get_message);
+                }
 
-		}
+            } catch (Exception e) {
 
-	}
-	
+            }
 
-	class PublishJob extends AsyncTask<String, String, String> {
+            hideProgressBar(context, rootView);
 
-		String jobId;
+        }
 
-		public PublishJob(String id) {
-			jobId = id;
-		}
+    }
 
-		@Override
-		protected void onPreExecute() {
-			showProgressBar(context, rootView);
-		}
 
-		@Override
-		protected String doInBackground(String... params) {
+    class PublishJob extends AsyncTask<String, String, String> {
 
-			String resultStr = null;
-			try {
+        String jobId;
 
-				HttpClient httpClient = new DefaultHttpClient();
-				HttpPost request = new HttpPost(GlobalClaass.Webservice_Url);
+        public PublishJob(String id) {
+            jobId = id;
+        }
 
-				List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
+        @Override
+        protected void onPreExecute() {
+            showProgressBar(context, rootView);
+        }
 
-				nameValuePairs.add(new BasicNameValuePair("action",
-						"publish_job"));
+        @Override
+        protected String doInBackground(String... params) {
 
-				nameValuePairs.add(new BasicNameValuePair("job_id",
-						jobId));
-				
-				request.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+            String resultStr = null;
+            try {
 
-				HttpResponse response = httpClient.execute(request);
+                HttpClient httpClient = new DefaultHttpClient();
+                HttpPost request = new HttpPost(GlobalClaass.Webservice_Url);
 
-				HttpEntity entity = response.getEntity();
+                List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
 
-				resultStr = EntityUtils.toString(entity);
+                nameValuePairs.add(new BasicNameValuePair("action",
+                        "publish_job"));
 
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+                nameValuePairs.add(new BasicNameValuePair("job_id",
+                        jobId));
 
-			return resultStr;
+                request.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 
-		}
+                HttpResponse response = httpClient.execute(request);
 
-		@Override
-		protected void onPostExecute(String result) {
+                HttpEntity entity = response.getEntity();
 
-			Log.e("Remove job","qqqqqqqqqqqqqqqqqqq     "+result);
-			
-			JSONObject jObject, jobj;
-			String get_status = "", get_message = "";
+                resultStr = EntityUtils.toString(entity);
 
-			try {
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
 
-				jObject = new JSONObject(result);
+            return resultStr;
 
-				get_message = jObject.getString("message").trim();
-				get_status = jObject.getString("status").trim();
+        }
 
-				if(get_status.equalsIgnoreCase("true")){
+        @Override
+        protected void onPostExecute(String result) {
 
-					context.finish();
-					GlobalClaass.activitySlideForwardAnimation(context);
-				}
-				else {
-					GlobalClaass.showToastMessage(context, get_message);
-				}
+            Log.e("Remove job", "qqqqqqqqqqqqqqqqqqq     " + result);
 
-			} catch (Exception e) {
+            JSONObject jObject, jobj;
+            String get_status = "", get_message = "";
 
-			}
-			hideProgressBar(context, rootView);
+            try {
 
-		}
+                jObject = new JSONObject(result);
 
-	}
-	
+                get_message = jObject.getString("message").trim();
+                get_status = jObject.getString("status").trim();
+
+                if (get_status.equalsIgnoreCase("true")) {
+
+                    context.finish();
+                    GlobalClaass.activitySlideForwardAnimation(context);
+                } else {
+                    GlobalClaass.showToastMessage(context, get_message);
+                }
+
+            } catch (Exception e) {
+
+            }
+            hideProgressBar(context, rootView);
+
+        }
+
+    }
+
 
 }

@@ -1,13 +1,13 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white" >
+    android:background="@android:color/white">
 
     <RelativeLayout
         android:id="@+id/toplay"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="#00c7d4" >
+        android:background="#00c7d4">
 
         <TextView
             android:id="@+id/recruteredir_txt"
@@ -52,14 +52,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/toplay"
-        android:scrollbars="none" >
+        android:scrollbars="none">
 
         <LinearLayout
             android:id="@+id/linearLayout1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="100dp"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -67,7 +67,7 @@
                 android:layout_below="@+id/toplay"
                 android:gravity="center_horizontal"
                 android:orientation="horizontal"
-                android:weightSum="1" >
+                android:weightSum="1">
 
                 <LinearLayout
                     android:layout_width="0px"
@@ -75,12 +75,12 @@
                     android:layout_below="@+id/toplay"
                     android:layout_weight=".9"
                     android:gravity="center"
-                    android:orientation="vertical" >
+                    android:orientation="vertical">
 
                     <RelativeLayout
                         android:layout_width="@dimen/mapsize"
                         android:layout_height="@dimen/mapsize"
-                        android:padding="@dimen/padding" >
+                        android:padding="@dimen/padding">
 
                         <ImageView
                             android:id="@+id/recuiter_profileimage"
@@ -112,7 +112,7 @@
                         android:layout_width="fill_parent"
                         android:layout_height="@dimen/mapsize"
                         android:layout_margin="@dimen/margin"
-                        android:background="@drawable/corner" >
+                        android:background="@drawable/corner">
 
                         <ImageView
                             android:id="@+id/imageView1"
@@ -158,8 +158,7 @@
                         android:ems="10"
                         android:hint="Company"
                         android:padding="@dimen/paddingsmall"
-                        android:textAppearance="?android:attr/textAppearanceMedium" >
-                    </EditText>
+                        android:textAppearance="?android:attr/textAppearanceMedium"></EditText>
 
                     <LinearLayout
                         android:id="@+id/lay4"
@@ -167,7 +166,7 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="@dimen/margin"
                         android:gravity="center"
-                        android:orientation="horizontal" >
+                        android:orientation="horizontal">
 
                         <EditText
                             android:id="@+id/recuiter_countryname"
@@ -185,8 +184,7 @@
                             android:focusableInTouchMode="false"
                             android:hint="Nationality"
                             android:padding="@dimen/paddingsmall"
-                            android:textAppearance="?android:attr/textAppearanceMedium" >
-                        </EditText>
+                            android:textAppearance="?android:attr/textAppearanceMedium"></EditText>
 
                         <EditText
                             android:id="@+id/recuiter_city"
@@ -197,10 +195,9 @@
                             android:background="@drawable/corner"
                             android:ems="10"
                             android:hint="City"
-                            android:visibility="invisible"
                             android:padding="@dimen/paddingsmall"
-                            android:textAppearance="?android:attr/textAppearanceMedium" >
-                        </EditText>
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:visibility="invisible"></EditText>
                     </LinearLayout>
 
                     <EditText
@@ -219,8 +216,7 @@
                         android:focusableInTouchMode="false"
                         android:hint="Country"
                         android:padding="@dimen/paddingsmall"
-                        android:textAppearance="?android:attr/textAppearanceMedium" >
-                    </EditText>
+                        android:textAppearance="?android:attr/textAppearanceMedium"></EditText>
 
                     <EditText
                         android:id="@+id/recuiter_location"
@@ -234,21 +230,22 @@
                         android:ems="10"
                         android:hint="Current Location"
                         android:padding="@dimen/paddingsmall"
-                        android:textAppearance="?android:attr/textAppearanceMedium" >
-                    </EditText>
+                        android:textAppearance="?android:attr/textAppearanceMedium"></EditText>
 
                     <EditText
                         android:id="@+id/recuiter_aboutcompany"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/scroll"
+                        android:layout_height="wrap_content"
                         android:layout_margin="@dimen/margin"
                         android:background="@drawable/corner"
                         android:ems="10"
                         android:gravity="left|top"
                         android:hint="About Company"
+                        android:maxLines="4"
+                        android:minLines="4"
                         android:padding="@dimen/paddingsmall"
-                        android:textAppearance="?android:attr/textAppearanceMedium" >
-                    </EditText>
+                        android:scrollbars="vertical"
+                        android:textAppearance="?android:attr/textAppearanceMedium"></EditText>
 
                     <Button
                         android:id="@+id/recuiter_save"

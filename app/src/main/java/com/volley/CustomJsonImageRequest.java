@@ -25,9 +25,13 @@ import java.util.Map;
 public class CustomJsonImageRequest extends Request<JSONObject> {
 
     public static final String KEY_PICTURE = "image";
+    public static final String KEY_SCHOOL_PHOTO = "school_photo";
+
     private Listener<JSONObject> listener;
     private Map<String, String> params;
-    private File file;
+    private File file1;
+    private File file2;
+
     // private MultipartEntity entity = new MultipartEntity();
     private HttpEntity mHttpEntity;
 
@@ -50,24 +54,34 @@ public class CustomJsonImageRequest extends Request<JSONObject> {
 
     public CustomJsonImageRequest(int method, String url,
                                   Map<String, String> params,
-                                  File file,
+                                  File file1, File file2,
                                   Listener<JSONObject> reponseListener,
                                   ErrorListener errorListener) {
         super(method, url, errorListener);
         this.listener = reponseListener;
         this.params = params;
-        this.file = file;
-        mHttpEntity = buildMultipartEntity(file);
+        this.file1 = file1;
+        this.file2 = file2;
+
+        mHttpEntity = buildMultipartEntity(file1, file2);
+
         //buildMultipartEntity();
     }
 
-    private HttpEntity buildMultipartEntity(File file) {
+    private HttpEntity buildMultipartEntity(File file1, File file2) {
         MultipartEntityBuilder builder = MultipartEntityBuilder.create();
-        if (file != null) {
-            String fileName = file.getName();
+        if (file1 != null) {
+            String fileName1 = file1.getName();
 
-            FileBody fileBody = new FileBody(file);
-            builder.addPart(KEY_PICTURE, fileBody);
+            FileBody fileBody1 = new FileBody(file1);
+            builder.addPart(KEY_PICTURE, fileBody1);
+        }
+
+        if(file2!=null){
+            String fileName2 = file2.getName();
+
+            FileBody fileBody2 = new FileBody(file2);
+            builder.addPart(KEY_SCHOOL_PHOTO, fileBody2);
         }
         try {
             for (String key : params.keySet())

@@ -2,6 +2,7 @@ package com.chalkboard.recruiter;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Calendar;
@@ -44,6 +45,7 @@ import android.provider.MediaStore;
 import android.provider.MediaStore.Images;
 import android.util.Log;
 import android.view.ContextThemeWrapper;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -78,551 +80,588 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 public class Teacher_Create_New_Job extends Activity {
 
-	Activity context;
-	EditText create_job_title, create_company_name, create_country_name,
-	create_city_name, create_requirement, create_location,
-	create_job_type, create_srart_date, create_job_description,
-	create_salary;
-	TextView create_citizen_required,top_header_count;
-	Button create_btn_draft, create_btn_preview, create_btn_postjob;
-	Switch citizenship_swich;
-	RelativeLayout image_layout;
-	ImageView btn_back,teacher_photo;
-
-	protected static final int RESULT_CAMERA = 5;
-	protected static final int RESULT_LIBRARY = 6;
-	String selectedImagePath = "";
-	String str = "", ext = "", EncodeImage = "";
-	long filebyte;
-
-	static Dialog d;
-	Dialog dialog;
-	private int year;
-	private int month;
-	private int day;
-	static final int DATE_PICKER_ID = 1111;
-
-	double lati, longi, hlati, hlongi;
-	GPSTracker gps;
-	String Lat_st, Lon_st1;
-	String CountryName = "";
-	String Countryaddress = "",is_draft = "",eu_citizen_required = "";
-	private GoogleMap googleMap;
-
-	LoadService loadservice = null;
-	JobPosting jobposting = null;
-	
-	Typeface font,font2;
-
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
-		super.onCreate(savedInstanceState);
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
-		setContentView(R.layout.teacher_create_new_job);
-
-		context = this;
-		font=Typeface.createFromAsset(getAssets(), "fonts/mark.ttf");
-		font2=Typeface.createFromAsset(getAssets(), "fonts/marlbold.ttf");
-
-		final Calendar c = Calendar.getInstance();
-		year  = c.get(Calendar.YEAR);
-		month = c.get(Calendar.MONTH);
-		day   = c.get(Calendar.DAY_OF_MONTH);
-
-		create_job_title = (EditText) findViewById(R.id.create_job_title);
-		create_company_name = (EditText) findViewById(R.id.create_company_name);
-		create_country_name = (EditText) findViewById(R.id.create_country_name);
-		create_city_name = (EditText) findViewById(R.id.create_city_name);
-		create_requirement = (EditText) findViewById(R.id.create_requirement);
-		create_location = (EditText) findViewById(R.id.create_location);
-		create_job_type = (EditText) findViewById(R.id.create_job_type);
-		create_srart_date = (EditText) findViewById(R.id.create_srart_date);
-		create_job_description = (EditText) findViewById(R.id.create_job_description);
-		create_salary = (EditText) findViewById(R.id.create_salary);
-		btn_back = (ImageView) findViewById(R.id.btn_back);
-		create_citizen_required = (TextView) findViewById(R.id.create_citizen_required);
-		create_btn_draft = (Button) findViewById(R.id.create_btn_draft);
-		create_btn_preview = (Button) findViewById(R.id.create_btn_preview);
-		create_btn_postjob = (Button) findViewById(R.id.create_btn_postjob);
-		citizenship_swich = (Switch) findViewById(R.id.citizenship_swich);
-		image_layout = (RelativeLayout) findViewById(R.id.image_layout);
-		teacher_photo = (ImageView)findViewById(R.id.teacher_photo);
-		top_header_count = (TextView)findViewById(R.id.top_header_count);
-		
-		try {
-			create_job_title.setTypeface(font);
-			create_company_name.setTypeface(font);
-			create_country_name.setTypeface(font);
-			create_city_name.setTypeface(font);
-			create_requirement.setTypeface(font);
-			create_location.setTypeface(font);
-			create_job_type.setTypeface(font);
-			create_srart_date.setTypeface(font);
-			create_job_description.setTypeface(font);
-			create_salary.setTypeface(font);
-			top_header_count.setTypeface(font);
-			create_btn_preview.setTypeface(font);
-			create_btn_draft.setTypeface(font);
-			create_btn_postjob.setTypeface(font);
-			
-			create_citizen_required.setTypeface(font);
-			
-			((TextView) findViewById(R.id.createheader)).setTypeface(font2);
-			
-		} catch (Exception e) {
-
-		}
-		
-		String count= GlobalClaass.getHeader_Count(context);
-
-		if(count != null){
-
-			if(count.length() == 1){
-				top_header_count.setText("  "+count);
-			}if(count.length() == 2){
-				top_header_count.setText(" "+count);
-			}
-			else {
-				top_header_count.setText(count);
-			}
-		}else {
-			top_header_count.setVisibility(View.GONE);
-		}
-		
-		create_btn_preview.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View arg0) {
-				ValidateValue1();
-			}
-		});
-		
-		btn_back.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
-				GlobalClaass.activitySlideBackAnimation(context);
-				finish();
-			}
-		});
-
-		teacher_photo.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
-
-				selectImageMethod();
-			}
-
-
-
-		});
-
-		citizenship_swich.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-				if (isChecked) {
-					// The toggle is enabled
-					eu_citizen_required = "1";
-				} else {
-					// The toggle is disabled
-					eu_citizen_required = "0";
-				}
-			}
-		});
-
-		create_btn_postjob.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				is_draft = "0";
-				ValidateValue();
-
-			}
-		});
-
-		create_btn_draft.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				is_draft = "1";
-				ValidateValue();
-
-			}
-		});
+    Activity context;
+    EditText create_job_title, create_company_name, create_country_name,
+            create_city_name, create_requirement, create_location,
+            create_job_type, create_srart_date, create_job_description,
+            create_salary;
+    TextView create_citizen_required, top_header_count;
+    Button create_btn_draft, create_btn_preview, create_btn_postjob;
+    Switch citizenship_swich;
+    RelativeLayout image_layout;
+    ImageView btn_back, teacher_photo;
+
+    protected static final int RESULT_CAMERA = 5;
+    protected static final int RESULT_LIBRARY = 6;
+    String selectedImagePath = "";
+    String str = "", ext = "", EncodeImage = "";
+    long filebyte;
+
+
+    static Dialog d;
+    Dialog dialog;
+    private int year;
+    private int month;
+    private int day;
+    static final int DATE_PICKER_ID = 1111;
+    private File multiPartFile;
+    private byte[] bitmapdata;
+
+    double lati, longi, hlati, hlongi;
+    GPSTracker gps;
+    String Lat_st, Lon_st1;
+    String CountryName = "";
+    String Countryaddress = "", is_draft = "", eu_citizen_required = "";
+    private GoogleMap googleMap;
+
+    LoadService loadservice = null;
+    JobPosting jobposting = null;
+
+    Typeface font, font2;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        // TODO Auto-generated method stub
+        super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        setContentView(R.layout.teacher_create_new_job);
+
+        context = this;
+        font = Typeface.createFromAsset(getAssets(), "fonts/mark.ttf");
+        font2 = Typeface.createFromAsset(getAssets(), "fonts/marlbold.ttf");
+
+        final Calendar c = Calendar.getInstance();
+        year = c.get(Calendar.YEAR);
+        month = c.get(Calendar.MONTH);
+        day = c.get(Calendar.DAY_OF_MONTH);
+
+        create_job_title = (EditText) findViewById(R.id.create_job_title);
+        create_company_name = (EditText) findViewById(R.id.create_company_name);
+        create_country_name = (EditText) findViewById(R.id.create_country_name);
+        create_city_name = (EditText) findViewById(R.id.create_city_name);
+        create_requirement = (EditText) findViewById(R.id.create_requirement);
+        create_location = (EditText) findViewById(R.id.create_location);
+        create_job_type = (EditText) findViewById(R.id.create_job_type);
+        create_srart_date = (EditText) findViewById(R.id.create_srart_date);
+        create_job_description = (EditText) findViewById(R.id.create_job_description);
+        create_salary = (EditText) findViewById(R.id.create_salary);
+        btn_back = (ImageView) findViewById(R.id.btn_back);
+        create_citizen_required = (TextView) findViewById(R.id.create_citizen_required);
+        create_btn_draft = (Button) findViewById(R.id.create_btn_draft);
+        create_btn_preview = (Button) findViewById(R.id.create_btn_preview);
+        create_btn_postjob = (Button) findViewById(R.id.create_btn_postjob);
+        citizenship_swich = (Switch) findViewById(R.id.citizenship_swich);
+        image_layout = (RelativeLayout) findViewById(R.id.image_layout);
+        teacher_photo = (ImageView) findViewById(R.id.teacher_photo);
+        top_header_count = (TextView) findViewById(R.id.top_header_count);
+
+        try {
+            create_job_title.setTypeface(font);
+            create_company_name.setTypeface(font);
+            create_country_name.setTypeface(font);
+            create_city_name.setTypeface(font);
+            create_requirement.setTypeface(font);
+            create_location.setTypeface(font);
+            create_job_type.setTypeface(font);
+            create_srart_date.setTypeface(font);
+            create_job_description.setTypeface(font);
+            create_salary.setTypeface(font);
+            top_header_count.setTypeface(font);
+            create_btn_preview.setTypeface(font);
+            create_btn_draft.setTypeface(font);
+            create_btn_postjob.setTypeface(font);
+
+            create_citizen_required.setTypeface(font);
+
+            ((TextView) findViewById(R.id.createheader)).setTypeface(font2);
+
+        } catch (Exception e) {
+
+        }
+
+        String count = GlobalClaass.getHeader_Count(context);
+
+        if (count != null) {
 
-		if (com.chalkboard.GlobalClaass.isInternetPresent(context)) {
+            if (count.length() == 1) {
+                top_header_count.setText("  " + count);
+            }
+            if (count.length() == 2) {
+                top_header_count.setText(" " + count);
+            } else {
+                top_header_count.setText(count);
+            }
+        } else {
+            top_header_count.setVisibility(View.GONE);
+        }
 
-			try {
-				gps = new GPSTracker(context);
-
-				// check if GPS enabled
-				if (gps.canGetLocation()) {
+        create_btn_preview.setOnClickListener(new OnClickListener() {
 
-					double latitude = gps.getLatitude();
-					double longitude = gps.getLongitude();
+            @Override
+            public void onClick(View arg0) {
+                ValidateValue1();
+            }
+        });
 
-					lati = latitude;
-					longi = longitude;
+        btn_back.setOnClickListener(new OnClickListener() {
 
-					loadservice = new LoadService(context,
-							String.valueOf(lati), String.valueOf(longi));
-					loadservice.execute();
+            @Override
+            public void onClick(View arg0) {
+                // TODO Auto-generated method stub
+                GlobalClaass.activitySlideBackAnimation(context);
+                finish();
+            }
+        });
 
-				}else{
+        teacher_photo.setOnClickListener(new OnClickListener() {
 
-					loadservice = new LoadService(context,
-							"0", "0");
-					loadservice.execute();
-				}
+            @Override
+            public void onClick(View arg0) {
+                // TODO Auto-generated method stub
 
-			} catch (Exception e) {
+                selectImageMethod();
+            }
 
-			}
-		} else {
-			com.chalkboard.GlobalClaass.showToastMessage(context,
-					"Please check internet connection.");
-		}
 
-		create_srart_date.setOnClickListener(new OnClickListener() {
+        });
 
-			@SuppressWarnings("deprecation")
-			@Override
-			public void onClick(View v) {
+        citizenship_swich.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    // The toggle is enabled
+                    eu_citizen_required = "1";
+                } else {
+                    // The toggle is disabled
+                    eu_citizen_required = "0";
+                }
+            }
+        });
 
-				showDialog(DATE_PICKER_ID);
-			}
-		});
+        create_btn_postjob.setOnClickListener(new OnClickListener() {
 
-		create_job_type.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                is_draft = "0";
+                ValidateValue();
+
+            }
+        });
+
+        create_btn_draft.setOnClickListener(new OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                is_draft = "1";
+                ValidateValue();
+
+            }
+        });
+
+        if (com.chalkboard.GlobalClaass.isInternetPresent(context)) {
+
+            try {
+                gps = new GPSTracker(context);
+
+                // check if GPS enabled
+                if (gps.canGetLocation()) {
+
+                    double latitude = gps.getLatitude();
+                    double longitude = gps.getLongitude();
+
+                    lati = latitude;
+                    longi = longitude;
+
+                    loadservice = new LoadService(context,
+                            String.valueOf(lati), String.valueOf(longi));
+                    loadservice.execute();
+
+                } else {
+
+                    loadservice = new LoadService(context,
+                            "0", "0");
+                    loadservice.execute();
+                }
+
+            } catch (Exception e) {
+
+            }
+        } else {
+            com.chalkboard.GlobalClaass.showToastMessage(context,
+                    "Please check internet connection.");
+        }
 
-			@Override
-			public void onClick(View v) {
+        create_srart_date.setOnClickListener(new OnClickListener() {
+
+            @SuppressWarnings("deprecation")
+            @Override
+            public void onClick(View v) {
 
-				Intent i = new Intent(context, JobTypeListActivity.class);
-				startActivityForResult(i, 2);
-			}
-		});
+                showDialog(DATE_PICKER_ID);
+            }
+        });
 
-		create_country_name.setOnClickListener(new OnClickListener() {
+        create_job_type.setOnClickListener(new OnClickListener() {
 
-			@Override
-			public void onClick(View v) {
+            @Override
+            public void onClick(View v) {
 
-				Intent i = new Intent(context, CountryList_Activity.class);
-				startActivityForResult(i, 1);
-			}
-		});
-	}
+                Intent i = new Intent(context, JobTypeListActivity.class);
+                startActivityForResult(i, 2);
+            }
+        });
 
+        create_country_name.setOnClickListener(new OnClickListener() {
 
-	private void selectImageMethod() {
+            @Override
+            public void onClick(View v) {
 
-		Log.i("choose option", "camera or library");
-
-		final CharSequence[] options = { "Camera", "Choose an image" };
-
-		AlertDialog.Builder builder = new AlertDialog.Builder(context);
-		builder.setTitle("Chalkboard");
-		// builder.setCancelable(true);
-		builder.setItems(options, new DialogInterface.OnClickListener() {
-			@Override
-			public void onClick(DialogInterface dialog, int item) {
-				if (options[item].equals("Camera")) {
-
-					Log.i("Camera Clcik", "camera click");
-					Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-
-					startActivityForResult(intent, RESULT_CAMERA);
-
-				} else if (options[item].equals("Library")) {
-					Intent intent = new Intent(
-							Intent.ACTION_PICK,
-							android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-					startActivityForResult(intent, RESULT_LIBRARY);
-
-				}
-			}
-		});
-		builder.show();
-	}
-
-
-	private void ValidateValue1() {
-
-		if (create_job_title.getText().toString().equals("")) {
-
-			GlobalClaass.showToastMessage(context, "Please enter title.");
-			return;
-		}
-
-		if (create_company_name.getText().toString().equals("")) {
-
-			GlobalClaass.showToastMessage(context, "Please enter comapny name.");
-			return;
-		}
-
-		if (create_country_name.getText().toString().equals("")) {
-
-			GlobalClaass.showToastMessage(context, "Please enter country name.");
-			return;
-		}
-
-		if (create_city_name.getText().toString().equals("")) {
-
-			GlobalClaass.showToastMessage(context, "Please enter city name.");
-			return;
-		}
-
-		if (create_location.getText().toString().equals("")) {
-
-			GlobalClaass.showToastMessage(context, "Please enter address.");
-			return;
-		}
-
-		if (create_job_type.getText().toString().equals("")) {
+                Intent i = new Intent(context, CountryList_Activity.class);
+                startActivityForResult(i, 1);
+            }
+        });
 
-			GlobalClaass.showToastMessage(context, "Please enter job type.");
-			return;
-		}
 
-		if (create_srart_date.getText().toString().equals("")) {
+        create_job_description.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (v.getId() == R.id.create_job_description) {
+                    v.getParent().requestDisallowInterceptTouchEvent(true);
+                    switch (event.getAction() & MotionEvent.ACTION_MASK) {
+                        case MotionEvent.ACTION_UP:
+                            v.getParent().requestDisallowInterceptTouchEvent(false);
+                            break;
+                    }
+                }
+                return false;
+            }
+        });
 
-			GlobalClaass.showToastMessage(context, "Please enter date.");
-			return;
-		}
+        create_requirement.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (v.getId() == R.id.create_requirement) {
+                    v.getParent().requestDisallowInterceptTouchEvent(true);
+                    switch (event.getAction() & MotionEvent.ACTION_MASK) {
+                        case MotionEvent.ACTION_UP:
+                            v.getParent().requestDisallowInterceptTouchEvent(false);
+                            break;
+                    }
+                }
+                return false;
+            }
+        });
+    }
 
-	
 
-		
-		JobObject jobObject = new JobObject();
-		
-		
-		
-	
-		
-		jobObject.setJobName(create_job_title.getText().toString());
-		
-		jobObject.setJobRecruiterName(create_company_name.getText().toString());
-	
-		jobObject.setJobLocation(create_city_name.getText().toString()+","+create_country_name.getText().toString()+","+create_location.getText().toString());
-		
-		jobObject.setJobDate(create_srart_date.getText().toString());
+    private void selectImageMethod() {
 
-		jobObject.setJobDescription(create_job_description.getText().toString());
-		
-		jobObject.setJobSalary(create_salary.getText().toString());
-		jobObject.setJobImage(selectedImagePath);
-		
+        Log.i("choose option", "camera or library");
 
-		
-		startActivity(new Intent(context,
-				MyJobPreviewActivity.class).putExtra("data",jobObject));
-		
-	}
-	
-	@Override
-	protected void onNewIntent(Intent intent) {
-		// TODO Auto-generated method stub
-		super.onNewIntent(intent);
-		
-		
-		
-		if (GlobalClaass.isInternetPresent(context)) {
+        final CharSequence[] options = {"Camera", "Choose an image"};
 
-			jobposting = new JobPosting(context);
-			jobposting.execute();
-			
-		}
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle("Chalkboard");
+        // builder.setCancelable(true);
+        builder.setItems(options, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int item) {
+                if (options[item].equals("Camera")) {
 
-		else {
-			GlobalClaass.showToastMessage(context,"Please check internet connection.");
-		}
-		
-	}
-	
-	private void ValidateValue() {
+                    Log.i("Camera Clcik", "camera click");
+                    Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 
-		if (create_job_title.getText().toString().equals("")) {
-
-			GlobalClaass.showToastMessage(context, "Please enter title.");
-			return;
-		}
-
-		if (create_company_name.getText().toString().equals("")) {
-
-			GlobalClaass.showToastMessage(context, "Please enter comapny name.");
-			return;
-		}
+                    startActivityForResult(intent, RESULT_CAMERA);
 
-		if (create_country_name.getText().toString().equals("")) {
+                } else if (options[item].equals("Choose an image")) {
+                    Intent intent = new Intent(
+                            Intent.ACTION_PICK,
+                            android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                    startActivityForResult(intent, RESULT_LIBRARY);
 
-			GlobalClaass.showToastMessage(context, "Please enter country name.");
-			return;
-		}
-
-		if (create_city_name.getText().toString().equals("")) {
-
-			GlobalClaass.showToastMessage(context, "Please enter city name.");
-			return;
-		}
-
-		if (create_location.getText().toString().equals("")) {
-
-			GlobalClaass.showToastMessage(context, "Please enter address.");
-			return;
-		}
-
-		if (create_job_type.getText().toString().equals("")) {
-
-			GlobalClaass.showToastMessage(context, "Please enter job type.");
-			return;
-		}
-
-		if (create_srart_date.getText().toString().equals("")) {
-
-			GlobalClaass.showToastMessage(context, "Please enter date.");
-			return;
-		}
-
-		if (GlobalClaass.isInternetPresent(context)) {
-
-			jobposting = new JobPosting(context);
-			jobposting.execute();
-
-			InputMethodManager inputManager = (InputMethodManager)
-					getSystemService(Context.INPUT_METHOD_SERVICE); 
-
-			inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
-					InputMethodManager.HIDE_NOT_ALWAYS);
-
-		}
-
-		else {
-			GlobalClaass.showToastMessage(context,"Please check internet connection.");
-		}
-
-
-
-	}
-
-	
-	public String getPath(Uri uri) {
-		String[] projection = { MediaStore.Images.Media.DATA };
-		@SuppressWarnings("deprecation")
-		Cursor cursor = managedQuery(uri, projection, null, null, null);
-		int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-		cursor.moveToFirst();
-		return cursor.getString(column_index);
-	}
-
-	
-	public Uri getImageUri11(Context inContext, Bitmap inImage) {
-		ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-		inImage.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
-		String path = Images.Media.insertImage(inContext.getContentResolver(), inImage, "Title", null);
-		return Uri.parse(path);
-	}
-
-	public String getRealPathFromURI11(Uri uri) {
-		Cursor cursor = getContentResolver().query(uri, null, null, null, null); 
-		cursor.moveToFirst(); 
-		int idx = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA); 
-		return cursor.getString(idx); 
-	}
-
-
-	public Uri getImageUri(Context inContext, Bitmap inImage) {
-
-		String root = Environment.getExternalStoragePublicDirectory(
-				Environment.DIRECTORY_PICTURES).toString();
-		File myDir = new File(root + "/saved_images");
-		myDir.mkdirs();
-		Random generator = new Random();
-		int n = 10000;
-		n = generator.nextInt(n);
-		String fname = "Image-" + n + ".jpg";
-		File file = new File(myDir, fname);
-		if (file.exists())
-			file.delete();
-		try {
-			FileOutputStream out = new FileOutputStream(file);
-			inImage.compress(Bitmap.CompressFormat.JPEG, 90, out);
-
-			Log.e("PAth", file.getAbsolutePath());
-
-			Bitmap myBitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
-
-			teacher_photo.setImageBitmap(myBitmap);
-
-			out.flush();
-			out.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		MediaScannerConnection.scanFile(context, new String[] { file.toString() },
-				null, new MediaScannerConnection.OnScanCompletedListener() {
-			public void onScanCompleted(String path, Uri uri) {
-				Log.i("ExternalStorage", "Scanned " + path + ":");
-				Log.i("ExternalStorage", "-> uri=" + uri);
-				str = path;
-			}
-		});
-
-		return Uri.parse(str);
-	}
-
-
-	private String getRealPathFromURI(Uri contentURI) {
-		String result;
-		Cursor cursor = context. getContentResolver().query(contentURI, null, null,
-				null, null);
-		if (cursor == null) { // Source is Dropbox or other similar local file
-			// path
-			result = contentURI.getPath();
-		} else {
-			cursor.moveToFirst();
-			int idx = cursor
-					.getColumnIndex(MediaStore.Images.ImageColumns.DATA);
-			result = cursor.getString(idx);
-			cursor.close();
-		}
-		return result;
-	}
-
-	public static String getFileExt(String FileName) {
-		return FileName.substring((FileName.lastIndexOf(".") + 1),
-				FileName.length());
-	}
-
-	public long getImageLength(String absFileName) {
-		File file = new File(absFileName);
-		return file.length();
-	}
-
-	public byte[] bitmapToByteArray(Bitmap b) {
-		ByteArrayOutputStream stream = new ByteArrayOutputStream();
-		b.compress(Bitmap.CompressFormat.PNG, 100, stream);
-		byte[] byteArray = stream.toByteArray();
-		return byteArray;
-	}
-
-
-
-	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		
-		switch (requestCode) {
-
-		case RESULT_CAMERA: {
-
-			if (resultCode == context.RESULT_OK && null != data) {
-
-				try {
+                }
+            }
+        });
+        builder.show();
+    }
 
+
+    private void ValidateValue1() {
+
+        if (create_job_title.getText().toString().equals("")) {
+
+            GlobalClaass.showToastMessage(context, "Please enter title.");
+            return;
+        }
+
+        if (create_company_name.getText().toString().equals("")) {
+
+            GlobalClaass.showToastMessage(context, "Please enter comapny name.");
+            return;
+        }
+
+        if (create_country_name.getText().toString().equals("")) {
+
+            GlobalClaass.showToastMessage(context, "Please enter country name.");
+            return;
+        }
+
+        if (create_city_name.getText().toString().equals("")) {
+
+            GlobalClaass.showToastMessage(context, "Please enter city name.");
+            return;
+        }
+
+        if (create_location.getText().toString().equals("")) {
+
+            GlobalClaass.showToastMessage(context, "Please enter address.");
+            return;
+        }
+
+        if (create_job_type.getText().toString().equals("")) {
+
+            GlobalClaass.showToastMessage(context, "Please enter job type.");
+            return;
+        }
+
+        if (create_srart_date.getText().toString().equals("")) {
+
+            GlobalClaass.showToastMessage(context, "Please enter date.");
+            return;
+        }
+
+
+        JobObject jobObject = new JobObject();
+
+
+        jobObject.setJobName(create_job_title.getText().toString());
+
+        jobObject.setJobRecruiterName(create_company_name.getText().toString());
+
+        jobObject.setJobLocation(create_city_name.getText().toString() + "," + create_country_name.getText().toString() + "," + create_location.getText().toString());
+
+        jobObject.setJobDate(create_srart_date.getText().toString());
+
+        jobObject.setJobDescription(create_job_description.getText().toString());
+
+        jobObject.setJobSalary(create_salary.getText().toString());
+        jobObject.setJobImage(selectedImagePath);
+
+
+        startActivity(new Intent(context,
+                MyJobPreviewActivity.class).putExtra("data", jobObject));
+
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        // TODO Auto-generated method stub
+        super.onNewIntent(intent);
+
+
+        if (GlobalClaass.isInternetPresent(context)) {
+
+            jobposting = new JobPosting(context);
+            jobposting.execute();
+
+        } else {
+            GlobalClaass.showToastMessage(context, "Please check internet connection.");
+        }
+
+    }
+
+    private void ValidateValue() {
+
+        if (create_job_title.getText().toString().equals("")) {
+
+            GlobalClaass.showToastMessage(context, "Please enter title.");
+            return;
+        }
+
+        if (create_company_name.getText().toString().equals("")) {
+
+            GlobalClaass.showToastMessage(context, "Please enter comapny name.");
+            return;
+        }
+
+        if (create_country_name.getText().toString().equals("")) {
+
+            GlobalClaass.showToastMessage(context, "Please enter country name.");
+            return;
+        }
+
+        if (create_city_name.getText().toString().equals("")) {
+
+            GlobalClaass.showToastMessage(context, "Please enter city name.");
+            return;
+        }
+
+        if (create_location.getText().toString().equals("")) {
+
+            GlobalClaass.showToastMessage(context, "Please enter address.");
+            return;
+        }
+
+        if (create_job_type.getText().toString().equals("")) {
+
+            GlobalClaass.showToastMessage(context, "Please enter job type.");
+            return;
+        }
+
+        if (create_srart_date.getText().toString().equals("")) {
+
+            GlobalClaass.showToastMessage(context, "Please enter date.");
+            return;
+        }
+
+        if (GlobalClaass.isInternetPresent(context)) {
+
+            jobposting = new JobPosting(context);
+            jobposting.execute();
+
+            InputMethodManager inputManager = (InputMethodManager)
+                    getSystemService(Context.INPUT_METHOD_SERVICE);
+
+            inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
+                    InputMethodManager.HIDE_NOT_ALWAYS);
+
+        } else {
+            GlobalClaass.showToastMessage(context, "Please check internet connection.");
+        }
+
+
+    }
+
+
+    public String getPath(Uri uri) {
+        String[] projection = {MediaStore.Images.Media.DATA};
+        @SuppressWarnings("deprecation")
+        Cursor cursor = managedQuery(uri, projection, null, null, null);
+        int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+        cursor.moveToFirst();
+        return cursor.getString(column_index);
+    }
+
+
+    public Uri getImageUri11(Context inContext, Bitmap inImage) {
+        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+        inImage.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
+        String path = Images.Media.insertImage(inContext.getContentResolver(), inImage, "Title", null);
+        return Uri.parse(path);
+    }
+
+    public String getRealPathFromURI11(Uri uri) {
+        Cursor cursor = getContentResolver().query(uri, null, null, null, null);
+        cursor.moveToFirst();
+        int idx = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA);
+        return cursor.getString(idx);
+    }
+
+
+    public Uri getImageUri(Context inContext, Bitmap inImage) {
+
+        String root = Environment.getExternalStoragePublicDirectory(
+                Environment.DIRECTORY_PICTURES).toString();
+        File myDir = new File(root + "/saved_images");
+        myDir.mkdirs();
+        Random generator = new Random();
+        int n = 10000;
+        n = generator.nextInt(n);
+        String fname = "Image-" + n + ".jpg";
+        File file = new File(myDir, fname);
+        if (file.exists())
+            file.delete();
+        try {
+            FileOutputStream out = new FileOutputStream(file);
+            inImage.compress(Bitmap.CompressFormat.JPEG, 90, out);
+
+            Log.e("PAth", file.getAbsolutePath());
+
+            Bitmap myBitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
+
+            teacher_photo.setImageBitmap(myBitmap);
+
+            out.flush();
+            out.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        MediaScannerConnection.scanFile(context, new String[]{file.toString()},
+                null, new MediaScannerConnection.OnScanCompletedListener() {
+                    public void onScanCompleted(String path, Uri uri) {
+                        Log.i("ExternalStorage", "Scanned " + path + ":");
+                        Log.i("ExternalStorage", "-> uri=" + uri);
+                        str = path;
+                    }
+                });
+
+        return Uri.parse(str);
+    }
+
+
+    private String getRealPathFromURI(Uri contentURI) {
+        String result;
+        Cursor cursor = context.getContentResolver().query(contentURI, null, null,
+                null, null);
+        if (cursor == null) { // Source is Dropbox or other similar local file
+            // path
+            result = contentURI.getPath();
+        } else {
+            cursor.moveToFirst();
+            int idx = cursor
+                    .getColumnIndex(MediaStore.Images.ImageColumns.DATA);
+            result = cursor.getString(idx);
+            cursor.close();
+        }
+        return result;
+    }
+
+    public static String getFileExt(String FileName) {
+        return FileName.substring((FileName.lastIndexOf(".") + 1),
+                FileName.length());
+    }
+
+    public long getImageLength(String absFileName) {
+        File file = new File(absFileName);
+        return file.length();
+    }
+
+    public byte[] bitmapToByteArray(Bitmap b) {
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        b.compress(Bitmap.CompressFormat.PNG, 100, stream);
+        byte[] byteArray = stream.toByteArray();
+        return byteArray;
+    }
+
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        switch (requestCode) {
+
+            case RESULT_CAMERA: {
+
+                if (resultCode == context.RESULT_OK && null != data) {
+
+                    try {
+
+                        Bitmap photo = (Bitmap) data.getExtras().get("data");
+                        teacher_photo.setImageBitmap(photo);
+
+                        multiPartFile = new File(getCacheDir(), "post_job.png");
+                        multiPartFile.createNewFile();
+
+                        //Convert bitmap to byte array
+                        Bitmap bitmap1 = photo;
+                        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+                        bitmap1.compress(Bitmap.CompressFormat.PNG, 70 /*ignored for PNG*/, bos);
+                        bitmapdata = bos.toByteArray();
+
+                        //write the bytes in file
+                        FileOutputStream fos = new FileOutputStream(multiPartFile);
+                        fos.write(bitmapdata);
+                        fos.flush();
+                        fos.close();
 					/*Bitmap photo = (Bitmap) data.getExtras().get("data");
 
 					Uri tempUri = getImageUri(context, photo);
@@ -643,224 +682,249 @@ public class Teacher_Create_New_Job extends Activity {
 					teacher_photo.setImageBitmap(photo);
 
 					Log.e("BInary", selectedImagePath);*/
-					
-					Bitmap photo = (Bitmap) data.getExtras().get("data");
 
-				    // CALL THIS METHOD TO GET THE URI FROM THE BITMAP
-				    Uri tempUri = getImageUri11(getApplicationContext(), photo);
+//                        Bitmap photo = (Bitmap) data.getExtras().get("data");
+//
+//                        // CALL THIS METHOD TO GET THE URI FROM THE BITMAP
+//                        Uri tempUri = getImageUri11(getApplicationContext(), photo);
+//
+//                        selectedImagePath = getRealPathFromURI11(tempUri);
+//
+//                        teacher_photo.setImageBitmap(photo);
+                    } catch (Exception e) {
+
+                        e.printStackTrace();
+
+                        GlobalClaass.showToastMessage(context, e.toString());
+
+                    }
+
+                }
+
+                break;
+            }
+            case RESULT_LIBRARY: {
+
+                if (resultCode == context.RESULT_OK && null != data) {
+
+                    try {
+
+                        Uri selectedImage = data.getData();
+                        Bitmap bitmap = null;
+
+                        try {
+                            bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(),
+                                    selectedImage);
+                            teacher_photo.setImageBitmap(bitmap);
+
+                            multiPartFile = new File(getCacheDir(), "post_job.png");
+                            multiPartFile.createNewFile();
+
+//Convert bitmap to byte array
+                            Bitmap bitmap1 = bitmap;
+                            ByteArrayOutputStream bos = new ByteArrayOutputStream();
+                            bitmap1.compress(Bitmap.CompressFormat.PNG, 70 /*ignored for PNG*/, bos);
+                            bitmapdata = bos.toByteArray();
+
+//write the bytes in file
+                            FileOutputStream fos = new FileOutputStream(multiPartFile);
+                            fos.write(bitmapdata);
+                            fos.flush();
+                            fos.close();
+
+
+                        } catch (FileNotFoundException e) {
+                            // TODO Auto-generated catch block
+                            e.printStackTrace();
+                        } catch (IOException e) {
+                            // TODO Auto-generated catch block
+                            e.printStackTrace();
+                        }
+
+//                        String[] filePath = {MediaStore.Images.Media.DATA};
+//
+//                        Cursor c = context.getContentResolver().query(selectedImage,
+//                                filePath, null, null, null);
+//
+//                        c.moveToFirst();
+//
+//                        int columnIndex = c.getColumnIndex(filePath[0]);
+//
+//                        selectedImagePath = c.getString(columnIndex);
+//
+//                        ext = getFileExt(selectedImagePath);
+//
+//                        c.close();
+//
+//                        filebyte = getImageLength(selectedImagePath);
+//
+//                        Bitmap bitmap = BitmapFactory.decodeFile(selectedImagePath);
+//
+//                        int pixel;
+//
+//                        if (bitmap.getHeight() < bitmap.getWidth()) {
+//                            pixel = bitmap.getHeight();
+//                        } else {
+//                            pixel = bitmap.getWidth();
+//                        }
+//
+//
+//                        teacher_photo.setImageBitmap(bitmap);
 
-				    selectedImagePath = getRealPathFromURI11(tempUri);
-				    
-				    teacher_photo.setImageBitmap(photo);
-				}
+                        Log.e("BInary", selectedImagePath);
+                    } catch (Exception e) {
+                        e.printStackTrace();
 
-				catch (Exception e) {
+                    }
 
-					e.printStackTrace();
+                }
 
-					GlobalClaass.showToastMessage(context, e.toString());
+                break;
+            }
 
-				}
+        }
 
-			}
 
-			break;
-		}
-		case RESULT_LIBRARY: {
+        if (requestCode == 1) {
+            if (resultCode == RESULT_OK) {
 
-			if (resultCode == context.RESULT_OK && null != data) {
+                create_country_name.setText(data.getStringExtra("name"));
+                create_country_name.setTag(data.getStringExtra("id"));
+            }
 
-				try {
+        } else if (requestCode == 2) {
+            if (resultCode == RESULT_OK) {
 
-					Uri selectedImage = data.getData();
+                create_job_type.setText(data.getStringExtra("name"));
+                create_job_type.setTag(data.getStringExtra("id"));
+            }
 
-					String[] filePath = { MediaStore.Images.Media.DATA };
+        }
+    }
 
-					Cursor c = context.getContentResolver().query(selectedImage,
-							filePath, null, null, null);
+    @Override
+    protected Dialog onCreateDialog(int id) {
+        switch (id) {
+            case DATE_PICKER_ID:
 
-					c.moveToFirst();
+                ContextThemeWrapper themedContext = new ContextThemeWrapper(context, android.R.style.Theme_DeviceDefault_Light_Dialog);
+                return new DatePickerDialog(themedContext, pickerListener, year, month, day);
+        }
+        return null;
+    }
 
-					int columnIndex = c.getColumnIndex(filePath[0]);
+    private DatePickerDialog.OnDateSetListener pickerListener = new DatePickerDialog.OnDateSetListener() {
 
-					selectedImagePath = c.getString(columnIndex);
+        // when dialog box is closed, below method will be called.
+        @Override
+        public void onDateSet(DatePicker view, int selectedYear,
+                              int selectedMonth, int selectedDay) {
 
-					ext = getFileExt(selectedImagePath);
+            year = selectedYear;
+            month = selectedMonth;
+            day = selectedDay;
 
-					c.close();
+            create_srart_date.setText(new StringBuilder().append(year)
+                    .append("-").append(month + 1).append("-").append(day));
 
-					filebyte = getImageLength(selectedImagePath);
+        }
+    };
 
-					Bitmap bitmap = BitmapFactory.decodeFile(selectedImagePath);
+    public class LoadService extends AsyncTask<String, String, String> {
 
-					int pixel;
+        String responseString;
+        String latitude;
+        String longitude;
+        Activity context;
 
-					if (bitmap.getHeight() < bitmap.getWidth()) {
-						pixel = bitmap.getHeight();
-					}else{
-						pixel = bitmap.getWidth();
-					}
+        JSONObject jObject1;
 
+        boolean remember;
 
-					teacher_photo.setImageBitmap(bitmap);
+        public LoadService(Activity ctx, String lat, String lon) {
 
-					Log.e("BInary", selectedImagePath);
-				} catch (Exception e) {
-					e.printStackTrace();
+            context = ctx;
+            latitude = lat;
+            longitude = lon;
 
-				}
+        }
 
-			}
+        protected void onPreExecute() {
 
-			break;
-		}
+            GlobalClaass.showProgressBar(context);
 
-		}
+        }
 
+        protected String doInBackground(String... params) {
 
+            try {
+                // Loading map
+                initilizeMap();
 
-		if (requestCode == 1) {
-			if (resultCode == RESULT_OK) {
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
 
-				create_country_name.setText(data.getStringExtra("name"));
-				create_country_name.setTag(data.getStringExtra("id"));
-			}
+            return responseString;
 
-		}else if (requestCode == 2) {
-			if (resultCode == RESULT_OK) {
+        }
 
-				create_job_type.setText(data.getStringExtra("name"));
-				create_job_type.setTag(data.getStringExtra("id"));
-			}
+        protected void onPostExecute(String responseString) {
+            final MarkerOptions marker;
+            CameraPosition cameraPosition;
+            Countryaddress = getAddress(context, Double.parseDouble(latitude),
+                    Double.parseDouble(longitude));
 
-		}
-	}
+            // create marker
+            marker = new MarkerOptions().position(
+                    new LatLng(Double.parseDouble(latitude), Double
+                            .parseDouble(longitude)));
 
-	@Override
-	protected Dialog onCreateDialog(int id) {
-		switch (id) {
-		case DATE_PICKER_ID:
+            cameraPosition = new CameraPosition.Builder()
+                    .target(new LatLng(Double.parseDouble(latitude), Double
+                            .parseDouble(longitude))).zoom(12).build();
 
-			ContextThemeWrapper themedContext = new ContextThemeWrapper(context, android.R.style.Theme_DeviceDefault_Light_Dialog);
-			return new DatePickerDialog(themedContext, pickerListener, year, month, day);
-		}
-		return null;
-	}
+            googleMap.animateCamera(CameraUpdateFactory
+                    .newCameraPosition(cameraPosition));
+            marker.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_map));
+            googleMap.addMarker(marker);
 
-	private DatePickerDialog.OnDateSetListener pickerListener = new DatePickerDialog.OnDateSetListener() {
 
-		// when dialog box is closed, below method will be called.
-		@Override
-		public void onDateSet(DatePicker view, int selectedYear,
-				int selectedMonth, int selectedDay) {
+            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(Double.parseDouble(latitude), Double
+                            .parseDouble(longitude)),
+                    12));
 
-			year = selectedYear;
-			month = selectedMonth;
-			day = selectedDay;
+            googleMap.setInfoWindowAdapter(new InfoWindowAdapter() {
 
-			create_srart_date.setText(new StringBuilder().append(year)
-					.append("-").append(month + 1).append("-").append(day));
+                @Override
+                public View getInfoWindow(Marker arg0) {
+                    // TODO Auto-generated method stub
+                    return null;
+                }
 
-		}
-	};
+                @Override
+                public View getInfoContents(Marker arg0) {
+                    // TODO Auto-generated method stub
 
-	public class LoadService extends AsyncTask<String, String, String> {
+                    // Getting view from the layout file info_window_layout
+                    View v = null;
 
-		String responseString;
-		String latitude;
-		String longitude;
-		Activity context;
+                    // Getting the position from the marker
+                    LatLng latLng = arg0.getPosition();
 
-		JSONObject jObject1;
+                    // Getting reference to the TextView to set latitude
+                    //TextView tvLat = (TextView) v.findViewById(R.id.tv_lat);
 
-		boolean remember;
+                    // Getting reference to the TextView to set longitude
+                    // TextView tvLng = (TextView) v.findViewById(R.id.tv_lng);
 
-		public LoadService(Activity ctx, String lat, String lon) {
+                    String str = getAddress(context, latLng.latitude,
+                            latLng.longitude);
 
-			context = ctx;
-			latitude = lat;
-			longitude = lon;
+                    return v;
+                }
+            });
 
-		}
-
-		protected void onPreExecute() {
-
-			GlobalClaass.showProgressBar(context);
-
-		}
-
-		protected String doInBackground(String... params) {
-
-			try {
-				// Loading map
-				initilizeMap();
-
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-
-			return responseString;
-
-		}
-
-		protected void onPostExecute(String responseString) {
-			final MarkerOptions marker;
-			CameraPosition cameraPosition;
-			Countryaddress = getAddress(context, Double.parseDouble(latitude),
-					Double.parseDouble(longitude));
-
-			// create marker
-			marker = new MarkerOptions().position(
-					new LatLng(Double.parseDouble(latitude), Double
-							.parseDouble(longitude)));
-
-			cameraPosition = new CameraPosition.Builder()
-			.target(new LatLng(Double.parseDouble(latitude), Double
-					.parseDouble(longitude))).zoom(12).build();
-
-			googleMap.animateCamera(CameraUpdateFactory
-					.newCameraPosition(cameraPosition));
-			marker.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_map));
-			googleMap.addMarker(marker);
-
-			
-			
-			
-			googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(Double.parseDouble(latitude), Double
-					.parseDouble(longitude)),
-		            12));
-			
-			googleMap.setInfoWindowAdapter(new InfoWindowAdapter() {
-
-				@Override
-				public View getInfoWindow(Marker arg0) {
-					// TODO Auto-generated method stub
-					return null;
-				}
-
-				@Override
-				public View getInfoContents(Marker arg0) {
-					// TODO Auto-generated method stub
-
-					// Getting view from the layout file info_window_layout
-					View v =  null;
-
-					// Getting the position from the marker
-					LatLng latLng = arg0.getPosition();
-
-					// Getting reference to the TextView to set latitude
-					//TextView tvLat = (TextView) v.findViewById(R.id.tv_lat);
-
-					// Getting reference to the TextView to set longitude
-					// TextView tvLng = (TextView) v.findViewById(R.id.tv_lng);
-
-					String str = getAddress(context, latLng.latitude,
-							latLng.longitude);
-
-					return v;
-				}
-			});
-			
 			/*googleMap.setOnTouchListener(new OnTouchListener() {
 
 				@Override
@@ -870,219 +934,210 @@ public class Teacher_Create_New_Job extends Activity {
 					return false;
 				}
 			});*/
-			
-			googleMap.setOnMapClickListener(new OnMapClickListener() {
 
-				@Override
-				public void onMapClick(LatLng arg0) {
-					// TODO Auto-generated method stub
-					googleMap.clear();
+            googleMap.setOnMapClickListener(new OnMapClickListener() {
 
-					// Creating an instance of MarkerOptions to set position
-					// MarkerOptions markerOptions = new MarkerOptions();
+                @Override
+                public void onMapClick(LatLng arg0) {
+                    // TODO Auto-generated method stub
+                    googleMap.clear();
 
-					// Setting position on the MarkerOptions
-					marker.position(arg0);
+                    // Creating an instance of MarkerOptions to set position
+                    // MarkerOptions markerOptions = new MarkerOptions();
 
-					// Animating to the currently touched position
-					googleMap.animateCamera(CameraUpdateFactory.newLatLng(arg0));
+                    // Setting position on the MarkerOptions
+                    marker.position(arg0);
 
-					// Adding marker on the GoogleMap
-					Marker marker1 = googleMap.addMarker(marker);
+                    // Animating to the currently touched position
+                    googleMap.animateCamera(CameraUpdateFactory.newLatLng(arg0));
 
-					// Showing InfoWindow on the GoogleMap
-					marker1.showInfoWindow();
-				}
-			});
+                    // Adding marker on the GoogleMap
+                    Marker marker1 = googleMap.addMarker(marker);
 
-			GlobalClaass.hideProgressBar(context);
-		}
-	}
+                    // Showing InfoWindow on the GoogleMap
+                    marker1.showInfoWindow();
+                }
+            });
 
-	public String getAddress(Context ctx, double latitude, double longitude) {
-		String city = "", add = "", postcode = "";
-		StringBuilder result = new StringBuilder();
-		try {
-			Geocoder geocoder = new Geocoder(ctx, Locale.getDefault());
-			List<Address> addresses = geocoder.getFromLocation(latitude,
-					longitude, 1);
-			if (addresses.size() > 0) {
-				Address address = addresses.get(0);
+            GlobalClaass.hideProgressBar(context);
+        }
+    }
 
-				city = address.getLocality();
-				add = address.getSubLocality();
-				postcode = address.getPostalCode();
+    public String getAddress(Context ctx, double latitude, double longitude) {
+        String city = "", add = "", postcode = "";
+        StringBuilder result = new StringBuilder();
+        try {
+            Geocoder geocoder = new Geocoder(ctx, Locale.getDefault());
+            List<Address> addresses = geocoder.getFromLocation(latitude,
+                    longitude, 1);
+            if (addresses.size() > 0) {
+                Address address = addresses.get(0);
 
-				create_location.setText(add);
+                city = address.getLocality();
+                add = address.getSubLocality();
+                postcode = address.getPostalCode();
 
-				result.append(city);
+                create_location.setText(add);
 
-			}
-		} catch (IOException e) {
-			Log.e("tag", e.getMessage());
-		}
+                result.append(city);
 
-		return result.toString();
-	}
+            }
+        } catch (IOException e) {
+            Log.e("tag", e.getMessage());
+        }
 
-	@SuppressLint("NewApi")
-	private void initilizeMap() {
-		if (googleMap == null) {
-			googleMap = ((MapFragment) context.getFragmentManager()
-					.findFragmentById(R.id.map)).getMap();
+        return result.toString();
+    }
 
-			// check if map is created successfully or not
-			if (googleMap == null) {
-				Toast.makeText(context, "Sorry! unable to create maps",
-						Toast.LENGTH_SHORT).show();
-			}
-		}
-	}
+    @SuppressLint("NewApi")
+    private void initilizeMap() {
+        if (googleMap == null) {
+            googleMap = ((MapFragment) context.getFragmentManager()
+                    .findFragmentById(R.id.map)).getMap();
 
-	@Override
-	public void onResume() {
-		super.onResume();
-		initilizeMap();
-	}
+            // check if map is created successfully or not
+            if (googleMap == null) {
+                Toast.makeText(context, "Sorry! unable to create maps",
+                        Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        initilizeMap();
+    }
 
 
+    public class JobPosting extends AsyncTask<String, String, String> {
 
-	public class JobPosting extends AsyncTask<String, String, String> {
+        String responseString;
+        String latitude;
+        String longitude;
+        Activity context;
 
-		String responseString;
-		String latitude;
-		String longitude;
-		Activity context;
+        JSONObject jObject1;
 
-		JSONObject jObject1;
+        boolean remember;
 
-		boolean remember;
+        public JobPosting(Activity ctx) {
 
-		public JobPosting(Activity ctx) {
+            context = ctx;
 
-			context = ctx;
+        }
 
-		}
+        protected void onPreExecute() {
 
-		protected void onPreExecute() {
+            GlobalClaass.showProgressBar(context);
 
-			GlobalClaass.showProgressBar(context);
+        }
 
-		}
+        protected String doInBackground(String... params) {
+            try {
 
-		protected String doInBackground(String... params) {
-			try {
 
+                HttpClient httpClient = new DefaultHttpClient();
+                HttpPost request = new HttpPost(GlobalClaass.Webservice_Url);
 
+                try {
 
-			
-				HttpClient httpClient = new DefaultHttpClient();
-				HttpPost request = new HttpPost(GlobalClaass.Webservice_Url);
+                    MultipartEntity entity = new MultipartEntity(
+                            HttpMultipartMode.BROWSER_COMPATIBLE);
 
-				try {
 
-					MultipartEntity entity = new MultipartEntity(
-							HttpMultipartMode.BROWSER_COMPATIBLE);
+//                    if (!selectedImagePath.equalsIgnoreCase("")) {
+//                        File file = new File(selectedImagePath);
+//                        entity.addPart("image", new FileBody(file,
+//                                "image/jpg"));
+//                    }
+                    entity.addPart("image", new FileBody(multiPartFile));
 
-				
-					if(!selectedImagePath.equalsIgnoreCase("")){
-						File file = new File(selectedImagePath);
-						entity.addPart("image", new FileBody(file,
-								"image/jpg"));
-					}
-					
-					entity.addPart("action",new StringBody("postJob"));
-					entity.addPart("job_id",new StringBody("12"));
-					entity.addPart("title",new StringBody(create_job_title.getText().toString()));
-					entity.addPart("company",new StringBody(create_company_name.getText().toString()));
-					entity.addPart("country_id",new StringBody(create_country_name.getTag().toString()));
-					entity.addPart("city",new StringBody(create_city_name.getText().toString()));
-					entity.addPart("address",new StringBody(create_location.getText().toString()));
-					entity.addPart("job_type_id",new StringBody( create_job_type.getTag().toString()));
-					entity.addPart("salary",new StringBody(create_salary.getText().toString()));
-					entity.addPart("start_date",new StringBody(create_srart_date.getText().toString()));
-					entity.addPart("is_draft",new StringBody(is_draft));
-					entity.addPart("eu_citizen_required",new StringBody(eu_citizen_required));
-					entity.addPart("user_id",new StringBody(GlobalClaass.getUserId(context)));
-					entity.addPart("description",new StringBody(create_job_description.getText().toString()));
-					entity.addPart("requirements",new StringBody(create_requirement.getText().toString()));
-					entity.addPart("type",new StringBody("android"));
-					
+                    entity.addPart("action", new StringBody("postJob"));
+                    entity.addPart("job_id", new StringBody("12"));
+                    entity.addPart("title", new StringBody(create_job_title.getText().toString()));
+                    entity.addPart("company", new StringBody(create_company_name.getText().toString()));
+                    entity.addPart("country_id", new StringBody(create_country_name.getTag().toString()));
+                    entity.addPart("city", new StringBody(create_city_name.getText().toString()));
+                    entity.addPart("address", new StringBody(create_location.getText().toString()));
+                    entity.addPart("job_type_id", new StringBody(create_job_type.getTag().toString()));
+                    entity.addPart("salary", new StringBody(create_salary.getText().toString()));
+                    entity.addPart("start_date", new StringBody(create_srart_date.getText().toString()));
+                    entity.addPart("is_draft", new StringBody(is_draft));
+                    entity.addPart("eu_citizen_required", new StringBody(eu_citizen_required));
+                    entity.addPart("user_id", new StringBody(GlobalClaass.getUserId(context)));
+                    entity.addPart("description", new StringBody(create_job_description.getText().toString()));
+                    entity.addPart("requirements", new StringBody(create_requirement.getText().toString()));
+                    entity.addPart("type", new StringBody("android"));
 
 
-					request.setEntity(entity);
-					HttpResponse response = httpClient.execute(request);
+                    request.setEntity(entity);
+                    HttpResponse response = httpClient.execute(request);
 
-					HttpEntity entity2 = response.getEntity();
+                    HttpEntity entity2 = response.getEntity();
 
-					responseString = EntityUtils.toString(entity2);
-					Log.e("Responce Edit profile",responseString);
+                    responseString = EntityUtils.toString(entity2);
+                    Log.e("Responce Edit profile", responseString);
 
 
-				} catch (Exception e1) {
+                } catch (Exception e1) {
 
-					e1.printStackTrace();
+                    e1.printStackTrace();
 
-					Log.e("Excep", e1.getMessage());
+                    Log.e("Excep", e1.getMessage());
 
-				}
+                }
 
 
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
 
-			
-			
-			
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+            return responseString;
 
-			return responseString;
+        }
 
-		}
+        protected void onPostExecute(String responseString) {
 
-		protected void onPostExecute(String responseString) {
 
+            // {"job_id":"6","message":"Your job added successfully.","status":true}
+            JSONObject jObject, jobj;
+            String get_status = "", get_message = "";
 
-			// {"job_id":"6","message":"Your job added successfully.","status":true}
-			JSONObject jObject, jobj;
-			String get_status = "", get_message = "";
 
+            try {
 
-			try {
+                jObject = new JSONObject(responseString);
 
-				jObject = new JSONObject(responseString);
+                get_message = jObject.getString("message").trim();
+                get_status = jObject.getString("status").trim();
 
-				get_message = jObject.getString("message").trim();
-				get_status = jObject.getString("status").trim();
 
+                if (get_status.equalsIgnoreCase("true")) {
 
-				if(get_status.equalsIgnoreCase("true")){
-					
-					GlobalClaass.showToastMessage(context, get_message);
-					
-					startActivity(new Intent(context,TeachersListActivity.class));
-					GlobalClaass.activitySlideForwardAnimation(context);
-					finish();
+                    GlobalClaass.showToastMessage(context, get_message);
 
-				}
-				else {
-					GlobalClaass.showToastMessage(context, get_message);
-				}
+                    startActivity(new Intent(context, TeachersListActivity.class));
+                    GlobalClaass.activitySlideForwardAnimation(context);
+                    finish();
 
-			} catch (Exception e) {
+                } else {
+                    GlobalClaass.showToastMessage(context, get_message);
+                }
 
-			}
+            } catch (Exception e) {
 
+            }
 
-			GlobalClaass.hideProgressBar(context);
-		}
-	}
-	
-	@Override
-	public void onBackPressed() {
-		GlobalClaass.activitySlideBackAnimation(context);
-		finish();
-	}
+
+            GlobalClaass.hideProgressBar(context);
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        GlobalClaass.activitySlideBackAnimation(context);
+        finish();
+    }
 
 }

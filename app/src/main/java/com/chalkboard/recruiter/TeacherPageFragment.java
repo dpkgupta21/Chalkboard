@@ -95,7 +95,6 @@ public class TeacherPageFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
 
-
     }
 
     private void refineUI() {
@@ -122,11 +121,21 @@ public class TeacherPageFragment extends Fragment {
             }
         });
 
+
+        final ImageView img_fav_icon = (ImageView) rootView.findViewById(R.id.img_fav_icon);
+
+        if (teacherObject.isTeacherFavorite()) {
+            img_fav_icon.setImageResource(R.drawable.like_icon_active);
+
+        } else {
+            img_fav_icon.setImageResource(R.drawable.like_icon_grey);
+
+        }
         ((TextView) rootView.findViewById(R.id.teacher_name))
                 .setText(teacherObject.getTeacherName());
 
-        ((TextView) rootView.findViewById(R.id.teacher_location)).setText("@ "
-                + teacherObject.getTeacherLocation());
+        ((TextView) rootView.findViewById(R.id.teacher_location)).setText(
+                teacherObject.getTeacherLocation());
 
         if (teacherObject.getTeacherEducation() != null && !teacherObject.getTeacherEducation().equalsIgnoreCase("")) {
             ((TextView) rootView.findViewById(R.id.education_heading)).setVisibility(View.VISIBLE);
@@ -201,7 +210,6 @@ public class TeacherPageFragment extends Fragment {
             }
         }, 3000);
 
-        final ImageView img_fav_icon = (ImageView) rootView.findViewById(R.id.img_fav_icon);
 
         img_fav_icon
                 .setOnClickListener(new OnClickListener() {
@@ -210,7 +218,7 @@ public class TeacherPageFragment extends Fragment {
                     public void onClick(View arg0) {
 
                         if (teacherObject.isTeacherFavorite()) {
-                            img_fav_icon.setImageResource(R.drawable.unlike_icon);
+                            img_fav_icon.setImageResource(R.drawable.like_icon_grey);
                             removeJobFavorites = new RemoveJobFavorites(
                                     teacherObject.getId());
                             removeJobFavorites.execute();

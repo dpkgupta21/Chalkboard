@@ -206,7 +206,7 @@
                     <!--android:layout_width="18dp"-->
                     <!--android:layout_height="18dp"-->
                     <!--android:layout_marginLeft="@dimen/margin"-->
-                    <!--android:src="@drawable/notification_menu" />-->
+                    <!--android:src="@drawable/notification_menu_black" />-->
 
                 <!--<TextView-->
                     <!--android:id="@+id/tvmy_notifications"-->

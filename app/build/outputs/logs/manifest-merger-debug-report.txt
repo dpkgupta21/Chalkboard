@@ -450,9 +450,9 @@ ADDED from /Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/AndroidManifest
 	android:name
 		ADDED from /Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/AndroidManifest.xml:212:13-67
 activity#com.chalkboard.recruiter.RecruiterProfileEditActivity
-ADDED from /Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/AndroidManifest.xml:218:9-223:80
+ADDED from /Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/AndroidManifest.xml:218:9-223:76
 	android:windowSoftInputMode
-		ADDED from /Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/AndroidManifest.xml:223:13-68
+		ADDED from /Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/AndroidManifest.xml:223:13-64
 	android:screenOrientation
 		ADDED from /Users/DeepakGupta/Workspace1/Chalkboard/app/src/main/AndroidManifest.xml:222:13-49
 	android:label

@@ -1613,7 +1613,7 @@ public class TeachersListActivity extends FragmentActivity
         }
     }
 
-    class MyAdap extends BaseAdapter {
+    class MyAdap extends BaseAdapter implements CompoundButton.OnCheckedChangeListener {
 
         ArrayList<CountryData> event_note_data;
 
@@ -1649,6 +1649,7 @@ public class TeachersListActivity extends FragmentActivity
             return position;
         }
 
+
         class ViewHolder {
             TextView country_name;
             CheckBox mcheck;
@@ -1676,35 +1677,6 @@ public class TeachersListActivity extends FragmentActivity
                 convertView.setTag(R.id.name, holder.country_name);
                 convertView.setTag(R.id.mcheck, holder.mcheck);
 
-                holder.mcheck
-                        .setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-
-                            @Override
-                            public void onCheckedChanged(CompoundButton vw,
-                                                         boolean isChecked) {
-
-                                CountryData bean = array_country_list.get(position);
-
-                                if (isChecked) {
-                                    bean.setChecked(false);
-//							Toast.makeText(context, "nchecked"+position, 3000).show();
-                                } else {
-                                    bean.setChecked(true);
-//							Toast.makeText(context, "checked"+position, 3000).show();
-
-                                }
-
-
-                                int getPosition = (Integer) vw.getTag();
-                                event_note_data.get(getPosition).setChecked(
-                                        vw.isChecked());
-                                countSelectedMethod();
-
-//						Toast.makeText(context, "checked"+position, 3000).show();
-
-
-                            }
-                        });
 
             } else {
                 holder = (ViewHolder) convertView.getTag();
@@ -1725,8 +1697,8 @@ public class TeachersListActivity extends FragmentActivity
                     .getCountry_Name());
 
             holder.mcheck.setChecked(event_note_data.get(position).isChecked());
-
-			/*
+            holder.mcheck.setOnCheckedChangeListener(this);
+            /*
              * convertView.setOnClickListener(new OnClickListener() {
 			 * 
 			 * @Override public void onClick(View v) { // TODO Auto-generated
@@ -1742,6 +1714,33 @@ public class TeachersListActivity extends FragmentActivity
             return convertView;
 
         }
+
+        @Override
+        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+            int position = Integer.parseInt(buttonView.getTag().toString());
+
+            CountryData bean = array_country_list.get(position);
+
+            if (isChecked) {
+                bean.setChecked(false);
+//							Toast.makeText(context, "nchecked"+position, 3000).show();
+            } else {
+                bean.setChecked(true);
+//							Toast.makeText(context, "checked"+position, 3000).show();
+
+            }
+
+
+            //int getPosition = (Integer) vw.getTag();
+            event_note_data.get(position).setChecked(
+                    isChecked);
+            countSelectedMethod();
+
+//						Toast.makeText(context, "checked"+position, 3000).show();
+
+
+        }
+
 
         public void filter(String charText) {
             charText = charText.toLowerCase(Locale.getDefault());
@@ -1797,7 +1796,7 @@ public class TeachersListActivity extends FragmentActivity
 
     void countSelectedMethod() {
 
-        int count = 1;
+        int count = 0;
 
         StringBuffer sb = new StringBuffer();
 

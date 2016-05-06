@@ -87,7 +87,8 @@ public class TeacherMatchesFragment extends Fragment {
                 switch (index) {
                     case 0:
                         // chat
-                        startActivity(new Intent(context, TeacherChatBoardActivity.class).putExtra("id", dataList.get(position).getId()).putExtra("name",
+                        startActivity(new Intent(context, TeacherChatBoardActivity.class).
+                                putExtra("id", dataList.get(position).getId()).putExtra("name",
                                 dataList.get(position).getTeacherName()));
                         break;
                     case 1:
@@ -300,7 +301,9 @@ public class TeacherMatchesFragment extends Fragment {
                 public void onItemClick(AdapterView<?> arg0, View arg1,
                                         int position, long arg3) {
 
-                    startActivity(new Intent(context, TeacherChatBoardActivity.class).putExtra("id", dataList.get(position).getId()).putExtra("name",
+
+                    startActivity(new Intent(context, TeacherChatBoardActivity.class).
+                            putExtra("id", dataList.get(position).getId()).putExtra("name",
                             dataList.get(position).getTeacherName()));
 
                 }
@@ -419,7 +422,8 @@ public class TeacherMatchesFragment extends Fragment {
             }
 
             holder.name.setText(mainDataList.get(position).getTeacherName() + " | "
-                    + mainDataList.get(position).getTeacherAge());
+                    + mainDataList.get(position).getTeacherAge()
+                    +" "+mainDataList.get(position).getTeacherGender());
 
             holder.location
                     .setText(mainDataList.get(position).getTeacherLocation());

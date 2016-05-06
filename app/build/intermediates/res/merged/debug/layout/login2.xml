@@ -3,21 +3,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_1"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
     <LinearLayout
         android:id="@+id/linearLayout1"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:orientation="vertical"
         android:layout_margin="@dimen/textsizebig"
-        android:weightSum="1" >
+        android:orientation="vertical"
+        android:weightSum="1">
 
         <View
             android:layout_width="match_parent"
             android:layout_height="0px"
-            android:layout_weight="0.01" >
-        </View>
+            android:layout_weight="0.01"></View>
 
         <ImageView
             android:id="@+id/imageView1"
@@ -41,7 +40,7 @@
             android:layout_height="0px"
             android:layout_weight="0.1"
             android:gravity="center"
-            android:orientation="horizontal" >
+            android:orientation="horizontal">
 
             <Button
                 android:id="@+id/btn_signIn"
@@ -50,9 +49,9 @@
                 android:layout_margin="@dimen/margin_small"
                 android:background="@drawable/button_yelloborder"
                 android:text="       Sign In       "
-                android:textColor="@android:color/white"
-                
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+                android:textAppearance="?android:attr/textAppearanceMedium"
+
+                android:textColor="@android:color/white" />
 
             <Button
                 android:id="@+id/btn_signUp"
@@ -60,10 +59,10 @@
                 android:layout_height="match_parent"
                 android:layout_margin="@dimen/margin_small"
                 android:background="@android:color/transparent"
-            
+
                 android:text="  Sign Up  "
-                android:textColor="@android:color/white"
-                android:textAppearance="?android:attr/textAppearanceMedium"  />
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@android:color/white" />
         </LinearLayout>
 
         <LinearLayout
@@ -73,14 +72,14 @@
             android:layout_margin="@dimen/margin"
             android:layout_weight="0.09"
             android:background="@drawable/white_border_shape"
-            android:gravity="center" >
+            android:gravity="center">
 
             <ImageView
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_marginLeft="@dimen/margin"
                 android:layout_marginRight="@dimen/margin"
-                android:src="@drawable/email_drawable" />
+                android:src="@drawable/mail_icon" />
 
             <EditText
                 android:id="@+id/txtUsername"
@@ -90,31 +89,31 @@
                 android:hint="Email Id"
                 android:imeOptions="actionNext"
                 android:inputType="textEmailAddress"
-                android:textColorHint="@android:color/white"
                 android:singleLine="true"
                 android:text=""
+                android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@android:color/white"
-                android:textCursorDrawable="@null"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                android:textColorHint="@android:color/white"
+                android:textCursorDrawable="@null" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/ll2"
             android:layout_width="match_parent"
             android:layout_height="0px"
-           android:layout_marginLeft="@dimen/margin"
-            android:layout_marginRight="@dimen/margin"
             android:layout_marginBottom="@dimen/margin"
+            android:layout_marginLeft="@dimen/margin"
+            android:layout_marginRight="@dimen/margin"
             android:layout_weight="0.09"
             android:background="@drawable/white_border_shape"
-            android:gravity="center" >
+            android:gravity="center">
 
             <ImageView
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:padding="@dimen/paddingmini"
                 android:layout_marginLeft="@dimen/margin"
                 android:layout_marginRight="@dimen/margin"
+                android:padding="@dimen/paddingmini"
                 android:src="@drawable/password_drawable" />
 
             <EditText
@@ -125,11 +124,11 @@
                 android:hint="Password"
                 android:imeOptions="actionNext"
                 android:inputType="textPassword"
-                android:textColorHint="@android:color/white"
                 android:singleLine="true"
+                android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@android:color/white"
-                android:textCursorDrawable="@null"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                android:textColorHint="@android:color/white"
+                android:textCursorDrawable="@null" />
         </LinearLayout>
 
         <Button
@@ -144,8 +143,8 @@
             android:background="@drawable/sky_color_shape_round"
             android:padding="@dimen/paddingsmall"
             android:text="Sign In"
-            android:textColor="@android:color/white"
-            android:textAppearance="?android:attr/textAppearanceMedium"  />
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/white" />
 
         <TextView
             android:id="@+id/txt_forgotpass"
@@ -153,9 +152,9 @@
             android:layout_height="0px"
             android:layout_weight="0.05"
             android:gravity="center"
-            android:text="Forgot Password? Recover Here"
-            android:textColor="@android:color/white"
-            android:textAppearance="?android:attr/textAppearanceSmall"  />
+            android:text="@string/recover_here"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@android:color/white" />
 
         <ImageView
             android:id="@+id/dotedline11"
@@ -169,39 +168,39 @@
             android:id="@+id/login_txt"
             android:layout_width="fill_parent"
             android:layout_height="0px"
-            android:layout_weight="0.05"
             android:layout_marginBottom="@dimen/margin"
+            android:layout_weight="0.05"
             android:gravity="center"
             android:text="or you can Login with one of the following"
-            android:textColor="@android:color/white"
-           android:textAppearance="?android:attr/textAppearanceSmall"/>
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@android:color/white" />
 
         <LinearLayout
             android:id="@+id/lay2"
             android:layout_width="fill_parent"
             android:layout_height="0px"
+            android:layout_marginLeft="@dimen/marginelarge"
+            android:layout_marginRight="@dimen/marginelarge"
             android:layout_weight="0.12"
             android:gravity="center"
-           android:paddingLeft="@dimen/marginelarge"
-            android:paddingRight="@dimen/marginelarge"
-                 android:layout_marginLeft="@dimen/marginelarge"
-            android:layout_marginRight="@dimen/marginelarge"
-            android:orientation="horizontal" >
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/marginelarge"
+            android:paddingRight="@dimen/marginelarge">
 
             <ImageView
                 android:id="@+id/btn_fb"
                 android:layout_width="match_parent"
-android:layout_weight="1"
                 android:layout_height="match_parent"
+                android:layout_weight="1"
                 android:src="@drawable/facebook"
                 android:textColor="@android:color/white"
                 android:textSize="@dimen/textsize" />
 
             <ImageView
                 android:id="@+id/btn_twitter"
-                 android:layout_width="match_parent"
-android:layout_weight="1"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_weight="1"
                 android:src="@drawable/twitter"
                 android:textColor="@android:color/white"
                 android:textSize="@dimen/textsize" />
@@ -209,8 +208,8 @@ android:layout_weight="1"
             <ImageView
                 android:id="@+id/btn_gplus"
                 android:layout_width="match_parent"
-android:layout_weight="1"
                 android:layout_height="match_parent"
+                android:layout_weight="1"
                 android:src="@drawable/googleplus"
                 android:textColor="@android:color/white"
                 android:textSize="@dimen/textsize" />
@@ -220,12 +219,12 @@ android:layout_weight="1"
             android:id="@+id/login_nexttxt"
             android:layout_width="fill_parent"
             android:layout_height="0px"
+            android:layout_marginTop="@dimen/margin"
             android:layout_weight="0.05"
             android:gravity="center"
-            android:layout_marginTop="@dimen/margin"
             android:text="By Signing In you agree with our"
-            android:textColor="@android:color/white"
-            android:textAppearance="?android:attr/textAppearanceSmall"/>
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@android:color/white" />
 
         <LinearLayout
             android:id="@+id/lay3"
@@ -233,16 +232,16 @@ android:layout_weight="1"
             android:layout_height="0px"
             android:layout_weight="0.07"
             android:gravity="center"
-            android:orientation="horizontal" >
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/txt_termservice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/lay2"
-                android:text="Terms of Servics"
-                android:textColor="#00CCD5"
-              android:textAppearance="?android:attr/textAppearanceSmall" />
+                android:text="Terms of Service"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="#00CCD5" />
 
             <TextView
                 android:id="@+id/login_and"
@@ -251,8 +250,8 @@ android:layout_weight="1"
                 android:paddingLeft="@dimen/padding"
                 android:paddingRight="@dimen/padding"
                 android:text="and"
-                android:textColor="@android:color/white"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@android:color/white" />
 
             <TextView
                 android:id="@+id/txt_privacy"
@@ -260,8 +259,8 @@ android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/lay2"
                 android:text="Privacy Policy"
-                android:textColor="#00CCD5"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="#00CCD5" />
         </LinearLayout>
     </LinearLayout>
 

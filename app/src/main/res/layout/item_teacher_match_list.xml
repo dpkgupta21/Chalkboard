@@ -23,7 +23,7 @@
         android:adjustViewBounds="true"
         android:contentDescription="@string/app_name"
         android:padding="3dp"
-        android:src="@drawable/ic_launcher" />
+        android:src="@drawable/app_defalt_circle" />
 
     <TextView
         android:id="@+id/teacher_name"
@@ -95,4 +95,12 @@
             android:src="@drawable/chat_icon_text" />
     </LinearLayout>
 
+    <ImageView
+        android:id="@+id/img_more_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:padding="@dimen/margin_10dp"
+        android:src="@drawable/more_icon" />
 </RelativeLayout>

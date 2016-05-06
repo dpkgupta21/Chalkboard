@@ -1,10 +1,23 @@
 package com.chalkboard.teacher;
 
-import static com.chalkboard.GlobalClaass.hideProgressBar;
-import static com.chalkboard.GlobalClaass.showProgressBar;
+import android.app.Activity;
+import android.content.Intent;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.chalkboard.GlobalClaass;
+import com.chalkboard.InboxListAdapter;
+import com.chalkboard.InboxObject;
+import com.chalkboard.R;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -18,189 +31,166 @@ import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.os.AsyncTask;
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.TextView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ListView;
-import android.widget.Toast;
+import java.util.ArrayList;
+import java.util.List;
 
-import com.chalkboard.GlobalClaass;
-import com.chalkboard.InboxListAdapter;
-import com.chalkboard.InboxObject;
-import com.chalkboard.R;
-import com.chalkboard.teacher.JobFavoriteFragment.GetFavoriteJobItem;
+import static com.chalkboard.GlobalClaass.hideProgressBar;
+import static com.chalkboard.GlobalClaass.showProgressBar;
 
 public class JobInboxFragment extends Fragment {
 
-	ListView lvJobList = null;
+    ListView lvJobList = null;
 
-	View rootView = null;
+    View rootView = null;
 
-	Activity context = null;
+    Activity context = null;
 
-	ArrayList<InboxObject> dataList = null;
+    ArrayList<InboxObject> dataList = null;
 
-	GetInboxJobItem getJobItem = null;
+    GetInboxJobItem getJobItem = null;
 
-	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
 
-		context = getActivity();
+        context = getActivity();
 
-		rootView = inflater.inflate(R.layout.fragment_list, container, false);
+        rootView = inflater.inflate(R.layout.fragment_list, container, false);
 
-		lvJobList = (ListView) rootView.findViewById(R.id.list);
+        lvJobList = (ListView) rootView.findViewById(R.id.list);
 
-		return rootView;
-	}
+        return rootView;
+    }
 
-	@Override
-	public void onDestroyView() {
-		super.onDestroyView();
-		GlobalClaass.clearAsyncTask(getJobItem);
-	}
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        GlobalClaass.clearAsyncTask(getJobItem);
+    }
 
-	@Override
-	public void onResume() {
-		super.onResume();
-		if(GlobalClaass.isInternetPresent(context)){
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (GlobalClaass.isInternetPresent(context)) {
 
-			getJobItem = new GetInboxJobItem();
-			getJobItem.execute();
-		}
-		else {
-			GlobalClaass.showToastMessage(context,"Please check internet connection");
-		}
-		
-	}
+            getJobItem = new GetInboxJobItem();
+            getJobItem.execute();
+        } else {
+            GlobalClaass.showToastMessage(context, "Please check internet connection");
+        }
 
-	class GetInboxJobItem extends AsyncTask<String, String, String> {
+    }
 
-		@Override
-		protected void onPreExecute() {
-			showProgressBar(context, rootView);
-		}
+    class GetInboxJobItem extends AsyncTask<String, String, String> {
 
-		@Override
-		protected String doInBackground(String... params) {
+        @Override
+        protected void onPreExecute() {
+            showProgressBar(context, rootView);
+        }
 
-			String resultStr = null;
-			try {
+        @Override
+        protected String doInBackground(String... params) {
 
-				HttpClient httpClient = new DefaultHttpClient();
-				HttpPost request = new HttpPost(GlobalClaass.Webservice_Url);
+            String resultStr = null;
+            try {
 
-				List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(
-						2);
-				nameValuePairs.add(new BasicNameValuePair("action", "inbox"));
+                HttpClient httpClient = new DefaultHttpClient();
+                HttpPost request = new HttpPost(GlobalClaass.Webservice_Url);
 
-				nameValuePairs.add(new BasicNameValuePair("user_id",
-						GlobalClaass.getUserId(context)));
+                List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(
+                        2);
+                nameValuePairs.add(new BasicNameValuePair("action", "inbox"));
 
-				request.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+                nameValuePairs.add(new BasicNameValuePair("user_id",
+                        GlobalClaass.getUserId(context)));
 
-				HttpResponse response = httpClient.execute(request);
+                request.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 
-				HttpEntity entity = response.getEntity();
+                HttpResponse response = httpClient.execute(request);
 
-				resultStr = EntityUtils.toString(entity);
+                HttpEntity entity = response.getEntity();
 
-			} catch (final Exception e) {
-				
-				context.runOnUiThread(new Runnable() {
-					
-					@Override
-					public void run() {
-						// TODO Auto-generated method stub
-						Toast.makeText(context, "11exception in dib"+e.getMessage(), 3000).show();	
-					}
-				});
-				e.printStackTrace();
-			}
+                resultStr = EntityUtils.toString(entity);
 
-			return resultStr;
+            } catch (final Exception e) {
 
-		}
+                context.runOnUiThread(new Runnable() {
 
-		@Override
-		protected void onPostExecute(String result) {
+                    @Override
+                    public void run() {
+                        // TODO Auto-generated method stub
+                        Toast.makeText(context, "11exception in dib" + e.getMessage(), 3000).show();
+                    }
+                });
+                e.printStackTrace();
+            }
+            return resultStr;
+        }
 
-			hideProgressBar(context, rootView);
-			
-			setUpUi(result);
-		}
+        @Override
+        protected void onPostExecute(String result) {
 
-	}
+            hideProgressBar(context, rootView);
 
-	public void setUpUi(String result) {
-		String get_message = "";
-		try {
+            setUpUi(result);
+        }
+    }
 
-			dataList = new ArrayList<InboxObject>();
+    public void setUpUi(String result) {
+        String get_message = "";
+        try {
 
-			JSONObject jObject = new JSONObject(result);
+            dataList = new ArrayList<InboxObject>();
 
-			 get_message = jObject.getString("message").trim();
-			String get_replycode = jObject.getString("status").trim();
+            JSONObject jObject = new JSONObject(result);
 
-			JSONArray jrr = jObject.getJSONArray("conversions");
+            if (jObject.getBoolean("status")) {
+                get_message = jObject.getString("message").trim();
+                String get_replycode = jObject.getString("status").trim();
 
-			for (int i = 0; i < jrr.length(); i++) {
+                JSONArray jrr = jObject.getJSONArray("conversions");
 
-				JSONObject jobj = jrr.getJSONObject(i);
+                for (int i = 0; i < jrr.length(); i++) {
 
-				InboxObject itmObj = new InboxObject();
+                    JSONObject jobj = jrr.getJSONObject(i);
 
-				itmObj.setMessage(jobj.getString("message"));
-				itmObj.setImage(jobj.getString("image"));
-				itmObj.setUnread(jobj.getString("unread"));
-				itmObj.setUser(jobj.getString("user"));
-				itmObj.setUserId(jobj.getString("user_id"));
-				itmObj.setTimestamp(jobj.getString("timestamp"));
+                    InboxObject itmObj = new InboxObject();
 
-				dataList.add(itmObj);
+                    itmObj.setMessage(jobj.getString("message"));
+                    itmObj.setImage(jobj.getString("image"));
+                    itmObj.setUnread(jobj.getString("unread"));
+                    itmObj.setUser(jobj.getString("user"));
+                    itmObj.setUserId(jobj.getString("user_id"));
+                    itmObj.setTimestamp(jobj.getString("timestamp"));
 
-			}
-		} catch (Exception e) {
-			
-			
-					// TODO Auto-generated method stub
-					Toast.makeText(context, "11exception in setup"+e.getMessage(), 3000).show();	
-			
-			e.printStackTrace();
-		}
+                    dataList.add(itmObj);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-		if (dataList.size() > 0) {
-			InboxListAdapter itmAdap = new InboxListAdapter(context, dataList);
+        if (dataList.size() > 0) {
+            InboxListAdapter itmAdap = new InboxListAdapter(context, dataList);
 
-			lvJobList.setAdapter(itmAdap);
+            lvJobList.setAdapter(itmAdap);
 
-			lvJobList.setOnItemClickListener(new OnItemClickListener() {
+            lvJobList.setOnItemClickListener(new OnItemClickListener() {
 
-				@Override
-				public void onItemClick(AdapterView<?> arg0, View arg1,
-						int position, long arg3) {
-					
-					startActivity(new Intent(context, TeacherChatBoardActivity.class).putExtra("id", dataList.get(position).getUserId()).putExtra("name",
-							dataList.get(position).getUser()));
-					
-				}
-			});
-			
-		}
-		else {
-			((TextView)rootView.findViewById(R.id.error_message)).setText(get_message);
-		}
-		
-	}
+                @Override
+                public void onItemClick(AdapterView<?> arg0, View arg1,
+                                        int position, long arg3) {
+
+                    startActivity(new Intent(context, TeacherChatBoardActivity.class).putExtra("id", dataList.get(position).getUserId()).putExtra("name",
+                            dataList.get(position).getUser()));
+
+                }
+            });
+
+        } else {
+            ((TextView) rootView.findViewById(R.id.error_message)).setText(get_message);
+        }
+
+    }
 
 }

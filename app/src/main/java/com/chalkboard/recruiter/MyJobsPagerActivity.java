@@ -2,6 +2,7 @@ package com.chalkboard.recruiter;
 
 import java.util.ArrayList;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -43,8 +44,8 @@ public class MyJobsPagerActivity extends FragmentActivity {
 		font = Typeface.createFromAsset(getAssets(), "fonts/mark.ttf");
 		font2=Typeface.createFromAsset(getAssets(), "fonts/marlbold.ttf");
 		
-		((ImageView)(findViewById(R.id.header_left_menu))).setVisibility(View.GONE);
-		((ImageView)(findViewById(R.id.header_right_menu))).setImageResource(R.drawable.remove_job);
+		((ImageView)(findViewById(R.id.header_left_menu))).setImageResource(R.drawable.remove_job);
+		((ImageView)(findViewById(R.id.header_right_menu))).setImageResource(R.drawable.share_icon_box);
 		
 		
 		
@@ -78,10 +79,25 @@ public class MyJobsPagerActivity extends FragmentActivity {
 			}
 		});*/
 		
-		(findViewById(R.id.header_right_menu)).setOnClickListener(new OnClickListener() {			
+		(findViewById(R.id.header_left_menu)).setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
 				finish();				
+			}
+		});
+
+
+		(findViewById(R.id.header_right_menu)).setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				String shareBody = dataList.get(jobPager.getCurrentItem()).getJobName()
+						+ " @ " + dataList.get(jobPager.getCurrentItem()).getJobLocation();
+				Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+				sharingIntent.setType("text/plain");
+				sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Chalkboard Android");
+				sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
+				startActivity(Intent.createChooser(sharingIntent, "Share via..."));
+
 			}
 		});
 		

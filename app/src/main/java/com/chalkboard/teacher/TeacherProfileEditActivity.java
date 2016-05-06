@@ -87,6 +87,7 @@ import com.chalkboard.PreferenceConnector;
 import com.chalkboard.R;
 import com.chalkboard.customviews.CustomAlert;
 import com.chalkboard.teacher.navigationdrawer.JobListActivity;
+import com.chalkboard.utility.Utils;
 
 @SuppressLint("NewApi")
 public class TeacherProfileEditActivity extends Activity implements
@@ -105,6 +106,9 @@ public class TeacherProfileEditActivity extends Activity implements
 
     String arrstr[] = {"Male", "Female", "Other"};
     Dialog dialog;
+
+    private File multiPartFile;
+    private byte[] bitmapdata;
 
     private int year;
     private int month;
@@ -482,8 +486,8 @@ public class TeacherProfileEditActivity extends Activity implements
 //                    TeacherProfileViewActivity.class));
 //            GlobalClaass.activitySlideBackAnimation(context);
 //            finish();
-        }else{
-            if(code==1100){
+        } else {
+            if (code == 1100) {
                 startActivity(new Intent(context,
                         JobListActivity.class));
                 GlobalClaass.activitySlideBackAnimation(context);
@@ -545,7 +549,7 @@ public class TeacherProfileEditActivity extends Activity implements
             public void onClick(View arg0) {
                 // TODO Auto-generated method stub
                 min_nunber = "1980";
-                max_number = "2015";
+                max_number = Utils.currentYear();
                 name_edittext = "company_stratyear";
                 show(exp_startyear);
             }
@@ -557,7 +561,7 @@ public class TeacherProfileEditActivity extends Activity implements
             public void onClick(View arg0) {
                 // TODO Auto-generated method stub
                 min_nunber = "1980";
-                max_number = "2015";
+                max_number = Utils.currentYear();
                 name_edittext = "company_endyear";
                 show(exp_endyear);
             }
@@ -628,7 +632,7 @@ public class TeacherProfileEditActivity extends Activity implements
             public void onClick(View arg0) {
                 // TODO Auto-generated method stub
                 min_nunber = "1980";
-                max_number = "2015";
+                max_number = Utils.currentYear();
                 name_edittext = "education_stratyear";
                 show(education_stratyear);
             }
@@ -640,7 +644,7 @@ public class TeacherProfileEditActivity extends Activity implements
             public void onClick(View arg0) {
                 // TODO Auto-generated method stub
                 min_nunber = "1980";
-                max_number = "2015";
+                max_number = Utils.currentYear();
                 name_edittext = "education_endyear";
                 show(education_endyear);
             }
@@ -733,15 +737,15 @@ public class TeacherProfileEditActivity extends Activity implements
                     startActivityForResult(intent, RESULT_CAMERA);
 
                 } else if (options[item].equals("Choose an image")) {
-                    Intent intent = new Intent();
-                    intent.setType("image/*");
-                    intent.setAction(Intent.ACTION_GET_CONTENT);
-                    startActivityForResult(
-                            Intent.createChooser(intent, "Select Picture"), RESULT_LIBRARY);
-//                    Intent intent = new Intent(
-//                            Intent.ACTION_PICK,
-//                            android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-//                    startActivityForResult(intent, RESULT_LIBRARY);
+//                    Intent intent = new Intent();
+//                    intent.setType("image/*");
+//                    intent.setAction(Intent.ACTION_GET_CONTENT);
+//                    startActivityForResult(
+//                            Intent.createChooser(intent, "Select Picture"), RESULT_LIBRARY);
+                    Intent intent = new Intent(
+                            Intent.ACTION_PICK,
+                            android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                    startActivityForResult(intent, RESULT_LIBRARY);
 
                 }
             }
@@ -888,6 +892,24 @@ public class TeacherProfileEditActivity extends Activity implements
 
                     try {
 
+                        Bitmap photo = (Bitmap) data.getExtras().get("data");
+                        profile_image.setImageBitmap(photo);
+
+                        multiPartFile = new File(getCacheDir(), "profile_image.png");
+                        multiPartFile.createNewFile();
+
+                        //Convert bitmap to byte array
+                        Bitmap bitmap1 = photo;
+                        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+                        bitmap1.compress(Bitmap.CompressFormat.PNG, 70 /*ignored for PNG*/, bos);
+                        bitmapdata = bos.toByteArray();
+
+                        //write the bytes in file
+                        FileOutputStream fos = new FileOutputStream(multiPartFile);
+                        fos.write(bitmapdata);
+                        fos.flush();
+                        fos.close();
+
 					/*Bitmap photo = (Bitmap) data.getExtras().get("data");
 
 					Uri tempUri = getImageUri(context, photo);
@@ -909,14 +931,14 @@ public class TeacherProfileEditActivity extends Activity implements
 
 					Log.e("BInary", selectedImagePath);*/
 
-                        Bitmap photo = (Bitmap) data.getExtras().get("data");
-
-                        // CALL THIS METHOD TO GET THE URI FROM THE BITMAP
-                        Uri tempUri = getImageUri11(getApplicationContext(), photo);
-
-                        selectedImagePath = getRealPathFromURI11(tempUri);
-
-                        profile_image.setImageBitmap(photo);
+//                        Bitmap photo = (Bitmap) data.getExtras().get("data");
+//
+//                        // CALL THIS METHOD TO GET THE URI FROM THE BITMAP
+//                        Uri tempUri = getImageUri11(getApplicationContext(), photo);
+//
+//                        selectedImagePath = getRealPathFromURI11(tempUri);
+//
+//                        profile_image.setImageBitmap(photo);
                     } catch (Exception e) {
 
                         e.printStackTrace();
@@ -936,35 +958,59 @@ public class TeacherProfileEditActivity extends Activity implements
                     try {
 
                         Uri selectedImage = data.getData();
+                        Bitmap bitmap = null;
 
-                        String[] filePath = {MediaStore.Images.Media.DATA};
 
-                        Cursor c = context.getContentResolver().query(
-                                selectedImage, filePath, null, null, null);
+                        bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(),
+                                selectedImage);
+                        profile_image.setImageBitmap(bitmap);
 
-                        c.moveToFirst();
+                        multiPartFile = new File(getCacheDir(), "profile_image.png");
+                        multiPartFile.createNewFile();
 
-                        int columnIndex = c.getColumnIndex(filePath[0]);
+//Convert bitmap to byte array
+                        Bitmap bitmap1 = bitmap;
+                        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+                        bitmap1.compress(Bitmap.CompressFormat.PNG, 70 /*ignored for PNG*/, bos);
+                        bitmapdata = bos.toByteArray();
 
-                        selectedImagePath = c.getString(columnIndex);
+//write the bytes in file
+                        FileOutputStream fos = new FileOutputStream(multiPartFile);
+                        fos.write(bitmapdata);
+                        fos.flush();
+                        fos.close();
 
-                        ext = getFileExt(selectedImagePath);
 
-                        c.close();
-
-                        filebyte = getImageLength(selectedImagePath);
-
-                        Bitmap bitmap = BitmapFactory.decodeFile(selectedImagePath);
-
-                        int pixel;
-
-                        if (bitmap.getHeight() < bitmap.getWidth()) {
-                            pixel = bitmap.getHeight();
-                        } else {
-                            pixel = bitmap.getWidth();
-                        }
-
-                        profile_image.setImageBitmap((bitmap));
+//                        Uri selectedImage = data.getData();
+//
+//                        String[] filePath = {MediaStore.Images.Media.DATA};
+//
+//                        Cursor c = context.getContentResolver().query(
+//                                selectedImage, filePath, null, null, null);
+//
+//                        c.moveToFirst();
+//
+//                        int columnIndex = c.getColumnIndex(filePath[0]);
+//
+//                        selectedImagePath = c.getString(columnIndex);
+//
+//                        ext = getFileExt(selectedImagePath);
+//
+//                        c.close();
+//
+//                        filebyte = getImageLength(selectedImagePath);
+//
+//                        Bitmap bitmap = BitmapFactory.decodeFile(selectedImagePath);
+//
+//                        int pixel;
+//
+//                        if (bitmap.getHeight() < bitmap.getWidth()) {
+//                            pixel = bitmap.getHeight();
+//                        } else {
+//                            pixel = bitmap.getWidth();
+//                        }
+//
+//                        profile_image.setImageBitmap((bitmap));
 
                         Log.e("BInary", selectedImagePath);
                     } catch (Exception e) {
@@ -1098,6 +1144,12 @@ public class TeacherProfileEditActivity extends Activity implements
         d.setContentView(R.layout.number_dialog);
         Button b1 = (Button) d.findViewById(R.id.button1);
 
+        final NumberPicker number_month = (NumberPicker) d.findViewById(R.id.number_month);
+        number_month.setMaxValue(12);
+        number_month.setMinValue(1);
+        number_month.setWrapSelectorWheel(false);
+
+
         final NumberPicker np = (NumberPicker) d
                 .findViewById(R.id.numberPicker1);
         np.setMaxValue(Integer.parseInt(max_number));
@@ -1108,7 +1160,7 @@ public class TeacherProfileEditActivity extends Activity implements
             @Override
             public void onClick(View v) {
 
-                edit.setText("01/"
+                edit.setText(String.valueOf(number_month.getValue()) + "/"
                         + String.valueOf(np.getValue()));
 
                 d.dismiss();
@@ -1127,6 +1179,11 @@ public class TeacherProfileEditActivity extends Activity implements
         d.setContentView(R.layout.number_dialog);
         Button b1 = (Button) d.findViewById(R.id.button1);
 
+        final NumberPicker number_month = (NumberPicker) d.findViewById(R.id.number_month);
+        number_month.setMaxValue(12);
+        number_month.setMinValue(1);
+        number_month.setWrapSelectorWheel(false);
+
         final NumberPicker np = (NumberPicker) d
                 .findViewById(R.id.numberPicker1);
         np.setMaxValue(Integer.parseInt(max_number));
@@ -1139,7 +1196,8 @@ public class TeacherProfileEditActivity extends Activity implements
 
                 if (name_edittext.equalsIgnoreCase("edit_age_select")) {
 
-                    edit_age_select.setText(String.valueOf(np.getValue()));
+                    edit_age_select.setText(String.valueOf(number_month.getValue()) +
+                            "/" + String.valueOf(np.getValue()));
                 }
 
                 d.dismiss();
@@ -1538,7 +1596,7 @@ public class TeacherProfileEditActivity extends Activity implements
 
     }
 
-    public class EditProfile extends AsyncTask<String, String, String> {
+     class EditProfile extends AsyncTask<String, String, String> {
 
         String responseString;
 
@@ -1567,23 +1625,25 @@ public class TeacherProfileEditActivity extends Activity implements
 
                 HttpClient httpClient = new DefaultHttpClient();
                 HttpPost request = new HttpPost(GlobalClaass.Webservice_Url);
-
                 try {
 
                     MultipartEntity entity = new MultipartEntity(
                             HttpMultipartMode.BROWSER_COMPATIBLE);
 
-                    if (!selectedImagePath.equalsIgnoreCase("")) {
-                        // File file = new File(selectedImagePath);
-                        // Log.e("Image",file.getPath());
-
-                        // entity.addPart("image", new FileBody(file,
-                        // "image/jpg"));
-
-                        File file = new File(selectedImagePath);
-
-                        ContentBody encFile = new FileBody(file, "image/jpg");
-                        entity.addPart("image", encFile);
+//                    if (!selectedImagePath.equalsIgnoreCase("")) {
+//                        // File file = new File(selectedImagePath);
+//                        // Log.e("Image",file.getPath());
+//
+//                        // entity.addPart("image", new FileBody(file,
+//                        // "image/jpg"));
+//
+//                        File file = new File(selectedImagePath);
+//
+//                        ContentBody encFile = new FileBody(file, "image/jpg");
+//                        entity.addPart("image", encFile);
+//                    }
+                    if(multiPartFile!=null) {
+                        entity.addPart("image", new FileBody(multiPartFile));
                     }
 
                     entity.addPart("action", new StringBody("account_edit"));
@@ -1605,7 +1665,7 @@ public class TeacherProfileEditActivity extends Activity implements
                             .getText().toString()));
                     entity.addPart("certification",
                             new StringBody(GlobalClaass.getRadioValue(context)));
-                    if(et_certificatetype!=null && et_certificatetype.getTag()!=null) {
+                    if (et_certificatetype != null && et_certificatetype.getTag() != null) {
                         entity.addPart("certification_type", new StringBody(
                                 et_certificatetype.getTag().toString()));
                     }

@@ -34,7 +34,8 @@ public class ImageLoader {
     
     MemoryCache memoryCache=new MemoryCache();
     FileCache fileCache;
-    private Map<ImageView, String> imageViews=Collections.synchronizedMap(new WeakHashMap<ImageView, String>());
+    private Map<ImageView, String> imageViews=Collections.
+            synchronizedMap(new WeakHashMap<ImageView, String>());
     ExecutorService executorService;
     Handler handler=new Handler();//handler to display images in UI thread
     
@@ -43,7 +44,7 @@ public class ImageLoader {
         executorService=Executors.newFixedThreadPool(5);
     }
     
-    final int stub_id=com.chalkboard.R.drawable.ic_launcher;
+    final int stub_id= R.drawable.app_defalt_circle;
     
     public void DisplayImage(String url, ImageView imageView)
     {
