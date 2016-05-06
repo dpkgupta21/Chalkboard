@@ -3,82 +3,100 @@
     android:layout_height="wrap_content"
     android:layout_margin="1dp"
     android:background="#efefef"
-    android:padding="1dp" >
-
-    <ImageView
-        android:id="@+id/message_image"
-        android:layout_width="40dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:adjustViewBounds="true"
-        android:layout_marginBottom="4dp"
-        android:layout_marginRight="4dp"
-        android:contentDescription="@string/app_name"
-        android:padding="2dp" />
-
-    <ImageView
-        android:id="@+id/b"
-        android:layout_width="40dp"
-        android:layout_marginBottom="4dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:adjustViewBounds="true"
-        android:layout_marginRight="4dp"
-        android:contentDescription="@string/app_name"
-        android:src="@drawable/back_circle" />
+    android:padding="1dp">
 
     <RelativeLayout
         android:id="@+id/chat_bg"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="-1dp"
-        android:layout_marginRight="-1dp"
-        android:layout_toLeftOf="@+id/message_image1"
-        android:layout_toRightOf="@+id/message_image"
-        android:padding="@dimen/padding" >
+        android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/attachment"
-            android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:layout_margin="@dimen/paddingsmall"
-            android:scaleType="fitCenter" />
+            android:id="@+id/message_image"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginBottom="4dp"
+            android:layout_marginRight="4dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/app_name"
+            android:padding="2dp" />
 
-        <TextView
+        <ImageView
+            android:id="@+id/b"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginBottom="4dp"
+            android:layout_marginRight="4dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/back_circle" />
+
+        <com.chalkboard.customviews.MyTextViewMark
             android:id="@+id/message"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/paddingsmall"
+            android:layout_toRightOf="@+id/message_image"
+            android:background="@drawable/chat_msg_boundary"
+            android:padding="@dimen/padding"
+            android:text="fsfqewf"
             android:textColor="@android:color/white"
             android:textSize="@dimen/textsize" />
     </RelativeLayout>
 
-  
+    <RelativeLayout
+        android:id="@+id/chat_bg1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/message_image1"
-        android:layout_width="40dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:adjustViewBounds="true"
-        android:layout_marginBottom="4dp"
-        android:layout_marginLeft="4dp"
-        android:contentDescription="@string/app_name"
-        android:padding="2dp" />
+        <!--<ImageView-->
+        <!--android:id="@+id/attachment"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="250dp"-->
+        <!--android:layout_margin="@dimen/paddingsmall"-->
+        <!--android:scaleType="fitCenter" />-->
 
-    <ImageView
-        android:id="@+id/b1"
-        android:layout_width="40dp"
-        android:layout_marginBottom="4dp"
-        android:layout_marginLeft="4dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:adjustViewBounds="true"
-        android:contentDescription="@string/app_name"
-        android:src="@drawable/back_circle" />
+        <com.chalkboard.customviews.MyTextViewMark
+            android:id="@+id/message1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/paddingsmall"
+            android:layout_marginLeft="3dp"
+            android:layout_toLeftOf="@+id/message_image1"
+            android:background="@drawable/chat_msg_boundary"
+            android:padding="@dimen/padding"
+            android:text="deeee"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/textsize" />
+
+
+        <ImageView
+            android:id="@+id/message_image1"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="4dp"
+            android:layout_marginLeft="4dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/app_name"
+            android:padding="2dp" />
+
+        <ImageView
+            android:id="@+id/b1"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="4dp"
+            android:layout_marginLeft="4dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/back_circle" />
+
+    </RelativeLayout>
 
 </RelativeLayout>
